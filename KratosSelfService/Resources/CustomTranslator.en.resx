@@ -73,4 +73,19 @@
     <data name="RememberMe" xml:space="preserve">
         <value>Remember me</value>
     </data>
+    <data name="ForgotPassword" xml:space="preserve">
+        <value>Forgot your password?</value>
+    </data>
+    <data name="SignUp" xml:space="preserve">
+        <value>Sign Up</value>
+    </data>
+    <data name="UsernameOrEmail" xml:space="preserve">
+        <value>Username or Email</value>
+    </data>
+    <data name="NoAccountYet" xml:space="preserve">
+        <value>Don't have an account?</value>
+    </data>
+    <data name="OrSignInWith" xml:space="preserve">
+        <value>Or sign in with</value>
+    </data>
 </root>

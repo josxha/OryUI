@@ -2,36 +2,110 @@
 @attribute [StreamRendering(true)]
 @inject ICustomTranslator Translator
 @inject ILogger<Login> Logger
+@layout FullSizeLayout
 
 <PageTitle>@Translator.GetTranslation("SignIn")</PageTitle>
 
-<h1>@Translator.GetTranslation("SignIn")</h1>
-<hr/>
-
-<EditForm method="post" Model="@Model" OnSubmit="@Submit" FormName="LoginForm">
-    <div class="form-group">
-        <label for="identifierField">Identifier</label>
-        <input type="email" class="form-control form-control-lg" id="identifierField"
-               @bind-Value="Model!.Identifier">
-    </div>
-    <div class="form-group">
-        <label for="passwordField">@Translator.GetTranslation("Password")</label>
-        <input type="password" class="form-control form-control-lg" id="passwordField"
-               @bind-Value="Model!.Password">
-    </div>
-    <div class="form-group">
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="rememberMeCheck"
-                   @bind-Value="Model!.RememberMe">
-            <label class="form-check-label" for="rememberMeCheck">
-                @Translator.GetTranslation("RememberMe")
-            </label>
+<section class="hero has-background-grey-lighter is-fullheight">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-7-tablet is-6-desktop is-5-widescreen">
+                    <EditForm class="box" method="post" Model="@Model" OnSubmit="@Submit" FormName="LoginForm">
+                        <h1 class="title has-text-centered">@Translator.GetTranslation("SignIn")</h1>
+                        <p class="has-text-centered">
+                            @Translator.GetTranslation("NoAccountYet")
+                            <a href="register">
+                                @Translator.GetTranslation("SignUp")
+                            </a>
+                        </p>
+                        <hr/>
+                        <div class="field">
+                            <label for="emailField" class="label">@Translator.GetTranslation("UsernameOrEmail")</label>
+                            <div class="control has-icons-left">
+                                <input type="email" placeholder="" class="input" required id="emailField">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="passwordField" class="label">@Translator.GetTranslation("Password")</label>
+                            <div class="control has-icons-left">
+                                <input type="password" placeholder="" class="input" required id="passwordField">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <div class="is-flex is-justify-content-space-between is-mobile">
+                                    <div class="">
+                                        <label for="rememberMeCheck" class="checkbox">
+                                            <input type="checkbox" id="rememberMeCheck">
+                                            @Translator.GetTranslation("RememberMe")
+                                        </label>
+                                    </div>
+                                    <p class="">
+                                        <a href="/forgotPassword">
+                                            @Translator.GetTranslation("ForgotPassword")
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field is-grouped">
+                            <div class="control field">
+                                <button class="button is-success">
+                                    <span class="icon">
+                                        <i class="fas fa-key"></i>
+                                    </span>
+                                    <span>@Translator.GetTranslation("SignIn")</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="field separator">@Translator.GetTranslation("OrSignInWith")</div>
+                        <div class="field is-grouped is-grouped-multiline">
+                            <div class="control">
+                                <button class="button">
+                                    <span class="icon">
+                                        <i class="fab fa-google"></i>
+                                    </span>
+                                    <span>Google</span>
+                                </button>
+                            </div>
+                            <div class="control">
+                                <button class="button">
+                                    <span class="icon">
+                                        <i class="fab fa-apple"></i>
+                                    </span>
+                                    <span>Apple</span>
+                                </button>
+                            </div>
+                            <div class="control">
+                                <button class="button">
+                                    <span class="icon">
+                                        <i class="fab fa-facebook"></i>
+                                    </span>
+                                    <span>Facebook</span>
+                                </button>
+                            </div>
+                            <div class="control">
+                                <button class="button">
+                                    <span class="icon">
+                                        <i class="fab fa-microsoft"></i>
+                                    </span>
+                                    <span>Microsoft</span>
+                                </button>
+                            </div>
+                        </div>
+                    </EditForm>
+                </div>
+            </div>
         </div>
-        <button type="submit" class="btn btn-lg btn-primary">Submit</button>
     </div>
-</EditForm>
-
-<p>Du hast noch keinen Account? <a href="register">Registrieren</a></p>
+</section>
 
 @code {
 

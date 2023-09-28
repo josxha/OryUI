@@ -13,4 +13,8 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Ory.Client" Version="1.2.10" />
+    </ItemGroup>
+
 </Project>

@@ -1,0 +1,59 @@
+﻿@page "/login"
+@attribute [StreamRendering(true)]
+@inject ICustomTranslator Translator
+@inject ILogger<Login> Logger
+
+<PageTitle>@Translator.GetTranslation("SignIn")</PageTitle>
+
+<h1>@Translator.GetTranslation("SignIn")</h1>
+<hr/>
+
+<EditForm method="post" Model="@Model" OnSubmit="@Submit" FormName="LoginForm">
+    <div class="form-group">
+        <label for="identifierField">Identifier</label>
+        <input type="email" class="form-control form-control-lg" id="identifierField"
+               @bind-Value="Model!.Identifier">
+    </div>
+    <div class="form-group">
+        <label for="passwordField">@Translator.GetTranslation("Password")</label>
+        <input type="password" class="form-control form-control-lg" id="passwordField"
+               @bind-Value="Model!.Password">
+    </div>
+    <div class="form-group">
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="rememberMeCheck"
+                   @bind-Value="Model!.RememberMe">
+            <label class="form-check-label" for="rememberMeCheck">
+                @Translator.GetTranslation("RememberMe")
+            </label>
+        </div>
+        <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+    </div>
+</EditForm>
+
+<p>Du hast noch keinen Account? <a href="register">Registrieren</a></p>
+
+@code {
+
+    [SupplyParameterFromForm]
+    public LoginModel? Model { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Model ??= new LoginModel();
+    }
+
+    private void Submit()
+    {
+        Logger.LogInformation("Identifier: {Identifier}, Password: {Password}, RememberMe: {RememberMe}",
+            Model?.Identifier, Model?.Password, Model?.RememberMe);
+    }
+
+    public class LoginModel
+    {
+        public string? Identifier { get; set; }
+        public string? Password { get; set; }
+        public bool? RememberMe { get; set; }
+    }
+
+}

@@ -8,13 +8,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Content Include="..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
+        <Content Include="..\.dockerignore">
+            <Link>.dockerignore</Link>
+        </Content>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Ory.Client" Version="1.2.10" />
+        <PackageReference Include="Jenin.FontAwesome.Blazor" Version="1.2.0"/>
+        <PackageReference Include="Ory.Kratos.Client" Version="1.0.0"/>
     </ItemGroup>
 
 </Project>

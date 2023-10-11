@@ -1,8 +1,9 @@
 ﻿@page "/login"
-@attribute [StreamRendering(true)]
 @inject ICustomTranslator Translator
 @inject ILogger<Login> Logger
+@inject NavigationManager Navigation
 @layout FullSizeLayout
+@inject IHttpContextAccessor HttpContextAccessor
 
 <PageTitle>@Translator.GetTranslation("SignIn")</PageTitle>
 
@@ -11,7 +12,7 @@
         <div class="container">
             <div class="columns is-centered">
                 <div class="column is-7-tablet is-6-desktop is-5-widescreen">
-                    <EditForm class="box" method="post" Model="@Model" OnSubmit="@Submit" FormName="LoginForm">
+                    <div class="box">
                         <h1 class="title has-text-centered">@Translator.GetTranslation("SignIn")</h1>
                         <p class="has-text-centered">
                             @Translator.GetTranslation("NoAccountYet")
@@ -20,112 +21,40 @@
                             </a>
                         </p>
                         <hr/>
-                        <div class="field">
-                            <label for="emailField" class="label">@Translator.GetTranslation("UsernameOrEmail")</label>
-                            <div class="control has-icons-left">
-                                <input type="email" placeholder="" class="input" required id="emailField">
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-user"></i>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label for="passwordField" class="label">@Translator.GetTranslation("Password")</label>
-                            <div class="control has-icons-left">
-                                <input type="password" placeholder="" class="input" required id="passwordField">
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-lock"></i>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="control">
-                                <div class="is-flex is-justify-content-space-between is-mobile">
-                                    <div class="">
-                                        <label for="rememberMeCheck" class="checkbox">
-                                            <input type="checkbox" id="rememberMeCheck">
-                                            @Translator.GetTranslation("RememberMe")
-                                        </label>
-                                    </div>
-                                    <p class="">
-                                        <a href="/forgotPassword">
-                                            @Translator.GetTranslation("ForgotPassword")
+                        @if (Flow == null)
+                        {
+                            <span class="loader"></span>
+                        }
+                        else
+                        {
+                            <form method="@Flow.Ui.Method.ToLower()" action="@Flow.Ui.Action">
+                                @if (Flow.Ui.Messages != null)
+                                {
+                                    foreach (var message in Flow.Ui.Messages)
+                                    {
+                                        <KratosUiTextMessage Message="@message"/>
+                                    }
+                                }
+                                @foreach (var node in Flow.Ui.Nodes)
+                                {
+                                    <KratosUiNodeInput Node="@node"/>
+                                }
+                                <div class="field separator mt-5">@Translator.GetTranslation("OrSignInWith")</div>
+                                <div class="field is-grouped is-grouped-multiline">
+                                    <div class="control">
+                                        <a class="button">
+                                            <span class="icon">
+                                                <i class="fab fa-google"></i>
+                                            </span>
+                                            <span>Google</span>
                                         </a>
-                                    </p>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <button class="button is-fullwidth is-success">
-                                <span class="icon">
-                                    <i class="fas fa-key"></i>
-                                </span>
-                                <span>@Translator.GetTranslation("SignIn")</span>
-                            </button>
-                        </div>
-                        <div class="field separator">@Translator.GetTranslation("OrSignInWith")</div>
-                        <div class="field is-grouped is-grouped-multiline">
-                            <div class="control">
-                                <button class="button">
-                                    <span class="icon">
-                                        <i class="fab fa-google"></i>
-                                    </span>
-                                    <span>Google</span>
-                                </button>
-                            </div>
-                            <div class="control">
-                                <button class="button">
-                                    <span class="icon">
-                                        <i class="fab fa-apple"></i>
-                                    </span>
-                                    <span>Apple</span>
-                                </button>
-                            </div>
-                            <div class="control">
-                                <button class="button">
-                                    <span class="icon">
-                                        <i class="fab fa-facebook"></i>
-                                    </span>
-                                    <span>Facebook</span>
-                                </button>
-                            </div>
-                            <div class="control">
-                                <button class="button">
-                                    <span class="icon">
-                                        <i class="fab fa-microsoft"></i>
-                                    </span>
-                                    <span>Microsoft</span>
-                                </button>
-                            </div>
-                        </div>
-                    </EditForm>
+                            </form>
+                        }
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-@code {
-
-    [SupplyParameterFromForm]
-    public LoginModel? Model { get; set; }
-
-    protected override void OnInitialized()
-    {
-        Model ??= new LoginModel();
-    }
-
-    private void Submit()
-    {
-        Logger.LogInformation("Identifier: {Identifier}, Password: {Password}, RememberMe: {RememberMe}",
-            Model?.Identifier, Model?.Password, Model?.RememberMe);
-    }
-
-    public class LoginModel
-    {
-        public string? Identifier { get; set; }
-        public string? Password { get; set; }
-        public bool? RememberMe { get; set; }
-    }
-
-}

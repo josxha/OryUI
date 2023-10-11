@@ -1,0 +1,24 @@
+﻿@using Ory.Kratos.Client.Model
+@namespace KratosSelfService.Components.Elements
+
+<div class="message @GetCssClass() p-2" id="@Message.Id">
+    @Message.Text
+</div>
+
+@code
+{
+    [Parameter]
+    public required KratosUiText Message { get; set; }
+
+    private string GetCssClass()
+    {
+        return Message.Type switch
+        {
+            KratosUiText.TypeEnum.Error => "is-danger",
+            KratosUiText.TypeEnum.Success => "is-success",
+            KratosUiText.TypeEnum.Info => "is-info",
+            _ => "is-info"
+            };
+    }
+
+}

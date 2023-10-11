@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using KratosSelfService.Components;
+using KratosSelfService.Services;
 using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Net.Http.Headers;
@@ -15,12 +16,17 @@ public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
             options.LoggingFields = HttpLoggingFields.All;
             options.RequestHeaders.Add(HeaderNames.UserAgent);
         });
+        services.AddHttpContextAccessor();
         services.AddRazorComponents()
             .AddServerComponents();
-        
+
         // localisation
         services.AddLocalization(options => options.ResourcesPath = "Resources");
         services.AddSingleton<ICustomTranslator, CustomTranslator>();
+
+        // own services
+        services.AddSingleton<EnvService>();
+        services.AddSingleton<ApiService>();
     }
 
     public Task Configure(WebApplication app)
@@ -29,7 +35,7 @@ public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
         var supportedCultures = new[]
         {
             new CultureInfo("en"),
-            new CultureInfo("de"),
+            new CultureInfo("de")
         };
         app.UseRequestLocalization(new RequestLocalizationOptions
         {
@@ -37,7 +43,7 @@ public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
             SupportedCultures = supportedCultures,
             SupportedUICultures = supportedCultures
         });
-        
+
         // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment())
         {

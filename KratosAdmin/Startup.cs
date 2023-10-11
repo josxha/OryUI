@@ -16,6 +16,7 @@ public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
             options.LoggingFields = HttpLoggingFields.All;
             options.RequestHeaders.Add(HeaderNames.UserAgent);
         });
+        services.AddHttpContextAccessor();
         services.AddRazorComponents()
             .AddServerComponents();
 

@@ -1,0 +1,92 @@
+﻿@using Ory.Kratos.Client.Model
+@namespace KratosSelfService.Components.Elements
+
+<div class="field">
+    @switch (Node.Type)
+    {
+        case KratosUiNode.TypeEnum.Text:
+            var textAttr = Node.Attributes.GetKratosUiNodeTextAttributes();
+            <p id="@textAttr.Id">@textAttr.Text.Text</p>
+            break;
+        case KratosUiNode.TypeEnum.Input:
+            var inputAttr = Node.Attributes.GetKratosUiNodeInputAttributes();
+            var label = inputAttr.Label ?? Node.Meta.Label;
+            switch (inputAttr.Type)
+            {
+                case KratosUiNodeInputAttributes.TypeEnum.Text:
+                case KratosUiNodeInputAttributes.TypeEnum.Password:
+                case KratosUiNodeInputAttributes.TypeEnum.Number:
+                case KratosUiNodeInputAttributes.TypeEnum.Hidden:
+                case KratosUiNodeInputAttributes.TypeEnum.Email:
+                case KratosUiNodeInputAttributes.TypeEnum.Tel:
+                case KratosUiNodeInputAttributes.TypeEnum.DatetimeLocal:
+                case KratosUiNodeInputAttributes.TypeEnum.Date:
+                case KratosUiNodeInputAttributes.TypeEnum.Url:
+                    <label class="label" id="@label?.Id">
+                        @(inputAttr.Label?.Text ?? Node.Meta.Label?.Text)
+                        <div class="control">
+                            <input type="@inputAttr.Type.ToString()" class="input"
+                                   required="@inputAttr.Required"
+                                   value="@inputAttr.Value" autocomplete="@inputAttr.Autocomplete"
+                                   disabled="@inputAttr.Disabled" name="@inputAttr.Name"
+                                   onclick="@inputAttr.Onclick" pattern="@inputAttr.Pattern"/>
+                        </div>
+                    </label>
+                    break;
+                case KratosUiNodeInputAttributes.TypeEnum.Checkbox:
+                    break;
+                case KratosUiNodeInputAttributes.TypeEnum.Submit:
+                    <div class="control mt-5">
+                        <button type="@inputAttr.Type.ToString().ToLower()" class="button is-success is-fullwidth"
+                                required="@inputAttr.Required"
+                                disabled="@inputAttr.Disabled"
+                                onclick="@inputAttr.Onclick">
+                            @label?.Text
+                        </button>
+                    </div>
+                    break;
+                case KratosUiNodeInputAttributes.TypeEnum.Button:
+                    <div class="control mt-5">
+                        <button type="@inputAttr.Type.ToString()" class="button is-light is-fullwidth"
+                                required="@inputAttr.Required"
+                                value="@inputAttr.Value" autocomplete="@inputAttr.Autocomplete"
+                                disabled="@inputAttr.Disabled" name="@inputAttr.Name"
+                                onclick="@inputAttr.Onclick" pattern="@inputAttr.Pattern">
+                            @label?.Text
+                        </button>
+                    </div>
+                    break;
+            }
+            break;
+        case KratosUiNode.TypeEnum.Img:
+            var imgAttr = Node.Attributes.GetKratosUiNodeImageAttributes();
+            <img src="@imgAttr.Src" class="image" height="@imgAttr.Height" width="@imgAttr.Width"
+                 id="@imgAttr.Id"/>
+            break;
+        case KratosUiNode.TypeEnum.A:
+            var anchorAttr = Node.Attributes.GetKratosUiNodeAnchorAttributes();
+            <a href="@anchorAttr.Href" id="@anchorAttr.Id">@anchorAttr.Title</a>
+            break;
+        case KratosUiNode.TypeEnum.Script:
+            var scriptAttr = Node.Attributes.GetKratosUiNodeScriptAttributes();
+            <script src="@scriptAttr.Src" async="@scriptAttr.Async"
+                    crossorigin="@scriptAttr.Crossorigin" referrerpolicy="@scriptAttr.Referrerpolicy"
+                    nonce="@scriptAttr.Nonce" integrity="@scriptAttr.Integrity"
+                    id="@scriptAttr.Id"></script>
+            break;
+        default:
+            <p>Unsupported UI Type: @Node.Type</p>
+            break;
+    }
+    @foreach (var message in Node.Messages)
+    {
+        <KratosUiTextMessage Message="@message"/>
+    }
+</div>
+
+@code {
+
+    [Parameter]
+    public required KratosUiNode Node { get; set; }
+
+}

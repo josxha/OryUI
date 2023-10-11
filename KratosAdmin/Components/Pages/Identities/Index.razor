@@ -1,0 +1,56 @@
+﻿@page "/identities"
+@attribute [StreamRendering(true)]
+@inject ICustomTranslator Translator
+@inject ILogger<Home> Logger
+@inject NavigationManager Navigation
+@attribute [RenderModeServer]
+
+<PageTitle>Identities</PageTitle>
+
+<section class="section mt-6">
+    <NavLink href="identities/create" class="button is-success">
+        New Identity
+    </NavLink>
+    <button class="button is-info" @onclick="RefreshPage">
+        Refresh Page
+    </button>
+    <div class="mt-5">
+        @if (_isLoading)
+        {
+            // is loading
+            <p>Loading data...</p>
+        }
+        else
+        {
+            <table class="table is-fullwidth is-striped">
+                <thead>
+                <tr>
+                    <td>ID</td>
+                    @foreach (var item in _traitSchemes!)
+                    {
+                        <td>@item.Schema.Title</td>
+                    }
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var identity in _identities!)
+                {
+                    <tr>
+                        <td>
+                            <NavLink class="btn-link" @onclick="() => ViewIdentity(identity.Id)">
+                                @identity.Id
+                            </NavLink>
+                        </td>
+                        @foreach (var item in _traitSchemes!)
+                        {
+                            <td>
+                                @GetIdentityTraitValueFromPath(identity, item.Path)
+                            </td>
+                        }
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+    </div>
+</section>

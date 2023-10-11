@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KratosSelfService", "KratosSelfService\KratosSelfService.csproj", "{0CB9C5E7-B5EE-4DE0-A06D-1FDB382AE2ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KratosAdmin", "KratosAdmin\KratosAdmin.csproj", "{D8EAEAE9-0E7A-499D-BF26-D5482162534D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{0CB9C5E7-B5EE-4DE0-A06D-1FDB382AE2ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CB9C5E7-B5EE-4DE0-A06D-1FDB382AE2ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CB9C5E7-B5EE-4DE0-A06D-1FDB382AE2ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8EAEAE9-0E7A-499D-BF26-D5482162534D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8EAEAE9-0E7A-499D-BF26-D5482162534D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8EAEAE9-0E7A-499D-BF26-D5482162534D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8EAEAE9-0E7A-499D-BF26-D5482162534D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

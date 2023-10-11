@@ -1,0 +1,275 @@
+﻿@page "/identities/{UserId}"
+@attribute [StreamRendering(true)]
+@inject ICustomTranslator Translator
+@inject ILogger<Home> Logger
+@inject NavigationManager Navigation
+@attribute [RenderModeServer]
+
+<PageTitle>View Identity</PageTitle>
+
+<section class="section mt-5">
+    @if (_isLoading)
+    {
+        // is loading
+        <p>Loading data...</p>
+    }
+    else
+    {
+        <h1 class="title">General</h1>
+        <table class="table is-fullwidth">
+            <tbody>
+            <tr>
+                <td>ID</td>
+                <td>@_identity!.Id</td>
+            </tr>
+            <tr>
+                <td>State</td>
+                <td>
+                    @_identity.State (State changed at @_identity.StateChangedAt)
+                </td>
+            </tr>
+            <tr>
+                <td>Organization ID</td>
+                <td>@(_identity.OrganizationId ?? "-")</td>
+            </tr>
+            <tr>
+                <td>Identity Schema</td>
+                <td>
+                    <a href="@_identity.SchemaUrl" target="_blank">@_identity.SchemaId</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Traits</td>
+                <td>@_identity.Traits</td>
+            </tr>
+            <tr>
+                <td>Updated at</td>
+                <td>
+                    @_identity.UpdatedAt
+                </td>
+            </tr>
+            <tr>
+                <td>Created At</td>
+                <td>@_identity.CreatedAt</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="buttons">
+            <NavLink class="button is-dark" href="identities">
+                Back
+            </NavLink>
+            <NavLink class="button is-danger" @onclick="DeleteIdentity">
+                Delete Identity
+            </NavLink>
+            <NavLink class="button is-warning" @onclick="EditIdentity">
+                Edit Identity
+            </NavLink>
+        </div>
+
+        <h1 class="title">Active Sessions</h1>
+        <table class="table is-fullwidth">
+            <thead>
+            <tr>
+                <td>ID</td>
+                <td>Authentication Methods</td>
+                <td>Authenticator Assurance Level</td>
+                <td>Devices</td>
+                <td>Additional Properties</td>
+                <td>Timestamps</td>
+            </tr>
+            </thead>
+            <tbody>
+            @if (_activeSessions!.Count == 0)
+            {
+                <p>No active sessions.</p>
+            }
+            else
+            {
+                foreach (var session in _activeSessions!)
+                {
+                    <tr>
+                        <td>@session.Id</td>
+                        <td>@string.Join(", ", session.AuthenticationMethods.Select(method => method.Method.ToString()))</td>
+                        <td>@session.AuthenticatorAssuranceLevel</td>
+                        <td>
+                            @foreach (var device in session.Devices)
+                            {
+                                <p>@device.Id (@device.IpAddress)</p>
+                            }
+                        </td>
+                        <td>
+                            @if (session.AdditionalProperties.Count == 0)
+                            {
+                                <p>-</p>
+                            }
+                            else
+                            {
+                                @foreach (var (key, value) in session.AdditionalProperties)
+                                {
+                                    <p>@key: @value</p>
+                                }
+                            }
+                        </td>
+                        <td>
+                            <p>Authenticated: @session.AuthenticatedAt</p>
+                            <p>Issued: @session.IssuedAt</p>
+                            <p>Expires: @session.ExpiresAt</p>
+                        </td>
+                    </tr>
+                }
+            }
+            </tbody>
+        </table>
+
+        <h1 class="title">Credentials</h1>
+        <table class="table is-fullwidth">
+            <thead>
+            <tr>
+                <td>Type</td>
+                <td>Version</td>
+                <td>Identifiers</td>
+                <td>Additional properties</td>
+                <td>Timestamps</td>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var credential in _identity.Credentials.Values)
+            {
+                <tr>
+                    <td>@credential.Type</td>
+                    <td>@credential._Version</td>
+                    <td>@string.Join(", ", credential.Identifiers)</td>
+                    <td>
+                        @if (credential.AdditionalProperties.Count == 0)
+                        {
+                            <p>-</p>
+                        }
+                        else
+                        {
+                            @foreach (var (key, value) in credential.AdditionalProperties)
+                            {
+                                <p>@key: @value</p>
+                            }
+                        }
+                    </td>
+                    <td>
+                        <p>Updated: @credential.UpdatedAt</p>
+                        <p>Created: @credential.CreatedAt</p>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+        <h1 class="title">Verifiable Addresses</h1>
+        <table class="table is-fullwidth">
+            <thead>
+            <tr>
+                <td>ID</td>
+                <td>Value</td>
+                <td>Verified</td>
+                <td>Via</td>
+                <td>Status</td>
+                <td>Additional Properties</td>
+                <td>Timestamps</td>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var address in _identity.VerifiableAddresses)
+            {
+                <tr>
+                    <td>@address.Id</td>
+                    <td>@address.Value</td>
+                    <td>@(address.Verified ? "✅" : "❌")</td>
+                    <td>@address.Via</td>
+                    <td>@address.Status</td>
+                    <td>
+                        @if (address.AdditionalProperties.Count == 0)
+                        {
+                            <p>-</p>
+                        }
+                        else
+                        {
+                            @foreach (var property in address.AdditionalProperties)
+                            {
+                                <p>@property.Key: @property.Value</p>
+                            }
+                        }
+                    </td>
+                    <td>
+                        <p>Verified: @address.VerifiedAt</p>
+                        <p>Updated: @address.UpdatedAt</p>
+                        <p>Created: @address.CreatedAt</p>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+        <h1 class="title">Recovery Addresses</h1>
+        <table class="table is-fullwidth">
+            <thead>
+            <tr>
+                <td>ID</td>
+                <td>Value</td>
+                <td>Via</td>
+                <td>Additional Properties</td>
+                <td>Timestamps</td>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var address in _identity.RecoveryAddresses)
+            {
+                <tr>
+                    <td>@address.Id</td>
+                    <td>@address.Value</td>
+                    <td>@address.Via</td>
+                    <td>
+                        @if (address.AdditionalProperties.Count == 0)
+                        {
+                            <p>-</p>
+                        }
+                        else
+                        {
+                            @foreach (var (key, value) in address.AdditionalProperties)
+                            {
+                                <p>@key: @value</p>
+                            }
+                        }
+                    </td>
+                    <td>
+                        <p>Updated: @address.UpdatedAt</p>
+                        <p>Created: @address.CreatedAt</p>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+        <h1 class="title">Additional Properties</h1>
+        @if (_identity.AdditionalProperties.Count == 0)
+        {
+            <p>No additional identity properties.</p>
+        }
+        else
+        {
+            <table class="table is-fullwidth">
+                <thead>
+                <tr>
+                    <td>Name</td>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var (key, value) in _identity.AdditionalProperties)
+                {
+                    <tr>
+                        <td>@key</td>
+                        <td>@value</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+    }
+</section>

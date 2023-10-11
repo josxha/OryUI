@@ -1,0 +1,40 @@
+﻿@page "/identities/{UserId}/edit"
+@attribute [StreamRendering(true)]
+@inject ICustomTranslator Translator
+@inject ILogger<Home> Logger
+@inject NavigationManager Navigation
+@attribute [RenderModeServer]
+
+<PageTitle>Edit Identity</PageTitle>
+
+<section class="section mt-5">
+    @if (_isLoading)
+    {
+        // is loading
+        <p>Loading data...</p>
+    }
+    else
+    {
+        <h1 class="title">Edit Identity</h1>
+        <EditForm OnSubmit="SubmitForm" Model="_formData">
+            <div class="field">
+                <label for="emailField" class="label">Email</label>
+                <div class="control has-icons-left">
+                    <InputText type="email" placeholder="" class="input" required id="emailField"
+                               @bind-Value="_formData!.Email"/>
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="buttons">
+                <NavLink class="button is-dark" @onclick="Cancel">
+                    Cancel
+                </NavLink>
+                <button type="submit" class="button is-success">
+                    Save
+                </button>
+            </div>
+        </EditForm>
+    }
+</section>

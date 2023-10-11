@@ -1,0 +1,39 @@
+﻿@page "/"
+@using KratosAdmin.Services
+@inject EnvService EnvService
+@attribute [StreamRendering(true)]
+@inject ICustomTranslator Translator
+@inject ILogger<Home> Logger
+@inject NavigationManager Navigation
+@attribute [RenderModeServer]
+
+<PageTitle>Home</PageTitle>
+
+<section class="section mt-5">
+    <table class="table is-fullwidth">
+        <thead>
+        <tr>
+            <td>Key</td>
+            <td>Value</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Kratos Public URI</td>
+            <td>@_kratosPublicUrl</td>
+        </tr>
+        <tr>
+            <td>Kratos Admin URI</td>
+            <td>@_kratosAdminUrl</td>
+        </tr>
+        <tr>
+            <td>Kratos Ready</td>
+            <td>@_kratosReady</td>
+        </tr>
+        <tr>
+            <td>Kratos Version</td>
+            <td>@_kratosVersion</td>
+        </tr>
+        </tbody>
+    </table>
+</section>

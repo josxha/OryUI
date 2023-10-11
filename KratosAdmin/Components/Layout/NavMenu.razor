@@ -1,0 +1,39 @@
+﻿<nav class="navbar is-fixed-top is-success" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="">
+            <h1 class="title">Kratos Admin</h1>
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="fixedNavBar">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="fixedNavBar" class="navbar-menu">
+        <div class="navbar-start">
+            <NavLink class="navbar-item" href="" Match="NavLinkMatch.All">
+                <span class="icon">
+                    <Icon IconName="fa-home" IconSize="IconSize.X01" aria-hidden="true"></Icon>
+                </span>
+                Home
+            </NavLink>
+
+            <NavLink class="navbar-item" href="identities">
+                <span class="icon">
+                    <Icon IconName="fa-user" IconSize="IconSize.X01" aria-hidden="true"></Icon>
+                </span>
+                Identities
+            </NavLink>
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <a class="button" target="_blank" href="https://github.com/josxha/OryDotNet">
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>

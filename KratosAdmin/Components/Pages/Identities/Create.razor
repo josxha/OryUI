@@ -1,0 +1,21 @@
+﻿@page "/identities/create"
+@attribute [StreamRendering(true)]
+@inject ICustomTranslator Translator
+@inject ILogger<Home> Logger
+@inject NavigationManager Navigation
+@attribute [RenderModeServer]
+
+<PageTitle>Identities</PageTitle>
+
+<section class="section mt-5">
+    @if (_isLoading)
+    {
+        // is loading
+        <p>Loading data...</p>
+    }
+    else
+    {
+        <h1 class="title">New Identity</h1>
+        <p>This functionality hasn't been implemented yet.</p>
+    }
+</section>

@@ -41,6 +41,6 @@ public partial class Index
 
     private void RefreshPage(MouseEventArgs arg)
     {
-        Navigation.Refresh();
+        Navigation.Refresh(true);
     }
 }

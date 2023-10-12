@@ -2,8 +2,8 @@
 using KratosAdmin.Services;
 using Microsoft.AspNetCore.Components;
 using Newtonsoft.Json.Linq;
-using Ory.Client.Client;
-using Ory.Client.Model;
+using Ory.Kratos.Client.Client;
+using Ory.Kratos.Client.Model;
 
 namespace KratosAdmin.Components.Pages.Identities;
 
@@ -44,7 +44,7 @@ public partial class Create
         var traits = new JObject(properties);
 
         Console.WriteLine(traits);
-        var body = new ClientCreateIdentityBody(schemaId: _selectedSchema, traits: traits);
+        var body = new KratosCreateIdentityBody(schemaId: _selectedSchema, traits: traits);
         try
         {
             _ = await ApiService.IdentityApi.CreateIdentityAsync(body);

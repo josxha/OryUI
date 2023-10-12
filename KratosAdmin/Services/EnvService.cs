@@ -1,4 +1,4 @@
-﻿using Ory.Client.Client;
+﻿using Ory.Kratos.Client.Client;
 
 namespace KratosAdmin.Services;
 

@@ -1,4 +1,4 @@
-﻿using Ory.Client.Api;
+﻿using Ory.Kratos.Client.Api;
 
 namespace KratosAdmin.Services;
 

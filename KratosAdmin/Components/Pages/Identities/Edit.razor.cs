@@ -2,15 +2,15 @@
 using KratosAdmin.Services;
 using Microsoft.AspNetCore.Components;
 using Newtonsoft.Json.Linq;
-using Ory.Client.Client;
-using Ory.Client.Model;
+using Ory.Kratos.Client.Client;
+using Ory.Kratos.Client.Model;
 
 namespace KratosAdmin.Components.Pages.Identities;
 
 public partial class Edit
 {
     private string? _errorMessage;
-    private ClientIdentity? _identity;
+    private KratosIdentity? _identity;
     private bool _isLoading = true;
     private List<TraitsSchemaData>? _traitSchemas;
     [Parameter] public string? UserId { get; set; }
@@ -32,7 +32,7 @@ public partial class Edit
     private async Task SubmitForm()
     {
         var traits = (JObject)_identity!.Traits;
-        var updateBody = new ClientUpdateIdentityBody(traits: traits);
+        var updateBody = new KratosUpdateIdentityBody(traits: traits);
         try
         {
             _ = await ApiService.IdentityApi.UpdateIdentityAsync(UserId, updateBody);

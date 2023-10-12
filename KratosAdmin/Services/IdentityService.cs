@@ -1,16 +1,16 @@
 ﻿using Newtonsoft.Json.Linq;
-using Ory.Client.Model;
+using Ory.Kratos.Client.Model;
 
 namespace KratosAdmin.Services;
 
 public class IdentityService(ApiService apiService)
 {
-    public async Task<List<ClientIdentity>> ListIdentities()
+    public async Task<List<KratosIdentity>> ListIdentities()
     {
         return await apiService.IdentityApi.ListIdentitiesAsync();
     }
 
-    public static string? GetTraitValueFromPath(ClientIdentity identity, List<string> path)
+    public static string? GetTraitValueFromPath(KratosIdentity identity, List<string> path)
     {
         var traits = (JObject)identity.Traits;
         var jToken = traits[path.First()];

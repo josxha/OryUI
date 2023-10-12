@@ -2,13 +2,13 @@
 using KratosAdmin.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using Ory.Client.Model;
+using Ory.Kratos.Client.Model;
 
 namespace KratosAdmin.Components.Pages.Identities;
 
 public partial class Index
 {
-    private List<ClientIdentity>? _identities;
+    private List<KratosIdentity>? _identities;
     private bool _isLoading = true;
     private List<TraitsSchemaData>? _traitSchemes;
 

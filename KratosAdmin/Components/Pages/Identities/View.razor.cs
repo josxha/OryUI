@@ -1,13 +1,13 @@
 ﻿using KratosAdmin.Services;
 using Microsoft.AspNetCore.Components;
-using Ory.Client.Model;
+using Ory.Kratos.Client.Model;
 
 namespace KratosAdmin.Components.Pages.Identities;
 
 public partial class View
 {
-    private List<ClientSession>? _activeSessions;
-    private ClientIdentity? _identity;
+    private List<KratosSession>? _activeSessions;
+    private KratosIdentity? _identity;
     private bool _isLoading = true;
     private bool _showDeleteModal;
     [Parameter] public string? UserId { get; set; }
@@ -43,7 +43,7 @@ public partial class View
 
     private async Task UpdatePassword()
     {
-        var body = new ClientCreateRecoveryLinkForIdentityBody(identityId: UserId);
+        var body = new KratosCreateRecoveryLinkForIdentityBody(identityId: UserId);
         var link = await ApiService.IdentityApi.CreateRecoveryLinkForIdentityAsync(body);
         Navigation.NavigateTo(link.RecoveryLink);
     }

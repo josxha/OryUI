@@ -1,5 +1,5 @@
-﻿using Ory.Client.Api;
-using Ory.Client.Client;
+﻿using Ory.Kratos.Client.Api;
+using Ory.Kratos.Client.Client;
 
 namespace KratosAdmin.Components.Pages;
 

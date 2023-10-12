@@ -1,16 +1,18 @@
-﻿@using Ory.Kratos.Client.Model
-@namespace KratosSelfService.Components.Elements
+﻿@model Ory.Kratos.Client.Model.KratosUiText
+
+@using Ory.Kratos.Client.Model
+@model Ory.Kratos.Client.Model.KratosUiNode
 
 <div class="field">
-    @switch (Node.Type)
+    @switch (Model.Type)
     {
         case KratosUiNode.TypeEnum.Text:
-            var textAttr = Node.Attributes.GetKratosUiNodeTextAttributes();
+            var textAttr = Model.Attributes.GetKratosUiNodeTextAttributes();
             <p id="@textAttr.Id">@textAttr.Text.Text</p>
             break;
         case KratosUiNode.TypeEnum.Input:
-            var inputAttr = Node.Attributes.GetKratosUiNodeInputAttributes();
-            var label = inputAttr.Label ?? Node.Meta.Label;
+            var inputAttr = Model.Attributes.GetKratosUiNodeInputAttributes();
+            var label = inputAttr.Label ?? Model.Meta.Label;
             switch (inputAttr.Type)
             {
                 case KratosUiNodeInputAttributes.TypeEnum.Text:
@@ -23,7 +25,7 @@
                 case KratosUiNodeInputAttributes.TypeEnum.Date:
                 case KratosUiNodeInputAttributes.TypeEnum.Url:
                     <label class="label" id="@label?.Id">
-                        @(inputAttr.Label?.Text ?? Node.Meta.Label?.Text)
+                        @(inputAttr.Label?.Text ?? Model.Meta.Label?.Text)
                         <div class="control">
                             <input type="@inputAttr.Type.ToString()" class="input"
                                    required="@inputAttr.Required"
@@ -59,34 +61,27 @@
             }
             break;
         case KratosUiNode.TypeEnum.Img:
-            var imgAttr = Node.Attributes.GetKratosUiNodeImageAttributes();
+            var imgAttr = Model.Attributes.GetKratosUiNodeImageAttributes();
             <img src="@imgAttr.Src" class="image" height="@imgAttr.Height" width="@imgAttr.Width"
-                 id="@imgAttr.Id"/>
+                 id="@imgAttr.Id" alt="image"/>
             break;
         case KratosUiNode.TypeEnum.A:
-            var anchorAttr = Node.Attributes.GetKratosUiNodeAnchorAttributes();
+            var anchorAttr = Model.Attributes.GetKratosUiNodeAnchorAttributes();
             <a href="@anchorAttr.Href" id="@anchorAttr.Id">@anchorAttr.Title</a>
             break;
         case KratosUiNode.TypeEnum.Script:
-            var scriptAttr = Node.Attributes.GetKratosUiNodeScriptAttributes();
+            var scriptAttr = Model.Attributes.GetKratosUiNodeScriptAttributes();
             <script src="@scriptAttr.Src" async="@scriptAttr.Async"
                     crossorigin="@scriptAttr.Crossorigin" referrerpolicy="@scriptAttr.Referrerpolicy"
                     nonce="@scriptAttr.Nonce" integrity="@scriptAttr.Integrity"
                     id="@scriptAttr.Id"></script>
             break;
         default:
-            <p>Unsupported UI Type: @Node.Type</p>
+            <p>Unsupported UI Type: @Model.Type</p>
             break;
     }
-    @foreach (var message in Node.Messages)
+    @foreach (var message in Model.Messages)
     {
         <KratosUiTextMessage Message="@message"/>
     }
 </div>
-
-@code {
-
-    [Parameter]
-    public required KratosUiNode Node { get; set; }
-
-}

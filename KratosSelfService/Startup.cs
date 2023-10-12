@@ -1,5 +1,4 @@
 ﻿using System.Globalization;
-using KratosSelfService.Components;
 using KratosSelfService.Services;
 using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.AspNetCore.Localization;
@@ -16,9 +15,8 @@ public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
             options.LoggingFields = HttpLoggingFields.All;
             options.RequestHeaders.Add(HeaderNames.UserAgent);
         });
-        services.AddHttpContextAccessor();
-        services.AddRazorComponents()
-            .AddServerComponents();
+        // Add services to the container.
+        services.AddControllersWithViews();
 
         // localisation
         services.AddLocalization(options => options.ResourcesPath = "Resources");
@@ -29,7 +27,7 @@ public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
         services.AddSingleton<ApiService>();
     }
 
-    public Task Configure(WebApplication app)
+    public void Configure(WebApplication app)
     {
         // localisation
         var supportedCultures = new[]
@@ -46,17 +44,13 @@ public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
 
         // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment())
-        {
-            app.UseExceptionHandler("/Error");
-            // The default HSTS value is 30 days. You may want to change this for production scenarios,
-            // see https://aka.ms/aspnetcore-hsts.
+            // The default HSTS value is 30 days. You may want to change this
+            // for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
-        }
 
         app.UseStaticFiles();
-
-        app.MapRazorComponents<App>()
-            .AddServerRenderMode();
-        return Task.CompletedTask;
+        app.UseRouting();
+        app.UseAuthorization();
+        app.MapControllers();
     }
 }

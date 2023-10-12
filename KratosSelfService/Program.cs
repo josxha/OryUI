@@ -6,6 +6,6 @@ builder.Configuration.AddEnvironmentVariables().Build(); // use environment vari
 var startup = new Startup(builder.Configuration, builder.Environment);
 startup.ConfigureServices(builder.Services);
 var app = builder.Build();
-await startup.Configure(app);
+startup.Configure(app);
 
 app.Run();

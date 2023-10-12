@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = Translator.GetTranslation("SignIn");
+}
+@model LoginModel
+
+<section class="hero has-background-white-ter is-fullheight">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-7-tablet is-6-desktop is-5-widescreen">
+                    <div class="box">
+                        <h1 class="title has-text-centered">@Translator.GetTranslation("SignIn")</h1>
+                        <p class="has-text-centered">
+                            @Translator.GetTranslation("NoAccountYet")
+                            <a href="register">
+                                @Translator.GetTranslation("SignUp")
+                            </a>
+                        </p>
+                        <hr/>
+                        <form method="@Model.Flow.Ui.Method.ToLower()" action="@Model.Flow.Ui.Action">
+                            @if (Model.Flow.Ui.Messages != null)
+                            {
+                                foreach (var message in Model.Flow.Ui.Messages)
+                                {
+                                    @await Component.InvokeAsync("KratosUiTextMessage", message)
+                                }
+                            }
+                            @foreach (var node in Model.Flow.Ui.Nodes)
+                            {
+                                @await Component.InvokeAsync("KratosUiNodeInput", node)
+                            }
+                            <div class="field separator mt-5">@Translator.GetTranslation("OrSignInWith")</div>
+                            <div class="field is-grouped is-grouped-multiline">
+                                <div class="control">
+                                    <a class="button">
+                                        <span class="icon">
+                                            <i class="fab fa-google"></i>
+                                        </span>
+                                        <span>Google</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

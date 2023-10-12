@@ -1,4 +1,5 @@
 ﻿@page "/identities/{UserId}/edit"
+@using KratosAdmin.Services
 @attribute [StreamRendering(true)]
 @inject ICustomTranslator Translator
 @inject ILogger<Home> Logger
@@ -16,25 +17,29 @@
     else
     {
         <h1 class="title">Edit Identity</h1>
-        <EditForm OnSubmit="SubmitForm" Model="_formData">
-            <div class="field">
-                <label for="emailField" class="label">Email</label>
-                <div class="control has-icons-left">
-                    <InputText type="email" placeholder="" class="input" required id="emailField"
-                               @bind-Value="_formData!.Email"/>
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-envelope"></i>
-                    </span>
+        <form @onsubmit="SubmitForm">
+            @foreach (var schema in _traitSchemas!)
+            {
+                var value = IdentityService.GetTraitValueFromPath(_identity!, schema.Path);
+                <div class="field">
+                    <label class="label">
+                        @schema.Schema.Title
+                        <div class="control">
+                            <input type="text" class="input" required="@schema.Schema.Required"
+                                   value="@value"
+                                   id="@schema.Schema.Id"/>
+                        </div>
+                    </label>
                 </div>
-            </div>
+            }
             <div class="buttons">
-                <NavLink class="button is-dark" @onclick="Cancel">
+                <NavLink class="button" @onclick="Cancel">
                     Cancel
                 </NavLink>
                 <button type="submit" class="button is-success">
                     Save
                 </button>
             </div>
-        </EditForm>
+        </form>
     }
 </section>

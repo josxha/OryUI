@@ -1,21 +1,24 @@
-﻿using KratosAdmin.Services;
+﻿using KratosAdmin.Models;
+using KratosAdmin.Services;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Forms;
+using Newtonsoft.Json.Linq;
 using Ory.Client.Model;
 
 namespace KratosAdmin.Components.Pages.Identities;
 
 public partial class Edit
 {
-    private readonly FormData _formData = new();
     private ClientIdentity? _identity;
     private bool _isLoading = true;
+    private List<TraitsSchemaData>? _traitSchemas;
     [Parameter] public string? UserId { get; set; }
     [Inject] private ApiService ApiService { get; set; } = default!;
+    [Inject] private IdentitySchemaService SchemaService { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()
     {
         _identity = await ApiService.IdentityApi.GetIdentityAsync(UserId);
+        _traitSchemas = await SchemaService.GetTraitSchemas(_identity.SchemaId);
         _isLoading = false;
     }
 
@@ -24,15 +27,11 @@ public partial class Edit
         Navigation.NavigateTo($"identities/{UserId}");
     }
 
-    private async Task SubmitForm(EditContext arg)
+    private async Task SubmitForm()
     {
-        var updateBody = new ClientUpdateIdentityBody();
+        var traits = (JObject)_identity!.Traits;
+        var updateBody = new ClientUpdateIdentityBody(traits: traits);
         _ = await ApiService.IdentityApi.UpdateIdentityAsync(UserId, updateBody);
         Navigation.NavigateTo($"identities/{UserId}");
-    }
-
-    private class FormData
-    {
-        public string? Email { get; set; }
     }
 }

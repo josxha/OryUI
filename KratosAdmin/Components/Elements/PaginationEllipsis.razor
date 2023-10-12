@@ -1,0 +1,12 @@
+﻿@namespace KratosAdmin.Components.Elements
+
+<li class="@(IsHidden ? "is-hidden" : "")">
+    <span class="pagination-ellipsis">&hellip;</span>
+</li>
+
+@code
+{
+    [Parameter]
+    public required bool IsHidden { get; set; }
+
+}

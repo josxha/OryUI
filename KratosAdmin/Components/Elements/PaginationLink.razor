@@ -1,0 +1,26 @@
+﻿@namespace KratosAdmin.Components.Elements
+
+<li>
+    @if (IsActive)
+    {
+        <NavLink class="pagination-link is-current" aria-current="page" href="identities?page=@PageNr">
+            @PageNr
+        </NavLink>
+    }
+    else
+    {
+        <a class="pagination-link" href="identities?page=@PageNr">
+            @PageNr
+        </a>
+    }
+</li>
+
+@code
+{
+    [Parameter]
+    public required int PageNr { get; set; }
+
+    [Parameter]
+    public required bool IsActive { get; set; }
+
+}

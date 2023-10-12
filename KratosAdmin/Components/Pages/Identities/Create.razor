@@ -23,12 +23,15 @@
                     <label class="label">
                         @schema.Schema.Title
                         <div class="control">
-                            <input type="text" class="input" required="@schema.Schema.Required"
-                                   id="@schema.Schema.Id"/>
+                            <input type="text" class="input"
+                                   id="@schema.Schema.Id" value="asdf"/>
                         </div>
                     </label>
                 </div>
             }
+            <div class="message is-warning p-2 @(string.IsNullOrWhiteSpace(_errorMessage) ? "is-hidden" : "")">
+                @_errorMessage
+            </div>
             <div class="mt-5">
                 <div class="buttons">
                     <NavLink class="button" href="identities">

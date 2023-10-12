@@ -1,11 +1,15 @@
 ﻿using KratosAdmin.Models;
 using KratosAdmin.Services;
 using Microsoft.AspNetCore.Components;
+using Newtonsoft.Json.Linq;
+using Ory.Client.Client;
+using Ory.Client.Model;
 
 namespace KratosAdmin.Components.Pages.Identities;
 
 public partial class Create
 {
+    private string? _errorMessage;
     private bool _isLoading = true;
 
     private List<string>? _schemaIds;
@@ -29,5 +33,28 @@ public partial class Create
 
     private async Task SubmitForm()
     {
+        var properties = new List<JProperty>();
+        foreach (var schema in _traitsSchemas!)
+        {
+            var path = string.Join(".", schema.Path);
+            var property = new JProperty(path, "test");
+            properties.Add(property);
+        }
+
+        var traits = new JObject(properties);
+
+        Console.WriteLine(traits);
+        var body = new ClientCreateIdentityBody(schemaId: _selectedSchema, traits: traits);
+        try
+        {
+            _ = await ApiService.IdentityApi.CreateIdentityAsync(body);
+        }
+        catch (ApiException exception)
+        {
+            _errorMessage = exception.Message;
+            return;
+        }
+
+        Navigation.NavigateTo("identities");
     }
 }

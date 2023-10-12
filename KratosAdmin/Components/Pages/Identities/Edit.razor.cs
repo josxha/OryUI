@@ -2,12 +2,14 @@
 using KratosAdmin.Services;
 using Microsoft.AspNetCore.Components;
 using Newtonsoft.Json.Linq;
+using Ory.Client.Client;
 using Ory.Client.Model;
 
 namespace KratosAdmin.Components.Pages.Identities;
 
 public partial class Edit
 {
+    private string? _errorMessage;
     private ClientIdentity? _identity;
     private bool _isLoading = true;
     private List<TraitsSchemaData>? _traitSchemas;
@@ -31,7 +33,16 @@ public partial class Edit
     {
         var traits = (JObject)_identity!.Traits;
         var updateBody = new ClientUpdateIdentityBody(traits: traits);
-        _ = await ApiService.IdentityApi.UpdateIdentityAsync(UserId, updateBody);
+        try
+        {
+            _ = await ApiService.IdentityApi.UpdateIdentityAsync(UserId, updateBody);
+        }
+        catch (ApiException exception)
+        {
+            _errorMessage = exception.Message;
+            return;
+        }
+
         Navigation.NavigateTo($"identities/{UserId}");
     }
 }

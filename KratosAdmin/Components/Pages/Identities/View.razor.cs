@@ -40,4 +40,11 @@ public partial class View
     {
         _showDeleteModal = false;
     }
+
+    private async Task UpdatePassword()
+    {
+        var body = new ClientCreateRecoveryLinkForIdentityBody(identityId: UserId);
+        var link = await ApiService.IdentityApi.CreateRecoveryLinkForIdentityAsync(body);
+        Navigation.NavigateTo(link.RecoveryLink);
+    }
 }

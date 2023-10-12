@@ -12,10 +12,12 @@ Here is the current development state:
 - [x] View Identities
 - [x] View Identity with active sessions
 - [x] Delete Identity
+- [x] Update Password / Account Recovery
 - [ ] Create Identity
 - [ ] Edit Identity
 
 ### Ory Kratos Self Service UI 
 - [ ] Login
 - [ ] Register
-- [ ] Edit profile
+- [ ] Verify Email
+- [ ] Account Settings

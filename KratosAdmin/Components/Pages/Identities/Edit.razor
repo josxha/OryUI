@@ -9,6 +9,8 @@
 <PageTitle>Edit Identity</PageTitle>
 
 <section class="section mt-5">
+    <h1 class="title">Edit Identity</h1>
+
     @if (_isLoading)
     {
         // is loading
@@ -16,7 +18,6 @@
     }
     else
     {
-        <h1 class="title">Edit Identity</h1>
         <form @onsubmit="SubmitForm">
             @foreach (var schema in _traitSchemas!)
             {
@@ -32,13 +33,15 @@
                     </label>
                 </div>
             }
-            <div class="buttons">
-                <NavLink class="button" @onclick="Cancel">
-                    Cancel
-                </NavLink>
-                <button type="submit" class="button is-success">
-                    Save
-                </button>
+            <div class="mt-5">
+                <div class="buttons">
+                    <NavLink class="button" @onclick="Cancel">
+                        Cancel
+                    </NavLink>
+                    <button type="submit" class="button is-success">
+                        Save
+                    </button>
+                </div>
             </div>
         </form>
     }

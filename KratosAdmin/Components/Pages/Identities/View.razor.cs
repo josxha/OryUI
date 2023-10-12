@@ -9,6 +9,7 @@ public partial class View
     private List<ClientSession>? _activeSessions;
     private ClientIdentity? _identity;
     private bool _isLoading = true;
+    private bool _showDeleteModal;
     [Parameter] public string? UserId { get; set; }
     [Inject] private ApiService ApiService { get; set; } = default!;
 
@@ -28,5 +29,15 @@ public partial class View
     {
         await ApiService.IdentityApi.DeleteIdentityAsync(UserId);
         Navigation.NavigateTo("identities");
+    }
+
+    private void ShowDeleteModal()
+    {
+        _showDeleteModal = true;
+    }
+
+    private void HideDeleteModal()
+    {
+        _showDeleteModal = false;
     }
 }

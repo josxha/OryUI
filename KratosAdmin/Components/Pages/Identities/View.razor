@@ -59,12 +59,36 @@
             <NavLink class="button is-dark" href="identities">
                 Back
             </NavLink>
-            <NavLink class="button is-danger" @onclick="DeleteIdentity">
+            <button class="js-modal-trigger button is-danger" data-target="delete-identity-modal"
+                    type="button" @onclick="ShowDeleteModal">
                 Delete Identity
-            </NavLink>
+            </button>
             <NavLink class="button is-info" @onclick="EditIdentity">
                 Edit Identity
             </NavLink>
+        </div>
+
+        <div id="delete-identity-modal" class="modal @(_showDeleteModal ? "is-active" : "")">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Confirm Deletion</p>
+                    <button class="delete" aria-label="close" @onclick="HideDeleteModal"></button>
+                </header>
+                <section class="modal-card-body">
+                    <p>Are you sure to delete this identity?</p>
+                    <p>Be aware that this cannot be undone.</p>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button" data-target="delete-identity-modal"
+                            type="button" @onclick="HideDeleteModal">
+                        Cancel
+                    </button>
+                    <div class="button is-danger" @onclick="DeleteIdentity">
+                        Delete
+                    </div>
+                </footer>
+            </div>
         </div>
 
         <h1 class="title">Active Sessions</h1>

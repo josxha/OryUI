@@ -7,15 +7,10 @@ namespace KratosSelfService.Services;
 
 public class ApiService(EnvService env)
 {
-    public readonly FrontendApi Frontend = new()
+    public readonly FrontendApi Frontend = new(new Configuration
     {
-        Configuration = new Configuration
-        {
-            BasePath = env.KratosPublicUrl
-        },
-        Client = new ApiClient("http://127.0.0.1:4433"),
-        AsynchronousClient = new ApiClient("http://127.0.0.1:4433")
-    };
+        BasePath = env.KratosPublicUrl
+    });
 
     public string GetUrlForFlow(string flow, Dictionary<string, string>? query = null)
     {

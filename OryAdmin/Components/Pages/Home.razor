@@ -4,35 +4,39 @@
 @attribute [StreamRendering(true)]
 @inject ICustomTranslator Translator
 @inject ILogger<Home> Logger
-@inject NavigationManager Navigation
 
 <PageTitle>Home</PageTitle>
 
 <section class="section mt-5">
-    <table class="table is-fullwidth">
-        <thead>
-        <tr>
-            <td>Key</td>
-            <td>Value</td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>Kratos Public URI</td>
-            <td>@_kratosPublicUrl</td>
-        </tr>
-        <tr>
-            <td>Kratos Admin URI</td>
-            <td>@_kratosAdminUrl</td>
-        </tr>
-        <tr>
-            <td>Kratos Ready</td>
-            <td>@_kratosReady</td>
-        </tr>
-        <tr>
-            <td>Kratos Version</td>
-            <td>@_kratosVersion</td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="columns is-multiline">
+        <div class="column is-half">
+            <div class="box">
+                <h2 class="title">Ory Kratos</h2>
+                <table class="table is-fullwidth">
+                    <tbody>
+                    <tr>
+                        <td>Kratos Public URL</td>
+                        <td>@_kratosPublicUrl</td>
+                    </tr>
+                    <tr>
+                        <td>Kratos Admin URL</td>
+                        <td>@_kratosAdminUrl</td>
+                    </tr>
+                    <tr>
+                        <td>Kratos Alive</td>
+                        <td>@(_kratosAlive ? "✅" : "❌")</td>
+                    </tr>
+                    <tr>
+                        <td>Kratos Ready</td>
+                        <td>@(_kratosReady ? "✅" : "❌")</td>
+                    </tr>
+                    <tr>
+                        <td>Kratos Version</td>
+                        <td>@_kratosVersion</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </section>

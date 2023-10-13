@@ -8,13 +8,14 @@
 <PageTitle>View Identity</PageTitle>
 
 <section class="section mt-5">
-    @if (_isLoading)
-    {
-        // is loading
-        <p>Loading data...</p>
-    }
-    else
-    {
+@if (_isLoading)
+{
+    // is loading
+    <p>Loading data...</p>
+}
+else
+{
+    <div class="box mt-3">
         <h1 class="title">General</h1>
         <table class="table is-fullwidth">
             <tbody>
@@ -66,7 +67,6 @@
                 Delete Identity
             </button>
         </div>
-
         <div id="delete-identity-modal" class="modal @(_showDeleteModal ? "is-active" : "")">
             <div class="modal-background"></div>
             <div class="modal-card">
@@ -89,7 +89,9 @@
                 </footer>
             </div>
         </div>
+    </div>
 
+    <div class="box">
         <h1 class="title">Active Sessions</h1>
         <table class="table is-fullwidth">
             <thead>
@@ -144,7 +146,9 @@
             }
             </tbody>
         </table>
+    </div>
 
+    <div class="box">
         <h1 class="title">Credentials</h1>
         <table class="table is-fullwidth">
             <thead>
@@ -184,7 +188,9 @@
             }
             </tbody>
         </table>
+    </div>
 
+    <div class="box">
         <h1 class="title">Verifiable Addresses</h1>
         <table class="table is-fullwidth">
             <thead>
@@ -229,7 +235,9 @@
             }
             </tbody>
         </table>
+    </div>
 
+    <div class="box">
         <h1 class="title">Recovery Addresses</h1>
         <table class="table is-fullwidth">
             <thead>
@@ -269,14 +277,13 @@
             }
             </tbody>
         </table>
+    </div>
 
-        <h1 class="title">Additional Properties</h1>
-        @if (_identity.AdditionalProperties.Count == 0)
-        {
-            <p>No additional identity properties.</p>
-        }
-        else
-        {
+
+    @if (_identity.AdditionalProperties.Count > 0)
+    {
+        <div class="box">
+            <h1 class="title">Additional Properties</h1>
             <table class="table is-fullwidth">
                 <thead>
                 <tr>
@@ -293,6 +300,7 @@
                 }
                 </tbody>
             </table>
-        }
+        </div>
     }
+}
 </section>

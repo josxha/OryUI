@@ -100,4 +100,7 @@
     <data name="ResetPassword" xml:space="preserve">
         <value>Reset Password</value>
     </data>
+    <data name="AccountSettings" xml:space="preserve">
+        <value>Account Settings</value>
+    </data>
 </root>

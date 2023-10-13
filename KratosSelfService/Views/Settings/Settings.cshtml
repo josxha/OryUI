@@ -1,8 +1,19 @@
-﻿@model object
+﻿@model KratosSettingsFlow
 @{
-    ViewData["Title"] = "Settings";
+    ViewData["Title"] = Translator.GetTranslation("AccountSettings");
 }
 
 <section class="section">
-    <h1 class="title">User Settings</h1>
+    <h1 class="title">@Translator.GetTranslation("AccountSettings")</h1>
+    @if (Model.Ui.Messages != null)
+    {
+        foreach (var message in Model.Ui.Messages)
+        {
+            @await Component.InvokeAsync("KratosUiTextMessage", message)
+        }
+    }
+    @foreach (var node in Model.Ui.Nodes)
+    {
+        @await Component.InvokeAsync("KratosUiNodeInput", node)
+    }
 </section>

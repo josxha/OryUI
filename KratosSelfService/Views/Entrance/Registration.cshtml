@@ -1,14 +1,14 @@
 ﻿@model KratosRegistrationFlow
 @{
-    ViewData["Title"] = Translator.GetTranslation("SignUp");
+    ViewData["Title"] = Translator.GetTranslation("Sign Up");
     Layout = "_CardLayout";
 }
 
-<h1 class="title has-text-centered">@Translator.GetTranslation("SignUp")</h1>
+<h1 class="title has-text-centered">@Translator.GetTranslation("Sign Up")</h1>
 <p class="has-text-centered">
-    @Translator.GetTranslation("AlreadyAnAccount")
+    @Translator.GetTranslation("Already have an account?")
     <a href="login">
-        @Translator.GetTranslation("SignIn")
+        @Translator.GetTranslation("Sign In")
     </a>
 </p>
 <hr/>
@@ -24,7 +24,7 @@
     {
         @await Component.InvokeAsync("KratosUiNodeInput", node)
     }
-    <div class="field separator mt-5">@Translator.GetTranslation("OrSignInWith")</div>
+    <div class="field separator mt-5">@Translator.GetTranslation("Or sign in with")</div>
     <div class="field">
         <div class="columns is-mobile is-multiline">
             @for (var i = 0; i < 1; i++)

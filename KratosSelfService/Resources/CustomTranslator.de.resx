@@ -64,43 +64,58 @@
             PublicKeyToken=b77a5c561934e089
         </value>
     </resheader>
-    <data name="SignIn" xml:space="preserve">
+    <data name="Sign In" xml:space="preserve">
         <value>Anmelden</value>
     </data>
     <data name="Password" xml:space="preserve">
         <value>Passwort</value>
     </data>
-    <data name="RememberMe" xml:space="preserve">
+    <data name="Remember me" xml:space="preserve">
         <value>Angemeldet bleiben</value>
     </data>
-    <data name="ForgotPassword" xml:space="preserve">
+    <data name="Forgot your password?" xml:space="preserve">
         <value>Passwort vergessen?</value>
     </data>
-    <data name="SignUp" xml:space="preserve">
+    <data name="Sign Up" xml:space="preserve">
         <value>Registrieren</value>
     </data>
-    <data name="UsernameOrEmail" xml:space="preserve">
+    <data name="Username or Email" xml:space="preserve">
         <value>Nutzername oder E-Mail</value>
     </data>
-    <data name="NoAccountYet" xml:space="preserve">
+    <data name="Don&apos;t have an account yet?" xml:space="preserve">
         <value>Du hast noch keinen Account?</value>
     </data>
-    <data name="AlreadyAnAccount" xml:space="preserve">
+    <data name="Already have an account?" xml:space="preserve">
         <value>Du hast bereits einen Account?</value>
     </data>
-    <data name="OrSignInWith" xml:space="preserve">
+    <data name="Or sign in with" xml:space="preserve">
         <value>Oder anmelden mit</value>
     </data>
-    <data name="HtmlLang" xml:space="preserve">
+    <data name="en" xml:space="preserve">
         <value>de</value>
     </data>
-    <data name="RememberYourPassword" xml:space="preserve">
+    <data name="Remember your password?" xml:space="preserve">
         <value>Du erinnerst dein Passwort?</value>
     </data>
-    <data name="ResetPassword" xml:space="preserve">
+    <data name="Reset Password" xml:space="preserve">
         <value>Passwort zurücksetzen</value>
     </data>
-    <data name="AccountSettings" xml:space="preserve">
+    <data name="Account Settings" xml:space="preserve">
         <value>Account Einstellungen</value>
+    </data>
+    <data name="Profile Settings" xml:space="preserve">
+        <value>Profil Einstellungen</value>
+    </data>
+    <data name="Manage 2FA Backup Recovery Codes" xml:space="preserve">
+        <value>Verwalte 2FA Wiederherstellungscodes</value>
+    </data>
+    <data name="Manage 2FA TOTP Authenticator App" xml:space="preserve">
+        <value>Verwalte 2FA Authentifikator App</value>
+    </data>
+    <data name="WebAuthn Login" xml:space="preserve">
+        <value>WebAuthn Anmeldung</value>
+    </data>
+    <data name="Change Password" xml:space="preserve">
+        <value>Passwort ändern</value>
     </data>
 </root>

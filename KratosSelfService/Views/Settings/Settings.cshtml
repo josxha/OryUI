@@ -1,10 +1,20 @@
-﻿@model KratosSettingsFlow
+﻿@inject ICustomTranslator Translator
+@using KratosSelfService.Extensions
+@model KratosSettingsFlow
 @{
-    ViewData["Title"] = Translator.GetTranslation("AccountSettings");
+    ViewData["Title"] = Translator.GetTranslation("Account Settings");
+    Layout = "_CardLayout";
+    var allGroups = Model.Ui.Nodes
+        .GroupBy(node => node.Group).ToList();
+    var defaultNodes = allGroups
+        .First(group => group.Key == KratosUiNode.GroupEnum.Default)
+        .ToArray();
+    var groups = allGroups
+        .Where(group => group.Key != KratosUiNode.GroupEnum.Default);
 }
 
 <section class="section">
-    <h1 class="title">@Translator.GetTranslation("AccountSettings")</h1>
+    <h1 class="title">@Translator.GetTranslation("Account Settings")</h1>
     @if (Model.Ui.Messages != null)
     {
         foreach (var message in Model.Ui.Messages)
@@ -12,8 +22,18 @@
             @await Component.InvokeAsync("KratosUiTextMessage", message)
         }
     }
-    @foreach (var node in Model.Ui.Nodes)
+    @foreach (var group in groups)
     {
-        @await Component.InvokeAsync("KratosUiNodeInput", node)
+        <h3 class="subtitle mt-6">@group.Key.ToLocalString(Translator)</h3>
+        <form action="@Model.ReturnTo" method="post">
+            @foreach (var node in defaultNodes)
+            {
+                @await Component.InvokeAsync("KratosUiNodeInput", node)
+            }
+            @foreach (var node in group)
+            {
+                @await Component.InvokeAsync("KratosUiNodeInput", node)
+            }
+        </form>
     }
 </section>

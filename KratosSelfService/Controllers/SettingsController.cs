@@ -10,12 +10,12 @@ public class SettingsController(ApiService api) : Controller
     {
         if (flowId == null)
         {
-            var newFlow = await api.FrontendApi
+            var newFlow = await api.Frontend
                 .CreateBrowserSettingsFlowAsync(cookie: Request.Headers.Cookie);
             return Redirect($"settings?flow={newFlow.Id}");
         }
 
-        var flow = await api.FrontendApi.GetSettingsFlowAsync(flowId, cookie: Request.Headers.Cookie);
+        var flow = await api.Frontend.GetSettingsFlowAsync(flowId, cookie: Request.Headers.Cookie);
         return View("Settings", flow);
     }
 }

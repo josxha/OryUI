@@ -21,7 +21,7 @@ public class EntranceController(ILogger<EntranceController> logger, ApiService a
         KratosLoginFlow flow;
         try
         {
-            flow = await api.FrontendApi.GetLoginFlowAsync(flowId, Request.Headers.Cookie);
+            flow = await api.Frontend.GetLoginFlowAsync(flowId, Request.Headers.Cookie);
         }
         catch (ApiException exception)
         {
@@ -35,7 +35,7 @@ public class EntranceController(ILogger<EntranceController> logger, ApiService a
             // we will create a new verification flow and redirect the user to the verification page
             try
             {
-                var response = await api.FrontendApi
+                var response = await api.Frontend
                     .CreateBrowserVerificationFlowWithHttpInfoAsync(flow.ReturnTo);
                 var verificationFlow = response.Data;
                 // we need the csrf cookie from the verification flow
@@ -61,14 +61,14 @@ public class EntranceController(ILogger<EntranceController> logger, ApiService a
     {
         if (flowId == null)
         {
-            var newFlow = await api.FrontendApi.CreateBrowserRecoveryFlowAsync();
+            var newFlow = await api.Frontend.CreateBrowserRecoveryFlowAsync();
             return Redirect($"recovery?flow={newFlow.Id}");
         }
 
         KratosRecoveryFlow flow;
         try
         {
-            flow = await api.FrontendApi.GetRecoveryFlowAsync(flowId, Request.Headers.Cookie);
+            flow = await api.Frontend.GetRecoveryFlowAsync(flowId, Request.Headers.Cookie);
         }
         catch (ApiException exception)
         {
@@ -93,7 +93,7 @@ public class EntranceController(ILogger<EntranceController> logger, ApiService a
         KratosRegistrationFlow flow;
         try
         {
-            flow = await api.FrontendApi.GetRegistrationFlowAsync(flowId, Request.Headers.Cookie);
+            flow = await api.Frontend.GetRegistrationFlowAsync(flowId, Request.Headers.Cookie);
         }
         catch (ApiException exception)
         {
@@ -118,7 +118,7 @@ public class EntranceController(ILogger<EntranceController> logger, ApiService a
         KratosVerificationFlow flow;
         try
         {
-            flow = await api.FrontendApi.GetVerificationFlowAsync(flowId, Request.Headers.Cookie);
+            flow = await api.Frontend.GetVerificationFlowAsync(flowId, Request.Headers.Cookie);
         }
         catch (ApiException exception)
         {
@@ -135,7 +135,7 @@ public class EntranceController(ILogger<EntranceController> logger, ApiService a
         KratosLogoutFlow flow;
         try
         {
-            flow = await api.FrontendApi.CreateBrowserLogoutFlowAsync(Request.Headers.Cookie);
+            flow = await api.Frontend.CreateBrowserLogoutFlowAsync(Request.Headers.Cookie);
         }
         catch (ApiException exception)
         {

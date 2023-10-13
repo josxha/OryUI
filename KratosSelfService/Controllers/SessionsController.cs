@@ -10,9 +10,9 @@ public class SessionsController(ApiService api) : Controller
     [HttpGet("sessions")]
     public async Task<IActionResult> Sessions()
     {
-        var currentSession = await api.FrontendApi.ToSessionAsync(cookie: Request.Headers.Cookie);
+        var currentSession = await api.Frontend.ToSessionAsync(cookie: Request.Headers.Cookie);
         // retrieve all other active sessions
-        var otherSessions = await api.FrontendApi
+        var otherSessions = await api.Frontend
             .ListMySessionsAsync(cookie: Request.Headers.Cookie) ?? new List<KratosSession>();
         var model = new SessionsModel(currentSession, otherSessions);
         return View("Sessions", model);
@@ -21,7 +21,7 @@ public class SessionsController(ApiService api) : Controller
     [HttpGet("sessions-logout")]
     public async Task<IActionResult> LogoutAllOtherSessions()
     {
-        _ = await api.FrontendApi.DisableMyOtherSessionsAsync(cookie: Request.Headers.Cookie);
+        _ = await api.Frontend.DisableMyOtherSessionsAsync(cookie: Request.Headers.Cookie);
         return Redirect("sessions");
     }
 }

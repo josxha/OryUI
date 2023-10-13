@@ -47,7 +47,7 @@ public partial class Create
         var body = new KratosCreateIdentityBody(schemaId: _selectedSchema, traits: traits);
         try
         {
-            _ = await ApiService.IdentityApi.CreateIdentityAsync(body);
+            _ = await ApiService.Identity.CreateIdentityAsync(body);
         }
         catch (ApiException exception)
         {

@@ -5,7 +5,11 @@ namespace KratosAdmin.Services;
 
 public class ApiService(EnvService env)
 {
-    public readonly IdentityApi IdentityApi = new(new Configuration
+    public readonly IdentityApi Identity = new(new Configuration
+    {
+        BasePath = env.KratosAdminUrl
+    });
+    public readonly MetadataApi Metadata = new(new Configuration
     {
         BasePath = env.KratosAdminUrl
     });

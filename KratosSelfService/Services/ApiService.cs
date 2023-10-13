@@ -7,7 +7,7 @@ namespace KratosSelfService.Services;
 
 public class ApiService(EnvService env)
 {
-    public readonly FrontendApi FrontendApi = new()
+    public readonly FrontendApi Frontend = new()
     {
         Configuration = new Configuration
         {

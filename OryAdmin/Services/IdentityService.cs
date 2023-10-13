@@ -7,7 +7,7 @@ public class IdentityService(ApiService apiService)
 {
     public async Task<List<KratosIdentity>> ListIdentities()
     {
-        return await apiService.IdentityApi.ListIdentitiesAsync();
+        return await apiService.Identity.ListIdentitiesAsync();
     }
 
     public static string? GetTraitValueFromPath(KratosIdentity identity, List<string> path)

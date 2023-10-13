@@ -19,7 +19,7 @@ public partial class Edit
 
     protected override async Task OnInitializedAsync()
     {
-        _identity = await ApiService.IdentityApi.GetIdentityAsync(UserId);
+        _identity = await ApiService.Identity.GetIdentityAsync(UserId);
         _traitSchemas = await SchemaService.GetTraitSchemas(_identity.SchemaId);
         _isLoading = false;
     }
@@ -35,7 +35,7 @@ public partial class Edit
         var updateBody = new KratosUpdateIdentityBody(traits: traits);
         try
         {
-            _ = await ApiService.IdentityApi.UpdateIdentityAsync(UserId, updateBody);
+            _ = await ApiService.Identity.UpdateIdentityAsync(UserId, updateBody);
         }
         catch (ApiException exception)
         {

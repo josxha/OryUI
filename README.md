@@ -17,7 +17,11 @@ Here is the current development state:
 - [ ] Edit Identity
 
 ### Ory Kratos Self Service UI 
-- [ ] Login
-- [ ] Register
+- [x] Login
+- [ ] Registration
 - [ ] Verify Email
 - [ ] Account Settings
+- [ ] Logout
+- [ ] Error Page
+- [ ] Recovery
+- [ ] Sessions

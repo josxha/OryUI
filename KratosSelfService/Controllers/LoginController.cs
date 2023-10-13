@@ -42,8 +42,8 @@ public class LoginController(ILogger<LoginController> logger, ApiService api) : 
         }
 
 
-        // the login requires that the user verifies their email address before logging in
         if (flow.Ui.Messages?.Any(text => text.Id == 4000010) ?? false)
+            // the login requires that the user verifies their email address before logging in
             // we will create a new verification flow and redirect the user to the verification page
             try
             {

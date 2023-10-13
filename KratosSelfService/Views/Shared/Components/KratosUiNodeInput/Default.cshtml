@@ -40,6 +40,8 @@
                         <button type="@inputAttr.Type.ToString().ToLower()" class="button is-success is-fullwidth"
                                 required="@inputAttr.Required"
                                 disabled="@inputAttr.Disabled"
+                                value="@inputAttr.Value"
+                                name="@inputAttr.Name"
                                 onclick="@inputAttr.Onclick">
                             @label?.Text
                         </button>

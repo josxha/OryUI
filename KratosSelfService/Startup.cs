@@ -1,8 +1,6 @@
 ﻿using System.Globalization;
 using KratosSelfService.Services;
-using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.AspNetCore.Localization;
-using Microsoft.Net.Http.Headers;
 
 namespace KratosSelfService;
 
@@ -10,11 +8,6 @@ public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
 {
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddHttpLogging(options =>
-        {
-            options.LoggingFields = HttpLoggingFields.All;
-            options.RequestHeaders.Add(HeaderNames.UserAgent);
-        });
         // Add services to the container.
         services.AddControllersWithViews();
 

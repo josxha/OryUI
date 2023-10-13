@@ -1,9 +1,7 @@
 ﻿using System.Globalization;
 using KratosAdmin.Components;
 using KratosAdmin.Services;
-using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.AspNetCore.Localization;
-using Microsoft.Net.Http.Headers;
 
 namespace KratosAdmin;
 
@@ -11,11 +9,6 @@ public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
 {
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddHttpLogging(options =>
-        {
-            options.LoggingFields = HttpLoggingFields.All;
-            options.RequestHeaders.Add(HeaderNames.UserAgent);
-        });
         services.AddHttpContextAccessor();
         services.AddRazorComponents()
             .AddServerComponents();

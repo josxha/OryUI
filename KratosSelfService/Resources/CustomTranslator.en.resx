@@ -83,7 +83,7 @@
         <value>Username or Email</value>
     </data>
     <data name="NoAccountYet" xml:space="preserve">
-        <value>a</value>
+        <value>Don't have an account yet?</value>
     </data>
     <data name="AlreadyAnAccount" xml:space="preserve">
         <value>Already have an account?</value>
@@ -93,5 +93,11 @@
     </data>
     <data name="HtmlLang" xml:space="preserve">
         <value>en</value>
+    </data>
+    <data name="RememberYourPassword" xml:space="preserve">
+        <value>Remember your password?</value>
+    </data>
+    <data name="ResetPassword" xml:space="preserve">
+        <value>Reset Password</value>
     </data>
 </root>

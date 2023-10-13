@@ -1,6 +1,6 @@
 ﻿@model KratosRecoveryFlow
 @{
-    ViewData["Title"] = "Forgot password";
+    ViewData["Title"] = Translator.GetTranslation("ResetPassword");
 }
 
 <section class="hero has-background-white-ter is-fullheight">
@@ -9,9 +9,9 @@
             <div class="columns is-centered">
                 <div class="column is-7-tablet is-6-desktop is-5-widescreen">
                     <div class="box">
-                        <h1 class="title has-text-centered">Forgot password</h1>
+                        <h1 class="title has-text-centered">@Translator.GetTranslation("ResetPassword")</h1>
                         <p class="has-text-centered">
-                            Remember your password?
+                            @Translator.GetTranslation("RememberYourPassword")
                             <a href="login">
                                 @Translator.GetTranslation("SignIn")
                             </a>

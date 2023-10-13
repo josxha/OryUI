@@ -94,4 +94,10 @@
     <data name="HtmlLang" xml:space="preserve">
         <value>de</value>
     </data>
+    <data name="RememberYourPassword" xml:space="preserve">
+        <value>Du erinnerst dein Passwort?</value>
+    </data>
+    <data name="ResetPassword" xml:space="preserve">
+        <value>Passwort zurücksetzen</value>
+    </data>
 </root>

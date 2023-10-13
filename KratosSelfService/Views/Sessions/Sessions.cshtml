@@ -6,8 +6,9 @@
 
 <section class="section">
     <h1 class="title">User Sessions</h1>
-    <p>You have @totalSessions active session@(totalSessions == 1 ? "" : "s").</p>
-    <table class="table">
+    <h2 class="subtitle">You have @totalSessions active session@(totalSessions == 1 ? "" : "s").</h2>
+    <h4 class="title mt-3">Current Session</h4>
+    <table class="table is-fullwidth">
         <thead>
         <tr>
             <td>Devices</td>
@@ -18,11 +19,45 @@
         </thead>
         <tbody>
         <tr>
-            <td>@string.Join(", ", Model.CurrentSession.Devices)</td>
-            <td>@string.Join(", ", Model.CurrentSession.AuthenticationMethods)</td>
+            <td>@string.Join(", ", Model.CurrentSession.Devices.Select(device => device.IpAddress))</td>
+            <td>@string.Join(", ", Model.CurrentSession.AuthenticationMethods.Select(method => method.Method.ToString()))</td>
             <td>@Model.CurrentSession.AuthenticatedAt</td>
             <td>@Model.CurrentSession.ExpiresAt</td>
         </tr>
         </tbody>
     </table>
+    <h4 class="title mt-3">Other Sessions</h4>
+    @if (Model.OtherSessions.Count == 0)
+    {
+        <p>There are no other active sessions.</p>
+    }
+    else
+    {
+        <div class="buttons">
+            <a class="button is-warning" href="sessions/logout">
+                Logout all other sessions
+            </a>
+        </div>
+        <table class="table is-fullwidth">
+            <thead>
+            <tr>
+                <td>Devices</td>
+                <td>Authentication Methods</td>
+                <td>Authenticated At</td>
+                <td>Expires At</td>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var session in Model.OtherSessions)
+            {
+                <tr>
+                    <td>@string.Join(", ", session.Devices.Select(device => device.IpAddress))</td>
+                    <td>@string.Join(", ", session.AuthenticationMethods.Select(method => method.Method.ToString()))</td>
+                    <td>@session.AuthenticatedAt</td>
+                    <td>@session.ExpiresAt</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
 </section>

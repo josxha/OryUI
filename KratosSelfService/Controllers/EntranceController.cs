@@ -16,14 +16,10 @@ public class EntranceController(ILogger<EntranceController> logger, ApiService a
             // initiate flow
             return Redirect("http://127.0.0.1:4433/self-service/login/browser");
 
-        var headers = Request.GetTypedHeaders();
-        var cookies = headers.Cookie;
-        var csrfToken =
-            cookies.First(cookie => cookie.Name.StartsWith("csrf_token", StringComparison.InvariantCulture));
         KratosLoginFlow flow;
         try
         {
-            flow = await api.FrontendApi.GetLoginFlowAsync(flowId, csrfToken?.ToString());
+            flow = await api.FrontendApi.GetLoginFlowAsync(flowId, Request.Headers.Cookie);
         }
         catch (ApiException exception)
         {
@@ -89,14 +85,10 @@ public class EntranceController(ILogger<EntranceController> logger, ApiService a
             // initiate flow
             return Redirect("http://127.0.0.1:4433/self-service/registration/browser");
 
-        var headers = Request.GetTypedHeaders();
-        var cookies = headers.Cookie;
-        var csrfToken =
-            cookies.First(cookie => cookie.Name.StartsWith("csrf_token", StringComparison.InvariantCulture));
         KratosRegistrationFlow flow;
         try
         {
-            flow = await api.FrontendApi.GetRegistrationFlowAsync(flowId, csrfToken?.ToString());
+            flow = await api.FrontendApi.GetRegistrationFlowAsync(flowId, Request.Headers.Cookie);
         }
         catch (ApiException exception)
         {

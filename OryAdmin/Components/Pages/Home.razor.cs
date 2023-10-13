@@ -1,15 +1,37 @@
 ﻿using KratosAdmin.Services;
 using Microsoft.AspNetCore.Components;
 
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ConvertToConstant.Local
+
 namespace KratosAdmin.Components.Pages;
 
 public partial class Home
 {
-    private string? _kratosAdminUrl;
+    private string _hydraAdminUrl = "?";
+    private bool _hydraAlive = false;
+    private string _hydraPublicUrl = "?";
+    private bool _hydraReady = false;
+    private string _hydraVersion = "?";
+
+    private string _ketoAdminUrl = "?";
+    private bool _ketoAlive = false;
+    private string _ketoPublicUrl = "?";
+    private bool _ketoReady = false;
+    private string _ketoVersion = "?";
+
+    private string _kratosAdminUrl = "?";
     private bool _kratosAlive;
-    private string? _kratosPublicUrl;
+    private string _kratosPublicUrl = "?";
     private bool _kratosReady;
-    private string? _kratosVersion;
+    private string _kratosVersion = "?";
+
+    private string _oathKeeperAdminUrl = "?";
+    private bool _oathKeeperAlive = false;
+    private string _oathKeeperPublicUrl = "?";
+    private bool _oathKeeperReady = false;
+    private string _oathKeeperVersion = "?";
+
     [Inject] private ApiService ApiService { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()

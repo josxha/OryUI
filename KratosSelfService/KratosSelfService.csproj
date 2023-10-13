@@ -71,7 +71,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Views\Shared\Components\"/>
+        <AdditionalFiles Include="Views\Shared\Components\KratosUiNodeInput.cshtml"/>
+        <AdditionalFiles Include="Views\Shared\Components\KratosUiTextMessage.cshtml"/>
     </ItemGroup>
 
 </Project>

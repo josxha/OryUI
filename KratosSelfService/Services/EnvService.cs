@@ -1,6 +1,6 @@
 ﻿using Ory.Kratos.Client.Client;
 
-namespace KratosSelfService;
+namespace KratosSelfService.Services;
 
 public class EnvService
 {

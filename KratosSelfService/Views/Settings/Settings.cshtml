@@ -24,8 +24,9 @@
     }
     @foreach (var group in groups)
     {
-        <h3 class="subtitle mt-6">@group.Key.ToLocalString(Translator)</h3>
-        <form action="@Model.ReturnTo" method="post">
+        <hr/>
+        <h3 class="subtitle mt-3">@group.Key.ToLocalString(Translator)</h3>
+        <form class="mb-3" action="@Model.ReturnTo" method="post">
             @foreach (var node in defaultNodes)
             {
                 @await Component.InvokeAsync("KratosUiNodeInput", node)

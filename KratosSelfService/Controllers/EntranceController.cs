@@ -11,10 +11,12 @@ public class EntranceController(ILogger<EntranceController> logger, ApiService a
     [HttpGet("login")]
     public async Task<IActionResult> Login([FromQuery(Name = "flow")] string? flowId)
     {
-        // https://www.ory.sh/docs/kratos/self-service/flows/user-login
         if (flowId == null)
+        {
             // initiate flow
-            return Redirect("http://127.0.0.1:4433/self-service/login/browser");
+            var url = api.GetUrlForFlow("login");
+            return Redirect(url);
+        }
 
         KratosLoginFlow flow;
         try
@@ -82,8 +84,11 @@ public class EntranceController(ILogger<EntranceController> logger, ApiService a
     public async Task<IActionResult> Registration([FromQuery(Name = "flow")] string? flowId)
     {
         if (flowId == null)
+        {
             // initiate flow
-            return Redirect("http://127.0.0.1:4433/self-service/registration/browser");
+            var url = api.GetUrlForFlow("registration");
+            return Redirect(url);
+        }
 
         KratosRegistrationFlow flow;
         try
@@ -105,9 +110,9 @@ public class EntranceController(ILogger<EntranceController> logger, ApiService a
     {
         if (flowId == null)
         {
-            var newFlow = await api.FrontendApi
-                .CreateBrowserVerificationFlowAsync();
-            return Redirect($"verification?flow={newFlow.Id}");
+            // initiate flow
+            var url = api.GetUrlForFlow("verification");
+            return Redirect(url);
         }
 
         KratosVerificationFlow flow;

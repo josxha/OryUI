@@ -1,14 +1,12 @@
 ﻿using Ory.Kratos.Client.Api;
+using Ory.Kratos.Client.Client;
 
 namespace KratosAdmin.Services;
 
-public class ApiService
+public class ApiService(EnvService env)
 {
-    public readonly IdentityApi IdentityApi;
-
-    public ApiService(EnvService envService)
+    public readonly IdentityApi IdentityApi = new(new Configuration
     {
-        var adminConfig = envService.KratosAdminConfig();
-        IdentityApi = new IdentityApi(adminConfig);
-    }
+        BasePath = env.KratosAdminUrl
+    });
 }

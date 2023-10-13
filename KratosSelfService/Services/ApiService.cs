@@ -5,24 +5,17 @@ using Ory.Kratos.Client.Client;
 
 namespace KratosSelfService.Services;
 
-public class ApiService
+public class ApiService(EnvService env)
 {
-    private readonly Configuration _Config;
-    public readonly FrontendApi FrontendApi;
-
-    public ApiService(EnvService envService)
+    public readonly FrontendApi FrontendApi = new()
     {
-        _Config = new Configuration
+        Configuration = new Configuration
         {
-            BasePath = "http://127.0.0.1:4433"
-        };
-        FrontendApi = new FrontendApi
-        {
-            Configuration = _Config,
-            Client = new ApiClient("http://127.0.0.1:4433"),
-            AsynchronousClient = new ApiClient("http://127.0.0.1:4433")
-        };
-    }
+            BasePath = env.KratosPublicUrl
+        },
+        Client = new ApiClient("http://127.0.0.1:4433"),
+        AsynchronousClient = new ApiClient("http://127.0.0.1:4433")
+    };
 
     public string GetUrlForFlow(string flow, Dictionary<string, string>? query = null)
     {
@@ -31,6 +24,7 @@ public class ApiService
             foreach (var (key, value) in query)
                 queryString.Add(key, value);
 
-        return $"{_Config.BasePath.RemoveTrailingSlash()}/self-service/{flow}/browser?{queryString}";
+        var baseUrl = env.KratosBrowserUrl ?? env.KratosPublicUrl;
+        return $"{baseUrl.RemoveTrailingSlash()}/self-service/{flow}/browser?{queryString}";
     }
 }

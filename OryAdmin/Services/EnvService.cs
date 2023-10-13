@@ -1,6 +1,4 @@
-﻿using Ory.Kratos.Client.Client;
-
-namespace KratosAdmin.Services;
+﻿namespace KratosAdmin.Services;
 
 public class EnvService
 {
@@ -9,12 +7,4 @@ public class EnvService
 
     public readonly string KratosPublicUrl =
         Environment.GetEnvironmentVariable("KRATOS_ADMIN_URL") ?? "http://127.0.0.1:4433";
-
-    public Configuration KratosAdminConfig()
-    {
-        return new Configuration
-        {
-            BasePath = KratosAdminUrl
-        };
-    }
 }

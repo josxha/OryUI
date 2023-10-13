@@ -118,4 +118,7 @@
     <data name="Change Password" xml:space="preserve">
         <value>Passwort ändern</value>
     </data>
+    <data name="Verify your account" xml:space="preserve">
+        <value>Account verifizieren</value>
+    </data>
 </root>

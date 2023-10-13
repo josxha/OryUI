@@ -24,7 +24,7 @@
                     <label class="label" id="@label?.Id">
                         @(inputAttr.Label?.Text ?? Model.Meta.Label?.Text)
                         <div class="control">
-                            <input type="@inputAttr.Type.ToString()" class="input"
+                            <input type="@inputAttr.Type.ToString().ToLower()" class="input"
                                    required="@inputAttr.Required"
                                    value="@inputAttr.Value" autocomplete="@inputAttr.Autocomplete"
                                    disabled="@inputAttr.Disabled" name="@inputAttr.Name"
@@ -66,7 +66,9 @@
             break;
         case KratosUiNode.TypeEnum.A:
             var anchorAttr = Model.Attributes.GetKratosUiNodeAnchorAttributes();
-            <a href="@anchorAttr.Href" id="@anchorAttr.Id">@anchorAttr.Title</a>
+            <div class="is-fullwidth has-text-centered">
+                <a href="@anchorAttr.Href" id="@anchorAttr.Id">@anchorAttr.Title.Text</a>
+            </div>
             break;
         case KratosUiNode.TypeEnum.Script:
             var scriptAttr = Model.Attributes.GetKratosUiNodeScriptAttributes();

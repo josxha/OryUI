@@ -138,6 +138,6 @@ public class EntranceController(ILogger<EntranceController> logger, ApiService a
             throw;
         }
 
-        return Redirect($"{flow.LogoutUrl}?token={flow.LogoutToken}");
+        return Redirect(flow.LogoutUrl);
     }
 }

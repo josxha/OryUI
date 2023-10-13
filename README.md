@@ -1,7 +1,8 @@
 ﻿# OryDotNet
 
-This project provides front ends for the [Ory](https://www.ory.sh/) Identity Management, Authentication and 
-Authorization backends.
+This project provides front ends for the [Ory](https://www.ory.sh/) Kratos APIs.
+
+Ory Kratos is a FOSS solution to Identity Management, Authentication and Authorization.
 
 ## State of development
 
@@ -21,7 +22,7 @@ Here is the current development state:
 - [x] Registration
 - [x] Verify Email
 - [ ] Account Settings
-- [ ] Logout
+- [x] Logout
 - [ ] Error Page
 - [ ] Recovery
 - [x] Sessions

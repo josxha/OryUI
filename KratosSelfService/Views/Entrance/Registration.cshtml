@@ -1,7 +1,7 @@
-﻿@{
-    ViewData["Title"] = Translator.GetTranslation("SignIn");
+﻿@model KratosRegistrationFlow
+@{
+    ViewData["Title"] = Translator.GetTranslation("SignUp");
 }
-@model LoginModel
 
 <section class="hero has-background-white-ter is-fullheight">
     <div class="hero-body">
@@ -9,23 +9,23 @@
             <div class="columns is-centered">
                 <div class="column is-7-tablet is-6-desktop is-5-widescreen">
                     <div class="box">
-                        <h1 class="title has-text-centered">@Translator.GetTranslation("SignIn")</h1>
+                        <h1 class="title has-text-centered">@Translator.GetTranslation("SignUp")</h1>
                         <p class="has-text-centered">
-                            @Translator.GetTranslation("NoAccountYet")
-                            <a href="register">
-                                @Translator.GetTranslation("SignUp")
+                            @Translator.GetTranslation("AlreadyAnAccount")
+                            <a href="login">
+                                @Translator.GetTranslation("SignIn")
                             </a>
                         </p>
                         <hr/>
-                        <form method="@Model.Flow.Ui.Method.ToLower()" action="@Model.Flow.Ui.Action">
-                            @if (Model.Flow.Ui.Messages != null)
+                        <form method="@Model.Ui.Method.ToLower()" action="@Model.Ui.Action">
+                            @if (Model.Ui.Messages != null)
                             {
-                                foreach (var message in Model.Flow.Ui.Messages)
+                                foreach (var message in Model.Ui.Messages)
                                 {
                                     @await Component.InvokeAsync("KratosUiTextMessage", message)
                                 }
                             }
-                            @foreach (var node in Model.Flow.Ui.Nodes)
+                            @foreach (var node in Model.Ui.Nodes)
                             {
                                 @await Component.InvokeAsync("KratosUiNodeInput", node)
                             }

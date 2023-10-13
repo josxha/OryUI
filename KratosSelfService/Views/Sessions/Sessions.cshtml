@@ -1,0 +1,28 @@
+﻿@model SessionsModel
+@{
+    ViewData["Title"] = "Sessions";
+    var totalSessions = Model.OtherSessions.Count + 1;
+}
+
+<section class="section">
+    <h1 class="title">User Sessions</h1>
+    <p>You have @totalSessions active session@(totalSessions == 1 ? "" : "s").</p>
+    <table class="table">
+        <thead>
+        <tr>
+            <td>Devices</td>
+            <td>Authentication Methods</td>
+            <td>Authenticated At</td>
+            <td>Expires At</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>@string.Join(", ", Model.CurrentSession.Devices)</td>
+            <td>@string.Join(", ", Model.CurrentSession.AuthenticationMethods)</td>
+            <td>@Model.CurrentSession.AuthenticatedAt</td>
+            <td>@Model.CurrentSession.ExpiresAt</td>
+        </tr>
+        </tbody>
+    </table>
+</section>

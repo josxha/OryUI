@@ -3,7 +3,7 @@
 namespace KratosSelfService.Controllers;
 
 [Route("health")]
-public class HealthController
+public class HealthController : Controller
 {
     [HttpGet("alive")]
     public string Alive()

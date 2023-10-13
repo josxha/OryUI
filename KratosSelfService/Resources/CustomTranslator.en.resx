@@ -83,9 +83,15 @@
         <value>Username or Email</value>
     </data>
     <data name="NoAccountYet" xml:space="preserve">
-        <value>Don't have an account?</value>
+        <value>a</value>
+    </data>
+    <data name="AlreadyAnAccount" xml:space="preserve">
+        <value>Already have an account?</value>
     </data>
     <data name="OrSignInWith" xml:space="preserve">
         <value>Or sign in with</value>
+    </data>
+    <data name="HtmlLang" xml:space="preserve">
+        <value>en</value>
     </data>
 </root>

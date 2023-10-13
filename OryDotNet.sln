@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KratosAdmin", "KratosAdmin\KratosAdmin.csproj", "{D8EAEAE9-0E7A-499D-BF26-D5482162534D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OryAdmin", "OryAdmin\OryAdmin.csproj", "{D8EAEAE9-0E7A-499D-BF26-D5482162534D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KratosSelfService", "KratosSelfService\KratosSelfService.csproj", "{3AED08D2-8192-4F04-A042-9D0F29AAB936}"
 EndProject

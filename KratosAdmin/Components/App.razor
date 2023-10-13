@@ -1,5 +1,7 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@inject ICustomTranslator Translator
+
+<!DOCTYPE html>
+<html lang="@Translator.GetTranslation("HtmlLang")">
 
 <head>
     <meta charset="utf-8"/>

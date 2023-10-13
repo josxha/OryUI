@@ -5,10 +5,9 @@ using Ory.Kratos.Client.Model;
 
 namespace KratosSelfService.Controllers;
 
-[Route("sessions")]
 public class SessionsController(ApiService api) : Controller
 {
-    [HttpGet]
+    [HttpGet("sessions")]
     public async Task<IActionResult> Sessions()
     {
         var currentSession = await api.FrontendApi.ToSessionAsync(cookie: Request.Headers.Cookie);
@@ -19,10 +18,10 @@ public class SessionsController(ApiService api) : Controller
         return View("Sessions", model);
     }
 
-    [HttpGet("logout")]
+    [HttpGet("sessions-logout")]
     public async Task<IActionResult> LogoutAllOtherSessions()
     {
         _ = await api.FrontendApi.DisableMyOtherSessionsAsync(cookie: Request.Headers.Cookie);
-        return Redirect("/sessions");
+        return Redirect("sessions");
     }
 }

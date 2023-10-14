@@ -1,7 +1,7 @@
-﻿using KratosAdmin.Models;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
+using OryAdmin.Models;
 
-namespace KratosAdmin.Extensions;
+namespace OryAdmin.Extensions;
 
 public static class JObjectExt
 {

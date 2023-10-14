@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Localization;
 
-namespace KratosAdmin;
+namespace OryAdmin;
 
 public class CustomTranslator(IStringLocalizer<CustomTranslator> localizer) : ICustomTranslator
 {

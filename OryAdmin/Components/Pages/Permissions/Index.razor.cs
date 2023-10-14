@@ -1,8 +1,8 @@
-﻿using KratosAdmin.Services;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Ory.Keto.Client.Model;
+using OryAdmin.Services;
 
-namespace KratosAdmin.Components.Pages.Permissions;
+namespace OryAdmin.Components.Pages.Permissions;
 
 public partial class Index
 {

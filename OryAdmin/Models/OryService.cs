@@ -1,4 +1,4 @@
-﻿namespace KratosAdmin.Models;
+﻿namespace OryAdmin.Models;
 
 public enum OryService
 {

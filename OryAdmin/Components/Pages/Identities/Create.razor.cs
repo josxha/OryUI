@@ -1,12 +1,12 @@
-﻿using KratosAdmin.Extensions;
-using KratosAdmin.Models;
-using KratosAdmin.Services;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Newtonsoft.Json.Linq;
 using Ory.Kratos.Client.Client;
 using Ory.Kratos.Client.Model;
+using OryAdmin.Extensions;
+using OryAdmin.Models;
+using OryAdmin.Services;
 
-namespace KratosAdmin.Components.Pages.Identities;
+namespace OryAdmin.Components.Pages.Identities;
 
 public partial class Create
 {

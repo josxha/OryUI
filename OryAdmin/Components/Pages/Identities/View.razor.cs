@@ -1,8 +1,8 @@
-﻿using KratosAdmin.Services;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Ory.Kratos.Client.Model;
+using OryAdmin.Services;
 
-namespace KratosAdmin.Components.Pages.Identities;
+namespace OryAdmin.Components.Pages.Identities;
 
 public partial class View
 {

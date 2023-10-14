@@ -5,7 +5,7 @@ using Ory.Kratos.Client.Api;
 using Ory.Oathkeeper.Client.Api;
 using MetadataApi = Ory.Hydra.Client.Api.MetadataApi;
 
-namespace KratosAdmin.Services;
+namespace OryAdmin.Services;
 
 public class ApiService(EnvService env)
 {
@@ -39,12 +39,12 @@ public class ApiService(EnvService env)
     // ory kratos
     public readonly IdentityApi KratosIdentity = new(new Ory.Kratos.Client.Client.Configuration
     {
-        BasePath = env.KratosAdminUrl
+        BasePath = env.OryAdminUrl
     });
 
     public readonly Ory.Kratos.Client.Api.MetadataApi KratosMetadata = new(new Ory.Kratos.Client.Client.Configuration
     {
-        BasePath = env.KratosAdminUrl
+        BasePath = env.OryAdminUrl
     });
 
     // ory oathkeeper

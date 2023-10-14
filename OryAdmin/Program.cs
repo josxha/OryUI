@@ -1,4 +1,4 @@
-using KratosAdmin;
+using OryAdmin;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddEnvironmentVariables().Build(); // use environment variables

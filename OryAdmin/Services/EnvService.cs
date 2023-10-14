@@ -1,6 +1,6 @@
-﻿using KratosAdmin.Models;
+﻿using OryAdmin.Models;
 
-namespace KratosAdmin.Services;
+namespace OryAdmin.Services;
 
 public class EnvService
 {
@@ -31,11 +31,11 @@ public class EnvService
     public readonly string KetoWriteUrl =
         Environment.GetEnvironmentVariable("KETO_WRITE_URL") ?? "http://127.0.0.1:4467";
 
-    public readonly string KratosAdminUrl =
-        Environment.GetEnvironmentVariable("KRATOS_ADMIN_URL") ?? "http://127.0.0.1:4434";
-
     public readonly string OathKeeperApiUrl =
         Environment.GetEnvironmentVariable("OATHKEEPER_API_URL") ?? "http://127.0.0.1:4456";
+
+    public readonly string OryAdminUrl =
+        Environment.GetEnvironmentVariable("KRATOS_ADMIN_URL") ?? "http://127.0.0.1:4434";
 
     public bool ServiceEnabled(OryService service)
     {

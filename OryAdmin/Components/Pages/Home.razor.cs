@@ -1,11 +1,11 @@
-﻿using KratosAdmin.Models;
-using KratosAdmin.Services;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
+using OryAdmin.Models;
+using OryAdmin.Services;
 
 // ReSharper disable FieldCanBeMadeReadOnly.Local
 // ReSharper disable ConvertToConstant.Local
 
-namespace KratosAdmin.Components.Pages;
+namespace OryAdmin.Components.Pages;
 
 public partial class Home
 {
@@ -24,8 +24,6 @@ public partial class Home
     private bool? _ketoReady;
     private string? _ketoVersion;
     private string _ketoWriteUrl = "?";
-
-    private string _kratosAdminUrl = "?";
     private bool? _kratosAlive;
     private bool? _kratosReady;
     private string? _kratosVersion;
@@ -35,11 +33,13 @@ public partial class Home
     private bool? _oathKeeperReady;
     private string? _oathKeeperVersion;
 
+    private string _OryAdminUrl = "?";
+
     [Inject] private ApiService ApiService { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()
     {
-        _kratosAdminUrl = EnvService.KratosAdminUrl;
+        _OryAdminUrl = EnvService.OryAdminUrl;
         _hydraAdminUrl = EnvService.HydraAdminUrl;
         _oathKeeperApiUrl = EnvService.OathKeeperApiUrl;
         _ketoWriteUrl = EnvService.KetoWriteUrl;

@@ -1,8 +1,8 @@
-﻿using KratosAdmin.Services;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Ory.Hydra.Client.Model;
+using OryAdmin.Services;
 
-namespace KratosAdmin.Components.Pages.OAuth2;
+namespace OryAdmin.Components.Pages.OAuth2;
 
 public partial class Index
 {

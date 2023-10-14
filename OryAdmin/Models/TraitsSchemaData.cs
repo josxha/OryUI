@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json.Schema;
 
-namespace KratosAdmin.Models;
+namespace OryAdmin.Models;
 
 public class TraitsSchemaData(JSchema schema, List<string> path)
 {

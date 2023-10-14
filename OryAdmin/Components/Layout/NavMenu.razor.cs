@@ -1,6 +1,6 @@
-﻿using KratosAdmin.Models;
+﻿using OryAdmin.Models;
 
-namespace KratosAdmin.Components.Layout;
+namespace OryAdmin.Components.Layout;
 
 public partial class NavMenu
 {

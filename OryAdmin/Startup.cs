@@ -1,9 +1,9 @@
 ﻿using System.Globalization;
-using KratosAdmin.Components;
-using KratosAdmin.Services;
 using Microsoft.AspNetCore.Localization;
+using OryAdmin.Components;
+using OryAdmin.Services;
 
-namespace KratosAdmin;
+namespace OryAdmin;
 
 public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
 {

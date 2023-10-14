@@ -1,8 +1,8 @@
-﻿using KratosAdmin.Models;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
+using OryAdmin.Models;
 
-namespace KratosAdmin.Services;
+namespace OryAdmin.Services;
 
 public class IdentitySchemaService(ApiService apiService)
 {

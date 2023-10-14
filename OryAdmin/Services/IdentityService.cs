@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using Ory.Kratos.Client.Model;
 
-namespace KratosAdmin.Services;
+namespace OryAdmin.Services;
 
 public class IdentityService(ApiService apiService)
 {

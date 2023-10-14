@@ -1,8 +1,8 @@
-﻿# OryDotNet
+﻿# Oryon - Ory User Interfaces
 
 > This project is currently under early development.
 
-OryDotNet provides user interfaces for the [Ory](https://www.ory.sh/) APIs. Ory is a 
+Oryon provides user interfaces for the [Ory](https://www.ory.sh/) APIs. Ory is a 
 [FOSS solution](https://www.ory.sh/open-source/) for authentication, authorization, access control, and delegation.
 
 The Ory stack consists of the following services:
@@ -15,9 +15,9 @@ user information, configure authentication methods and use a headless API."
 4. [Ory Keto](https://www.ory.sh/keto/): "Authorization Server inspired by Google's consistent, global 
 Authorization System, providing granular access policies with RBAC, ABAC and ACL."
 
-![GitHub last commit](https://img.shields.io/github/last-commit/josxha/OryDotNet)
-![GitHub issues](https://img.shields.io/github/issues/josxha/OryDotNet)
-![GitHub Repo stars](https://img.shields.io/github/stars/josxha/OryDotNet?style=social)
+![GitHub last commit](https://img.shields.io/github/last-commit/josxha/Oryon)
+![GitHub issues](https://img.shields.io/github/issues/josxha/Oryon)
+![GitHub Repo stars](https://img.shields.io/github/stars/josxha/Oryon?style=social)
 
 ## Projects
 
@@ -72,7 +72,7 @@ the [/KratosSelfService](/KratosSelfService) directory.
 
 #### Clone the project
 ```bash
-git clone https://github.com/josxha/OryDotNet.git
+git clone https://github.com/josxha/Oryon.git
 ```
 
 ### 2. Start the Ory services
@@ -85,6 +85,6 @@ docker compose up -d
 
 ### 3. Start the UI
 ```bash
-dotnet run ./OryAdmin
-dotnet run ./KratosSelfService
+dotnet run --project ./OryAdmin
+dotnet run --project ./KratosSelfService
 ```

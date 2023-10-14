@@ -4,7 +4,7 @@ on:
     branches: [ main ]
 
 jobs:
-  docker-ory_admin:
+  docker-ory-admin:
     name: [OryAdmin] Build docker image
     uses: josxha/Oryon/.github/workflows/docker-build-ory_admin.yml@main
     secrets: inherit

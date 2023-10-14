@@ -25,6 +25,10 @@ Authorization System, providing granular access policies with RBAC, ABAC and ACL
 OryAdmin is intended to be an administrative interface for the Ory services and located in the 
 [/OryAdmin](/OryAdmin) directory. It is inspired by the [kratos-admin-ui](https://github.com/dfoxg/kratos-admin-ui) project.
 
+<img src="images/OryAdmin/Home.jpeg" alt="OryAdmin Home Page" width="49%">
+<img src="images/OryAdmin/IdentitiesIndex.jpeg" alt="OryAdmin Identities Page" width="49%">
+<img src="images/OryAdmin/IdentitiesView.jpeg" alt="OryAdmin View Identity Page" width="49%">
+
 #### Features
 - Ory Kratos
   - View identities
@@ -34,11 +38,9 @@ OryAdmin is intended to be an administrative interface for the Ory services and 
   - Create identity
   - Edit identity
 - Ory Hydra
-  - [ ] TODO
-- Ory OathKeeper
-  - [ ] TODO
+  - View JSON Web Key Sets
 - Ory Keto
-  - [ ] TODO
+  - View namespaces and relationships
 
 #### Tested with the following versions
 Other versions may work (partially) too but haven't been tested.

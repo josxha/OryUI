@@ -79,6 +79,7 @@ git clone https://github.com/josxha/Oryon.git
 Run Ory locally by running the [/ory/docker-compose.yml](ory/docker-compose.yml) file. Ory will store its data 
 persistently in SqLite databases. 
 ```bash
+docker network create ory
 cd ./ory
 docker compose up -d 
 ```

@@ -1,0 +1,30 @@
+﻿version: "3"
+
+services: 
+  ory-admin:
+    #image: ghcr.io/josxha/ory_admin:latest
+    build: ./OryAdmin
+    ports:
+      - "127.0.0.1:5256:8080"
+    networks:
+      - ory
+    environment:
+      - KRATOS_ADMIN_URL=http://ory-kratos-1:4434
+      - HYDRA_ADMIN_URL=http://ory-hydra-1:4445
+      - OATHKEEPER_API_URL=http://ory-oathkeeper-1:4456
+      - KETO_READ_URL=http://ory-keto-1:4466
+      - KETO_WRITE_URL=http://ory-keto-1:4467
+  kratos-self-service:
+    #image: ghcr.io/josxha/kratos_self_service:latest
+    build: ./KratosSelfService
+    ports:
+      - "127.0.0.1:5110:8080"
+    networks:
+      - ory
+    environment:
+      - KRATOS_PUBLIC_URL=http://ory-kratos-1:4433
+      - KRATOS_BROWSER_URL=http://127.0.0.1:4433
+
+networks:
+  ory:
+    external: true

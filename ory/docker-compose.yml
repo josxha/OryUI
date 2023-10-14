@@ -97,6 +97,16 @@ services:
       - "127.0.0.1:3000:3000"
     networks:
       - intranet
+  keto:
+    image: oryd/keto:v0.11
+    ports:
+      - "4466:4466" # read api
+      - "4467:4467" # write api
+    command: serve -c /home/ory/keto.yml
+    volumes:
+      - type: bind
+        source: ./keto/keto.yml
+        target: /home/ory/keto.yml
 
 
 networks:

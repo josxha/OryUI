@@ -15,8 +15,8 @@ public partial class View
 
     protected override async Task OnInitializedAsync()
     {
-        _identity = await ApiService.Identity.GetIdentityAsync(UserId);
-        _activeSessions = await ApiService.Identity.ListIdentitySessionsAsync(UserId, active: true);
+        _identity = await ApiService.KratosIdentity.GetIdentityAsync(UserId);
+        _activeSessions = await ApiService.KratosIdentity.ListIdentitySessionsAsync(UserId, active: true);
         _isLoading = false;
     }
 
@@ -27,7 +27,7 @@ public partial class View
 
     private async Task DeleteIdentity()
     {
-        await ApiService.Identity.DeleteIdentityAsync(UserId);
+        await ApiService.KratosIdentity.DeleteIdentityAsync(UserId);
         Navigation.NavigateTo("identities");
     }
 
@@ -44,7 +44,7 @@ public partial class View
     private async Task UpdatePassword()
     {
         var body = new KratosCreateRecoveryLinkForIdentityBody(identityId: UserId);
-        var link = await ApiService.Identity.CreateRecoveryLinkForIdentityAsync(body);
+        var link = await ApiService.KratosIdentity.CreateRecoveryLinkForIdentityAsync(body);
         Navigation.NavigateTo(link.RecoveryLink);
     }
 }

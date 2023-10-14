@@ -1,0 +1,45 @@
+﻿@page "/permissions"
+@attribute [StreamRendering(true)]
+@inject ICustomTranslator Translator
+@inject ILogger<Home> Logger
+@inject NavigationManager Navigation
+@attribute [RenderModeServer]
+
+<PageTitle>Permissions</PageTitle>
+
+<div class="is-fullheight">
+    <section class="section mt-6">
+        <div class="mt-5">
+            @if (_isLoading)
+            {
+                // is loading
+                <p>Loading data...</p>
+            }
+            else
+            {
+                <h3 class="title">Relationship Namespaces</h3>
+                @if (_namespaces == null)
+                {
+                    <div class="message is-danger p-2">
+                        <p>Namespaces could not be loaded.</p>
+                    </div>
+                }
+                else
+                {
+                    <p>@_namespaces?.ToJson()</p>
+                }
+                <h3 class="title">Relationships</h3>
+                @if (_relationships == null)
+                {
+                    <div class="message is-danger p-2">
+                        <p>Relationships could not be loaded.</p>
+                    </div>
+                }
+                else
+                {
+                    <p>@_relationships?.ToJson()</p>
+                }
+            }
+        </div>
+    </section>
+</div>

@@ -14,14 +14,14 @@ public class IdentitySchemaService(ApiService apiService)
         if (_schemaCache.TryGetValue(schemaId, out var schema))
             return schema;
         // request and cache new schema object
-        var newSchema = await apiService.Identity.GetIdentitySchemaAsync(schemaId);
+        var newSchema = await apiService.KratosIdentity.GetIdentitySchemaAsync(schemaId);
         _schemaCache[schemaId] = (JObject)newSchema;
         return _schemaCache[schemaId];
     }
 
     public async Task<List<string>> ListIds()
     {
-        var schemas = await apiService.Identity.ListIdentitySchemasAsync();
+        var schemas = await apiService.KratosIdentity.ListIdentitySchemasAsync();
         foreach (var container in schemas) _schemaCache[container.Id] = (JObject)container.Schema;
         return schemas.Select(container => container.Id).ToList();
     }

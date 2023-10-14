@@ -18,7 +18,10 @@
         <PackageReference Include="Jenin.FontAwesome.Blazor" Version="1.2.0"/>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
         <PackageReference Include="Newtonsoft.Json.Schema" Version="3.0.15"/>
+        <PackageReference Include="Ory.Hydra.Client" Version="2.2.0-rc.3"/>
+        <PackageReference Include="Ory.Keto.Client" Version="0.11.0-alpha.0"/>
         <PackageReference Include="Ory.Kratos.Client" Version="1.0.0"/>
+        <PackageReference Include="Ory.Oathkeeper.Client" Version="0.40.6"/>
     </ItemGroup>
 
     <ItemGroup>

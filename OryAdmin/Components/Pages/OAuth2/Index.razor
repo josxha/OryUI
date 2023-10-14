@@ -1,0 +1,47 @@
+﻿@page "/oauth2"
+@attribute [StreamRendering(true)]
+@inject ICustomTranslator Translator
+@inject ILogger<Home> Logger
+@inject NavigationManager Navigation
+@attribute [RenderModeServer]
+
+<PageTitle>OAuth2</PageTitle>
+
+<div class="is-fullheight">
+    <section class="section mt-6">
+        <div class="mt-5">
+            @if (_isLoading)
+            {
+                // is loading
+                <p>Loading data...</p>
+            }
+            else
+            {
+                if (_jsonWebKeySet == null)
+                {
+                    <div class="message is-danger p-2">
+                        <p>The page could not be loaded.</p>
+                    </div>
+                }
+                else
+                {
+                    <table class="table is-fullwidth is-striped">
+                        <thead>
+                        <tr>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var jsonWebKey in _jsonWebKeySet!.Keys)
+                        {
+                            <tr>
+                                <td>@jsonWebKey.ToJson()</td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                }
+            }
+        </div>
+    </section>
+</div>

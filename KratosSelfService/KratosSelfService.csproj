@@ -73,8 +73,6 @@
     <ItemGroup>
         <AdditionalFiles Include="Views\Entrance\Verification.cshtml"/>
         <AdditionalFiles Include="Views\Settings\Settings.cshtml"/>
-        <AdditionalFiles Include="Views\Shared\Components\KratosUiNodeInput.cshtml"/>
-        <AdditionalFiles Include="Views\Shared\Components\KratosUiTextMessage.cshtml"/>
     </ItemGroup>
 
 </Project>

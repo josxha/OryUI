@@ -21,14 +21,14 @@
         <form @onsubmit="SubmitForm">
             @foreach (var schema in _traitSchemas!)
             {
-                var value = IdentityService.GetTraitValueFromPath(_identity!, schema.Path);
+                var value = IdentityService.GetTraitValueFromPath(_json!, schema.Path);
                 <div class="field">
                     <label class="label">
                         @schema.Schema.Title
                         <div class="control">
                             <input type="text" class="input" required="@schema.Schema.Required"
-                                   value="@value"
-                                   id="@schema.Schema.Id"/>
+                                   value="@value" id="@schema.Schema.Id"
+                                   @onchange="args => UpdateValue(schema, args)"/>
                         </div>
                     </label>
                 </div>

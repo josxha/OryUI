@@ -1,5 +1,6 @@
 ﻿@page "/identities"
 @using KratosAdmin.Services
+@using Newtonsoft.Json.Linq
 @attribute [StreamRendering(true)]
 @inject ICustomTranslator Translator
 @inject ILogger<Home> Logger
@@ -46,7 +47,7 @@
                             @foreach (var schema in _traitSchemes!)
                             {
                                 <td>
-                                    @IdentityService.GetTraitValueFromPath(identity, schema.Path)
+                                    @IdentityService.GetTraitValueFromPath((JObject)identity.Traits, schema.Path)
                                 </td>
                             }
                         </tr>

@@ -8,8 +8,8 @@ OryDotNet provides user interfaces for the [Ory](https://www.ory.sh/) APIs. Ory 
 The Ory stack consists of the following services:
 1. [Ory Kratos](https://www.ory.sh/kratos/): "Cloud native user management system. Provision IDs, store user 
 information, configure authentication methods and use a headless API."
-2. [Ory Hydra](https://www.ory.sh/hydra/): "Cloud native user management system. Provision IDs, store user 
-information, configure authentication methods and use a headless API."
+2. [Ory Hydra](https://www.ory.sh/hydra/): "OAuth 2.0 and OpenID Certified® OpenID Connect server. Cloud native, 
+security-first, headless API security for your infrastructure."
 3. [Ory OathKeeper](https://www.ory.sh/oathkeeper/): "Cloud native user management system. Provision IDs, store 
 user information, configure authentication methods and use a headless API."
 4. [Ory Keto](https://www.ory.sh/keto/): "Authorization Server inspired by Google's consistent, global 
@@ -19,22 +19,40 @@ Authorization System, providing granular access policies with RBAC, ABAC and ACL
 ![GitHub issues](https://img.shields.io/github/issues/josxha/OryDotNet)
 ![GitHub Repo stars](https://img.shields.io/github/stars/josxha/OryDotNet?style=social)
 
-## State of development
-
-This is the current development state:
+## Projects
 
 ### Ory Admin UI
-OryAdmin is intended to be an administrative interface for the Ory services. It is inspired by 
-the [kratos-admin-ui](https://github.com/dfoxg/kratos-admin-ui) project.
-- [x] View Identities
-- [x] View Identity with active sessions
-- [x] Delete Identity
-- [x] Update Password / Account Recovery
-- [x] Create Identity
-- [ ] Edit Identity
+OryAdmin is intended to be an administrative interface for the Ory services and located in the 
+[/OryAdmin](/OryAdmin) directory. It is inspired by the [kratos-admin-ui](https://github.com/dfoxg/kratos-admin-ui) project.
+
+#### Features
+- Ory Kratos
+  - View identities
+  - View identity with active sessions
+  - Delete identity
+  - Update password / account recovery
+  - Create identity
+  - Edit identity
+- Ory Hydra
+  - [ ] TODO
+- Ory OathKeeper
+  - [ ] TODO
+- Ory Keto
+  - [ ] TODO
+
+#### Tested with the following versions
+Other versions may work (partially) too but haven't been tested.
+
+| Service        | Version |
+|----------------|---------|
+| Ory Kratos     | `v1.0`  |
+| Ory Hydra      | `v2.2`  |
+| Ory OathKeeper | `v0.40` |
+| Ory Keto       | `v1.11` |
 
 ### Ory Kratos Self Service UI
-KratosSelfService aims to be a drop-in replacement for the [kratos-selfservice-ui-node](https://github.com/ory/kratos-selfservice-ui-node).
+KratosSelfService aims to be a drop-in replacement for the [kratos-selfservice-ui-node](https://github.com/ory/kratos-selfservice-ui-node) and is located in 
+the [/KratosSelfService](/KratosSelfService) directory.
 
 - [x] Login
 - [x] Registration
@@ -46,17 +64,26 @@ KratosSelfService aims to be a drop-in replacement for the [kratos-selfservice-u
 - [x] Sessions
 
 ## Get Started
-1. Clone the project
+### 1. Preparation
+#### Required software
+- asp.net version 8
+- docker
+- docker compose
+
+#### Clone the project
 ```bash
 git clone https://github.com/josxha/OryDotNet.git
 ```
-2. Run Ory locally by running the [/ory/docker-compose.yml](ory/docker-compose.yml) file. Ory will store its data 
+
+### 2. Start the Ory services
+Run Ory locally by running the [/ory/docker-compose.yml](ory/docker-compose.yml) file. Ory will store its data 
 persistently in SqLite databases. 
 ```bash
 cd ./ory
 docker compose up -d 
 ```
-3. Start the UI
+
+### 3. Start the UI
 ```bash
 dotnet run ./OryAdmin
 dotnet run ./KratosSelfService

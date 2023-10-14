@@ -10,9 +10,8 @@ public class IdentityService(ApiService apiService)
         return await apiService.KratosIdentity.ListIdentitiesAsync();
     }
 
-    public static string? GetTraitValueFromPath(KratosIdentity identity, List<string> path)
+    public static string? GetTraitValueFromPath(JObject traits, List<string> path)
     {
-        var traits = (JObject)identity.Traits;
         var jToken = traits[path.First()];
         foreach (var pathSection in path.Skip(1)) jToken = jToken?[pathSection];
         return jToken?.ToString();

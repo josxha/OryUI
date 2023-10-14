@@ -14,16 +14,32 @@ public partial class Index
 
     protected override async Task OnInitializedAsync()
     {
-        try
+        var tasks = new List<Task>
         {
-            //_namespaces = await ApiService.KetoRelationship.ListRelationshipNamespacesAsync();
-            _relationships = await ApiService.KetoRelationship.GetRelationshipsAsync();
-        }
-        catch (Exception)
-        {
-            // ignored
-        }
-
+            Task.Run(async () =>
+            {
+                try
+                {
+                    _namespaces = await ApiService.KetoRelationship.ListRelationshipNamespacesAsync();
+                }
+                catch (Exception)
+                {
+                    // ignored
+                }
+            }),
+            Task.Run(async () =>
+            {
+                try
+                {
+                    _relationships = await ApiService.KetoRelationship.GetRelationshipsAsync();
+                }
+                catch (Exception)
+                {
+                    // ignored
+                }
+            })
+        };
+        await Task.WhenAll(tasks);
         _isLoading = false;
     }
 }

@@ -35,8 +35,6 @@ public partial class Create
 
     private async Task SubmitForm()
     {
-        Console.WriteLine(_json);
-
         var body = new KratosCreateIdentityBody(schemaId: _selectedSchema, traits: _json);
         try
         {

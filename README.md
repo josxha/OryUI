@@ -30,7 +30,7 @@ the [kratos-admin-ui](https://github.com/dfoxg/kratos-admin-ui) project.
 - [x] View Identity with active sessions
 - [x] Delete Identity
 - [x] Update Password / Account Recovery
-- [ ] Create Identity
+- [x] Create Identity
 - [ ] Edit Identity
 
 ### Ory Kratos Self Service UI

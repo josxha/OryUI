@@ -9,6 +9,11 @@ namespace KratosAdmin.Components.Pages;
 
 public partial class Home
 {
+    private bool _enabledHydra;
+    private bool _enabledKeto;
+    private bool _enabledKratos;
+    private bool _enabledOathKeeper;
+
     private string _hydraAdminUrl = "?";
     private bool? _hydraAlive;
     private bool? _hydraReady;
@@ -32,11 +37,6 @@ public partial class Home
 
     [Inject] private ApiService ApiService { get; set; } = default!;
 
-    private bool ServiceEnabled(OryService service)
-    {
-        return EnvService.ServiceEnabled(service);
-    }
-
     protected override async Task OnInitializedAsync()
     {
         _kratosAdminUrl = EnvService.KratosAdminUrl;
@@ -44,6 +44,11 @@ public partial class Home
         _oathKeeperApiUrl = EnvService.OathKeeperApiUrl;
         _ketoWriteUrl = EnvService.KetoWriteUrl;
         _ketoReadUrl = EnvService.KetoReadUrl;
+
+        _enabledKratos = EnvService.ServiceEnabled(OryService.Kratos);
+        _enabledHydra = EnvService.ServiceEnabled(OryService.Hydra);
+        _enabledOathKeeper = EnvService.ServiceEnabled(OryService.OathKeeper);
+        _enabledKeto = EnvService.ServiceEnabled(OryService.Keto);
 
         var tasks = new List<Task>();
 

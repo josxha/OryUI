@@ -7,7 +7,7 @@
 <PageTitle>Home</PageTitle>
 
 <section class="section mt-5 columns is-multiline">
-    @if (ServiceEnabled(OryService.Kratos))
+    @if (_enabledKratos)
     {
         <div class="column is-half">
             <div class="box">
@@ -41,7 +41,7 @@
             </div>
         </div>
     }
-    @if (ServiceEnabled(OryService.Hydra))
+    @if (_enabledHydra)
     {
         <div class="column is-half">
             <div class="box">
@@ -75,7 +75,7 @@
             </div>
         </div>
     }
-    @if (ServiceEnabled(OryService.OathKeeper))
+    @if (_enabledOathKeeper)
     {
         <div class="column is-half">
             <div class="box">
@@ -110,7 +110,7 @@
             </div>
         </div>
     }
-    @if (ServiceEnabled(OryService.Keto))
+    @if (_enabledKeto)
     {
         <div class="column is-half">
             <div class="box">

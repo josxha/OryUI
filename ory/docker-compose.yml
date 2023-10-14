@@ -23,7 +23,7 @@ services:
     networks:
       - ory
     ports:
-      - '127.0.0.1:4455:3000'
+      - '127.0.0.1:4450:3000'
   kratos:
     depends_on:
       - kratos-migrate
@@ -52,7 +52,6 @@ services:
       - '127.0.0.1:4437:4437'
     networks:
       - ory
-
   hydra:
     image: oryd/hydra:v2.2
     ports:
@@ -107,6 +106,31 @@ services:
       - type: bind
         source: ./keto/keto.yml
         target: /home/ory/keto.yml
+    networks:
+      - ory
+  oathkeeper:
+    image: oryd/oathkeeper:v0.40
+    ports:
+      - "127.0.0.1:4455:4455"
+      - "127.0.0.1:4456:4456"
+    command: serve --config=/etc/config/oathkeeper/config.yml
+    environment:
+      - TRACING_PROVIDER=jaeger
+      - TRACING_PROVIDERS_JAEGER_PROPAGATION=jaeger
+      - TRACING_PROVIDERS_JAEGER_SAMPLING_SERVER_URL=http://ory-jaeger-1:5778/sampling
+      - TRACING_PROVIDERS_JAEGER_LOCAL_AGENT_ADDRESS=ory-jaeger-1:6831
+      - TRACING_PROVIDERS_JAEGER_SAMPLING_TYPE=const
+      - TRACING_PROVIDERS_JAEGER_SAMPLING_VALUE=1
+    volumes:
+      - type: bind
+        source: ./oathkeeper
+        target: /etc/config/oathkeeper
+    networks:
+      - ory
+  jaeger:
+    image: jaegertracing/all-in-one
+    ports:
+      - "127.0.0.1:16686:16686" # The UI port
     networks:
       - ory
 

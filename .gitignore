@@ -5,3 +5,4 @@ riderModule.iml
 /_ReSharper.Caches/
 *.sqlite
 Oryon.sln.DotSettings.user
+.idea/

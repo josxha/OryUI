@@ -11,6 +11,7 @@ services:
     environment:
       - KRATOS_ADMIN_URL=http://ory-kratos-1:4434
       - HYDRA_ADMIN_URL=http://ory-hydra-1:4445
+      - HYDRA_PUBLIC_URL=http://ory-hydra-1:4444
       - OATHKEEPER_API_URL=http://ory-oathkeeper-1:4456
       - KETO_READ_URL=http://ory-keto-1:4466
       - KETO_WRITE_URL=http://ory-keto-1:4467

@@ -13,15 +13,22 @@ public partial class Index
 
     protected override async Task OnInitializedAsync()
     {
-        try
+        var tasks = new List<Task>
         {
-            _jsonWebKeySet = await ApiService.HydraWellknown.DiscoverJsonWebKeysAsync();
-        }
-        catch (Exception)
-        {
-            // ignored
-        }
+            Task.Run(async () =>
+            {
+                try
+                {
+                    _jsonWebKeySet = await ApiService.HydraWellknown.DiscoverJsonWebKeysAsync();
+                }
+                catch (Exception)
+                {
+                    // ignored
+                }
+            })
+        };
 
+        await Task.WhenAll(tasks);
         _isLoading = false;
     }
 }

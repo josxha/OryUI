@@ -17,7 +17,7 @@ public class ApiService(EnvService env)
 
     public readonly WellknownApi HydraWellknown = new(new Configuration
     {
-        BasePath = env.HydraAdminUrl
+        BasePath = env.HydraPublicUrl
     });
 
     // ory keto

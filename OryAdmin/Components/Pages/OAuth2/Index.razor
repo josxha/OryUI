@@ -17,31 +17,42 @@
             }
             else
             {
+                <h3 class="title">JSON Web Keys</h3>
                 if (_jsonWebKeySet == null)
                 {
                     <div class="message is-danger p-2">
-                        <p>The page could not be loaded.</p>
+                        <p>The JSON Web Keys could not be loaded.</p>
                     </div>
                 }
                 else
                 {
-                    <table class="table is-fullwidth is-striped">
-                        <thead>
-                        <tr>
-
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach (var jsonWebKey in _jsonWebKeySet!.Keys)
-                        {
-                            <tr>
-                                <td>@jsonWebKey.ToJson()</td>
-                            </tr>
-                        }
-                        </tbody>
-                    </table>
+                    if (_jsonWebKeySet.Keys.Count == 0)
+                    {
+                        <p>There are no JSON Web Keys.</p>
+                    }
+                    else
+                    {
+                        <div class="columns">
+                            @foreach (var jsonWebKey in _jsonWebKeySet!.Keys)
+                            {
+                                <div class="column is-one-quarter mt-3 content is-small">
+                                    <pre class="is-small">@jsonWebKey.ToJson()</pre>
+                                </div>
+                            }
+                        </div>
+                    }
                 }
             }
+            <table class="table is-fullwidth is-striped">
+                <thead>
+                <tr>
+
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
         </div>
     </section>
 </div>

@@ -22,6 +22,9 @@ public class EnvService
     public readonly string HydraAdminUrl =
         Environment.GetEnvironmentVariable("HYDRA_ADMIN_URL") ?? "http://127.0.0.1:4445";
 
+    public readonly string HydraPublicUrl =
+        Environment.GetEnvironmentVariable("HYDRA_PUBLIC_URL") ?? "http://127.0.0.1:4444";
+
     public readonly string KetoReadUrl =
         Environment.GetEnvironmentVariable("KETO_READ_URL") ?? "http://127.0.0.1:4466";
 

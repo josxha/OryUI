@@ -66,7 +66,7 @@ services:
         target: /var/lib/sqlite
         read_only: false
       - type: bind
-        source: ./contrib/quickstart/5-min
+        source: ./hydra
         target: /etc/config/hydra
     environment:
       - DSN=sqlite:///var/lib/sqlite/db.sqlite?_fk=true

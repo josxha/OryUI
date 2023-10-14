@@ -14,6 +14,7 @@ services:
       - OATHKEEPER_API_URL=http://ory-oathkeeper-1:4456
       - KETO_READ_URL=http://ory-keto-1:4466
       - KETO_WRITE_URL=http://ory-keto-1:4467
+      - ENABLED_SERVICES=kratos,hydra,oathkeeper,keto
   kratos-self-service:
     #image: ghcr.io/josxha/kratos_self_service:latest
     build: ./KratosSelfService

@@ -1,0 +1,18 @@
+﻿name: Build on commit
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  docker-ory_admin:
+    name: [OryAdmin] Build docker image
+    uses: josxha/Oryon/.github/workflows/docker-build-ory_admin.yml@main
+    secrets: inherit
+    with:
+      IMAGE_TAG: latest
+  #docker-kratos_self_service:
+  #  name: [KratosSelfService] Build docker image
+  #  uses: josxha/Oryon/.github/workflows/docker-build-kratos_self_service.yml@main
+  #  secrets: inherit
+  #  with:
+  #    IMAGE_TAG: latest

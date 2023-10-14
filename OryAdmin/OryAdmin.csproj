@@ -29,4 +29,8 @@
         <_ContentIncludedByDefault Remove="wwwroot\bootstrap\bootstrap.min.css.map"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <AdditionalFiles Include="Components\Elements\AsyncBoolean.razor"/>
+    </ItemGroup>
+
 </Project>

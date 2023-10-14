@@ -1,0 +1,16 @@
+﻿@namespace KratosAdmin.Components.Elements
+
+@if (Value == null)
+{
+    <progress class="progress is-light" max="100"></progress>
+}
+else
+{
+    @(Value ?? false ? "✅" : "❌")
+}
+
+@code
+{
+    [Parameter]
+    public required bool? Value { get; set; }
+}

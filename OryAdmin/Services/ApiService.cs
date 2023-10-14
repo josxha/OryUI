@@ -2,6 +2,7 @@
 using Ory.Hydra.Client.Client;
 using Ory.Keto.Client.Api;
 using Ory.Kratos.Client.Api;
+using Ory.Oathkeeper.Client.Api;
 using MetadataApi = Ory.Hydra.Client.Api.MetadataApi;
 
 namespace KratosAdmin.Services;
@@ -44,5 +45,21 @@ public class ApiService(EnvService env)
     public readonly Ory.Kratos.Client.Api.MetadataApi KratosMetadata = new(new Ory.Kratos.Client.Client.Configuration
     {
         BasePath = env.KratosAdminUrl
+    });
+
+    // ory oathkeeper
+    public readonly ApiApi OathKeeperApi = new(new Ory.Oathkeeper.Client.Client.Configuration
+    {
+        BasePath = env.OathKeeperApiUrl
+    });
+
+    public readonly HealthApi OathKeeperHealth = new(new Ory.Oathkeeper.Client.Client.Configuration
+    {
+        BasePath = env.OathKeeperApiUrl
+    });
+
+    public readonly VersionApi OathKeeperVersion = new(new Ory.Oathkeeper.Client.Client.Configuration
+    {
+        BasePath = env.OathKeeperApiUrl
     });
 }

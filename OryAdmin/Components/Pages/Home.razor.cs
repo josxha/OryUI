@@ -24,9 +24,9 @@ public partial class Home
     private bool _kratosReady;
     private string _kratosVersion = "?";
 
-    private string _oathKeeperAdminUrl = "?";
-    private bool _oathKeeperAlive = false;
-    private bool _oathKeeperReady = false;
+    private bool _oathKeeperAlive;
+    private string _oathKeeperApiUrl = "?";
+    private bool _oathKeeperReady;
     private string _oathKeeperVersion = "?";
 
     [Inject] private ApiService ApiService { get; set; } = default!;
@@ -76,6 +76,22 @@ public partial class Home
             _ketoAlive = alive.Status == "ok";
             var ready = await ApiService.KetoMetadata.IsReadyAsync();
             _ketoReady = ready.Status == "ok";
+        }
+        catch (Exception)
+        {
+            // ignored
+        }
+
+        // oathkeeper
+        _oathKeeperApiUrl = EnvService.OathKeeperApiUrl;
+        try
+        {
+            var version = await ApiService.OathKeeperVersion.GetVersionAsync();
+            _oathKeeperVersion = version._Version;
+            var alive = await ApiService.OathKeeperHealth.IsInstanceAliveAsync();
+            _oathKeeperAlive = alive.Status == "ok";
+            var ready = await ApiService.OathKeeperHealth.IsInstanceReadyAsync();
+            _oathKeeperReady = ready.Status == "ok";
         }
         catch (Exception)
         {

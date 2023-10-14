@@ -13,4 +13,7 @@ public class EnvService
 
     public readonly string KratosAdminUrl =
         Environment.GetEnvironmentVariable("KRATOS_ADMIN_URL") ?? "http://127.0.0.1:4434";
+
+    public readonly string OathKeeperApiUrl =
+        Environment.GetEnvironmentVariable("OATHKEEPER_API_URL") ?? "http://127.0.0.1:4456";
 }

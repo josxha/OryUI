@@ -48,6 +48,9 @@ public class IdentitySchemaService(ApiService apiService)
                 case JSchemaType.Object:
                     list.AddRange(FlattenTraits(trait.Properties, newPath));
                     break;
+                case JSchemaType.Array:
+                    // TODO support arrays
+                    break;
                 default:
                     list.Add(new TraitsSchemaData(trait, newPath));
                     break;

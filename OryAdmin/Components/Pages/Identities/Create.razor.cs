@@ -1,4 +1,5 @@
-﻿using KratosAdmin.Models;
+﻿using KratosAdmin.Extensions;
+using KratosAdmin.Models;
 using KratosAdmin.Services;
 using Microsoft.AspNetCore.Components;
 using Newtonsoft.Json.Linq;
@@ -9,6 +10,7 @@ namespace KratosAdmin.Components.Pages.Identities;
 
 public partial class Create
 {
+    private readonly JObject _json = new();
     private string? _errorMessage;
     private bool _isLoading = true;
 
@@ -33,18 +35,9 @@ public partial class Create
 
     private async Task SubmitForm()
     {
-        var properties = new List<JProperty>();
-        foreach (var schema in _traitsSchemas!)
-        {
-            var path = string.Join(".", schema.Path);
-            var property = new JProperty(path, "test");
-            properties.Add(property);
-        }
+        Console.WriteLine(_json);
 
-        var traits = new JObject(properties);
-
-        Console.WriteLine(traits);
-        var body = new KratosCreateIdentityBody(schemaId: _selectedSchema, traits: traits);
+        var body = new KratosCreateIdentityBody(schemaId: _selectedSchema, traits: _json);
         try
         {
             _ = await ApiService.KratosIdentity.CreateIdentityAsync(body);
@@ -56,5 +49,10 @@ public partial class Create
         }
 
         Navigation.NavigateTo("identities");
+    }
+
+    private void UpdateValue(TraitsSchemaData schema, ChangeEventArgs args)
+    {
+        _json.UpdateValueWithSchema(schema, args.Value);
     }
 }

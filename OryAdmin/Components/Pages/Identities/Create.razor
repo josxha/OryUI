@@ -23,8 +23,8 @@
                     <label class="label">
                         @schema.Schema.Title
                         <div class="control">
-                            <input type="text" class="input"
-                                   id="@schema.Schema.Id" value="asdf"/>
+                            <input type="text" class="input" id="@schema.Schema.Id" value=""
+                                   @onchange="args => UpdateValue(schema, args)"/>
                         </div>
                     </label>
                 </div>

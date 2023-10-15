@@ -1,5 +1,6 @@
 ﻿@page "/identities/{UserId}/edit"
 @attribute [StreamRendering]
+@attribute [RenderModeInteractiveServer]
 @inject ICustomTranslator Translator
 @inject ILogger<Home> Logger
 @inject NavigationManager Navigation
@@ -46,4 +47,23 @@
             </div>
         </form>
     }
+</section>
+
+<section class="section mt-6">
+    <h1>Counter</h1>
+
+    <p role="status">Current count: @currentCount</p>
+
+    <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+    @code {
+        private int currentCount;
+
+        private void IncrementCount()
+        {
+            currentCount++;
+        }
+
+    }
+
 </section>

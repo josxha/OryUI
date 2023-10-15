@@ -33,11 +33,11 @@ jobs:
     secrets: inherit
     with:
       IMAGE_TAG: latest
-  #docker-kratos_self-service:  
-  #  name: KratosSelfService
-  #  uses: josxha/Oryon/.github/workflows/docker-build-kratos_self_service.yml@main
-  #  needs: check-changes
-  #  if: ${{ needs.check-changes.outputs.ory-admin == 'true' }}
-  #  secrets: inherit
-  #  with:
-  #    IMAGE_TAG: latest
+  docker-kratos_self-service:
+    name: KratosSelfService
+    uses: josxha/Oryon/.github/workflows/docker-build-kratos_self_service.yml@main
+    needs: check-changes
+    if: ${{ needs.check-changes.outputs.ory-admin == 'true' }}
+    secrets: inherit
+    with:
+      IMAGE_TAG: latest

@@ -1,4 +1,4 @@
-﻿name: "[KratosSelfService] Build Docker Image"
+﻿name: "[OryAdmin] Build Docker Image"
 
 on:
   workflow_call:
@@ -30,7 +30,7 @@ jobs:
     - name: Build the Docker image
       run: | 
         docker build . --file OryAdmin/Dockerfile \
-        --tag ghcr.io/josxha/kratos_self_service:${{ github.sha }} \
-        --tag ghcr.io/josxha/kratos_self_service:${{ inputs.IMAGE_TAG }}
+        --tag ghcr.io/josxha/ory_admin:${{ github.sha }} \
+        --tag ghcr.io/josxha/ory_admin:${{ inputs.IMAGE_TAG }}
     - name: Push the Docker image
-      run: docker push ghcr.io/josxha/kratos_self_service --all-tags
+      run: docker push ghcr.io/josxha/ory_admin --all-tags

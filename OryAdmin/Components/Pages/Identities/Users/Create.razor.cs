@@ -6,7 +6,7 @@ using OryAdmin.Extensions;
 using OryAdmin.Models;
 using OryAdmin.Services;
 
-namespace OryAdmin.Components.Pages.Identities;
+namespace OryAdmin.Components.Pages.Identities.Users;
 
 public partial class Create
 {
@@ -46,7 +46,7 @@ public partial class Create
             return;
         }
 
-        Navigation.NavigateTo("identities");
+        Navigation.NavigateTo("identities/users");
     }
 
     private void UpdateValue(TraitsSchemaData schema, ChangeEventArgs args)

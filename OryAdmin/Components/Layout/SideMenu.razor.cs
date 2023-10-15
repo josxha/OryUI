@@ -2,7 +2,7 @@
 
 namespace OryAdmin.Components.Layout;
 
-public partial class NavMenu
+public partial class SideMenu
 {
     private bool ServiceEnabled(OryService service)
     {

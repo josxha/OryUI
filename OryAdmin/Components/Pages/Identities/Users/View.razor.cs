@@ -2,7 +2,7 @@
 using Ory.Kratos.Client.Model;
 using OryAdmin.Services;
 
-namespace OryAdmin.Components.Pages.Identities;
+namespace OryAdmin.Components.Pages.Identities.Users;
 
 public partial class View
 {
@@ -22,13 +22,13 @@ public partial class View
 
     private void EditIdentity()
     {
-        Navigation.NavigateTo($"identities/{UserId}/edit");
+        Navigation.NavigateTo($"identities/users/{UserId}/edit");
     }
 
     private async Task DeleteIdentity()
     {
         await ApiService.KratosIdentity.DeleteIdentityAsync(UserId);
-        Navigation.NavigateTo("identities");
+        Navigation.NavigateTo("identities/users");
     }
 
     private void ShowDeleteModal()

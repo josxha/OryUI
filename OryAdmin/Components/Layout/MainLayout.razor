@@ -2,6 +2,13 @@
 
 <NavMenu/>
 
-<main class="main-content">
-    @Body
-</main>
+<section class="main-content section columns is-fullheight mt-5">
+    <div class="container column is-2">
+        <SideMenu/>
+    </div>
+    <div class="container column is-10">
+        <main>
+            @Body
+        </main>
+    </div>
+</section>

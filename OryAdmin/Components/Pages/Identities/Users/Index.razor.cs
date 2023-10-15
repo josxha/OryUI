@@ -4,7 +4,7 @@ using Ory.Kratos.Client.Model;
 using OryAdmin.Models;
 using OryAdmin.Services;
 
-namespace OryAdmin.Components.Pages.Identities;
+namespace OryAdmin.Components.Pages.Identities.Users;
 
 public partial class Index
 {

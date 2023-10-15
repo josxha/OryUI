@@ -31,6 +31,10 @@
 
     <ItemGroup>
         <AdditionalFiles Include="Components\Elements\AsyncBoolean.razor"/>
+        <AdditionalFiles Include="Components\Pages\Identities\Users\Create.razor"/>
+        <AdditionalFiles Include="Components\Pages\Identities\Users\Edit.razor"/>
+        <AdditionalFiles Include="Components\Pages\Identities\Users\Index.razor"/>
+        <AdditionalFiles Include="Components\Pages\Identities\Users\View.razor"/>
     </ItemGroup>
 
 </Project>

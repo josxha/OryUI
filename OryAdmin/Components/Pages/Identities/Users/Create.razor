@@ -1,0 +1,45 @@
+﻿@page "/identities/users/create"
+@attribute [StreamRendering]
+@attribute [RenderModeInteractiveServer]
+@inject ICustomTranslator Translator
+@inject ILogger<Home> Logger
+@inject NavigationManager Navigation
+
+<PageTitle>Create Identity</PageTitle>
+
+<h1 class="title">Create Identity</h1>
+@if (_isLoading)
+{
+    // is loading
+    <p>Loading data...</p>
+}
+else
+{
+    <form @onsubmit="SubmitForm">
+        @foreach (var schema in _traitsSchemas!)
+        {
+            <div class="field">
+                <label class="label">
+                    @schema.Schema.Title
+                    <div class="control">
+                        <input type="text" class="input" id="@schema.Schema.Id" value=""
+                               @onchange="args => UpdateValue(schema, args)"/>
+                    </div>
+                </label>
+            </div>
+        }
+        <div class="message is-warning p-2 @(string.IsNullOrWhiteSpace(_errorMessage) ? "is-hidden" : "")">
+            @_errorMessage
+        </div>
+        <div class="mt-5">
+            <div class="buttons">
+                <button class="button" href="identities/users">
+                    Cancel
+                </button>
+                <button type="submit" class="button is-success">
+                    Save
+                </button>
+            </div>
+        </div>
+    </form>
+}

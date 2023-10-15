@@ -6,7 +6,7 @@ using OryAdmin.Extensions;
 using OryAdmin.Models;
 using OryAdmin.Services;
 
-namespace OryAdmin.Components.Pages.Identities;
+namespace OryAdmin.Components.Pages.Identities.Users;
 
 public partial class Edit
 {
@@ -29,7 +29,7 @@ public partial class Edit
 
     private void Cancel()
     {
-        Navigation.NavigateTo($"identities/{UserId}");
+        Navigation.NavigateTo($"identities/users/{UserId}");
     }
 
     private async Task SubmitForm()
@@ -45,7 +45,7 @@ public partial class Edit
             return;
         }
 
-        Navigation.NavigateTo($"identities/{UserId}");
+        Navigation.NavigateTo($"identities/users/{UserId}");
     }
 
     private void UpdateValue(TraitsSchemaData schema, ChangeEventArgs args)

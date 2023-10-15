@@ -1,5 +1,5 @@
 ﻿@inject EnvService EnvService
-<nav class="navbar is-fixed-top is-success" role="navigation" aria-label="main navigation">
+<nav class="navbar is-fixed-top has-shadow is-success" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="">
             <h1 class="title">OryAdmin</h1>
@@ -14,39 +14,6 @@
 
     <div id="fixedNavBar" class="navbar-menu">
         <div class="navbar-start">
-            <NavLink class="navbar-item" href="" Match="NavLinkMatch.All">
-                <span class="icon">
-                    <Icon IconName="fa-home" IconSize="IconSize.X01" aria-hidden="true"></Icon>
-                </span>
-                Home
-            </NavLink>
-            @if (ServiceEnabled(OryService.Kratos))
-            {
-                <NavLink class="navbar-item" href="identities">
-                    <span class="icon">
-                        <Icon IconName="fa-user" IconSize="IconSize.X01" aria-hidden="true"></Icon>
-                    </span>
-                    Identities
-                </NavLink>
-            }
-            @if (ServiceEnabled(OryService.Hydra))
-            {
-                <NavLink class="navbar-item" href="oauth2">
-                    <span class="icon">
-                        <Icon IconName="fa-circle-nodes" IconSize="IconSize.X01" aria-hidden="true"></Icon>
-                    </span>
-                    OAuth2
-                </NavLink>
-            }
-            @if (ServiceEnabled(OryService.Keto))
-            {
-                <NavLink class="navbar-item" href="permissions">
-                    <span class="icon">
-                        <Icon IconName="fa-key" IconSize="IconSize.X01" aria-hidden="true"></Icon>
-                    </span>
-                    Permissions
-                </NavLink>
-            }
         </div>
 
         <div class="navbar-end">

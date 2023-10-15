@@ -1,0 +1,22 @@
+﻿@page "/identities/schemas"
+@attribute [StreamRendering]
+@attribute [RenderModeInteractiveServer]
+@inject ICustomTranslator Translator
+@inject ILogger<Home> Logger
+@inject NavigationManager Navigation
+
+<PageTitle>Create Identity</PageTitle>
+
+<h1 class="title">Create Identity</h1>
+@if (_isLoading)
+{
+    // is loading
+    <p>Loading data...</p>
+}
+else
+{
+    foreach (var schema in _schemas)
+    {
+        <p>@schema.Id</p>
+    }
+}

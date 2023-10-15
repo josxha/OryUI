@@ -1,5 +1,5 @@
 ﻿@page "/identities/{UserId}"
-@attribute [StreamRendering(true)]
+@attribute [StreamRendering]
 @inject ICustomTranslator Translator
 @inject ILogger<Home> Logger
 @inject NavigationManager Navigation
@@ -52,12 +52,12 @@ else
         </table>
 
         <div class="buttons">
-            <NavLink class="button" href="identities">
+            <a class="button" href="identities">
                 Back
-            </NavLink>
-            <NavLink class="button is-info" @onclick="EditIdentity">
+            </a>
+            <a class="button is-info" href="identities/@(_identity!.Id)/edit">
                 Edit Identity
-            </NavLink>
+            </a>
             <button class="button is-info" @onclick="UpdatePassword">
                 Update Password
             </button>

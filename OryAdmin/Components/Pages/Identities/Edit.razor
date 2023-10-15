@@ -1,5 +1,5 @@
 ﻿@page "/identities/{UserId}/edit"
-@attribute [StreamRendering(true)]
+@attribute [StreamRendering]
 @inject ICustomTranslator Translator
 @inject ILogger<Home> Logger
 @inject NavigationManager Navigation
@@ -36,9 +36,9 @@
             </div>
             <div class="mt-5">
                 <div class="buttons">
-                    <NavLink class="button" @onclick="Cancel">
+                    <a class="button" href="identities/@(_identity?.Id)">
                         Cancel
-                    </NavLink>
+                    </a>
                     <button type="submit" class="button is-success">
                         Save
                     </button>

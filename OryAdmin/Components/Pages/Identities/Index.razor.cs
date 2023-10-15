@@ -30,11 +30,6 @@ public partial class Index
         _isLoading = false;
     }
 
-    private void ViewIdentity(string identityId)
-    {
-        Navigation.NavigateTo($"identities/{identityId}");
-    }
-
     private void RefreshPage(MouseEventArgs arg)
     {
         Navigation.Refresh(true);

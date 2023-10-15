@@ -1,5 +1,5 @@
 ﻿@page "/identities/create"
-@attribute [StreamRendering(true)]
+@attribute [StreamRendering]
 @inject ICustomTranslator Translator
 @inject ILogger<Home> Logger
 @inject NavigationManager Navigation
@@ -33,9 +33,9 @@
             </div>
             <div class="mt-5">
                 <div class="buttons">
-                    <NavLink class="button" href="identities">
+                    <button class="button" href="identities">
                         Cancel
-                    </NavLink>
+                    </button>
                     <button type="submit" class="button is-success">
                         Save
                     </button>

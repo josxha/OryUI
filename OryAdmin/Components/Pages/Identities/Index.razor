@@ -1,6 +1,6 @@
 ﻿@page "/identities"
 @using Newtonsoft.Json.Linq
-@attribute [StreamRendering(true)]
+@attribute [StreamRendering]
 @inject ICustomTranslator Translator
 @inject ILogger<Home> Logger
 @inject NavigationManager Navigation
@@ -9,10 +9,10 @@
 
 <div class="is-fullheight">
     <section class="section mt-6">
-        <NavLink href="identities/create" class="button is-success">
+        <a href="identities/create" class="button is-success">
             New Identity
-        </NavLink>
-        <button class="button is-info" @onclick="RefreshPage">
+        </a>
+        <button class="button is-info" @onclick="@RefreshPage">
             Refresh Page
         </button>
         <div class="mt-5">
@@ -38,9 +38,9 @@
                     {
                         <tr>
                             <td>
-                                <NavLink class="btn-link" @onclick="() => ViewIdentity(identity.Id)">
+                                <a class="btn-link" href="identities/@(identity.Id)">
                                     @identity.Id
-                                </NavLink>
+                                </a>
                             </td>
                             @foreach (var schema in _traitSchemes!)
                             {

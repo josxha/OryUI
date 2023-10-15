@@ -10,12 +10,12 @@ on:
 jobs:
   check-changes:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: read
     outputs:
       ory-admin: ${{ steps.filter.outputs.ory_admin }}
       kratos-self-service: ${{ steps.filter.outputs.kratos-self-service }}
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       - uses: dorny/paths-filter@v2
         name: git diff
         id: filter

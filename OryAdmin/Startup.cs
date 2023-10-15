@@ -11,7 +11,7 @@ public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
     {
         services.AddHttpContextAccessor();
         services.AddRazorComponents()
-            .AddServerComponents();
+            .AddInteractiveServerComponents();
 
         // localisation
         services.AddLocalization(options => options.ResourcesPath = "Resources");
@@ -49,9 +49,10 @@ public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
         }
 
         app.UseStaticFiles();
-
+        app.UseAntiforgery();
+        
         app.MapRazorComponents<App>()
-            .AddServerRenderMode();
+            .AddInteractiveServerRenderMode();
         return Task.CompletedTask;
     }
 }

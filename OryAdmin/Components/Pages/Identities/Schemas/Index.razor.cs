@@ -10,7 +10,7 @@ public partial class Index
 
     private List<KratosIdentitySchemaContainer>? _schemas;
 
-    private object? _selectedSchema;
+    private KratosIdentitySchemaContainer? _selectedSchema;
 
     [SupplyParameterFromQuery(Name = "id")]
     // ReSharper disable once UnusedAutoPropertyAccessor.Local

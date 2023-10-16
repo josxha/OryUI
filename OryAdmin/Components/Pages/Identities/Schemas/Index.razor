@@ -15,11 +15,28 @@
 }
 else
 {
-    foreach (var schema in _schemas)
+    if (_schemas!.Count == 0)
     {
-        <h3 class="subtitle">Schema: @schema.Id</h3>
+        <p>You haven't added any schemas yet.</p>
+    }
+    else
+    {
+        @if (_schemas.Count > 1)
+        {
+            <div class="tabs">
+                <ul>
+                    @foreach (var schema in _schemas!)
+                    {
+                        <li class="@(schema.Id == SchemaId ? "is-active" : "")">
+                            <a href="identities/schemas?id=@schema.Id">@schema.Id</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+        <h3 class="subtitle">Schema "@SchemaId"</h3>
         <pre class="is-small">
-            <code>@schema.Schema</code>
+            @_selectedSchema
         </pre>
     }
 }

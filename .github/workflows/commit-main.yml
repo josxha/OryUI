@@ -29,7 +29,7 @@ jobs:
     name: OryAdmin
     uses: josxha/Oryon/.github/workflows/docker-build-ory-admin.yml@main
     needs: check-changes
-    if: ${{ needs.check-changes.outputs.contains('ory-admin') == 'true' }}
+    if: ${{ contains(needs.check-changes.outputs, 'ory-admin') == 'true' }}
     secrets: inherit
     with:
       IMAGE_TAG: latest
@@ -37,7 +37,7 @@ jobs:
     name: KratosSelfService
     uses: josxha/Oryon/.github/workflows/docker-build-kratos-self-service.yml@main
     needs: check-changes
-    if: ${{ needs.check-changes.outputs.contains('kratos-self-service') == 'true' }}
+    if: ${{ contains(needs.check-changes.outputs, 'kratos-self-service') == 'true' }}
     secrets: inherit
     with:
       IMAGE_TAG: latest

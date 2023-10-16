@@ -13,7 +13,6 @@ public partial class Index
     private KratosIdentitySchemaContainer? _selectedSchema;
 
     [SupplyParameterFromQuery(Name = "id")]
-    // ReSharper disable once UnusedAutoPropertyAccessor.Local
     private string? SchemaId { get; set; }
 
     [Inject] private ApiService ApiService { get; set; } = default!;
@@ -28,11 +27,7 @@ public partial class Index
             return;
         }
 
-        if (SchemaId == null)
-        {
-            Navigation.NavigateTo($"identities/schemas?id={_schemas.First().Id}");
-            return;
-        }
+        SchemaId ??= _schemas.First().Id;
 
         _selectedSchema = _schemas.First(schema => schema.Id == SchemaId);
         _isLoading = false;

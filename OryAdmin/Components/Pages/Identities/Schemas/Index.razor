@@ -5,9 +5,9 @@
 @inject ILogger<Home> Logger
 @inject NavigationManager Navigation
 
-<PageTitle>Create Identity</PageTitle>
+<PageTitle>Identity Schemas</PageTitle>
 
-<h1 class="title">Create Identity</h1>
+<h1 class="title">Identity Schemas</h1>
 @if (_isLoading)
 {
     // is loading
@@ -17,6 +17,9 @@ else
 {
     foreach (var schema in _schemas)
     {
-        <p>@schema.Id</p>
+        <h3 class="subtitle">Schema: @schema.Id</h3>
+        <pre class="is-small">
+            <code>@schema.Schema</code>
+        </pre>
     }
 }

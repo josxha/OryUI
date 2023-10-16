@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Ory.Kratos.Client.Model;
-using OryAdmin.Models;
 using OryAdmin.Services;
 
 namespace OryAdmin.Components.Pages.Identities.Users;
@@ -10,22 +9,19 @@ public partial class Index
 {
     private List<KratosIdentity>? _identities;
     private bool _isLoading = true;
-    private List<TraitsSchemaData>? _traitSchemes;
 
     [SupplyParameterFromQuery(Name = "page")]
     private int? PageNr { get; set; }
 
-    [Inject] private IdentityService IdentityService { get; set; } = default!;
     [Inject] private IdentitySchemaService SchemaService { get; set; } = default!;
+    [Inject] private ApiService ApiService { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()
     {
         PageNr ??= 1;
-        var schemeIds = await SchemaService.ListIds();
-        _traitSchemes = await SchemaService.GetTraitSchemas(schemeIds.First());
 
         // TODO use pagination to support a large amount of identities
-        _identities = await IdentityService.ListIdentities();
+        _identities = await ApiService.KratosIdentity.ListIdentitiesAsync();
 
         _isLoading = false;
     }

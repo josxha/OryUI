@@ -20,7 +20,6 @@ public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
         // own services
         services.AddSingleton<EnvService>();
         services.AddSingleton<ApiService>();
-        services.AddSingleton<IdentityService>();
         services.AddSingleton<IdentitySchemaService>();
     }
 

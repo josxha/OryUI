@@ -19,23 +19,30 @@ public class EnvService
         })
         .ToArray();
 
+    // ory hydra
     public readonly string HydraAdminUrl =
         Environment.GetEnvironmentVariable("HYDRA_ADMIN_URL") ?? "http://127.0.0.1:4445";
 
     public readonly string HydraPublicUrl =
         Environment.GetEnvironmentVariable("HYDRA_PUBLIC_URL") ?? "http://127.0.0.1:4444";
 
+    // ory keto
     public readonly string KetoReadUrl =
         Environment.GetEnvironmentVariable("KETO_READ_URL") ?? "http://127.0.0.1:4466";
 
     public readonly string KetoWriteUrl =
         Environment.GetEnvironmentVariable("KETO_WRITE_URL") ?? "http://127.0.0.1:4467";
 
+    // ory kratos
+    public readonly string KratosAdminUrl =
+        Environment.GetEnvironmentVariable("KRATOS_ADMIN_URL") ?? "http://127.0.0.1:4434";
+
+    public readonly string KratosPublicUrl =
+        Environment.GetEnvironmentVariable("KRATOS_PUBLIC_URL") ?? "http://127.0.0.1:4433";
+
+    // ory oathkeeper
     public readonly string OathKeeperApiUrl =
         Environment.GetEnvironmentVariable("OATHKEEPER_API_URL") ?? "http://127.0.0.1:4456";
-
-    public readonly string OryAdminUrl =
-        Environment.GetEnvironmentVariable("KRATOS_ADMIN_URL") ?? "http://127.0.0.1:4434";
 
     public bool ServiceEnabled(OryService service)
     {

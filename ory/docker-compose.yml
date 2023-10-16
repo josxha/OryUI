@@ -55,9 +55,9 @@ services:
   hydra:
     image: oryd/hydra:v2.2
     ports:
-      - "4444:4444" # Public port
-      - "4445:4445" # Admin port
-      - "5555:5555" # Port for hydra token user
+      - "127.0.0.1:4444:4444" # Public port
+      - "127.0.0.1:4445:4445" # Admin port
+      - "127.0.0.1:5555:5555" # Port for hydra token user
     command: serve -c /etc/config/hydra/hydra.yml all --dev
     volumes:
       - type: bind
@@ -99,8 +99,8 @@ services:
   keto:
     image: oryd/keto:v0.11
     ports:
-      - "4466:4466" # read api
-      - "4467:4467" # write api
+      - "127.0.0.1:4466:4466" # read api
+      - "127.0.0.1:4467:4467" # write api
     command: serve -c /home/ory/keto.yml
     volumes:
       - type: bind

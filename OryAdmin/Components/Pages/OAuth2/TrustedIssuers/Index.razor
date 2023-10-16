@@ -1,0 +1,62 @@
+﻿@page "/oauth2/issuers"
+@attribute [StreamRendering]
+@attribute [RenderModeInteractiveServer]
+@inject ICustomTranslator Translator
+@inject ILogger<Home> Logger
+@inject NavigationManager Navigation
+
+<PageTitle>OAuth 2 JWT Grant Issuers</PageTitle>
+
+@if (_isLoading)
+{
+    // is loading
+    <p>Loading data...</p>
+}
+else
+{
+    <h3 class="title">OAuth 2 JWT Grant Issuers</h3>
+    if (_trustedIssuers == null)
+    {
+        <div class="message is-danger p-2">
+            <p>The list could not be loaded.</p>
+        </div>
+    }
+    else
+    {
+        if (_trustedIssuers.Count == 0)
+        {
+            <p>There are no issuers.</p>
+        }
+        else
+        {
+            <table class="table is-fullwidth is-striped">
+                <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Issuer</td>
+                    <td>Scope</td>
+                    <td>Subject</td>
+                    <td>Allow any subject</td>
+                    <td>Timestamps</td>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var issuer in _trustedIssuers!)
+                {
+                    <tr>
+                        <td>@issuer.Id</td>
+                        <td>@issuer.Issuer</td>
+                        <td>@string.Join(",", issuer.Scope)</td>
+                        <td>@issuer.Subject</td>
+                        <td>@issuer.AllowAnySubject</td>
+                        <td>
+                            <p>Created: @issuer.CreatedAt</p>
+                            <p>Expires: @issuer.ExpiresAt</p>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+    }
+}

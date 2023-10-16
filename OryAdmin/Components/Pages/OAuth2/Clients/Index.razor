@@ -1,0 +1,55 @@
+﻿@page "/oauth2/clients"
+@attribute [StreamRendering]
+@attribute [RenderModeInteractiveServer]
+@inject ICustomTranslator Translator
+@inject ILogger<Home> Logger
+@inject NavigationManager Navigation
+
+<PageTitle>OAuth 2 Clients</PageTitle>
+
+@if (_isLoading)
+{
+    // is loading
+    <p>Loading data...</p>
+}
+else
+{
+    <h3 class="title">OAuth 2 Clients</h3>
+    if (_clients == null)
+    {
+        <div class="message is-danger p-2">
+            <p>The list could not be loaded.</p>
+        </div>
+    }
+    else
+    {
+        if (_clients.Count == 0)
+        {
+            <p>There are no clients.</p>
+        }
+        else
+        {
+            <table class="table is-fullwidth is-striped">
+                <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td>Owner</td>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var client in _clients!)
+                {
+                    <tr>
+                        <td>
+                            <a href="oauth2/@client.ClientId">@client.ClientId</a>
+                        </td>
+                        <td>@client.ClientName</td>
+                        <td>@client.Owner</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+    }
+}

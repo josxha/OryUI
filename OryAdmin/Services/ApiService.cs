@@ -10,9 +10,24 @@ namespace OryAdmin.Services;
 public class ApiService(EnvService env)
 {
     // ory hydra
+    public readonly JwkApi HydraJwk = new(new Configuration
+    {
+        BasePath = env.HydraAdminUrl
+    });
+
     public readonly MetadataApi HydraMetadata = new(new Configuration
     {
         BasePath = env.HydraAdminUrl
+    });
+
+    public readonly OAuth2Api HydraOAuth2 = new(new Configuration
+    {
+        BasePath = env.HydraAdminUrl
+    });
+
+    public readonly OidcApi HydraOidc = new(new Configuration
+    {
+        BasePath = env.HydraPublicUrl
     });
 
     public readonly WellknownApi HydraWellknown = new(new Configuration
@@ -37,14 +52,24 @@ public class ApiService(EnvService env)
     });
 
     // ory kratos
+    public readonly CourierApi KratosCourier = new(new Ory.Kratos.Client.Client.Configuration
+    {
+        BasePath = env.KratosAdminUrl
+    });
+
+    public readonly FrontendApi KratosFrontend = new(new Ory.Kratos.Client.Client.Configuration
+    {
+        BasePath = env.KratosPublicUrl
+    });
+
     public readonly IdentityApi KratosIdentity = new(new Ory.Kratos.Client.Client.Configuration
     {
-        BasePath = env.OryAdminUrl
+        BasePath = env.KratosAdminUrl
     });
 
     public readonly Ory.Kratos.Client.Api.MetadataApi KratosMetadata = new(new Ory.Kratos.Client.Client.Configuration
     {
-        BasePath = env.OryAdminUrl
+        BasePath = env.KratosAdminUrl
     });
 
     // ory oathkeeper

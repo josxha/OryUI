@@ -19,7 +19,7 @@ else
     <form @onsubmit="SubmitForm">
         @foreach (var schema in _traitSchemas!)
         {
-            var value = IdentityService.GetTraitValueFromPath(_json!, schema.Path);
+            var value = _json!.GetTraitValueFromPath(schema.Path);
             <div class="field">
                 <label class="label">
                     @schema.Schema.Title

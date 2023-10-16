@@ -39,7 +39,7 @@ public partial class Home
 
     protected override async Task OnInitializedAsync()
     {
-        _OryAdminUrl = EnvService.OryAdminUrl;
+        _OryAdminUrl = EnvService.KratosAdminUrl;
         _hydraAdminUrl = EnvService.HydraAdminUrl;
         _oathKeeperApiUrl = EnvService.OathKeeperApiUrl;
         _ketoWriteUrl = EnvService.KetoWriteUrl;

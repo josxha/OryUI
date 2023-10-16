@@ -7,48 +7,46 @@
 
 <PageTitle>OAuth2</PageTitle>
 
-<div class="mt-5">
-    @if (_isLoading)
+@if (_isLoading)
+{
+    // is loading
+    <p>Loading data...</p>
+}
+else
+{
+    <h3 class="title">JSON Web Key Sets</h3>
+    if (_jsonWebKeySet == null)
     {
-        // is loading
-        <p>Loading data...</p>
+        <div class="message is-danger p-2">
+            <p>The JSON Web Keys could not be loaded.</p>
+        </div>
     }
     else
     {
-        <h3 class="title">JSON Web Key Sets</h3>
-        if (_jsonWebKeySet == null)
+        if (_jsonWebKeySet.Keys.Count == 0)
         {
-            <div class="message is-danger p-2">
-                <p>The JSON Web Keys could not be loaded.</p>
-            </div>
+            <p>There are no JSON Web Keys.</p>
         }
         else
         {
-            if (_jsonWebKeySet.Keys.Count == 0)
-            {
-                <p>There are no JSON Web Keys.</p>
-            }
-            else
-            {
-                <div class="columns">
-                    @foreach (var jsonWebKey in _jsonWebKeySet!.Keys)
-                    {
-                        <div class="column is-one-quarter mt-3 content is-small">
-                            <pre class="is-small">@jsonWebKey.ToJson()</pre>
-                        </div>
-                    }
-                </div>
-            }
+            <div class="columns">
+                @foreach (var jsonWebKey in _jsonWebKeySet!.Keys)
+                {
+                    <div class="column is-one-quarter mt-3 content is-small">
+                        <pre class="is-small">@jsonWebKey.ToJson()</pre>
+                    </div>
+                }
+            </div>
         }
     }
-    <table class="table is-fullwidth is-striped">
-        <thead>
-        <tr>
+}
+<table class="table is-fullwidth is-striped">
+    <thead>
+    <tr>
 
-        </tr>
-        </thead>
-        <tbody>
+    </tr>
+    </thead>
+    <tbody>
 
-        </tbody>
-    </table>
-</div>
+    </tbody>
+</table>

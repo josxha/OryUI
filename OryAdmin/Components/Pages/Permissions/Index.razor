@@ -7,48 +7,46 @@
 
 <PageTitle>Permissions</PageTitle>
 
-<div class="mt-5">
-    @if (_isLoading)
+@if (_isLoading)
+{
+    // is loading
+    <p>Loading data...</p>
+}
+else
+{
+    <h3 class="title">Namespaces</h3>
+    @if (_namespaces == null)
     {
-        // is loading
-        <p>Loading data...</p>
+        <div class="message is-danger p-2">
+            <p>Namespaces could not be loaded.</p>
+        </div>
     }
     else
     {
-        <h3 class="title">Namespaces</h3>
-        @if (_namespaces == null)
+        foreach (var item in _namespaces.Namespaces)
         {
-            <div class="message is-danger p-2">
-                <p>Namespaces could not be loaded.</p>
-            </div>
+            <li>@item.Name</li>
+        }
+    }
+    <h3 class="title mt-5">Relationships</h3>
+    @if (_relationships == null)
+    {
+        <div class="message is-danger p-2">
+            <p>Relationships could not be loaded.</p>
+        </div>
+    }
+    else
+    {
+        if (_relationships.RelationTuples.Count == 0)
+        {
+            <p>There are no relationships.</p>
         }
         else
         {
-            foreach (var item in _namespaces.Namespaces)
+            foreach (var relationship in _relationships.RelationTuples)
             {
-                <li>@item.Name</li>
-            }
-        }
-        <h3 class="title mt-5">Relationships</h3>
-        @if (_relationships == null)
-        {
-            <div class="message is-danger p-2">
-                <p>Relationships could not be loaded.</p>
-            </div>
-        }
-        else
-        {
-            if (_relationships.RelationTuples.Count == 0)
-            {
-                <p>There are no relationships.</p>
-            }
-            else
-            {
-                foreach (var relationship in _relationships.RelationTuples)
-                {
-                    <li>@relationship.ToJson()</li>
-                }
+                <li>@relationship.ToJson()</li>
             }
         }
     }
-</div>
+}

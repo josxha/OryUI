@@ -55,11 +55,11 @@
 </div>
 
 <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-    <a href="identities?page=@(PageNr - 1)"
+    <a href="identities/users?page=@(PageNr - 1)"
        class="pagination-previous @(PageNr < 2 ? "is-disabled" : "")">
         Previous
     </a>
-    <a href="identities?page=@(PageNr + 1)"
+    <a href="identities/users?page=@(PageNr + 1)"
        class="pagination-next @(PageNr > 12345 ? "is-disabled" : "")">
         Next Page
     </a>

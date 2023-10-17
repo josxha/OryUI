@@ -6,37 +6,68 @@
 @inject NavigationManager Navigation
 
 <PageTitle>OAuth 2 Information</PageTitle>
+<h1 class="title">OAuth 2 Information</h1>
 
-<h1 class="title">JSON Web Key Sets</h1>
-@if (_isLoading)
-{
-    // is loading
-    <p>Loading data...</p>
-}
-else
-{
-    if (_jsonWebKeySet == null)
+<div class="box p-3">
+    <h3 class="title">Endpoints</h3>
+    <table class="table">
+        <tbody>
+        <tr>
+            <td>Authorize</td>
+            <td>/oauth2/auth</td>
+        </tr>
+        <tr>
+            <td>Token</td>
+            <td>/oauth2/token</td>
+        </tr>
+        <tr>
+            <td>Introspection</td>
+            <td>/admin/oauth2/introspect</td>
+        </tr>
+        <tr>
+            <td>User Info</td>
+            <td>/userinfo</td>
+        </tr>
+        <tr>
+            <td>Dynamic clients</td>
+            <td>/oauth2/register</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="box p-3 mt-3">
+    <h3 class="title">JSON Web Key Sets</h3>
+    @if (_isLoading)
     {
-        <div class="message is-danger p-2">
-            <p>The JSON Web Keys could not be loaded.</p>
-        </div>
+        // is loading
+        <p>Loading data...</p>
     }
     else
     {
-        if (_jsonWebKeySet.Keys.Count == 0)
+        if (_jsonWebKeySet == null)
         {
-            <p>There are no JSON Web Keys.</p>
+            <div class="message is-danger p-2">
+                <p>The JSON Web Keys could not be loaded.</p>
+            </div>
         }
         else
         {
-            <div class="columns">
-                @foreach (var jsonWebKey in _jsonWebKeySet!.Keys)
-                {
-                    <div class="column is-one-quarter mt-3 content is-small">
-                        <pre class="is-small">@jsonWebKey.ToJson()</pre>
-                    </div>
-                }
-            </div>
+            if (_jsonWebKeySet.Keys.Count == 0)
+            {
+                <p>There are no JSON Web Keys.</p>
+            }
+            else
+            {
+                <div class="columns">
+                    @foreach (var jsonWebKey in _jsonWebKeySet!.Keys)
+                    {
+                        <div class="column is-one-quarter mt-3 content is-small">
+                            <pre class="is-small">@jsonWebKey.ToJson()</pre>
+                        </div>
+                    }
+                </div>
+            }
         }
     }
-}
+</div>

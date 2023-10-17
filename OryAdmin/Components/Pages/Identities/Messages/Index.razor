@@ -24,9 +24,9 @@ else
         <table class="table is-fullwidth is-striped">
             <thead>
             <tr>
+                <td>Subject</td>
                 <td>Recipient</td>
                 <td>Type</td>
-                <td>Subject</td>
                 <td>Status</td>
                 <td>Date</td>
             </tr>
@@ -37,11 +37,11 @@ else
                 <tr>
                     <td>
                         <a class="btn-link" href="identities/messages/@(message.Id)">
-                            @message.Recipient
+                            @message.Subject
                         </a>
                     </td>
                     <td>@message.Type.ToString()</td>
-                    <td>@message.Subject</td>
+                    <td>@message.Recipient</td>
                     <td>@message.Status.ToString()</td>
                     <td>@message.CreatedAt</td>
                 </tr>

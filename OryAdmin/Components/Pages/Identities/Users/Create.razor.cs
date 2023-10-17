@@ -15,6 +15,7 @@ public partial class Create
     private bool _isLoading = true;
 
     private List<string>? _schemaIds;
+    [SupplyParameterFromQuery(Name = "schema")] private string? SchemaId { get; set; }
     private string? _selectedSchema;
     private List<TraitsSchemaData>? _traitsSchemas;
     [Inject] private ApiService ApiService { get; set; } = default!;
@@ -23,7 +24,8 @@ public partial class Create
     protected override async Task OnInitializedAsync()
     {
         _schemaIds = await SchemaService.ListIds();
-        await OnSchemaSelect(_schemaIds.First());
+        SchemaId ??= _schemaIds.First();
+        await OnSchemaSelect(SchemaId);
         _isLoading = false;
     }
 

@@ -4,7 +4,7 @@ using OryAdmin.Services;
 
 namespace OryAdmin.Components.Pages.OAuth2.Clients;
 
-public partial class Index
+public partial class Index : ComponentBase
 {
     private List<HydraOAuth2Client>? _clients;
     private bool _isLoading = true;

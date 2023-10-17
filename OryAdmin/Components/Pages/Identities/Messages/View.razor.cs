@@ -4,7 +4,7 @@ using OryAdmin.Services;
 
 namespace OryAdmin.Components.Pages.Identities.Messages;
 
-public partial class View
+public partial class View : ComponentBase
 {
     private bool _isLoading = true;
     private KratosMessage? _message;

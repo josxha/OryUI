@@ -4,7 +4,7 @@ using OryAdmin.Services;
 
 namespace OryAdmin.Components.Pages.OAuth2.TrustedIssuers;
 
-public partial class Index
+public partial class Index : ComponentBase
 {
     private bool _isLoading = true;
     private List<HydraTrustedOAuth2JwtGrantIssuer>? _trustedIssuers;

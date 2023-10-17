@@ -5,7 +5,7 @@ using OryAdmin.Services;
 
 namespace OryAdmin.Components.Pages.Identities.Messages;
 
-public partial class Index
+public partial class Index : ComponentBase
 {
     private bool _isLoading = true;
     private List<KratosMessage> _messages;

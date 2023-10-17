@@ -1,4 +1,5 @@
 ﻿@page "/identities/messages/{MessageId}"
+@using Ory.Kratos.Client.Model
 @attribute [StreamRendering]
 @attribute [RenderModeInteractiveServer]
 @inject ICustomTranslator Translator
@@ -54,7 +55,7 @@ else
             </tbody>
         </table>
     </div>
-    
+
     <div class="box mt-3">
         <h3 class="title">Content</h3>
         <pre>
@@ -80,8 +81,8 @@ else
             {
                 <tr>
                     <td>@dispatch.Id</td>
-                    <td>@dispatch.Status.ToString()</td>
-                    <td>@dispatch.Error</td>
+                    <td>@(dispatch.Status == KratosMessageDispatch.StatusEnum.Success ? "✅" : "❌")</td>
+                    <td>@(dispatch.Error ?? "-")</td>
                     <td>
                         @if (dispatch.AdditionalProperties.Count == 0)
                         {

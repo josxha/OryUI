@@ -16,7 +16,7 @@
             {
                 <PaginationLink IsActive="@(i == PageNr)" PageNr="i" Url="@Url"/>
             }
-            <PaginationEllipsis IsHidden="@(PageNr > MaxPageNr - 3)"/>
+            <PaginationEllipsis IsHidden="@(PageNr > MaxPageNr - 4)"/>
             <PaginationLink IsActive="@(PageNr == MaxPageNr)" PageNr="@MaxPageNr" Url="@Url"/>
         </ul>
     </nav>

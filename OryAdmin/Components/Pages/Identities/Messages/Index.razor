@@ -1,0 +1,54 @@
+﻿@page "/identities/messages"
+@attribute [StreamRendering]
+@attribute [RenderModeInteractiveServer]
+@inject ICustomTranslator Translator
+@inject ILogger<Home> Logger
+@inject NavigationManager Navigation
+
+<PageTitle>Message Log</PageTitle>
+
+<h1 class="title">Message Log</h1>
+@if (_isLoading)
+{
+    // is loading
+    <p>Loading data...</p>
+}
+else
+{
+    if (_messages!.Count == 0)
+    {
+        <p>There are no sent messages like emails yet.</p>
+    }
+    else
+    {
+        <table class="table is-fullwidth is-striped">
+            <thead>
+            <tr>
+                <td>Recipient</td>
+                <td>Type</td>
+                <td>Subject</td>
+                <td>Status</td>
+                <td>Date</td>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var message in _messages!)
+            {
+                <tr>
+                    <td>
+                        <a class="btn-link" href="identities/messages/@(message.Id)">
+                            @message.Recipient
+                        </a>
+                    </td>
+                    <td>@message.Type.ToString()</td>
+                    <td>@message.Subject</td>
+                    <td>@message.Status.ToString()</td>
+                    <td>@message.CreatedAt</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+
+        <Pagination Url="identities/messages" PageNr="@((int)PageNr!)" MaxPageNr="34"/>
+    }
+}

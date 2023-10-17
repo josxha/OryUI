@@ -7,6 +7,7 @@
 
 <PageTitle>OAuth 2 Information</PageTitle>
 
+<h1 class="title">JSON Web Key Sets</h1>
 @if (_isLoading)
 {
     // is loading
@@ -14,7 +15,6 @@
 }
 else
 {
-    <h3 class="title">JSON Web Key Sets</h3>
     if (_jsonWebKeySet == null)
     {
         <div class="message is-danger p-2">

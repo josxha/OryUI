@@ -1,18 +1,10 @@
 ﻿@namespace OryAdmin.Components.Elements
 
 <li>
-    @if (IsActive)
-    {
-        <a class="pagination-link is-current" aria-current="page" href="identities/users?page=@PageNr">
-            @PageNr
-        </a>
-    }
-    else
-    {
-        <a class="pagination-link" href="identities/users?page=@PageNr">
-            @PageNr
-        </a>
-    }
+    <a class="pagination-link @(IsActive ? "is-current" : "")"
+       aria-current="page" href="@Url?page=@PageNr">
+        @PageNr
+    </a>
 </li>
 
 @code
@@ -23,4 +15,6 @@
     [Parameter]
     public required bool IsActive { get; set; }
 
+    [Parameter]
+    public required string Url { get; set; }
 }

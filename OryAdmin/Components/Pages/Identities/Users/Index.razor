@@ -33,8 +33,9 @@ else
         <table class="table is-fullwidth is-striped">
             <thead>
             <tr>
-                <td>ID</td>
                 <td>Name</td>
+                <td>State</td>
+                <td>Created</td>
             </tr>
             </thead>
             <tbody>
@@ -43,17 +44,14 @@ else
                 <tr>
                     <td>
                         <a class="btn-link" href="identities/users/@(identity.Id)">
-                            @identity.Id
-                        </a>
-                    </td>
-                    <td>
-                        <a class="btn-link" href="identities/users/@(identity.Id)">
                             @foreach (var address in identity.VerifiableAddresses)
                             {
                                 <p>@(address.Value)</p>
                             }
                         </a>
                     </td>
+                    <td>@identity.State</td>
+                    <td>@identity.CreatedAt</td>
                 </tr>
             }
             </tbody>

@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 using Ory.Kratos.Client.Model;
 using OryAdmin.Services;
 
@@ -24,10 +23,5 @@ public partial class Index
         _identities = await ApiService.KratosIdentity.ListIdentitiesAsync();
 
         _isLoading = false;
-    }
-
-    private void RefreshPage(MouseEventArgs arg)
-    {
-        Navigation.Refresh(true);
     }
 }

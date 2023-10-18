@@ -12,9 +12,7 @@
     <a href="identities/users/create" class="button is-success">
         New Identity
     </a>
-    <button class="button is-info" @onclick="@RefreshPage">
-        Refresh Page
-    </button>
+    <RefreshPageButton/>
 </div>
 
 @if (_isLoading)
@@ -56,6 +54,6 @@ else
             }
             </tbody>
         </table>
-        <Pagination Url="identities/users" PageNr="@((int)PageNr!)" MaxPageNr="34"/>
+        <Pagination Url="identities/users" PageNr="@((int)PageNr!)" MaxPageNr="1"/>
     }
 }

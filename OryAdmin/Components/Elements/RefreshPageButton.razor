@@ -1,0 +1,14 @@
+﻿@inject NavigationManager Navigation
+
+<button class="button is-info" @onclick="@RefreshPage">
+    Refresh Page
+</button>
+
+@code {
+
+    private void RefreshPage()
+    {
+        Navigation.Refresh(true);
+    }
+
+}

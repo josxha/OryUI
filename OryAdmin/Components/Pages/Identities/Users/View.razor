@@ -93,25 +93,25 @@ else
 
     <div class="box">
         <h1 class="title">Active Sessions</h1>
-        <table class="table is-fullwidth">
-            <thead>
-            <tr>
-                <td>ID</td>
-                <td>Authentication Methods</td>
-                <td>Authenticator Assurance Level</td>
-                <td>Devices</td>
-                <td>Additional Properties</td>
-                <td>Timestamps</td>
-            </tr>
-            </thead>
-            <tbody>
-            @if (_activeSessions!.Count == 0)
-            {
-                <p>No active sessions.</p>
-            }
-            else
-            {
-                foreach (var session in _activeSessions!)
+        @if (_activeSessions!.Count == 0)
+        {
+            <p>This user has no active sessions.</p>
+        }
+        else
+        {
+            <table class="table is-fullwidth">
+                <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Authentication Methods</td>
+                    <td>Authenticator Assurance Level</td>
+                    <td>Devices</td>
+                    <td>Additional Properties</td>
+                    <td>Timestamps</td>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var session in _activeSessions!)
                 {
                     <tr>
                         <td>@session.Id</td>
@@ -143,140 +143,161 @@ else
                         </td>
                     </tr>
                 }
-            }
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        }
     </div>
 
     <div class="box">
         <h1 class="title">Credentials</h1>
-        <table class="table is-fullwidth">
-            <thead>
-            <tr>
-                <td>Type</td>
-                <td>Version</td>
-                <td>Identifiers</td>
-                <td>Additional properties</td>
-                <td>Timestamps</td>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach (var credential in _identity.Credentials.Values)
-            {
+        @if (_identity.Credentials!.Count == 0)
+        {
+            <p>This user has no credentials.</p>
+        }
+        else
+        {
+            <table class="table is-fullwidth">
+                <thead>
                 <tr>
-                    <td>@credential.Type</td>
-                    <td>@credential._Version</td>
-                    <td>@string.Join(", ", credential.Identifiers)</td>
-                    <td>
-                        @if (credential.AdditionalProperties.Count == 0)
-                        {
-                            <p>-</p>
-                        }
-                        else
-                        {
-                            @foreach (var (key, value) in credential.AdditionalProperties)
-                            {
-                                <p>@key: @value</p>
-                            }
-                        }
-                    </td>
-                    <td>
-                        <p>Updated: @credential.UpdatedAt</p>
-                        <p>Created: @credential.CreatedAt</p>
-                    </td>
+                    <td>Type</td>
+                    <td>Version</td>
+                    <td>Identifiers</td>
+                    <td>Additional properties</td>
+                    <td>Timestamps</td>
                 </tr>
-            }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                @foreach (var credential in _identity.Credentials.Values)
+                {
+                    <tr>
+                        <td>@credential.Type</td>
+                        <td>@credential._Version</td>
+                        <td>@string.Join(", ", credential.Identifiers)</td>
+                        <td>
+                            @if (credential.AdditionalProperties.Count == 0)
+                            {
+                                <p>-</p>
+                            }
+                            else
+                            {
+                                @foreach (var (key, value) in credential.AdditionalProperties)
+                                {
+                                    <p>@key: @value</p>
+                                }
+                            }
+                        </td>
+                        <td>
+                            <p>Updated: @credential.UpdatedAt</p>
+                            <p>Created: @credential.CreatedAt</p>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
     </div>
 
     <div class="box">
         <h1 class="title">Verifiable Addresses</h1>
-        <table class="table is-fullwidth">
-            <thead>
-            <tr>
-                <td>ID</td>
-                <td>Value</td>
-                <td>Verified</td>
-                <td>Via</td>
-                <td>Status</td>
-                <td>Additional Properties</td>
-                <td>Timestamps</td>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach (var address in _identity.VerifiableAddresses)
-            {
+        @if (_identity.VerifiableAddresses.Count == 0)
+        {
+            <p>This user has no verifiable addresses.</p>
+        }
+        else
+        {
+            <table class="table is-fullwidth">
+                <thead>
                 <tr>
-                    <td>@address.Id</td>
-                    <td>@address.Value</td>
-                    <td>@(address.Verified ? "✅" : "❌")</td>
-                    <td>@address.Via</td>
-                    <td>@address.Status</td>
-                    <td>
-                        @if (address.AdditionalProperties.Count == 0)
-                        {
-                            <p>-</p>
-                        }
-                        else
-                        {
-                            @foreach (var property in address.AdditionalProperties)
-                            {
-                                <p>@property.Key: @property.Value</p>
-                            }
-                        }
-                    </td>
-                    <td>
-                        <p>Verified: @address.VerifiedAt</p>
-                        <p>Updated: @address.UpdatedAt</p>
-                        <p>Created: @address.CreatedAt</p>
-                    </td>
+                    <td>ID</td>
+                    <td>Value</td>
+                    <td>Verified</td>
+                    <td>Via</td>
+                    <td>Status</td>
+                    <td>Additional Properties</td>
+                    <td>Timestamps</td>
                 </tr>
-            }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                @foreach (var address in _identity.VerifiableAddresses)
+                {
+                    <tr>
+                        <td>@address.Id</td>
+                        <td>@address.Value</td>
+                        <td>@(address.Verified ? "✅" : "❌")</td>
+                        <td>@address.Via</td>
+                        <td>@address.Status</td>
+                        <td>
+                            @if (address.AdditionalProperties.Count == 0)
+                            {
+                                <p>-</p>
+                            }
+                            else
+                            {
+                                @foreach (var property in address.AdditionalProperties)
+                                {
+                                    <p>@property.Key: @property.Value</p>
+                                }
+                            }
+                        </td>
+                        <td>
+                            <p>Verified: @address.VerifiedAt</p>
+                            <p>Updated: @address.UpdatedAt</p>
+                            <p>Created: @address.CreatedAt</p>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
     </div>
 
     <div class="box">
         <h1 class="title">Recovery Addresses</h1>
-        <table class="table is-fullwidth">
-            <thead>
-            <tr>
-                <td>ID</td>
-                <td>Value</td>
-                <td>Via</td>
-                <td>Additional Properties</td>
-                <td>Timestamps</td>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach (var address in _identity.RecoveryAddresses)
-            {
+        @if (_identity.RecoveryAddresses.Count == 0)
+        {
+            <p>This user has no recovery addresses.</p>
+        }
+        else
+        {
+            <table class="table is-fullwidth">
+                <thead>
                 <tr>
-                    <td>@address.Id</td>
-                    <td>@address.Value</td>
-                    <td>@address.Via</td>
-                    <td>
-                        @if (address.AdditionalProperties.Count == 0)
-                        {
-                            <p>-</p>
-                        }
-                        else
-                        {
-                            @foreach (var (key, value) in address.AdditionalProperties)
-                            {
-                                <p>@key: @value</p>
-                            }
-                        }
-                    </td>
-                    <td>
-                        <p>Updated: @address.UpdatedAt</p>
-                        <p>Created: @address.CreatedAt</p>
-                    </td>
+                    <td>ID</td>
+                    <td>Value</td>
+                    <td>Via</td>
+                    <td>Additional Properties</td>
+                    <td>Timestamps</td>
                 </tr>
-            }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                @foreach (var address in _identity.RecoveryAddresses)
+                {
+                    <tr>
+                        <td>@address.Id</td>
+                        <td>@address.Value</td>
+                        <td>@address.Via</td>
+                        <td>
+                            @if (address.AdditionalProperties.Count == 0)
+                            {
+                                <p>-</p>
+                            }
+                            else
+                            {
+                                @foreach (var (key, value) in address.AdditionalProperties)
+                                {
+                                    <p>@key: @value</p>
+                                }
+                            }
+                        </td>
+                        <td>
+                            <p>Updated: @address.UpdatedAt</p>
+                            <p>Created: @address.CreatedAt</p>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
     </div>
 
 

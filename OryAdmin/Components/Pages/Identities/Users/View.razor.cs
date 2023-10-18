@@ -15,8 +15,19 @@ public partial class View
 
     protected override async Task OnInitializedAsync()
     {
-        _identity = await ApiService.KratosIdentity.GetIdentityAsync(UserId);
-        _activeSessions = await ApiService.KratosIdentity.ListIdentitySessionsAsync(UserId, active: true);
+        var tasks = new List<Task>()
+        {
+            Task.Run(async () =>
+            {
+                _identity = await ApiService.KratosIdentity.GetIdentityAsync(UserId);
+            }),
+            Task.Run(async () =>
+            {
+                _activeSessions = await ApiService.KratosIdentity.ListIdentitySessionsAsync(UserId, active: true);
+            }),
+        };
+
+        await Task.WhenAll(tasks);
         _isLoading = false;
     }
 

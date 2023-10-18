@@ -1,0 +1,47 @@
+﻿@page "/permissions/{namespaceName}/tree"
+@attribute [StreamRendering]
+@attribute [RenderModeInteractiveServer]
+@inject ICustomTranslator Translator
+@inject ILogger<Home> Logger
+@inject NavigationManager Navigation
+
+<PageTitle>Permission Tree</PageTitle>
+
+<h1 class="title">Permission Tree</h1>
+@if (_isLoading)
+{
+    // is loading
+    <p>Loading data...</p>
+}
+else
+{
+    @if (_permissionTree == null)
+    {
+        <div class="message is-danger p-2">
+            <p>The permission tree could not be loaded.</p>
+            <p>@_errorMessage</p>
+        </div>
+    }
+    else
+    {
+        <p>Type: @_permissionTree.Type.ToString()</p>
+        <p>Tuple: @_permissionTree.Tuple.ToJson()</p>
+        <table class="table is-fullwidth">
+            <thead>
+            <th class="is-narrow">Type</th>
+            <th>Tuple</th>
+            <th>Children</th>
+            </thead>
+            <tbody>
+            @foreach (var child in _permissionTree.Children)
+            {
+                <tr>
+                    <td>@child.Type.ToString()</td>
+                    <td>@child.Tuple.ToJson()</td>
+                    <td>@child.Children</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+}

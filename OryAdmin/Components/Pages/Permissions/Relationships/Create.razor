@@ -1,4 +1,4 @@
-﻿@page "/permissions/relationships/{NamespaceName}/create"
+﻿@page "/permissions/{NamespaceName}/relationships/create"
 @attribute [StreamRendering]
 @attribute [RenderModeInteractiveServer]
 @inject ICustomTranslator Translator
@@ -49,7 +49,7 @@
     </div>
     <div class="mt-5">
         <div class="buttons">
-            <a class="button" href="permissions/relationships/@NamespaceName">
+            <a class="button" href="permissions/@NamespaceName/relationships">
                 Cancel
             </a>
             <button type="submit" class="button is-success">

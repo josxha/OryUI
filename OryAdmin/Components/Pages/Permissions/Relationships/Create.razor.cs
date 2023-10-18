@@ -16,7 +16,6 @@ public partial class Create
 
     private async Task SubmitForm()
     {
-        Console.WriteLine("Submit Form");
         var body = new KetoCreateRelationshipBody(subjectId: _subjectId, relation: _relation, _object: _object,
             _namespace: NamespaceName);
         try
@@ -28,6 +27,6 @@ public partial class Create
             _errorMessage = exception.Message;
             return;
         }
-        Navigation.NavigateTo($"permissions/relationships/{NamespaceName}");
+        Navigation.NavigateTo($"permissions/{NamespaceName}/relationships");
     }
 }

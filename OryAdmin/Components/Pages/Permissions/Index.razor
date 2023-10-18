@@ -7,6 +7,7 @@
 
 <PageTitle>Permission Namespaces</PageTitle>
 
+<h1 class="title">Permission Namespaces</h1>
 @if (_isLoading)
 {
     // is loading
@@ -14,7 +15,6 @@
 }
 else
 {
-    <h3 class="title">Permission Namespaces</h3>
     @if (_namespaces == null)
     {
         <div class="message is-danger p-2">
@@ -35,10 +35,10 @@ else
                 <tr>
                     <td>@item.Name</td>
                     <td>
-                        <a href="permissions/relationships/@item.Name">Relationships</a>
+                        <a href="permissions/@item.Name/relationships">Relationships</a>
                     </td>
                     <td>
-                        <a href="permissions/@item.Name">Permissions</a>
+                        <a href="permissions/@item.Name/tree">Permissions</a>
                     </td>
                 </tr>
             }

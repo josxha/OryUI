@@ -1,4 +1,4 @@
-﻿@page "/permissions/relationships/{NamespaceName}"
+﻿@page "/permissions/{NamespaceName}/relationships"
 @attribute [StreamRendering]
 @attribute [RenderModeInteractiveServer]
 @inject ICustomTranslator Translator
@@ -10,7 +10,7 @@
 <h1 class="title">Relationships for @NamespaceName</h1>
 <div class="buttons">
     <a class="button is-dark" href="permissions">Back</a>
-    <a class="button is-success" href="permissions/relationships/@NamespaceName/create">Create Relationship</a>
+    <a class="button is-success" href="permissions/@NamespaceName/relationships/create">Create Relationship</a>
 </div>
 @if (_isLoading)
 {

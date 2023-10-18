@@ -2,7 +2,7 @@
 using Ory.Hydra.Client.Model;
 using OryAdmin.Services;
 
-namespace OryAdmin.Components.Pages.OAuth2.TrustedIssuers;
+namespace OryAdmin.Components.Pages.OAuth2.GrantIssuers;
 
 public partial class Index : ComponentBase
 {
@@ -13,16 +13,7 @@ public partial class Index : ComponentBase
 
     protected override async Task OnInitializedAsync()
     {
-        try
-        {
-            _trustedIssuers =
-                await ApiService.HydraOAuth2.ListTrustedOAuth2JwtGrantIssuersAsync();
-        }
-        catch (Exception)
-        {
-            // ignored
-        }
-
+        _trustedIssuers = await ApiService.HydraOAuth2.ListTrustedOAuth2JwtGrantIssuersAsync();
         _isLoading = false;
     }
 }

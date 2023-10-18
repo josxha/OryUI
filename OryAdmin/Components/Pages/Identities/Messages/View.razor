@@ -56,14 +56,6 @@ else
         </table>
     </div>
 
-    <div class="box mt-3">
-        <h3 class="title">Content</h3>
-        <pre class="is-small">
-            <p class="subtitle">@_message.Subject</p>
-            <p>@_message.Body</p>
-        </pre>
-    </div>
-
     <div class="box">
         <h3 class="title">Dispatches</h3>
         <table class="table is-fullwidth">
@@ -128,4 +120,11 @@ else
             </table>
         </div>
     }
+
+    <div class="box mt-3">
+        <h3 class="title">Content</h3>
+        <div class="is-small">
+            <pre class="is-small"><p class="subtitle">@_message.Subject</p><p>@_message.Body</p></pre>
+        </div>
+    </div>
 }

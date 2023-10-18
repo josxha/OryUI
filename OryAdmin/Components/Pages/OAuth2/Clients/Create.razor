@@ -8,44 +8,54 @@
 <PageTitle>Create Client</PageTitle>
 
 <h1 class="title">Create Client</h1>
-@if (_isLoading)
-{
-    // is loading
-    <p>Loading data...</p>
-}
-else
-{
-    <form @onsubmit="SubmitForm">
-        <div class="field">
-            <label class="label">
-                Client Name
-                <div class="control">
-                    <input type="text" class="input" value="@_client.ClientName"
-                           @onchange="args => _client.ClientName = args.Value?.ToString()"/>
-                </div>
-            </label>
-        </div>
-        <div class="field">
-            <label class="label">
-                Client Secret
-                <div class="control">
-                    <input type="text" class="input" value="@_client.ClientSecret"
-                           @onchange="args => _client.ClientSecret = args.Value?.ToString()"/>
-                </div>
-            </label>
-        </div>
-        <div class="message is-warning p-2 @(string.IsNullOrWhiteSpace(_errorMessage) ? "is-hidden" : "")">
-            @_errorMessage
-        </div>
-        <div class="mt-5">
-            <div class="buttons">
-                <a class="button" href="oauth2/clients">
-                    Cancel
-                </a>
-                <button type="submit" class="button is-success">
-                    Save
-                </button>
+<form @onsubmit="SubmitForm">
+    <div class="field">
+        <label class="label">
+            Client Name
+            <div class="control">
+                <input type="text" class="input" value="@_client.ClientName"
+                       @onchange="args => _client.ClientName = args.Value?.ToString()"/>
             </div>
+        </label>
+    </div>
+    <div class="message is-warning p-2 @(string.IsNullOrWhiteSpace(_errorMessage) ? "is-hidden" : "")">
+        @_errorMessage
+    </div>
+    <div class="mt-5">
+        <div class="buttons">
+            <a class="button" href="oauth2/clients">
+                Cancel
+            </a>
+            <button type="submit" class="button is-success">
+                Save
+            </button>
         </div>
-    </form>
-}
+    </div>
+</form>
+<div id="client-created-modal" class="modal @(_createdClient != null ? "is-active" : "")">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Client Created</p>
+        </header>
+        <section class="modal-card-body">
+            <p>The OAuth 2 client "@_createdClient?.ClientName" was successfully created.</p>
+            <div class="field">
+                <label class="label">
+                    Your Client Secret:
+                    <div class="control">
+                        <input type="text" class="input" readonly value="@_createdClient?.ClientSecret"/>
+                    </div>
+                </label>
+            </div>
+            <div class="message is-warning p-2 mt-3">
+                Please store your Client Secret because it can only be viewed once.
+            </div>
+        </section>
+        <footer class="modal-card-foot">
+            <div class="button is-info" @onclick="GotoIndexPage">
+                Done
+            </div>
+        </footer>
+    </div>
+</div>

@@ -14,8 +14,6 @@ public partial class Edit
     [Parameter]
     public required string ClientId { get; set; }
 
-    private readonly List<HydraJsonPatch> _patches = new();
-
     [Inject] private ApiService ApiService { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()
@@ -28,7 +26,7 @@ public partial class Edit
     {
         try
         {
-            _ = await ApiService.HydraOAuth2.PatchOAuth2ClientAsync(ClientId, _patches);
+            _ = await ApiService.HydraOAuth2.SetOAuth2ClientAsync(ClientId, _client);
         }
         catch (ApiException exception)
         {
@@ -37,10 +35,5 @@ public partial class Edit
         }
 
         Navigation.NavigateTo("oauth2/clients");
-    }
-
-    private void AddPatch(HydraJsonPatch patch)
-    {
-        _patches.Add(patch);
     }
 }

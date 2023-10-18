@@ -8,28 +8,25 @@ namespace OryAdmin.Components.Pages.OAuth2.Clients;
 public partial class Create
 {
     private readonly HydraOAuth2Client _client = new();
+    private HydraOAuth2Client? _createdClient;
     private string? _errorMessage;
-    private bool _isLoading = true;
 
     [Inject] private ApiService ApiService { get; set; } = default!;
-
-    protected override async Task OnInitializedAsync()
-    {
-        _isLoading = false;
-    }
 
     private async Task SubmitForm()
     {
         try
         {
-            _ = await ApiService.HydraOAuth2.CreateOAuth2ClientAsync(_client);
+            _createdClient = await ApiService.HydraOAuth2.CreateOAuth2ClientAsync(_client);
         }
         catch (ApiException exception)
         {
             _errorMessage = exception.Message;
-            return;
         }
+    }
 
+    private void GotoIndexPage()
+    {
         Navigation.NavigateTo("oauth2/clients");
     }
 }

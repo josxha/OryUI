@@ -8,7 +8,9 @@ public partial class View
 {
     private HydraOAuth2Client? _client;
     private bool _isLoading = true;
-    private bool _showDeleteModal;
+    private bool _confirmDeleteClientModal;
+    private bool _confirmNewSecretModal;
+    private bool _showNewSecretModal;
     [Parameter] public string? ClientId { get; set; }
     [Inject] private ApiService ApiService { get; set; } = default!;
 
@@ -31,11 +33,18 @@ public partial class View
 
     private void ShowDeleteModal()
     {
-        _showDeleteModal = true;
+        _confirmDeleteClientModal = true;
     }
 
     private void HideDeleteModal()
     {
-        _showDeleteModal = false;
+        _confirmDeleteClientModal = false;
+    }
+
+    private async Task CreateNewClientSecret()
+    {
+        _confirmNewSecretModal = false;
+        // TODO generate new client secret
+        _showNewSecretModal = true;
     }
 }

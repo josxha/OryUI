@@ -22,16 +22,7 @@ else
                 Client Name
                 <div class="control">
                     <input type="text" class="input" value="@_client?.ClientName"
-                           @onchange="args => AddPatch(new HydraJsonPatch())"/>
-                </div>
-            </label>
-        </div>
-        <div class="field">
-            <label class="label">
-                Client Secret
-                <div class="control">
-                    <input type="text" class="input" value="@_client?.ClientSecret"
-                           @onchange="args => AddPatch(new HydraJsonPatch())"/>
+                           @onchange="args => _client!.ClientName = args.Value?.ToString()"/>
                 </div>
             </label>
         </div>

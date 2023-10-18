@@ -1,0 +1,52 @@
+﻿@page "/oauth2/clients/{ClientId}/edit"
+@using Ory.Hydra.Client.Model
+@attribute [StreamRendering]
+@attribute [RenderModeInteractiveServer]
+@inject ICustomTranslator Translator
+@inject ILogger<Home> Logger
+@inject NavigationManager Navigation
+
+<PageTitle>Edit Client</PageTitle>
+
+<h1 class="title">Edit Client</h1>
+@if (_isLoading)
+{
+    // is loading
+    <p>Loading data...</p>
+}
+else
+{
+    <form @onsubmit="SubmitForm">
+        <div class="field">
+            <label class="label">
+                Client Name
+                <div class="control">
+                    <input type="text" class="input" value="@_client?.ClientName"
+                           @onchange="args => AddPatch(new HydraJsonPatch())"/>
+                </div>
+            </label>
+        </div>
+        <div class="field">
+            <label class="label">
+                Client Secret
+                <div class="control">
+                    <input type="text" class="input" value="@_client?.ClientSecret"
+                           @onchange="args => AddPatch(new HydraJsonPatch())"/>
+                </div>
+            </label>
+        </div>
+        <div class="message is-warning p-2 @(string.IsNullOrWhiteSpace(_errorMessage) ? "is-hidden" : "")">
+            @_errorMessage
+        </div>
+        <div class="mt-5">
+            <div class="buttons">
+                <a class="button" href="oauth2/clients/@ClientId">
+                    Cancel
+                </a>
+                <button type="submit" class="button is-success">
+                    Save
+                </button>
+            </div>
+        </div>
+    </form>
+}

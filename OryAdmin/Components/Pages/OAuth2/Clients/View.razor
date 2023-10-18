@@ -24,12 +24,16 @@ else
                 <td>@(_client!.ClientId)</td>
             </tr>
             <tr>
-                <td>Name</td>
+                <td>Client Name</td>
                 <td>@(string.IsNullOrWhiteSpace(_client.ClientName) ? "-" : _client.ClientName)</td>
             </tr>
             <tr>
-                <td>Secret</td>
+                <td>Client Secret</td>
                 <td>@(string.IsNullOrWhiteSpace(_client.ClientSecret) ? "-" : _client.ClientSecret)</td>
+            </tr>
+            <tr>
+                <td>Client Secret Expires At</td>
+                <td>@(_client.ClientSecretExpiresAt == 0 ? "never" : _client.ClientSecretExpiresAt)</td>
             </tr>
             <tr>
                 <td>Scope</td>
@@ -301,10 +305,6 @@ else
             <tr>
                 <td>Backchannel Logout Session Required</td>
                 <td>@(_client.BackchannelLogoutSessionRequired ? "Yes" : "No")</td>
-            </tr>
-            <tr>
-                <td>Client Secret Expires At</td>
-                <td>@(_client.ClientSecretExpiresAt == 0 ? "never" : _client.ClientSecretExpiresAt)</td>
             </tr>
             <tr>
                 <td>Frontchannel Logout Session Required</td>

@@ -301,26 +301,5 @@ else
     </div>
 
 
-    @if (_identity.AdditionalProperties.Count > 0)
-    {
-        <div class="box">
-            <h1 class="title">Additional Properties</h1>
-            <table class="table is-fullwidth">
-                <thead>
-                <tr>
-                    <td>Name</td>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach (var (key, value) in _identity.AdditionalProperties)
-                {
-                    <tr>
-                        <td>@key</td>
-                        <td>@value</td>
-                    </tr>
-                }
-                </tbody>
-            </table>
-        </div>
-    }
+    <AdditionalPropertiesBox Properties="@_identity.AdditionalProperties" />
 }

@@ -98,28 +98,7 @@ else
         </table>
     </div>
 
-    @if (_message.AdditionalProperties.Count > 0)
-    {
-        <div class="box">
-            <h1 class="title">Additional Properties</h1>
-            <table class="table is-fullwidth">
-                <thead>
-                <tr>
-                    <td>Name</td>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach (var (key, value) in _message.AdditionalProperties)
-                {
-                    <tr>
-                        <td>@key</td>
-                        <td>@value</td>
-                    </tr>
-                }
-                </tbody>
-            </table>
-        </div>
-    }
+    <AdditionalPropertiesBox Properties="@_message.AdditionalProperties" />
 
     <div class="box mt-3">
         <h3 class="title">Content</h3>

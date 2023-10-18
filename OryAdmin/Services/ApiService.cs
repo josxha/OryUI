@@ -46,9 +46,14 @@ public class ApiService(EnvService env)
         BasePath = env.KetoWriteUrl
     });
 
-    public readonly RelationshipApi KetoRelationship = new(new Ory.Keto.Client.Client.Configuration
+    public readonly RelationshipApi KetoRelationshipRead = new(new Ory.Keto.Client.Client.Configuration
     {
         BasePath = env.KetoReadUrl
+    });
+
+    public readonly RelationshipApi KetoRelationshipWrite = new(new Ory.Keto.Client.Client.Configuration
+    {
+        BasePath = env.KetoWriteUrl
     });
 
     // ory kratos

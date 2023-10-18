@@ -1,0 +1,63 @@
+﻿@page "/permissions/relationships/{NamespaceName}"
+@attribute [StreamRendering]
+@attribute [RenderModeInteractiveServer]
+@inject ICustomTranslator Translator
+@inject ILogger<Home> Logger
+@inject NavigationManager Navigation
+
+<PageTitle>Relationships</PageTitle>
+
+<h1 class="title">Relationships for @NamespaceName</h1>
+<div class="buttons">
+    <a class="button is-dark" href="permissions">Back</a>
+    <a class="button is-success" href="permissions/relationships/@NamespaceName/create">Create Relationship</a>
+</div>
+@if (_isLoading)
+{
+    // is loading
+    <p>Loading data...</p>
+}
+else
+{
+    @if (_relationships == null)
+    {
+        <div class="message is-danger p-2">
+            <p>List of relationships could not be loaded.</p>
+        </div>
+    }
+    else
+    {
+        if (_relationships.RelationTuples.Count == 0)
+        {
+            <p>There are no relationships.</p>
+        }
+        else
+        {
+            <table class="table is-fullwidth">
+                <thead>
+                <th>Subject</th>
+                <th></th>
+                <th>Relation</th>
+                <th></th>
+                <th>Object</th>
+                </thead>
+                <tbody>
+                @foreach (var relationship in _relationships.RelationTuples)
+                {
+                    <tr>
+                        <td>@(relationship.SubjectId ?? relationship.SubjectSet.ToJson())</td>
+                        <td>
+                            <p class="is-bold">is</p>
+                        </td>
+                        <td>@relationship.Relation</td>
+                        <td>
+                            <p class="is-bold">of</p>
+                        </td>
+                        <td>@relationship.Object</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+    }
+}

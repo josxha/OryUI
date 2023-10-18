@@ -111,8 +111,8 @@ services:
   oathkeeper:
     image: oryd/oathkeeper:v0.40
     ports:
-      - "127.0.0.1:4455:4455"
-      - "127.0.0.1:4456:4456"
+      - "127.0.0.1:4455:4455" # proxy
+      - "127.0.0.1:4456:4456" # api
     command: serve --config=/etc/config/oathkeeper/config.yml
     environment:
       - TRACING_PROVIDER=jaeger

@@ -14,37 +14,25 @@ public partial class Home
     private bool _enabledKratos;
     private bool _enabledOathKeeper;
 
-    private string _hydraAdminUrl = "?";
     private bool? _hydraAlive;
     private bool? _hydraReady;
     private string? _hydraVersion;
 
     private bool? _ketoAlive;
-    private string _ketoReadUrl = "?";
     private bool? _ketoReady;
     private string? _ketoVersion;
-    private string _ketoWriteUrl = "?";
     private bool? _kratosAlive;
     private bool? _kratosReady;
     private string? _kratosVersion;
 
     private bool? _oathKeeperAlive;
-    private string _oathKeeperApiUrl = "?";
     private bool? _oathKeeperReady;
     private string? _oathKeeperVersion;
-
-    private string _OryAdminUrl = "?";
 
     [Inject] private ApiService ApiService { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()
     {
-        _OryAdminUrl = EnvService.KratosAdminUrl;
-        _hydraAdminUrl = EnvService.HydraAdminUrl;
-        _oathKeeperApiUrl = EnvService.OathKeeperApiUrl;
-        _ketoWriteUrl = EnvService.KetoWriteUrl;
-        _ketoReadUrl = EnvService.KetoReadUrl;
-
         _enabledKratos = EnvService.ServiceEnabled(OryService.Kratos);
         _enabledHydra = EnvService.ServiceEnabled(OryService.Hydra);
         _enabledOathKeeper = EnvService.ServiceEnabled(OryService.OathKeeper);

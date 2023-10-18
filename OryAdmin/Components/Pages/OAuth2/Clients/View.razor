@@ -119,26 +119,26 @@ else
         <div class="modal-background"></div>
         <div class="modal-card">
             <header class="modal-card-head">
-                        <p class="modal-card-title">New Client Secret generated</p>
-                    </header>
-                    <section class="modal-card-body">
-                        <div class="field">
-                            <label class="label">
-                                New Client Secret:
-                                <div class="control">
-                                    <input type="text" class="input" readonly value="@_client?.ClientSecret"/>
-                                </div>
-                            </label>
+                <p class="modal-card-title">New Client Secret generated</p>
+            </header>
+            <section class="modal-card-body">
+                <div class="field">
+                    <label class="label">
+                        New Client Secret:
+                        <div class="control">
+                            <input type="text" class="input" readonly value="@_client?.ClientSecret"/>
                         </div>
-                        <div class="message is-warning p-2 mt-3">
-                            Please store your Client Secret because it can only be viewed once.
-                        </div>
-                    </section>
-                    <footer class="modal-card-foot">
-                        <div class="button is-info" @onclick="() => _showNewSecretModal = false">
-                            Done
-                        </div>
-                    </footer>
+                    </label>
+                </div>
+                <div class="message is-warning p-2 mt-3">
+                    Please store your Client Secret because it can only be viewed once.
+                </div>
+            </section>
+            <footer class="modal-card-foot">
+                <div class="button is-info" @onclick="() => _showNewSecretModal = false">
+                    Done
+                </div>
+            </footer>
         </div>
     </div>
 
@@ -214,6 +214,22 @@ else
         <h1 class="title">OpenID Connect logout</h1>
         <table class="table is-fullwidth">
             <tbody>
+            <tr>
+                <td>Frontchannel Logout Session Required</td>
+                <td>@(_client.FrontchannelLogoutSessionRequired ? "Yes" : "No")</td>
+            </tr>
+            <tr>
+                <td>Backchannel Logout Session Required</td>
+                <td>@(_client.BackchannelLogoutSessionRequired ? "Yes" : "No")</td>
+            </tr>
+            <tr>
+                <td>Frontchannel Logout URI</td>
+                <td>@_client.FrontchannelLogoutUri.ToStringOrDash()</td>
+            </tr>
+            <tr>
+                <td>Backchannel Logout URI</td>
+                <td>@_client.BackchannelLogoutUri.ToStringOrDash()</td>
+            </tr>
             </tbody>
         </table>
     </div>
@@ -335,14 +351,6 @@ else
                 <StringListTd List="@_client.AllowedCorsOrigins"/>
             </tr>
             <tr>
-                <td>Backchannel Logout URI</td>
-                <td>@_client.BackchannelLogoutUri.ToStringOrDash()</td>
-            </tr>
-            <tr>
-                <td>Frontchannel Logout URI</td>
-                <td>@_client.FrontchannelLogoutUri.ToStringOrDash()</td>
-            </tr>
-            <tr>
                 <td>Registration Access Token</td>
                 <td>@_client.RegistrationAccessToken.ToStringOrDash()</td>
             </tr>
@@ -353,14 +361,6 @@ else
             <tr>
                 <td>Sector Identifier URI</td>
                 <td>@_client.SectorIdentifierUri.ToStringOrDash()</td>
-            </tr>
-            <tr>
-                <td>Backchannel Logout Session Required</td>
-                <td>@(_client.BackchannelLogoutSessionRequired ? "Yes" : "No")</td>
-            </tr>
-            <tr>
-                <td>Frontchannel Logout Session Required</td>
-                <td>@(_client.FrontchannelLogoutSessionRequired ? "Yes" : "No")</td>
             </tr>
             <tr>
                 <td>Request Object Signing Algorithm</td>

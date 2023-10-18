@@ -40,10 +40,8 @@ else
                 <td>@_identity.Traits</td>
             </tr>
             <tr>
-                <td>Updated at</td>
-                <td>
-                    @_identity.UpdatedAt
-                </td>
+                <td>Updated At</td>
+                <td>@_identity.UpdatedAt</td>
             </tr>
             <tr>
                 <td>Created At</td>
@@ -53,7 +51,7 @@ else
         </table>
 
         <div class="buttons">
-            <a class="button" href="identities/users">
+            <a class="button is-dark" href="identities/users">
                 Back
             </a>
             <a class="button is-info" href="identities/users/@(_identity!.Id)/edit">
@@ -301,5 +299,5 @@ else
     </div>
 
 
-    <AdditionalPropertiesBox Properties="@_identity.AdditionalProperties" />
+    <AdditionalPropertiesBox Properties="@_identity.AdditionalProperties"/>
 }

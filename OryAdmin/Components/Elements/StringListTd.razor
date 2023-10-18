@@ -1,0 +1,30 @@
+﻿<td>
+    @if (List == null || List.Count == 0)
+    {
+        <p>-</p>
+    }
+    else
+    {
+        if (SameLine)
+        {
+            <p>@string.Join(", ", List)</p>
+        }
+        else
+        {
+            @foreach (var item in List)
+            {
+                <p>@item</p>
+            }
+        }
+    }
+</td>
+
+@code {
+
+    [Parameter]
+    public required List<string>? List { get; set; }
+
+    [Parameter]
+    public required bool SameLine { get; set; }
+
+}

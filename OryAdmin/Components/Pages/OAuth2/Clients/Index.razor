@@ -9,7 +9,7 @@
 
 <h1 class="title">OAuth 2 Clients</h1>
 <div class="buttons">
-    <a href="oath2/clients/create" class="button is-success">
+    <a href="oauth2/clients/create" class="button is-success">
         New Client
     </a>
     <RefreshPageButton/>
@@ -38,7 +38,6 @@ else
             <table class="table is-fullwidth is-striped">
                 <thead>
                 <tr>
-                    <td>ID</td>
                     <td>Name</td>
                     <td>Owner</td>
                 </tr>
@@ -48,10 +47,11 @@ else
                 {
                     <tr>
                         <td>
-                            <a href="oauth2/@client.ClientId">@client.ClientId</a>
+                            <a href="oauth2/clients/@client.ClientId">
+                                @(string.IsNullOrWhiteSpace(client.ClientName) ? client.ClientId : client.ClientName)
+                            </a>
                         </td>
-                        <td>@client.ClientName</td>
-                        <td>@client.Owner</td>
+                        <td>@(string.IsNullOrWhiteSpace(client.Owner) ? "-" : client.Owner)</td>
                     </tr>
                 }
                 </tbody>

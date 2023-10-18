@@ -1,0 +1,328 @@
+﻿@page "/oauth2/clients/{ClientId}"
+@attribute [StreamRendering]
+@attribute [RenderModeInteractiveServer]
+@inject ICustomTranslator Translator
+@inject ILogger<Home> Logger
+@inject NavigationManager Navigation
+
+<PageTitle>View OAuth 2 Client</PageTitle>
+
+<h1 class="title">View OAuth 2 Client</h1>
+@if (_isLoading)
+{
+    // is loading
+    <p>Loading data...</p>
+}
+else
+{
+    <div class="box mt-3">
+        <h1 class="title">General</h1>
+        <table class="table is-fullwidth">
+            <tbody>
+            <tr>
+                <td>ID</td>
+                <td>@(_client!.ClientId)</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>@(string.IsNullOrWhiteSpace(_client.ClientName) ? "-" : _client.ClientName)</td>
+            </tr>
+            <tr>
+                <td>Secret</td>
+                <td>@(string.IsNullOrWhiteSpace(_client.ClientSecret) ? "-" : _client.ClientSecret)</td>
+            </tr>
+            <tr>
+                <td>Scope</td>
+                <td>@(string.IsNullOrWhiteSpace(_client.Scope) ? "-" : _client.Scope.Replace(" ", ", "))</td>
+            </tr>
+            <tr>
+                <td>Redirect URIs</td>
+                <StringListTd List="@_client.RedirectUris"/>
+            </tr>
+            <tr>
+                <td>Updated At</td>
+                <td>@_client.UpdatedAt</td>
+            </tr>
+            <tr>
+                <td>Created At</td>
+                <td>@_client.CreatedAt</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="buttons">
+            <a class="button is-dark" href="oauth2/clients">
+                Back
+            </a>
+            <a class="button is-info" href="oauth2/clients/@(_client!.ClientId)/edit">
+                Edit Client
+            </a>
+            <button class="js-modal-trigger button is-danger" data-target="delete-client-modal"
+                    type="button" @onclick="ShowDeleteModal">
+                Delete Client
+            </button>
+        </div>
+        <div id="delete-client-modal" class="modal @(_showDeleteModal ? "is-active" : "")">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Confirm Deletion</p>
+                    <button class="delete" aria-label="close" @onclick="HideDeleteModal"></button>
+                </header>
+                <section class="modal-card-body">
+                    <p>Are you sure to delete this client?</p>
+                    <p>Be aware that this cannot be undone.</p>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button" data-target="delete-client-modal"
+                            type="button" @onclick="HideDeleteModal">
+                        Cancel
+                    </button>
+                    <div class="button is-danger" @onclick="DeleteClient">
+                        Delete
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
+        <h1 class="title">Consent screen</h1>
+        <table class="table is-fullwidth">
+            <tbody>
+            <tr>
+                <td>Skip Consent Screen</td>
+                <td>@(_client.SkipConsent ? "Yes" : "No")</td>
+            </tr>
+            <tr>
+                <td>Owner</td>
+                <td>@(string.IsNullOrWhiteSpace(_client.Owner) ? "-" : _client.Owner)</td>
+            </tr>
+            <tr>
+                <td>URI</td>
+                <LinkTd Uri="@_client.ClientUri"/>
+            </tr>
+            <tr>
+                <td>Logo URI</td>
+                <LinkTd Uri="@_client.LogoUri"/>
+            </tr>
+            <tr>
+                <td>Policy URI</td>
+                <LinkTd Uri="@_client.PolicyUri"/>
+            </tr>
+            <tr>
+                <td>TOS URI</td>
+                <LinkTd Uri="@_client.PolicyUri"/>
+            </tr>
+            <tr>
+                <td>Contact Info</td>
+                <StringListTd List="@_client.Contacts"/>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="box">
+        <h1 class="title">Client authentication mechanism</h1>
+        <table class="table is-fullwidth">
+            <tbody>
+            <tr>
+                <td>Authentication Method</td>
+                <td>@_client.TokenEndpointAuthMethod</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="box">
+        <h1 class="title">Supported OAuth2 flows</h1>
+        <table class="table is-fullwidth">
+            <tbody>
+            <tr>
+                <td>Grant Types</td>
+                <StringListTd List="@_client.GrantTypes"/>
+            </tr>
+            <tr>
+                <td>Grant Types</td>
+                <StringListTd List="@_client.ResponseTypes"/>
+            </tr>
+            <tr>
+                <td>Access Token Type</td>
+                <td>@_client.AccessTokenStrategy.ToStringOrDash()</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="box">
+        <h1 class="title">OpenID Connect logout</h1>
+        <table class="table is-fullwidth">
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <AdditionalPropertiesBox Properties="@_client.AdditionalProperties"/>
+
+    <div class="box">
+        <h1 class="title">Lifespans</h1>
+        <div class="columns is-multiline">
+            <div class="column is-half">
+                <table class="table is-fullwidth is-narrow">
+                    <thead>
+                    <th>Refresh Token Grant</th>
+                    <th></th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>ID Token</td>
+                        <td>@_client.RefreshTokenGrantIdTokenLifespan.ToStringOrDash()</td>
+                    </tr>
+                    <tr>
+                        <td>Access Token</td>
+                        <td>@_client.RefreshTokenGrantAccessTokenLifespan.ToStringOrDash()</td>
+                    </tr>
+                    <tr>
+                        <td>Refresh Token</td>
+                        <td>@_client.RefreshTokenGrantRefreshTokenLifespan.ToStringOrDash()</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="column is-half">
+                <table class="table is-fullwidth is-narrow">
+                    <thead>
+                    <th>Authorization Code Grant</th>
+                    <th></th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>ID Token</td>
+                        <td>@_client.AuthorizationCodeGrantIdTokenLifespan.ToStringOrDash()</td>
+                    </tr>
+                    <tr>
+                        <td>Access Token</td>
+                        <td>@_client.AuthorizationCodeGrantAccessTokenLifespan.ToStringOrDash()</td>
+                    </tr>
+                    <tr>
+                        <td>Refresh Token</td>
+                        <td>@_client.AuthorizationCodeGrantRefreshTokenLifespan.ToStringOrDash()</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="column is-half">
+                <table class="table is-fullwidth is-narrow">
+                    <thead>
+                    <th>Client Credentials Grant</th>
+                    <th></th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Access Token</td>
+                        <td>@_client.ClientCredentialsGrantAccessTokenLifespan.ToStringOrDash()</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="column is-half">
+                <table class="table is-fullwidth is-narrow">
+                    <thead>
+                    <th>JWT Bearer Grant</th>
+                    <th></th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Access Token</td>
+                        <td>@_client.JwtBearerGrantAccessTokenLifespan.ToStringOrDash()</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
+        <h1 class="title">Other</h1>
+        <table class="table is-fullwidth">
+            <tbody>
+            <tr>
+                <td>Audience</td>
+                <StringListTd List="@_client.Audience"/>
+            </tr>
+            <tr>
+                <td>JWKS URI</td>
+                <LinkTd Uri="@_client.ClientUri"/>
+            </tr>
+            <tr>
+                <td>Request URIs</td>
+                <StringListTd List="@_client.RequestUris"/>
+            </tr>
+            <tr>
+                <td>Post Logout Redirect URIs</td>
+                <StringListTd List="@_client.PostLogoutRedirectUris"/>
+            </tr>
+            <tr>
+                <td>JWKS</td>
+                <td>@_client.Jwks</td>
+            </tr>
+            <tr>
+                <td>Metadata</td>
+                <td>@(_client.Metadata == null ? "-" : _client.Metadata)</td>
+            </tr>
+            <tr>
+                <td>Subject Type</td>
+                <td>@_client.SubjectType.ToStringOrDash()</td>
+            </tr>
+            <tr>
+                <td>Allowed CORS Origins</td>
+                <StringListTd List="@_client.AllowedCorsOrigins"/>
+            </tr>
+            <tr>
+                <td>Backchannel Logout URI</td>
+                <td>@_client.BackchannelLogoutUri.ToStringOrDash()</td>
+            </tr>
+            <tr>
+                <td>Frontchannel Logout URI</td>
+                <td>@_client.FrontchannelLogoutUri.ToStringOrDash()</td>
+            </tr>
+            <tr>
+                <td>Registration Access Token</td>
+                <td>@_client.RegistrationAccessToken.ToStringOrDash()</td>
+            </tr>
+            <tr>
+                <td>Registration Client URI</td>
+                <td>@_client.RegistrationClientUri.ToStringOrDash()</td>
+            </tr>
+            <tr>
+                <td>Sector Identifier URI</td>
+                <td>@_client.SectorIdentifierUri.ToStringOrDash()</td>
+            </tr>
+            <tr>
+                <td>Backchannel Logout Session Required</td>
+                <td>@(_client.BackchannelLogoutSessionRequired ? "Yes" : "No")</td>
+            </tr>
+            <tr>
+                <td>Client Secret Expires At</td>
+                <td>@(_client.ClientSecretExpiresAt == 0 ? "never" : _client.ClientSecretExpiresAt)</td>
+            </tr>
+            <tr>
+                <td>Frontchannel Logout Session Required</td>
+                <td>@(_client.FrontchannelLogoutSessionRequired ? "Yes" : "No")</td>
+            </tr>
+            <tr>
+                <td>Request Object Signing Algorithm</td>
+                <td>@_client.RequestObjectSigningAlg.ToStringOrDash()</td>
+            </tr>
+            <tr>
+                <td>Userinfo Signed Response Algorithm</td>
+                <td>@_client.UserinfoSignedResponseAlg.ToStringOrDash()</td>
+            </tr>
+            <tr>
+                <td>Token Endpoint Auth Signing Algorithm</td>
+                <td>@_client.TokenEndpointAuthSigningAlg.ToStringOrDash()</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+}

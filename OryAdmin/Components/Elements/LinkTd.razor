@@ -1,0 +1,20 @@
+﻿<td>
+    @if (Uri == null || string.IsNullOrWhiteSpace(Uri))
+    {
+        <p>-</p>
+    }
+    else
+    {
+        <a href="@Uri">@(Name ?? Uri)</a>
+    }
+</td>
+
+@code {
+
+    [Parameter]
+    public required string? Uri { get; set; }
+
+    [Parameter]
+    public required string? Name { get; set; }
+
+}

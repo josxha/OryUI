@@ -39,7 +39,7 @@ else
                 <thead>
                 <tr>
                     <td>Name</td>
-                    <td>Owner</td>
+                    <td>Created at</td>
                 </tr>
                 </thead>
                 <tbody>
@@ -51,7 +51,7 @@ else
                                 @(string.IsNullOrWhiteSpace(client.ClientName) ? client.ClientId : client.ClientName)
                             </a>
                         </td>
-                        <td>@(string.IsNullOrWhiteSpace(client.Owner) ? "-" : client.Owner)</td>
+                        <td>@client.CreatedAt</td>
                     </tr>
                 }
                 </tbody>

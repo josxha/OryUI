@@ -36,6 +36,10 @@ else
                 <td>@(_client.ClientSecretExpiresAt == 0 ? "never" : _client.ClientSecretExpiresAt)</td>
             </tr>
             <tr>
+                <td>Client Authentication Mechanism</td>
+                <td>@_client.TokenEndpointAuthMethod</td>
+            </tr>
+            <tr>
                 <td>Scope</td>
                 <td>@(string.IsNullOrWhiteSpace(_client.Scope) ? "-" : _client.Scope.Replace(" ", ", "))</td>
             </tr>
@@ -173,18 +177,6 @@ else
             <tr>
                 <td>Contact Info</td>
                 <StringListTd List="@_client.Contacts"/>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="box">
-        <h1 class="title">Client authentication mechanism</h1>
-        <table class="table is-fullwidth">
-            <tbody>
-            <tr>
-                <td>Authentication Method</td>
-                <td>@_client.TokenEndpointAuthMethod</td>
             </tr>
             </tbody>
         </table>

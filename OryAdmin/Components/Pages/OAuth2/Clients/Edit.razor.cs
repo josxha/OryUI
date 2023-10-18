@@ -34,6 +34,6 @@ public partial class Edit
             return;
         }
 
-        Navigation.NavigateTo("oauth2/clients");
+        Navigation.NavigateTo($"oauth2/clients/{ClientId}");
     }
 }

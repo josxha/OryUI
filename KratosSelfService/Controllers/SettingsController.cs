@@ -1,4 +1,5 @@
-﻿using KratosSelfService.Services;
+﻿using KratosSelfService.Models;
+using KratosSelfService.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KratosSelfService.Controllers;
@@ -16,6 +17,7 @@ public class SettingsController(ApiService api) : Controller
         }
 
         var flow = await api.Frontend.GetSettingsFlowAsync(flowId, cookie: Request.Headers.Cookie);
-        return View("Settings", flow);
+        var model = new SettingsModel(flow, api.GetSettingsUrl(flow.Id));
+        return View("Settings", model);
     }
 }

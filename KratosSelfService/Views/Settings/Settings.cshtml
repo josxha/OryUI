@@ -1,10 +1,11 @@
 ﻿@inject ICustomTranslator Translator
 @using KratosSelfService.Extensions
-@model KratosSettingsFlow
+@using KratosSelfService.Services
+@model SettingsModel
 @{
     ViewData["Title"] = Translator.GetTranslation("Account Settings");
     Layout = "_CardLayout";
-    var allGroups = Model.Ui.Nodes
+    var allGroups = Model.flow.Ui.Nodes
         .GroupBy(node => node.Group).ToList();
     var defaultNodes = allGroups
         .First(group => group.Key == KratosUiNode.GroupEnum.Default)
@@ -15,9 +16,9 @@
 
 <section class="section">
     <h1 class="title">@Translator.GetTranslation("Account Settings")</h1>
-    @if (Model.Ui.Messages != null)
+    @if (Model.flow.Ui.Messages != null)
     {
-        foreach (var message in Model.Ui.Messages)
+        foreach (var message in Model.flow.Ui.Messages)
         {
             @await Component.InvokeAsync("KratosUiTextMessage", message)
         }
@@ -26,7 +27,7 @@
     {
         <hr/>
         <h3 class="subtitle mt-3">@group.Key.ToLocalString(Translator)</h3>
-        <form class="mb-3" action="@Model.ReturnTo" method="post">
+        <form class="mb-3" action="@Model.postUri" method="post">
             @foreach (var node in defaultNodes)
             {
                 @await Component.InvokeAsync("KratosUiNodeInput", node)

@@ -36,4 +36,31 @@
     <data name="en" xml:space="preserve">
         <value>en</value>
     </data>
+    <data name="sessions.title" xml:space="preserve">
+        <value>Active sessions</value>
+    </data>
+    <data name="sessions.devices" xml:space="preserve">
+        <value>Devices</value>
+    </data>
+    <data name="sessions.authenticatedWith" xml:space="preserve">
+        <value>Authenticated with</value>
+    </data>
+    <data name="sessions.authenticatedAt" xml:space="preserve">
+        <value>Authenticated at</value>
+    </data>
+    <data name="sessions.expiresAt" xml:space="preserve">
+        <value>Expires at</value>
+    </data>
+    <data name="sessions.noOtherActiveSessions" xml:space="preserve">
+        <value>There are no other active sessions.</value>
+    </data>
+    <data name="sessions.otherSessions" xml:space="preserve">
+        <value>Other Sessions</value>
+    </data>
+    <data name="sessions.logoutOtherSessions" xml:space="preserve">
+        <value>Logout all other sessions</value>
+    </data>
+    <data name="sessions.currentSession" xml:space="preserve">
+        <value>Current Session</value>
+    </data>
 </root>

@@ -1,20 +1,20 @@
 ﻿@model SessionsModel
 @{
-    ViewData["Title"] = "Sessions";
+    ViewData["Title"] = CustomTranslator.Get("sessions.title");
     var totalSessions = Model.OtherSessions.Count + 1;
 }
 
 <section class="section">
-    <h1 class="title">User Sessions</h1>
+    <h1 class="title">@CustomTranslator.Get("sessions.title")</h1>
     <h2 class="subtitle">You have @totalSessions active session@(totalSessions == 1 ? "" : "s").</h2>
-    <h4 class="title mt-3">Current Session</h4>
+    <h4 class="title mt-3">@CustomTranslator.Get("sessions.currentSession")</h4>
     <table class="table is-fullwidth">
         <thead>
         <tr>
-            <td>Devices</td>
-            <td>Authentication Methods</td>
-            <td>Authenticated At</td>
-            <td>Expires At</td>
+            <td>@CustomTranslator.Get("sessions.devices")</td>
+            <td>@CustomTranslator.Get("sessions.authenticatedWith")</td>
+            <td>@CustomTranslator.Get("sessions.authenticatedAt")</td>
+            <td>@CustomTranslator.Get("sessions.expiresAt")</td>
         </tr>
         </thead>
         <tbody>
@@ -26,25 +26,25 @@
         </tr>
         </tbody>
     </table>
-    <h4 class="title mt-3">Other Sessions</h4>
+    <h4 class="title mt-3">@CustomTranslator.Get("sessions.otherSessions")</h4>
     @if (Model.OtherSessions.Count == 0)
     {
-        <p>There are no other active sessions.</p>
+        <p>@CustomTranslator.Get("sessions.noOtherActiveSessions")</p>
     }
     else
     {
         <div class="buttons">
             <a class="button is-warning" href="sessions-logout">
-                Logout all other sessions
+                @CustomTranslator.Get("sessions.logoutOtherSessions")
             </a>
         </div>
         <table class="table is-fullwidth">
             <thead>
             <tr>
-                <td>Devices</td>
-                <td>Authentication Methods</td>
-                <td>Authenticated At</td>
-                <td>Expires At</td>
+                <td>@CustomTranslator.Get("sessions.devices")</td>
+                <td>@CustomTranslator.Get("sessions.authenticationMethods")</td>
+                <td>@CustomTranslator.Get("sessions.authenticatedAt")</td>
+                <td>@CustomTranslator.Get("sessions.expiresAt")</td>
             </tr>
             </thead>
             <tbody>

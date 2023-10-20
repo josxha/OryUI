@@ -85,4 +85,31 @@
     <data name="Logout" xml:space="preserve">
         <value>Abmelden</value>
     </data>
+    <data name="sessions.title" xml:space="preserve">
+        <value>Aktive Sitzungen</value>
+    </data>
+    <data name="sessions.devices" xml:space="preserve">
+        <value>Geräte</value>
+    </data>
+    <data name="sessions.authenticatedWith" xml:space="preserve">
+        <value>Authentifiziert mit</value>
+    </data>
+    <data name="sessions.authenticatedAt" xml:space="preserve">
+        <value>Authentifiziert am</value>
+    </data>
+    <data name="sessions.expiresAt" xml:space="preserve">
+        <value>Läuft ab am</value>
+    </data>
+    <data name="sessions.noOtherActiveSessions" xml:space="preserve">
+        <value>Es gibt eine weiteren aktiven Sitzungen</value>
+    </data>
+    <data name="sessions.otherSessions" xml:space="preserve">
+        <value>Weitere Sitzungen</value>
+    </data>
+    <data name="sessions.logoutOtherSessions" xml:space="preserve">
+        <value>Alle anderen Sitzungen abmelden</value>
+    </data>
+    <data name="sessions.currentSession" xml:space="preserve">
+        <value>Diese Sitzung</value>
+    </data>
 </root>

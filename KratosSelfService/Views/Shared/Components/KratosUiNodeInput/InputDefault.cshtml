@@ -1,0 +1,14 @@
+﻿@model KratosUiNode
+
+@{
+    var attributes = Model.Attributes.GetKratosUiNodeInputAttributes();
+    var label = attributes.Label ?? Model.Meta.Label;
+}
+
+<div class="field">
+    <p>Unsupported Input Type: "@attributes.Type, Label: "@label"</p>
+    @foreach (var message in Model.Messages)
+    {
+        <KratosUiTextMessage Message="@message"/>
+    }
+</div>

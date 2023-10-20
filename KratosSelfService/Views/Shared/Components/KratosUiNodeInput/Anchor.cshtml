@@ -1,0 +1,15 @@
+﻿@model KratosUiNode
+
+@{
+    var attributes = Model.Attributes.GetKratosUiNodeAnchorAttributes();
+}
+
+<div class="field">
+    <div class="is-fullwidth has-text-centered">
+        <a href="@attributes.Href" id="@attributes.Id">@attributes.Title.Text</a>
+    </div>
+    @foreach (var message in Model.Messages)
+    {
+        <KratosUiTextMessage Message="@message"/>
+    }
+</div>

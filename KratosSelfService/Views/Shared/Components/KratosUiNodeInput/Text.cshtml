@@ -1,7 +1,11 @@
 ﻿@model KratosUiNode
 
+@{
+    var attributes = Model.Attributes.GetKratosUiNodeTextAttributes();
+}
+
 <div class="field">
-    <p>Unsupported UI Type: @Model.Type</p>
+    <p id="@attributes.Id">@attributes.Text.Text</p>
     @foreach (var message in Model.Messages)
     {
         <KratosUiTextMessage Message="@message"/>

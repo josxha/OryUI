@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using KratosSelfService.Services;
+using KratosSelfService.Services.l10n;
 using Microsoft.AspNetCore.Localization;
 
 namespace KratosSelfService;

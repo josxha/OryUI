@@ -1,4 +1,5 @@
-﻿using Ory.Kratos.Client.Model;
+﻿using KratosSelfService.Services.l10n;
+using Ory.Kratos.Client.Model;
 
 namespace KratosSelfService.Extensions;
 

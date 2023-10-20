@@ -1,7 +1,7 @@
 ﻿@using KratosSelfService.Extensions
 @model SettingsModel
 @{
-    ViewData["Title"] = CustomTranslator.Get("settings.title");
+    ViewData["Title"] = OryTranslator.Get("settings.title");
     Layout = "_CardLayout";
     var allGroups = Model.flow.Ui.Nodes
         .GroupBy(node => node.Group).ToList();
@@ -13,7 +13,8 @@
 }
 
 <section class="section">
-    <h1 class="title">@CustomTranslator.Get("settings.title")</h1>
+    <h1 class="title">@OryTranslator.Get("settings.title")</h1>
+    <p>@OryTranslator.Get("settings.subtitle-instructions")</p>
     @if (Model.flow.Ui.Messages != null)
     {
         foreach (var message in Model.flow.Ui.Messages)

@@ -59,10 +59,10 @@ the [/KratosSelfService](/KratosSelfService) directory.
 - [x] Login
 - [x] Registration
 - [x] Verify Email
-- [ ] Account Settings
+- [x] Account Settings
 - [x] Logout
-- [ ] Error Page
-- [ ] Recovery
+- [x] Error Page
+- [x] Recovery
 - [x] Sessions
 
 ## Get Started

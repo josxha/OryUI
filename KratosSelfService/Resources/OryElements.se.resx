@@ -1,0 +1,683 @@
+<?xml version="1.0" ?>
+<root>
+  <data name="consent.action-accept" xml:space="preserve">
+    <value>Tillåt</value>
+    <comment>consent.action-accept</comment>
+  </data>
+  <data name="consent.action-reject" xml:space="preserve">
+    <value>Neka</value>
+    <comment>consent.action-reject</comment>
+  </data>
+  <data name="consent.description" xml:space="preserve">
+    <value>Ge bara behörigheter om du litar på den här webbplatsen eller appen. Du behöver inte acceptera alla behörigheter.</value>
+    <comment>consent.description</comment>
+  </data>
+  <data name="consent.privacy-policy-label" xml:space="preserve">
+    <value>Integritetspolicy</value>
+    <comment>consent.privacy-policy-label</comment>
+  </data>
+  <data name="consent.remember-label" xml:space="preserve">
+    <value>Kom ihåg detta val till nästa gång. Applikationen kommer inte att kunna be om ytterligare tillstånd utan ditt medgivande.</value>
+    <comment>consent.remember-label</comment>
+  </data>
+  <data name="consent.remember-tooltip" xml:space="preserve">
+    <value>kom ihåg mitt val</value>
+    <comment>consent.remember-tooltip</comment>
+  </data>
+  <data name="consent.requested-permissions-label" xml:space="preserve">
+    <value>Applikationen begär åtkomst till följande behörigheter:</value>
+    <comment>consent.requested-permissions-label</comment>
+  </data>
+  <data name="consent.terms-of-service-label" xml:space="preserve">
+    <value>Användarvillkor</value>
+    <comment>consent.terms-of-service-label</comment>
+  </data>
+  <data name="error.back-button" xml:space="preserve">
+    <value>Tillbaka</value>
+    <comment>error.back-button</comment>
+  </data>
+  <data name="error.description" xml:space="preserve">
+    <value>Ett fel uppstod med följande meddelande:</value>
+    <comment>error.description</comment>
+  </data>
+  <data name="error.support-email-link" xml:space="preserve">
+    <value>Om problemet kvarstår, vänligen kontakta &lt;a&gt;{contactSupportEmail}&lt;/a&gt;</value>
+    <comment>error.support-email-link</comment>
+  </data>
+  <data name="error.title" xml:space="preserve">
+    <value>Ett fel uppstod</value>
+    <comment>error.title</comment>
+  </data>
+  <data name="error.title-internal-server-error" xml:space="preserve">
+    <value>Internt serverfel</value>
+    <comment>error.title-internal-server-error</comment>
+  </data>
+  <data name="error.title-not-found" xml:space="preserve">
+    <value>404 - Sidan hittades ej</value>
+    <comment>error.title-not-found</comment>
+  </data>
+  <data name="identities.messages.1010001" xml:space="preserve">
+    <value>Logga in</value>
+    <comment>identities.messages.1010001</comment>
+  </data>
+  <data name="identities.messages.1010002" xml:space="preserve">
+    <value>Logga in med {provider}</value>
+    <comment>identities.messages.1010002</comment>
+  </data>
+  <data name="identities.messages.1010003" xml:space="preserve">
+    <value>Bekräfta denna åtgärd genom att verifiera att det är du.</value>
+    <comment>identities.messages.1010003</comment>
+  </data>
+  <data name="identities.messages.1010004" xml:space="preserve">
+    <value>Vänligen slutför den andra autentiseringsutmaningen.</value>
+    <comment>identities.messages.1010004</comment>
+  </data>
+  <data name="identities.messages.1010005" xml:space="preserve">
+    <value>Verifiera</value>
+    <comment>identities.messages.1010005</comment>
+  </data>
+  <data name="identities.messages.1010006" xml:space="preserve">
+    <value>Autentiseringskod</value>
+    <comment>identities.messages.1010006</comment>
+  </data>
+  <data name="identities.messages.1010007" xml:space="preserve">
+    <value>Återställningskod för backup</value>
+    <comment>identities.messages.1010007</comment>
+  </data>
+  <data name="identities.messages.1010008" xml:space="preserve">
+    <value>Använd säkerhetsnyckel</value>
+    <comment>identities.messages.1010008</comment>
+  </data>
+  <data name="identities.messages.1010009" xml:space="preserve">
+    <value>Använd autentiserings-app</value>
+    <comment>identities.messages.1010009</comment>
+  </data>
+  <data name="identities.messages.1010010" xml:space="preserve">
+    <value>Använd reservåterställningskod</value>
+    <comment>identities.messages.1010010</comment>
+  </data>
+  <data name="identities.messages.1010011" xml:space="preserve">
+    <value>Fortsätt med säkerhetsnyckel</value>
+    <comment>identities.messages.1010011</comment>
+  </data>
+  <data name="identities.messages.1010012" xml:space="preserve">
+    <value>Förbered din WebAuthn-enhet (t.ex. säkerhetsnyckel, biometriska skanner, ...) och tryck på fortsätt.</value>
+    <comment>identities.messages.1010012</comment>
+  </data>
+  <data name="identities.messages.1010013" xml:space="preserve">
+    <value>Fortsätt</value>
+    <comment>identities.messages.1010013</comment>
+  </data>
+  <data name="identities.messages.1010014" xml:space="preserve">
+    <value>Ett e-postmeddelande som innehåller en kod har skickats till den e-postadress du angett. Om du inte har fått ett mejl, kontrollera stavningen av adressen och försök logga in igen.</value>
+    <comment>identities.messages.1010014</comment>
+  </data>
+  <data name="identities.messages.1010015" xml:space="preserve">
+    <value>Logga in med kod</value>
+    <comment>identities.messages.1010015</comment>
+  </data>
+  <data name="identities.messages.1040001" xml:space="preserve">
+    <value>Logga in</value>
+    <comment>identities.messages.1040001</comment>
+  </data>
+  <data name="identities.messages.1040002" xml:space="preserve">
+    <value>Logga in med {provider}</value>
+    <comment>identities.messages.1040002</comment>
+  </data>
+  <data name="identities.messages.1040003" xml:space="preserve">
+    <value>Fortsätt</value>
+    <comment>identities.messages.1040003</comment>
+  </data>
+  <data name="identities.messages.1040004" xml:space="preserve">
+    <value>Registrera med säkerhetsnyckel</value>
+    <comment>identities.messages.1040004</comment>
+  </data>
+  <data name="identities.messages.1040005" xml:space="preserve">
+    <value>Ett e-postmeddelande som innehåller en kod har skickats till den e-postadress du angett. Om du inte har fått ett e-postmeddelande, kontrollera stavningen av adressen och försök igen med registreringen.</value>
+    <comment>identities.messages.1040005</comment>
+  </data>
+  <data name="identities.messages.1040006" xml:space="preserve">
+    <value>Registrera med kod</value>
+    <comment>identities.messages.1040006</comment>
+  </data>
+  <data name="identities.messages.1050001" xml:space="preserve">
+    <value>Dina ändringar har sparats!</value>
+    <comment>identities.messages.1050001</comment>
+  </data>
+  <data name="identities.messages.1050002" xml:space="preserve">
+    <value>Koppla på {provider}</value>
+    <comment>identities.messages.1050002</comment>
+  </data>
+  <data name="identities.messages.1050003" xml:space="preserve">
+    <value>Koppla bort {provider}</value>
+    <comment>identities.messages.1050003</comment>
+  </data>
+  <data name="identities.messages.1050004" xml:space="preserve">
+    <value>Koppla bort TOTP Autentisering-App</value>
+    <comment>identities.messages.1050004</comment>
+  </data>
+  <data name="identities.messages.1050005" xml:space="preserve">
+    <value>Autentisering-app QR kod</value>
+    <comment>identities.messages.1050005</comment>
+  </data>
+  <data name="identities.messages.1050006" xml:space="preserve">
+    <value>{secret}</value>
+    <comment>identities.messages.1050006</comment>
+  </data>
+  <data name="identities.messages.1050007" xml:space="preserve">
+    <value>Visa reservåterställningskoder</value>
+    <comment>identities.messages.1050007</comment>
+  </data>
+  <data name="identities.messages.1050008" xml:space="preserve">
+    <value>Generera nya reservåterställningskoder</value>
+    <comment>identities.messages.1050008</comment>
+  </data>
+  <data name="identities.messages.1050009" xml:space="preserve">
+    <value>{secret}</value>
+    <comment>identities.messages.1050009</comment>
+  </data>
+  <data name="identities.messages.1050010" xml:space="preserve">
+    <value>Det här är dina reservåterställningskoder. Förvara dem på ett säkert ställe!</value>
+    <comment>identities.messages.1050010</comment>
+  </data>
+  <data name="identities.messages.1050011" xml:space="preserve">
+    <value>Bekräfta reservåterställningskoder</value>
+    <comment>identities.messages.1050011</comment>
+  </data>
+  <data name="identities.messages.1050012" xml:space="preserve">
+    <value>Lägg till säkerhetsnyckel</value>
+    <comment>identities.messages.1050012</comment>
+  </data>
+  <data name="identities.messages.1050013" xml:space="preserve">
+    <value>Säkerhetsnyckelns namn</value>
+    <comment>identities.messages.1050013</comment>
+  </data>
+  <data name="identities.messages.1050014" xml:space="preserve">
+    <value>&lt;del&gt;Använd&lt;/del&gt;</value>
+    <comment>identities.messages.1050014</comment>
+  </data>
+  <data name="identities.messages.1050015" xml:space="preserve">
+    <value>{secrets_list}</value>
+    <comment>identities.messages.1050015</comment>
+  </data>
+  <data name="identities.messages.1050016" xml:space="preserve">
+    <value>Inaktivera den här metoden</value>
+    <comment>identities.messages.1050016</comment>
+  </data>
+  <data name="identities.messages.1050017" xml:space="preserve">
+    <value>Det här är din hemlighet för din autentiseringsapp. Använd den om du inte kan skanna QR-koden.</value>
+    <comment>identities.messages.1050017</comment>
+  </data>
+  <data name="identities.messages.1050018" xml:space="preserve">
+    <value>Ta bort säkerhetsnyckel &quot;{display_name}&quot;</value>
+    <comment>identities.messages.1050018</comment>
+  </data>
+  <data name="identities.messages.1060001" xml:space="preserve">
+    <value>Du har lyckats återställa ditt konto. Ändra ditt lösenord eller ställ in en alternativ inloggningsmetod (t.ex. social inloggning) inom de närmaste {privileged_session_expires_at_unix_until_minutes} minuterna.</value>
+    <comment>identities.messages.1060001</comment>
+  </data>
+  <data name="identities.messages.1060002" xml:space="preserve">
+    <value>Ett e-postmeddelande som innehåller en återställningslänk har skickats till den e-postadress du angett. Om du inte har fått ett mejl, kontrollera stavningen på adressen och se till att använda adressen du registrerade dig med.</value>
+    <comment>identities.messages.1060002</comment>
+  </data>
+  <data name="identities.messages.1060003" xml:space="preserve">
+    <value>Ett e-postmeddelande som innehåller en återställningskod har skickats till den e-postadress du angett. Om du inte har fått ett mejl, kontrollera stavningen på adressen och se till att använda adressen du registrerade dig med.</value>
+    <comment>identities.messages.1060003</comment>
+  </data>
+  <data name="identities.messages.1070001" xml:space="preserve">
+    <value>Lösenord</value>
+    <comment>identities.messages.1070001</comment>
+  </data>
+  <data name="identities.messages.1070002" xml:space="preserve">
+    <value>{title}</value>
+    <comment>identities.messages.1070002</comment>
+  </data>
+  <data name="identities.messages.1070003" xml:space="preserve">
+    <value>Spara</value>
+    <comment>identities.messages.1070003</comment>
+  </data>
+  <data name="identities.messages.1070004" xml:space="preserve">
+    <value>ID</value>
+    <comment>identities.messages.1070004</comment>
+  </data>
+  <data name="identities.messages.1070005" xml:space="preserve">
+    <value>Skicka</value>
+    <comment>identities.messages.1070005</comment>
+  </data>
+  <data name="identities.messages.1070006" xml:space="preserve">
+    <value>Verifiera kod</value>
+    <comment>identities.messages.1070006</comment>
+  </data>
+  <data name="identities.messages.1070007" xml:space="preserve">
+    <value>E-post</value>
+    <comment>identities.messages.1070007</comment>
+  </data>
+  <data name="identities.messages.1070008" xml:space="preserve">
+    <value>Skicka koden igen</value>
+    <comment>identities.messages.1070008</comment>
+  </data>
+  <data name="identities.messages.1070009" xml:space="preserve">
+    <value>Fortsätt</value>
+    <comment>identities.messages.1070009</comment>
+  </data>
+  <data name="identities.messages.1070010" xml:space="preserve">
+    <value>Återställningskod</value>
+    <comment>identities.messages.1070010</comment>
+  </data>
+  <data name="identities.messages.1070011" xml:space="preserve">
+    <value>Verifieringskod</value>
+    <comment>identities.messages.1070011</comment>
+  </data>
+  <data name="identities.messages.1070012" xml:space="preserve">
+    <value>Registreringskod</value>
+    <comment>identities.messages.1070012</comment>
+  </data>
+  <data name="identities.messages.1070013" xml:space="preserve">
+    <value>Inloggningskod</value>
+    <comment>identities.messages.1070013</comment>
+  </data>
+  <data name="identities.messages.1080001" xml:space="preserve">
+    <value>Ett e-postmeddelande med en verifieringslänk har skickats till den e-postadress du angett. Om du inte har fått ett mejl, kontrollera stavningen på adressen och se till att använda adressen du registrerade dig med.</value>
+    <comment>identities.messages.1080001</comment>
+  </data>
+  <data name="identities.messages.1080002" xml:space="preserve">
+    <value>Du har verifierat din e-postadress.</value>
+    <comment>identities.messages.1080002</comment>
+  </data>
+  <data name="identities.messages.1080003" xml:space="preserve">
+    <value>Ett e-postmeddelande som innehåller en verifieringskod har skickats till den e-postadress du angett. Om du inte har fått ett mejl, kontrollera stavningen på adressen och se till att använda adressen du registrerade dig med.</value>
+    <comment>identities.messages.1080003</comment>
+  </data>
+  <data name="identities.messages.4000001" xml:space="preserve">
+    <value>{reason}</value>
+    <comment>identities.messages.4000001</comment>
+  </data>
+  <data name="identities.messages.4000002" xml:space="preserve">
+    <value>Egenskap {property} saknas.</value>
+    <comment>identities.messages.4000002</comment>
+  </data>
+  <data name="identities.messages.4000003" xml:space="preserve">
+    <value>längd måste vara &gt;= {min_length}, men var {actual_length}</value>
+    <comment>identities.messages.4000003</comment>
+  </data>
+  <data name="identities.messages.4000004" xml:space="preserve">
+    <value>matchar inte mönstret &quot;{pattern}&quot;</value>
+    <comment>identities.messages.4000004</comment>
+  </data>
+  <data name="identities.messages.4000005" xml:space="preserve">
+    <value>Lösenordet kan inte användas pga {reason}.</value>
+    <comment>identities.messages.4000005</comment>
+  </data>
+  <data name="identities.messages.4000006" xml:space="preserve">
+    <value>De angivna uppgifterna är ogiltiga. Kontrollera om det finns stavfel i ditt lösenord eller användarnamn, e-postadress eller telefonnummer.</value>
+    <comment>identities.messages.4000006</comment>
+  </data>
+  <data name="identities.messages.4000007" xml:space="preserve">
+    <value>Ett konto med samma identifierare (e-post, telefon, användarnamn, ...) finns redan.</value>
+    <comment>identities.messages.4000007</comment>
+  </data>
+  <data name="identities.messages.4000008" xml:space="preserve">
+    <value>Den angivna autentiseringskoden är ogiltig, försök igen.</value>
+    <comment>identities.messages.4000008</comment>
+  </data>
+  <data name="identities.messages.4000009" xml:space="preserve">
+    <value>Det gick inte att hitta några inloggningsidentifierare. Har du glömt att ställa in dem? Detta kan också orsakas av en felaktig serverkonfiguration.</value>
+    <comment>identities.messages.4000009</comment>
+  </data>
+  <data name="identities.messages.4000010" xml:space="preserve">
+    <value>Kontot är inte aktivt ännu. Har du glömt att verifiera din e-postadress?</value>
+    <comment>identities.messages.4000010</comment>
+  </data>
+  <data name="identities.messages.4000011" xml:space="preserve">
+    <value>Du har ingen TOTP-enhet konfigurerad.</value>
+    <comment>identities.messages.4000011</comment>
+  </data>
+  <data name="identities.messages.4000012" xml:space="preserve">
+    <value>Denna backup-återställningskod har redan använts.</value>
+    <comment>identities.messages.4000012</comment>
+  </data>
+  <data name="identities.messages.4000013" xml:space="preserve">
+    <value>Du har ingen WebAuthn-enhet konfigurerad.</value>
+    <comment>identities.messages.4000013</comment>
+  </data>
+  <data name="identities.messages.4000014" xml:space="preserve">
+    <value>Du har inga backup-återställningskoder konfigurerade.</value>
+    <comment>identities.messages.4000014</comment>
+  </data>
+  <data name="identities.messages.4000015" xml:space="preserve">
+    <value>Det här kontot finns inte eller har ingen säkerhetsnyckel konfigurerad.</value>
+    <comment>identities.messages.4000015</comment>
+  </data>
+  <data name="identities.messages.4000016" xml:space="preserve">
+    <value>Backup-återställningskoden är inte giltig.</value>
+    <comment>identities.messages.4000016</comment>
+  </data>
+  <data name="identities.messages.4000017" xml:space="preserve">
+    <value>längd måste vara &lt;= {max_length}, men var {actual_length}</value>
+    <comment>identities.messages.4000017</comment>
+  </data>
+  <data name="identities.messages.4000018" xml:space="preserve">
+    <value>måste vara &gt;= {minimum} men var {actual}</value>
+    <comment>identities.messages.4000018</comment>
+  </data>
+  <data name="identities.messages.4000019" xml:space="preserve">
+    <value>måste vara &gt; {minimum} men var {actual}</value>
+    <comment>identities.messages.4000019</comment>
+  </data>
+  <data name="identities.messages.4000020" xml:space="preserve">
+    <value>måste vara &lt;= {maximum} men var {actual}</value>
+    <comment>identities.messages.4000020</comment>
+  </data>
+  <data name="identities.messages.4000021" xml:space="preserve">
+    <value>måste vara &lt; {maximum} men var {actual}</value>
+    <comment>identities.messages.4000021</comment>
+  </data>
+  <data name="identities.messages.4000022" xml:space="preserve">
+    <value>{actual} är inte en multipel av {base}</value>
+    <comment>identities.messages.4000022</comment>
+  </data>
+  <data name="identities.messages.4000023" xml:space="preserve">
+    <value>maximalt {max_items} objekt tillåtna, men hittade {actual_items} objekt</value>
+    <comment>identities.messages.4000023</comment>
+  </data>
+  <data name="identities.messages.4000024" xml:space="preserve">
+    <value>minst {min_items} objekt tillåtna, men hittade {actual_items} objekt</value>
+    <comment>identities.messages.4000024</comment>
+  </data>
+  <data name="identities.messages.4000025" xml:space="preserve">
+    <value>objekt vid index {index_a} och {index_b} är lika</value>
+    <comment>identities.messages.4000025</comment>
+  </data>
+  <data name="identities.messages.4000026" xml:space="preserve">
+    <value>förväntade {allowed_types_list}, men var {actual_type}</value>
+    <comment>identities.messages.4000026</comment>
+  </data>
+  <data name="identities.messages.4000027" xml:space="preserve">
+    <value>Ett konto med samma identifierare (e-post, telefon, användarnamn, ...) finns redan. Logga in på ditt befintliga konto och länka din sociala profil på inställningssidan.</value>
+    <comment>identities.messages.4000027</comment>
+  </data>
+  <data name="identities.messages.4000028" xml:space="preserve">
+    <value>Du försökte logga in med {credential_identifier_hint} som redan används av ett annat konto. Du kan logga in med {available_credential_types_list}. Du kan logga in med någon av följande sociala inloggningsleverantörer: {Available_oidc_providers_list}.</value>
+    <comment>identities.messages.4000028</comment>
+  </data>
+  <data name="identities.messages.4000029" xml:space="preserve">
+    <value>måste vara lika med konstant {expected}</value>
+    <comment>identities.messages.4000029</comment>
+  </data>
+  <data name="identities.messages.4000030" xml:space="preserve">
+    <value>const misslyckades</value>
+    <comment>identities.messages.4000030</comment>
+  </data>
+  <data name="identities.messages.4000031" xml:space="preserve">
+    <value>Lösenordet kan inte användas eftersom det är för likt identifieraren.</value>
+    <comment>identities.messages.4000031</comment>
+  </data>
+  <data name="identities.messages.4000032" xml:space="preserve">
+    <value>Lösenordet måste vara minst {min_length} tecken långt, men är {actual_length}.</value>
+    <comment>identities.messages.4000032</comment>
+  </data>
+  <data name="identities.messages.4000033" xml:space="preserve">
+    <value>Lösenordet får vara högst {max_length} tecken långt, men är {actual_length}.</value>
+    <comment>identities.messages.4000033</comment>
+  </data>
+  <data name="identities.messages.4000034" xml:space="preserve">
+    <value>Lösenordet har hittats vid dataintrång och får inte längre användas.</value>
+    <comment>identities.messages.4000034</comment>
+  </data>
+  <data name="identities.messages.4000035" xml:space="preserve">
+    <value>Det här kontot finns inte eller har inte konfigurerat inloggning med kod.</value>
+    <comment>identities.messages.4000035</comment>
+  </data>
+  <data name="identities.messages.4000036" xml:space="preserve">
+    <value>De angivna egenskaperna matchar inte de egenskaper som tidigare associerats med detta flöde.</value>
+    <comment>identities.messages.4000036</comment>
+  </data>
+  <data name="identities.messages.4010001" xml:space="preserve">
+    <value>Inloggningsflödet upphörde för {expired_at_unix_since_minutes} minuter sedan, var vänlig försök igen.</value>
+    <comment>identities.messages.4010001</comment>
+  </data>
+  <data name="identities.messages.4010002" xml:space="preserve">
+    <value>Kunde inte hitta en strategi att logga in dig med. Fyllde du i formuläret korrekt?</value>
+    <comment>identities.messages.4010002</comment>
+  </data>
+  <data name="identities.messages.4010003" xml:space="preserve">
+    <value>Kunde inte hitta en strategi att registrera dig med. Fyllde du i formuläret korrekt?</value>
+    <comment>identities.messages.4010003</comment>
+  </data>
+  <data name="identities.messages.4010004" xml:space="preserve">
+    <value>Kunde inte hitta en strategi för att uppdatera dina inställningar. Fyllde du i formuläret korrekt?</value>
+    <comment>identities.messages.4010004</comment>
+  </data>
+  <data name="identities.messages.4010005" xml:space="preserve">
+    <value>Kunde inte hitta en strategi att återställa ditt konto med. Fyllde du i formuläret korrekt?</value>
+    <comment>identities.messages.4010005</comment>
+  </data>
+  <data name="identities.messages.4010006" xml:space="preserve">
+    <value>Kunde inte hitta en strategi att verifiera ditt konto med. Fyllde du i formuläret korrekt?</value>
+    <comment>identities.messages.4010006</comment>
+  </data>
+  <data name="identities.messages.4010007" xml:space="preserve">
+    <value>Begäran har redan slutförts framgångsrikt och kan inte göras igen.</value>
+    <comment>identities.messages.4010007</comment>
+  </data>
+  <data name="identities.messages.4010008" xml:space="preserve">
+    <value>Inloggningskoden är ogiltig eller har redan använts. Var vänlig försök igen.</value>
+    <comment>identities.messages.4010008</comment>
+  </data>
+  <data name="identities.messages.4040001" xml:space="preserve">
+    <value>Registreringsflödet gick ut för {expired_at_unix_since_minutes} minuter sedan, försök igen.</value>
+    <comment>identities.messages.4040001</comment>
+  </data>
+  <data name="identities.messages.4040002" xml:space="preserve">
+    <value>Begäran har redan slutförts framgångsrikt och kan inte göras igen.</value>
+    <comment>identities.messages.4040002</comment>
+  </data>
+  <data name="identities.messages.4040003" xml:space="preserve">
+    <value>Registreringskoden är ogiltig eller har redan använts. Var vänlig försök igen.</value>
+    <comment>identities.messages.4040003</comment>
+  </data>
+  <data name="identities.messages.4050001" xml:space="preserve">
+    <value>Inställningsflödet gick ut för {expired_at_unix_since_minutes} minuter sedan, var vänlig försök igen.</value>
+    <comment>identities.messages.4050001</comment>
+  </data>
+  <data name="identities.messages.4060001" xml:space="preserve">
+    <value>Begäran har redan slutförts framgångsrikt och kan inte göras igen.</value>
+    <comment>identities.messages.4060001</comment>
+  </data>
+  <data name="identities.messages.4060002" xml:space="preserve">
+    <value>Återställningsflödet nådde ett feltillstånd och måste försökas igen.</value>
+    <comment>identities.messages.4060002</comment>
+  </data>
+  <data name="identities.messages.4060004" xml:space="preserve">
+    <value>Återställningstoken är ogiltig eller har redan använts. Var vänlig försök flödet igen.</value>
+    <comment>identities.messages.4060004</comment>
+  </data>
+  <data name="identities.messages.4060005" xml:space="preserve">
+    <value>Återställningsflödet gick ut för {expired_at_unix_since_minutes} minuter sedan, var vänlig försök igen.</value>
+    <comment>identities.messages.4060005</comment>
+  </data>
+  <data name="identities.messages.4060006" xml:space="preserve">
+    <value>Återställningskoden är ogiltig eller har redan använts. Var vänlig försök igen.</value>
+    <comment>identities.messages.4060006</comment>
+  </data>
+  <data name="identities.messages.4070001" xml:space="preserve">
+    <value>Verifieringstoken är ogiltig eller har redan använts. Var vänlig försök flödet igen.</value>
+    <comment>identities.messages.4070001</comment>
+  </data>
+  <data name="identities.messages.4070002" xml:space="preserve">
+    <value>Begäran har redan slutförts framgångsrikt och kan inte göras igen.</value>
+    <comment>identities.messages.4070002</comment>
+  </data>
+  <data name="identities.messages.4070003" xml:space="preserve">
+    <value>Verifieringsflödet nådde ett feltillstånd och måste försökas igen.</value>
+    <comment>identities.messages.4070003</comment>
+  </data>
+  <data name="identities.messages.4070005" xml:space="preserve">
+    <value>Verifieringsflödet gick ut för {expired_at_unix_since_minutes} minuter sedan, var vänlig försök igen.</value>
+    <comment>identities.messages.4070005</comment>
+  </data>
+  <data name="identities.messages.4070006" xml:space="preserve">
+    <value>Verifieringskoden är ogiltig eller har redan använts. Var vänlig försök igen.</value>
+    <comment>identities.messages.4070006</comment>
+  </data>
+  <data name="identities.messages.5000001" xml:space="preserve">
+    <value>{reason}</value>
+    <comment>identities.messages.5000001</comment>
+  </data>
+  <data name="login.forgot-password" xml:space="preserve">
+    <value>Glömt lösenord?</value>
+    <comment>login.forgot-password</comment>
+  </data>
+  <data name="login.logged-in-as-label" xml:space="preserve">
+    <value>Du är inloggad som:</value>
+    <comment>login.logged-in-as-label</comment>
+  </data>
+  <data name="login.logout-button" xml:space="preserve">
+    <value>Logga ut</value>
+    <comment>login.logout-button</comment>
+  </data>
+  <data name="login.logout-label" xml:space="preserve">
+    <value>Är det något som inte fungerar?</value>
+    <comment>login.logout-label</comment>
+  </data>
+  <data name="login.registration-button" xml:space="preserve">
+    <value>Skapa konto</value>
+    <comment>login.registration-button</comment>
+  </data>
+  <data name="login.registration-label" xml:space="preserve">
+    <value>Har du inget konto?</value>
+    <comment>login.registration-label</comment>
+  </data>
+  <data name="login.subtitle-oauth2" xml:space="preserve">
+    <value>Att autentisera {clientName}</value>
+    <comment>login.subtitle-oauth2</comment>
+  </data>
+  <data name="login.title" xml:space="preserve">
+    <value>Logga in</value>
+    <comment>login.title</comment>
+  </data>
+  <data name="login.title-aal2" xml:space="preserve">
+    <value>Tvåfaktorsautentisering</value>
+    <comment>login.title-aal2</comment>
+  </data>
+  <data name="login.title-refresh" xml:space="preserve">
+    <value>Bekräfta att det är du</value>
+    <comment>login.title-refresh</comment>
+  </data>
+  <data name="logout.accept-button" xml:space="preserve">
+    <value>Ja</value>
+    <comment>logout.accept-button</comment>
+  </data>
+  <data name="logout.reject-button" xml:space="preserve">
+    <value>Nej</value>
+    <comment>logout.reject-button</comment>
+  </data>
+  <data name="logout.title" xml:space="preserve">
+    <value>Vill du logga ut?</value>
+    <comment>logout.title</comment>
+  </data>
+  <data name="recovery.login-button" xml:space="preserve">
+    <value>Logga in</value>
+    <comment>recovery.login-button</comment>
+  </data>
+  <data name="recovery.login-label" xml:space="preserve">
+    <value>Kan du ditt inlogg?</value>
+    <comment>recovery.login-label</comment>
+  </data>
+  <data name="recovery.title" xml:space="preserve">
+    <value>Återställ ditt konto</value>
+    <comment>recovery.title</comment>
+  </data>
+  <data name="registration.login-button" xml:space="preserve">
+    <value>Logga in</value>
+    <comment>registration.login-button</comment>
+  </data>
+  <data name="registration.login-label" xml:space="preserve">
+    <value>Har du redan ett konto?</value>
+    <comment>registration.login-label</comment>
+  </data>
+  <data name="registration.subtitle-oauth2" xml:space="preserve">
+    <value>Att autentisera {clientName}</value>
+    <comment>registration.subtitle-oauth2</comment>
+  </data>
+  <data name="registration.title" xml:space="preserve">
+    <value>Skapa ett konto</value>
+    <comment>registration.title</comment>
+  </data>
+  <data name="settings.navigation-backup-codes" xml:space="preserve">
+    <value>2FA backupkoder</value>
+    <comment>settings.navigation-backup-codes</comment>
+  </data>
+  <data name="settings.navigation-logout" xml:space="preserve">
+    <value>Logga ut</value>
+    <comment>settings.navigation-logout</comment>
+  </data>
+  <data name="settings.navigation-oidc" xml:space="preserve">
+    <value>Social Inloggning</value>
+    <comment>settings.navigation-oidc</comment>
+  </data>
+  <data name="settings.navigation-password" xml:space="preserve">
+    <value>Lösenord</value>
+    <comment>settings.navigation-password</comment>
+  </data>
+  <data name="settings.navigation-profile" xml:space="preserve">
+    <value>Profil</value>
+    <comment>settings.navigation-profile</comment>
+  </data>
+  <data name="settings.navigation-totp" xml:space="preserve">
+    <value>Autentiserings App</value>
+    <comment>settings.navigation-totp</comment>
+  </data>
+  <data name="settings.navigation-webauthn" xml:space="preserve">
+    <value>Hårdvaru Tokens</value>
+    <comment>settings.navigation-webauthn</comment>
+  </data>
+  <data name="settings.subtitle-instructions" xml:space="preserve">
+    <value>Här kan du hantera inställningar relaterade till ditt konto. Tänk på att vissa åtgärder kräver att du autentiseras på nytt.</value>
+    <comment>settings.subtitle-instructions</comment>
+  </data>
+  <data name="settings.title" xml:space="preserve">
+    <value>Kontoinställningar</value>
+    <comment>settings.title</comment>
+  </data>
+  <data name="settings.title-lookup-secret" xml:space="preserve">
+    <value>Hantera 2FA backup-återställningskoder</value>
+    <comment>settings.title-lookup-secret</comment>
+  </data>
+  <data name="settings.title-navigation" xml:space="preserve">
+    <value>Kontoinställningar</value>
+    <comment>settings.title-navigation</comment>
+  </data>
+  <data name="settings.title-oidc" xml:space="preserve">
+    <value>Social Inloggning</value>
+    <comment>settings.title-oidc</comment>
+  </data>
+  <data name="settings.title-password" xml:space="preserve">
+    <value>Byt lösenord</value>
+    <comment>settings.title-password</comment>
+  </data>
+  <data name="settings.title-profile" xml:space="preserve">
+    <value>Profilinställningar</value>
+    <comment>settings.title-profile</comment>
+  </data>
+  <data name="settings.title-totp" xml:space="preserve">
+    <value>Hantera 2FA TOTP Autentiserings App</value>
+    <comment>settings.title-totp</comment>
+  </data>
+  <data name="settings.title-webauthn" xml:space="preserve">
+    <value>Hantera Hårdvaru Tokens</value>
+    <comment>settings.title-webauthn</comment>
+  </data>
+  <data name="verification.registration-button" xml:space="preserve">
+    <value>Skapa konto</value>
+    <comment>verification.registration-button</comment>
+  </data>
+  <data name="verification.registration-label" xml:space="preserve">
+    <value>Har du inget konto?</value>
+    <comment>verification.registration-label</comment>
+  </data>
+  <data name="verification.title" xml:space="preserve">
+    <value>Verifiera ditt konto</value>
+    <comment>verification.title</comment>
+  </data>
+</root>

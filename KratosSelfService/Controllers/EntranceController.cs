@@ -61,8 +61,7 @@ public class EntranceController(ILogger<EntranceController> logger, ApiService a
     {
         if (flowId == null)
         {
-            var newFlow = await api.Frontend.CreateBrowserRecoveryFlowAsync();
-            return Redirect($"recovery?flow={newFlow.Id}");
+            return Redirect(api.GetUrlForFlow("recovery"));
         }
 
         KratosRecoveryFlow flow;

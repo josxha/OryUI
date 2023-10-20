@@ -1,0 +1,683 @@
+<?xml version="1.0" ?>
+<root>
+  <data name="consent.action-accept" xml:space="preserve">
+    <value>Autoriser</value>
+    <comment>consent.action-accept</comment>
+  </data>
+  <data name="consent.action-reject" xml:space="preserve">
+    <value>Refuser</value>
+    <comment>consent.action-reject</comment>
+  </data>
+  <data name="consent.description" xml:space="preserve">
+    <value>N'accordez des permissions que si vous faites confiance à ce site ou à cette application. Vous n'avez pas besoin d'accepter toutes les permissions.</value>
+    <comment>consent.description</comment>
+  </data>
+  <data name="consent.privacy-policy-label" xml:space="preserve">
+    <value>Politique de confidentialité</value>
+    <comment>consent.privacy-policy-label</comment>
+  </data>
+  <data name="consent.remember-label" xml:space="preserve">
+    <value>Mémoriser cette décision pour la prochaine fois. L'application ne pourra pas demander des permissions supplémentaires sans votre consentement.</value>
+    <comment>consent.remember-label</comment>
+  </data>
+  <data name="consent.remember-tooltip" xml:space="preserve">
+    <value>mémoriser ma décision</value>
+    <comment>consent.remember-tooltip</comment>
+  </data>
+  <data name="consent.requested-permissions-label" xml:space="preserve">
+    <value>L'application demande l'accès aux permissions suivantes :</value>
+    <comment>consent.requested-permissions-label</comment>
+  </data>
+  <data name="consent.terms-of-service-label" xml:space="preserve">
+    <value>Conditions d'utilisation</value>
+    <comment>consent.terms-of-service-label</comment>
+  </data>
+  <data name="error.back-button" xml:space="preserve">
+    <value>Revenir en arrière</value>
+    <comment>error.back-button</comment>
+  </data>
+  <data name="error.description" xml:space="preserve">
+    <value>Une erreur est survenue avec le message suivant :</value>
+    <comment>error.description</comment>
+  </data>
+  <data name="error.support-email-link" xml:space="preserve">
+    <value>Si le problème persiste, veuillez contacter &lt;a&gt;{contactSupportEmail}&lt;/a&gt;</value>
+    <comment>error.support-email-link</comment>
+  </data>
+  <data name="error.title" xml:space="preserve">
+    <value>Une erreur est survenue</value>
+    <comment>error.title</comment>
+  </data>
+  <data name="error.title-internal-server-error" xml:space="preserve">
+    <value>Erreur interne du serveur</value>
+    <comment>error.title-internal-server-error</comment>
+  </data>
+  <data name="error.title-not-found" xml:space="preserve">
+    <value>404 - Page non trouvée</value>
+    <comment>error.title-not-found</comment>
+  </data>
+  <data name="identities.messages.1010001" xml:space="preserve">
+    <value>Se connecter</value>
+    <comment>identities.messages.1010001</comment>
+  </data>
+  <data name="identities.messages.1010002" xml:space="preserve">
+    <value>Se connecter avec {provider}</value>
+    <comment>identities.messages.1010002</comment>
+  </data>
+  <data name="identities.messages.1010003" xml:space="preserve">
+    <value>Veuillez confirmer cette action en vérifiant que c'est bien vous.</value>
+    <comment>identities.messages.1010003</comment>
+  </data>
+  <data name="identities.messages.1010004" xml:space="preserve">
+    <value>Veuillez terminer le deuxième défi d'authentification.</value>
+    <comment>identities.messages.1010004</comment>
+  </data>
+  <data name="identities.messages.1010005" xml:space="preserve">
+    <value>Vérifier</value>
+    <comment>identities.messages.1010005</comment>
+  </data>
+  <data name="identities.messages.1010006" xml:space="preserve">
+    <value>Code d'authentification</value>
+    <comment>identities.messages.1010006</comment>
+  </data>
+  <data name="identities.messages.1010007" xml:space="preserve">
+    <value>Code de récupération de secours</value>
+    <comment>identities.messages.1010007</comment>
+  </data>
+  <data name="identities.messages.1010008" xml:space="preserve">
+    <value>Utiliser une clé de sécurité</value>
+    <comment>identities.messages.1010008</comment>
+  </data>
+  <data name="identities.messages.1010009" xml:space="preserve">
+    <value>Utiliser un authentificateur</value>
+    <comment>identities.messages.1010009</comment>
+  </data>
+  <data name="identities.messages.1010010" xml:space="preserve">
+    <value>Utiliser un code de récupération de secours</value>
+    <comment>identities.messages.1010010</comment>
+  </data>
+  <data name="identities.messages.1010011" xml:space="preserve">
+    <value>Continuer avec la clé de sécurité</value>
+    <comment>identities.messages.1010011</comment>
+  </data>
+  <data name="identities.messages.1010012" xml:space="preserve">
+    <value>Préparez votre appareil WebAuthn (par exemple, une clé de sécurité, un scanner biométrique, ...) et appuyez sur Continuer.</value>
+    <comment>identities.messages.1010012</comment>
+  </data>
+  <data name="identities.messages.1010013" xml:space="preserve">
+    <value>Continuer</value>
+    <comment>identities.messages.1010013</comment>
+  </data>
+  <data name="identities.messages.1010014" xml:space="preserve">
+    <value>Un e-mail contenant un code a été envoyé à l'adresse e-mail que vous avez fournie. Si vous n'avez pas reçu d'e-mail, vérifiez l'orthographe de l'adresse et réessayez la connexion.</value>
+    <comment>identities.messages.1010014</comment>
+  </data>
+  <data name="identities.messages.1010015" xml:space="preserve">
+    <value>Se connecter avec un code</value>
+    <comment>identities.messages.1010015</comment>
+  </data>
+  <data name="identities.messages.1040001" xml:space="preserve">
+    <value>S'inscrire</value>
+    <comment>identities.messages.1040001</comment>
+  </data>
+  <data name="identities.messages.1040002" xml:space="preserve">
+    <value>S'inscrire avec {provider}</value>
+    <comment>identities.messages.1040002</comment>
+  </data>
+  <data name="identities.messages.1040003" xml:space="preserve">
+    <value>Continuer</value>
+    <comment>identities.messages.1040003</comment>
+  </data>
+  <data name="identities.messages.1040004" xml:space="preserve">
+    <value>S'inscrire avec une clé de sécurité</value>
+    <comment>identities.messages.1040004</comment>
+  </data>
+  <data name="identities.messages.1040005" xml:space="preserve">
+    <value>Un e-mail contenant un code a été envoyé à l'adresse e-mail que vous avez fournie. Si vous n'avez pas reçu d'e-mail, vérifiez l'orthographe de l'adresse et réessayez l'inscription.</value>
+    <comment>identities.messages.1040005</comment>
+  </data>
+  <data name="identities.messages.1040006" xml:space="preserve">
+    <value>S'inscrire avec un code</value>
+    <comment>identities.messages.1040006</comment>
+  </data>
+  <data name="identities.messages.1050001" xml:space="preserve">
+    <value>Vos modifications ont été enregistrées avec succès !</value>
+    <comment>identities.messages.1050001</comment>
+  </data>
+  <data name="identities.messages.1050002" xml:space="preserve">
+    <value>Lier {provider}</value>
+    <comment>identities.messages.1050002</comment>
+  </data>
+  <data name="identities.messages.1050003" xml:space="preserve">
+    <value>Délier {provider}</value>
+    <comment>identities.messages.1050003</comment>
+  </data>
+  <data name="identities.messages.1050004" xml:space="preserve">
+    <value>Délier l'application d'authentification TOTP</value>
+    <comment>identities.messages.1050004</comment>
+  </data>
+  <data name="identities.messages.1050005" xml:space="preserve">
+    <value>Code QR de l'application d'authentification</value>
+    <comment>identities.messages.1050005</comment>
+  </data>
+  <data name="identities.messages.1050006" xml:space="preserve">
+    <value>{secret}</value>
+    <comment>identities.messages.1050006</comment>
+  </data>
+  <data name="identities.messages.1050007" xml:space="preserve">
+    <value>Afficher les codes de récupération de secours</value>
+    <comment>identities.messages.1050007</comment>
+  </data>
+  <data name="identities.messages.1050008" xml:space="preserve">
+    <value>Générer de nouveaux codes de récupération de secours</value>
+    <comment>identities.messages.1050008</comment>
+  </data>
+  <data name="identities.messages.1050009" xml:space="preserve">
+    <value>{secret}</value>
+    <comment>identities.messages.1050009</comment>
+  </data>
+  <data name="identities.messages.1050010" xml:space="preserve">
+    <value>Ce sont vos codes de récupération de secours. Veuillez les conserver dans un endroit sûr !</value>
+    <comment>identities.messages.1050010</comment>
+  </data>
+  <data name="identities.messages.1050011" xml:space="preserve">
+    <value>Confirmer les codes de récupération de secours</value>
+    <comment>identities.messages.1050011</comment>
+  </data>
+  <data name="identities.messages.1050012" xml:space="preserve">
+    <value>Ajouter une clé de sécurité</value>
+    <comment>identities.messages.1050012</comment>
+  </data>
+  <data name="identities.messages.1050013" xml:space="preserve">
+    <value>Nom de la clé de sécurité</value>
+    <comment>identities.messages.1050013</comment>
+  </data>
+  <data name="identities.messages.1050014" xml:space="preserve">
+    <value>&lt;del&gt;Utilisé&lt;/del&gt;</value>
+    <comment>identities.messages.1050014</comment>
+  </data>
+  <data name="identities.messages.1050015" xml:space="preserve">
+    <value>{secrets_list}</value>
+    <comment>identities.messages.1050015</comment>
+  </data>
+  <data name="identities.messages.1050016" xml:space="preserve">
+    <value>Désactiver cette méthode</value>
+    <comment>identities.messages.1050016</comment>
+  </data>
+  <data name="identities.messages.1050017" xml:space="preserve">
+    <value>Il s'agit de votre code secret de l'application d'authentification. Utilisez-le si vous ne pouvez pas scanner le code QR.</value>
+    <comment>identities.messages.1050017</comment>
+  </data>
+  <data name="identities.messages.1050018" xml:space="preserve">
+    <value>Supprimer la clé de sécurité &quot;{display_name}&quot;</value>
+    <comment>identities.messages.1050018</comment>
+  </data>
+  <data name="identities.messages.1060001" xml:space="preserve">
+    <value>Vous avez réussi à récupérer votre compte. Veuillez changer votre mot de passe ou configurer une méthode de connexion alternative (par exemple, une connexion sociale) dans les prochaines {privileged_session_expires_at_unix_until_minutes} minutes.</value>
+    <comment>identities.messages.1060001</comment>
+  </data>
+  <data name="identities.messages.1060002" xml:space="preserve">
+    <value>Un e-mail contenant un lien de récupération a été envoyé à l'adresse e-mail que vous avez fournie. Si vous n'avez pas reçu d'e-mail, vérifiez l'orthographe de l'adresse et assurez-vous d'utiliser l'adresse avec laquelle vous vous êtes enregistré.</value>
+    <comment>identities.messages.1060002</comment>
+  </data>
+  <data name="identities.messages.1060003" xml:space="preserve">
+    <value>Un e-mail contenant un code de récupération a été envoyé à l'adresse e-mail que vous avez fournie. Si vous n'avez pas reçu d'e-mail, vérifiez l'orthographe de l'adresse et assurez-vous d'utiliser l'adresse avec laquelle vous vous êtes enregistré.</value>
+    <comment>identities.messages.1060003</comment>
+  </data>
+  <data name="identities.messages.1070001" xml:space="preserve">
+    <value>Mot de passe</value>
+    <comment>identities.messages.1070001</comment>
+  </data>
+  <data name="identities.messages.1070002" xml:space="preserve">
+    <value>{title}</value>
+    <comment>identities.messages.1070002</comment>
+  </data>
+  <data name="identities.messages.1070003" xml:space="preserve">
+    <value>Enregistrer</value>
+    <comment>identities.messages.1070003</comment>
+  </data>
+  <data name="identities.messages.1070004" xml:space="preserve">
+    <value>ID</value>
+    <comment>identities.messages.1070004</comment>
+  </data>
+  <data name="identities.messages.1070005" xml:space="preserve">
+    <value>Soumettre</value>
+    <comment>identities.messages.1070005</comment>
+  </data>
+  <data name="identities.messages.1070006" xml:space="preserve">
+    <value>Vérifier le code</value>
+    <comment>identities.messages.1070006</comment>
+  </data>
+  <data name="identities.messages.1070007" xml:space="preserve">
+    <value>E-mail</value>
+    <comment>identities.messages.1070007</comment>
+  </data>
+  <data name="identities.messages.1070008" xml:space="preserve">
+    <value>Renvoyer le code</value>
+    <comment>identities.messages.1070008</comment>
+  </data>
+  <data name="identities.messages.1070009" xml:space="preserve">
+    <value>Continuer</value>
+    <comment>identities.messages.1070009</comment>
+  </data>
+  <data name="identities.messages.1070010" xml:space="preserve">
+    <value>Code de récupération</value>
+    <comment>identities.messages.1070010</comment>
+  </data>
+  <data name="identities.messages.1070011" xml:space="preserve">
+    <value>Code de vérification</value>
+    <comment>identities.messages.1070011</comment>
+  </data>
+  <data name="identities.messages.1070012" xml:space="preserve">
+    <value>Code d'inscription</value>
+    <comment>identities.messages.1070012</comment>
+  </data>
+  <data name="identities.messages.1070013" xml:space="preserve">
+    <value>Code de connexion</value>
+    <comment>identities.messages.1070013</comment>
+  </data>
+  <data name="identities.messages.1080001" xml:space="preserve">
+    <value>Un e-mail contenant un lien de vérification a été envoyé à l'adresse e-mail que vous avez fournie. Si vous n'avez pas reçu d'e-mail, vérifiez l'orthographe de l'adresse et assurez-vous d'utiliser l'adresse avec laquelle vous vous êtes enregistré.</value>
+    <comment>identities.messages.1080001</comment>
+  </data>
+  <data name="identities.messages.1080002" xml:space="preserve">
+    <value>Vous avez réussi à vérifier votre adresse e-mail.</value>
+    <comment>identities.messages.1080002</comment>
+  </data>
+  <data name="identities.messages.1080003" xml:space="preserve">
+    <value>Un e-mail contenant un code de vérification a été envoyé à l'adresse e-mail que vous avez fournie. Si vous n'avez pas reçu d'e-mail, vérifiez l'orthographe de l'adresse et assurez-vous d'utiliser l'adresse avec laquelle vous vous êtes enregistré.</value>
+    <comment>identities.messages.1080003</comment>
+  </data>
+  <data name="identities.messages.4000001" xml:space="preserve">
+    <value>{reason}</value>
+    <comment>identities.messages.4000001</comment>
+  </data>
+  <data name="identities.messages.4000002" xml:space="preserve">
+    <value>La propriété {property} est manquante.</value>
+    <comment>identities.messages.4000002</comment>
+  </data>
+  <data name="identities.messages.4000003" xml:space="preserve">
+    <value>La longueur doit être &gt;= {min_length}, mais a été {actual_length}</value>
+    <comment>identities.messages.4000003</comment>
+  </data>
+  <data name="identities.messages.4000004" xml:space="preserve">
+    <value>Ne correspond pas au motif &quot;{pattern}&quot;</value>
+    <comment>identities.messages.4000004</comment>
+  </data>
+  <data name="identities.messages.4000005" xml:space="preserve">
+    <value>Le mot de passe ne peut pas être utilisé en raison de {reason}.</value>
+    <comment>identities.messages.4000005</comment>
+  </data>
+  <data name="identities.messages.4000006" xml:space="preserve">
+    <value>Les informations d'identification fournies sont invalides. Veuillez vérifier les fautes d'orthographe dans votre mot de passe ou nom d'utilisateur, adresse e-mail ou numéro de téléphone.</value>
+    <comment>identities.messages.4000006</comment>
+  </data>
+  <data name="identities.messages.4000007" xml:space="preserve">
+    <value>Un compte avec le même identifiant (e-mail, téléphone, nom d'utilisateur, ...) existe déjà.</value>
+    <comment>identities.messages.4000007</comment>
+  </data>
+  <data name="identities.messages.4000008" xml:space="preserve">
+    <value>Le code d'authentification fourni est invalide. Veuillez réessayer.</value>
+    <comment>identities.messages.4000008</comment>
+  </data>
+  <data name="identities.messages.4000009" xml:space="preserve">
+    <value>Impossible de trouver des identifiants de connexion. Avez-vous oublié de les configurer ? Cela peut également être dû à une mauvaise configuration du serveur.</value>
+    <comment>identities.messages.4000009</comment>
+  </data>
+  <data name="identities.messages.4000010" xml:space="preserve">
+    <value>Le compte n'est pas encore actif. Avez-vous oublié de vérifier votre adresse e-mail ?</value>
+    <comment>identities.messages.4000010</comment>
+  </data>
+  <data name="identities.messages.4000011" xml:space="preserve">
+    <value>Vous n'avez pas configuré de dispositif TOTP.</value>
+    <comment>identities.messages.4000011</comment>
+  </data>
+  <data name="identities.messages.4000012" xml:space="preserve">
+    <value>Ce code de récupération de secours a déjà été utilisé.</value>
+    <comment>identities.messages.4000012</comment>
+  </data>
+  <data name="identities.messages.4000013" xml:space="preserve">
+    <value>Vous n'avez pas configuré de dispositif WebAuthn.</value>
+    <comment>identities.messages.4000013</comment>
+  </data>
+  <data name="identities.messages.4000014" xml:space="preserve">
+    <value>Vous n'avez pas configuré de codes de récupération de secours.</value>
+    <comment>identities.messages.4000014</comment>
+  </data>
+  <data name="identities.messages.4000015" xml:space="preserve">
+    <value>Ce compte n'existe pas ou n'a pas configuré de clé de sécurité.</value>
+    <comment>identities.messages.4000015</comment>
+  </data>
+  <data name="identities.messages.4000016" xml:space="preserve">
+    <value>Le code de récupération de secours n'est pas valide.</value>
+    <comment>identities.messages.4000016</comment>
+  </data>
+  <data name="identities.messages.4000017" xml:space="preserve">
+    <value>La longueur doit être &lt;= {max_length}, mais a été {actual_length}</value>
+    <comment>identities.messages.4000017</comment>
+  </data>
+  <data name="identities.messages.4000018" xml:space="preserve">
+    <value>Doit être &gt;= {minimum} mais a été {actual}</value>
+    <comment>identities.messages.4000018</comment>
+  </data>
+  <data name="identities.messages.4000019" xml:space="preserve">
+    <value>Doit être &gt; {minimum} mais a été {actual}</value>
+    <comment>identities.messages.4000019</comment>
+  </data>
+  <data name="identities.messages.4000020" xml:space="preserve">
+    <value>Doit être &lt;= {maximum} mais a été {actual}</value>
+    <comment>identities.messages.4000020</comment>
+  </data>
+  <data name="identities.messages.4000021" xml:space="preserve">
+    <value>Doit être &lt; {maximum} mais a été {actual}</value>
+    <comment>identities.messages.4000021</comment>
+  </data>
+  <data name="identities.messages.4000022" xml:space="preserve">
+    <value>{actual} n'est pas multiple de {base}</value>
+    <comment>identities.messages.4000022</comment>
+  </data>
+  <data name="identities.messages.4000023" xml:space="preserve">
+    <value>Un maximum de {max_items} éléments est autorisé, mais {actual_items} éléments ont été trouvés</value>
+    <comment>identities.messages.4000023</comment>
+  </data>
+  <data name="identities.messages.4000024" xml:space="preserve">
+    <value>Un minimum de {min_items} éléments est autorisé, mais {actual_items} éléments ont été trouvés</value>
+    <comment>identities.messages.4000024</comment>
+  </data>
+  <data name="identities.messages.4000025" xml:space="preserve">
+    <value>Les éléments aux indices {index_a} et {index_b} sont égaux</value>
+    <comment>identities.messages.4000025</comment>
+  </data>
+  <data name="identities.messages.4000026" xml:space="preserve">
+    <value>Les types autorisés étaient {allowed_types_list}, mais le type actuel est {actual_type}</value>
+    <comment>identities.messages.4000026</comment>
+  </data>
+  <data name="identities.messages.4000027" xml:space="preserve">
+    <value>Un compte avec le même identifiant (e-mail, téléphone, nom d'utilisateur, ...) existe déjà. Veuillez vous connecter à votre compte existant et lier votre profil social dans la page des paramètres.</value>
+    <comment>identities.messages.4000027</comment>
+  </data>
+  <data name="identities.messages.4000028" xml:space="preserve">
+    <value>Vous avez essayé de vous connecter avec {credential_identifier_hint} qui est déjà utilisé par un autre compte. Vous pouvez vous connecter en utilisant {available_credential_types_list}. Vous pouvez vous connecter en utilisant l'un des fournisseurs de connexion sociale suivants : {Available_oidc_providers_list}.</value>
+    <comment>identities.messages.4000028</comment>
+  </data>
+  <data name="identities.messages.4000029" xml:space="preserve">
+    <value>Doit être égal à la constante {expected}</value>
+    <comment>identities.messages.4000029</comment>
+  </data>
+  <data name="identities.messages.4000030" xml:space="preserve">
+    <value>Échec de la constante</value>
+    <comment>identities.messages.4000030</comment>
+  </data>
+  <data name="identities.messages.4000031" xml:space="preserve">
+    <value>Le mot de passe ne peut pas être utilisé car il est trop similaire à l'identifiant.</value>
+    <comment>identities.messages.4000031</comment>
+  </data>
+  <data name="identities.messages.4000032" xml:space="preserve">
+    <value>Le mot de passe doit comporter au moins {min_length} caractères, mais en comporte {actual_length}.</value>
+    <comment>identities.messages.4000032</comment>
+  </data>
+  <data name="identities.messages.4000033" xml:space="preserve">
+    <value>Le mot de passe doit comporter au plus {max_length} caractères, mais en comporte {actual_length}.</value>
+    <comment>identities.messages.4000033</comment>
+  </data>
+  <data name="identities.messages.4000034" xml:space="preserve">
+    <value>Le mot de passe a été trouvé dans des violations de données et ne doit plus être utilisé.</value>
+    <comment>identities.messages.4000034</comment>
+  </data>
+  <data name="identities.messages.4000035" xml:space="preserve">
+    <value>Ce compte n'existe pas ou n'a pas configuré de connexion avec code.</value>
+    <comment>identities.messages.4000035</comment>
+  </data>
+  <data name="identities.messages.4000036" xml:space="preserve">
+    <value>Les traits fournis ne correspondent pas aux traits associés précédemment à ce flux.</value>
+    <comment>identities.messages.4000036</comment>
+  </data>
+  <data name="identities.messages.4010001" xml:space="preserve">
+    <value>Le flux de connexion a expiré il y a {expired_at_unix_since_minutes} minutes, veuillez réessayer.</value>
+    <comment>identities.messages.4010001</comment>
+  </data>
+  <data name="identities.messages.4010002" xml:space="preserve">
+    <value>Impossible de trouver une stratégie pour vous connecter. Avez-vous rempli correctement le formulaire ?</value>
+    <comment>identities.messages.4010002</comment>
+  </data>
+  <data name="identities.messages.4010003" xml:space="preserve">
+    <value>Impossible de trouver une stratégie pour vous inscrire. Avez-vous rempli correctement le formulaire ?</value>
+    <comment>identities.messages.4010003</comment>
+  </data>
+  <data name="identities.messages.4010004" xml:space="preserve">
+    <value>Impossible de trouver une stratégie pour mettre à jour vos paramètres. Avez-vous rempli correctement le formulaire ?</value>
+    <comment>identities.messages.4010004</comment>
+  </data>
+  <data name="identities.messages.4010005" xml:space="preserve">
+    <value>Impossible de trouver une stratégie pour récupérer votre compte. Avez-vous rempli correctement le formulaire ?</value>
+    <comment>identities.messages.4010005</comment>
+  </data>
+  <data name="identities.messages.4010006" xml:space="preserve">
+    <value>Impossible de trouver une stratégie pour vérifier votre compte. Avez-vous rempli correctement le formulaire ?</value>
+    <comment>identities.messages.4010006</comment>
+  </data>
+  <data name="identities.messages.4010007" xml:space="preserve">
+    <value>La demande a déjà été effectuée avec succès et ne peut pas être réessayée.</value>
+    <comment>identities.messages.4010007</comment>
+  </data>
+  <data name="identities.messages.4010008" xml:space="preserve">
+    <value>Le code de connexion est invalide ou a déjà été utilisé. Veuillez réessayer.</value>
+    <comment>identities.messages.4010008</comment>
+  </data>
+  <data name="identities.messages.4040001" xml:space="preserve">
+    <value>Le flux d'inscription a expiré il y a {expired_at_unix_since_minutes} minutes, veuillez réessayer.</value>
+    <comment>identities.messages.4040001</comment>
+  </data>
+  <data name="identities.messages.4040002" xml:space="preserve">
+    <value>La demande a déjà été effectuée avec succès et ne peut pas être réessayée.</value>
+    <comment>identities.messages.4040002</comment>
+  </data>
+  <data name="identities.messages.4040003" xml:space="preserve">
+    <value>Le code d'inscription est invalide ou a déjà été utilisé. Veuillez réessayer.</value>
+    <comment>identities.messages.4040003</comment>
+  </data>
+  <data name="identities.messages.4050001" xml:space="preserve">
+    <value>Le flux de paramètres a expiré il y a {expired_at_unix_since_minutes} minutes, veuillez réessayer.</value>
+    <comment>identities.messages.4050001</comment>
+  </data>
+  <data name="identities.messages.4060001" xml:space="preserve">
+    <value>La demande a déjà été effectuée avec succès et ne peut pas être réessayée.</value>
+    <comment>identities.messages.4060001</comment>
+  </data>
+  <data name="identities.messages.4060002" xml:space="preserve">
+    <value>Le flux de récupération a atteint un état d'échec et doit être réessayé.</value>
+    <comment>identities.messages.4060002</comment>
+  </data>
+  <data name="identities.messages.4060004" xml:space="preserve">
+    <value>Le jeton de récupération est invalide ou a déjà été utilisé. Veuillez réessayer le flux.</value>
+    <comment>identities.messages.4060004</comment>
+  </data>
+  <data name="identities.messages.4060005" xml:space="preserve">
+    <value>Le flux de récupération a expiré il y a {expired_at_unix_since_minutes} minutes, veuillez réessayer.</value>
+    <comment>identities.messages.4060005</comment>
+  </data>
+  <data name="identities.messages.4060006" xml:space="preserve">
+    <value>Le code de récupération est invalide ou a déjà été utilisé. Veuillez réessayer.</value>
+    <comment>identities.messages.4060006</comment>
+  </data>
+  <data name="identities.messages.4070001" xml:space="preserve">
+    <value>Le jeton de vérification est invalide ou a déjà été utilisé. Veuillez réessayer le flux.</value>
+    <comment>identities.messages.4070001</comment>
+  </data>
+  <data name="identities.messages.4070002" xml:space="preserve">
+    <value>La demande a déjà été effectuée avec succès et ne peut pas être réessayée.</value>
+    <comment>identities.messages.4070002</comment>
+  </data>
+  <data name="identities.messages.4070003" xml:space="preserve">
+    <value>Le flux de vérification a atteint un état d'échec et doit être réessayé.</value>
+    <comment>identities.messages.4070003</comment>
+  </data>
+  <data name="identities.messages.4070005" xml:space="preserve">
+    <value>Le flux de vérification a expiré il y a {expired_at_unix_since_minutes} minutes, veuillez réessayer.</value>
+    <comment>identities.messages.4070005</comment>
+  </data>
+  <data name="identities.messages.4070006" xml:space="preserve">
+    <value>Le code de vérification est invalide ou a déjà été utilisé. Veuillez réessayer.</value>
+    <comment>identities.messages.4070006</comment>
+  </data>
+  <data name="identities.messages.5000001" xml:space="preserve">
+    <value>{reason}</value>
+    <comment>identities.messages.5000001</comment>
+  </data>
+  <data name="login.forgot-password" xml:space="preserve">
+    <value>Mot de passe oublié ?</value>
+    <comment>login.forgot-password</comment>
+  </data>
+  <data name="login.logged-in-as-label" xml:space="preserve">
+    <value>Vous êtes connecté en tant que :</value>
+    <comment>login.logged-in-as-label</comment>
+  </data>
+  <data name="login.logout-button" xml:space="preserve">
+    <value>Déconnexion</value>
+    <comment>login.logout-button</comment>
+  </data>
+  <data name="login.logout-label" xml:space="preserve">
+    <value>Quelque chose ne fonctionne pas ?</value>
+    <comment>login.logout-label</comment>
+  </data>
+  <data name="login.registration-button" xml:space="preserve">
+    <value>S'inscrire</value>
+    <comment>login.registration-button</comment>
+  </data>
+  <data name="login.registration-label" xml:space="preserve">
+    <value>Vous n'avez pas de compte ?</value>
+    <comment>login.registration-label</comment>
+  </data>
+  <data name="login.subtitle-oauth2" xml:space="preserve">
+    <value>Pour vous authentifier sur {clientName}</value>
+    <comment>login.subtitle-oauth2</comment>
+  </data>
+  <data name="login.title" xml:space="preserve">
+    <value>Se connecter</value>
+    <comment>login.title</comment>
+  </data>
+  <data name="login.title-aal2" xml:space="preserve">
+    <value>Authentification à deux facteurs</value>
+    <comment>login.title-aal2</comment>
+  </data>
+  <data name="login.title-refresh" xml:space="preserve">
+    <value>Confirmez que c'est bien vous</value>
+    <comment>login.title-refresh</comment>
+  </data>
+  <data name="logout.accept-button" xml:space="preserve">
+    <value>Oui</value>
+    <comment>logout.accept-button</comment>
+  </data>
+  <data name="logout.reject-button" xml:space="preserve">
+    <value>Non</value>
+    <comment>logout.reject-button</comment>
+  </data>
+  <data name="logout.title" xml:space="preserve">
+    <value>Souhaitez-vous vous déconnecter ?</value>
+    <comment>logout.title</comment>
+  </data>
+  <data name="recovery.login-button" xml:space="preserve">
+    <value>Se connecter</value>
+    <comment>recovery.login-button</comment>
+  </data>
+  <data name="recovery.login-label" xml:space="preserve">
+    <value>Vous souvenez-vous de vos informations d'identification ?</value>
+    <comment>recovery.login-label</comment>
+  </data>
+  <data name="recovery.title" xml:space="preserve">
+    <value>Récupérer votre compte</value>
+    <comment>recovery.title</comment>
+  </data>
+  <data name="registration.login-button" xml:space="preserve">
+    <value>Se connecter</value>
+    <comment>registration.login-button</comment>
+  </data>
+  <data name="registration.login-label" xml:space="preserve">
+    <value>Vous avez déjà un compte ?</value>
+    <comment>registration.login-label</comment>
+  </data>
+  <data name="registration.subtitle-oauth2" xml:space="preserve">
+    <value>Pour vous authentifier sur {clientName}</value>
+    <comment>registration.subtitle-oauth2</comment>
+  </data>
+  <data name="registration.title" xml:space="preserve">
+    <value>Créer un compte</value>
+    <comment>registration.title</comment>
+  </data>
+  <data name="settings.navigation-backup-codes" xml:space="preserve">
+    <value>Codes de secours 2FA</value>
+    <comment>settings.navigation-backup-codes</comment>
+  </data>
+  <data name="settings.navigation-logout" xml:space="preserve">
+    <value>Déconnexion</value>
+    <comment>settings.navigation-logout</comment>
+  </data>
+  <data name="settings.navigation-oidc" xml:space="preserve">
+    <value>Connexion sociale</value>
+    <comment>settings.navigation-oidc</comment>
+  </data>
+  <data name="settings.navigation-password" xml:space="preserve">
+    <value>Mot de passe</value>
+    <comment>settings.navigation-password</comment>
+  </data>
+  <data name="settings.navigation-profile" xml:space="preserve">
+    <value>Profil</value>
+    <comment>settings.navigation-profile</comment>
+  </data>
+  <data name="settings.navigation-totp" xml:space="preserve">
+    <value>Application d'authentification TOTP</value>
+    <comment>settings.navigation-totp</comment>
+  </data>
+  <data name="settings.navigation-webauthn" xml:space="preserve">
+    <value>Tokens matériels</value>
+    <comment>settings.navigation-webauthn</comment>
+  </data>
+  <data name="settings.subtitle-instructions" xml:space="preserve">
+    <value>Ici, vous pouvez gérer les paramètres liés à votre compte. Gardez à l'esprit que certaines actions nécessitent une nouvelle authentification.</value>
+    <comment>settings.subtitle-instructions</comment>
+  </data>
+  <data name="settings.title" xml:space="preserve">
+    <value>Paramètres du compte</value>
+    <comment>settings.title</comment>
+  </data>
+  <data name="settings.title-lookup-secret" xml:space="preserve">
+    <value>Gérer les codes de récupération 2FA</value>
+    <comment>settings.title-lookup-secret</comment>
+  </data>
+  <data name="settings.title-navigation" xml:space="preserve">
+    <value>Paramètres du compte</value>
+    <comment>settings.title-navigation</comment>
+  </data>
+  <data name="settings.title-oidc" xml:space="preserve">
+    <value>Connexion sociale</value>
+    <comment>settings.title-oidc</comment>
+  </data>
+  <data name="settings.title-password" xml:space="preserve">
+    <value>Changer le mot de passe</value>
+    <comment>settings.title-password</comment>
+  </data>
+  <data name="settings.title-profile" xml:space="preserve">
+    <value>Paramètres de profil</value>
+    <comment>settings.title-profile</comment>
+  </data>
+  <data name="settings.title-totp" xml:space="preserve">
+    <value>Gérer l'application d'authentification TOTP 2FA</value>
+    <comment>settings.title-totp</comment>
+  </data>
+  <data name="settings.title-webauthn" xml:space="preserve">
+    <value>Gérer les tokens matériels</value>
+    <comment>settings.title-webauthn</comment>
+  </data>
+  <data name="verification.registration-button" xml:space="preserve">
+    <value>S'inscrire</value>
+    <comment>verification.registration-button</comment>
+  </data>
+  <data name="verification.registration-label" xml:space="preserve">
+    <value>Vous n'avez pas de compte ?</value>
+    <comment>verification.registration-label</comment>
+  </data>
+  <data name="verification.title" xml:space="preserve">
+    <value>Vérifiez votre compte</value>
+    <comment>verification.title</comment>
+  </data>
+</root>

@@ -1,10 +1,10 @@
 ﻿@model KratosVerificationFlow
 @{
-    ViewData["Title"] = Translator.GetTranslation("Verify your account");
+    ViewData["Title"] = OryTranslator.Get("verification.title");
     Layout = "_CardLayout";
 }
 
-<h1 class="title has-text-centered">@Translator.GetTranslation("Verify your account")</h1>
+<h1 class="title has-text-centered">@OryTranslator.Get("verification.title")</h1>
 <hr/>
 <form method="@Model.Ui.Method.ToLower()" action="@Model.Ui.Action">
     @if (Model.Ui.Messages != null)

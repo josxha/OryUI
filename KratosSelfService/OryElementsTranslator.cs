@@ -2,7 +2,7 @@
 
 namespace KratosSelfService;
 
-public class CustomTranslator(IStringLocalizer<OryElementsTranslator> localizer) : ICustomTranslator
+public class OryElementsTranslator(IStringLocalizer<OryElementsTranslator> localizer) : IOryElementsTranslator
 {
     private IStringLocalizer<OryElementsTranslator> Localizer { get; } = localizer;
 
@@ -12,7 +12,7 @@ public class CustomTranslator(IStringLocalizer<OryElementsTranslator> localizer)
     }
 }
 
-public interface ICustomTranslator
+public interface IOryElementsTranslator
 {
     string Get(string text);
 }

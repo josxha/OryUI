@@ -31,6 +31,26 @@
                                    onclick="@inputAttr.Onclick" pattern="@inputAttr.Pattern"/>
                         </div>
                     </label>
+                    if (inputAttr.Type == KratosUiNodeInputAttributes.TypeEnum.Password && Model.Group == KratosUiNode.GroupEnum.Password)
+                    {
+                        <!--<div class="field">
+                            <div class="control">
+                                <div class="is-flex is-justify-content-space-between is-mobile">
+                                    <div>
+                                        -<label for="rememberMeCheck" class="checkbox">
+                                            <input type="checkbox" id="rememberMeCheck">
+                                            Remember me
+                                        </label>
+                                    </div>
+                                    <p>
+                                        <a href="recovery">
+                                            @OryTranslator.Get("login.forgot-password")
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>-->
+                    }
                     break;
                 case KratosUiNodeInputAttributes.TypeEnum.Checkbox:
                     break;

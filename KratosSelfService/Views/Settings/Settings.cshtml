@@ -1,9 +1,7 @@
-﻿@inject ICustomTranslator Translator
-@using KratosSelfService.Extensions
-@using KratosSelfService.Services
+﻿@using KratosSelfService.Extensions
 @model SettingsModel
 @{
-    ViewData["Title"] = Translator.GetTranslation("Account Settings");
+    ViewData["Title"] = CustomTranslator.Get("settings.title");
     Layout = "_CardLayout";
     var allGroups = Model.flow.Ui.Nodes
         .GroupBy(node => node.Group).ToList();
@@ -15,7 +13,7 @@
 }
 
 <section class="section">
-    <h1 class="title">@Translator.GetTranslation("Account Settings")</h1>
+    <h1 class="title">@CustomTranslator.Get("settings.title")</h1>
     @if (Model.flow.Ui.Messages != null)
     {
         foreach (var message in Model.flow.Ui.Messages)
@@ -26,7 +24,7 @@
     @foreach (var group in groups)
     {
         <hr/>
-        <h3 class="subtitle mt-3">@group.Key.ToLocalString(Translator)</h3>
+        <h3 class="subtitle mt-3">@group.Key.ToLocalString(OryTranslator)</h3>
         <form class="mb-3" action="@Model.postUri" method="post">
             @foreach (var node in defaultNodes)
             {

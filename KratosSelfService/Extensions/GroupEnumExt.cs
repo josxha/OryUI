@@ -4,15 +4,16 @@ namespace KratosSelfService.Extensions;
 
 public static class GroupEnumExt
 {
-    public static string ToLocalString(this KratosUiNode.GroupEnum instance, ICustomTranslator translator)
+    public static string ToLocalString(this KratosUiNode.GroupEnum instance, IOryElementsTranslator oryTranslator)
     {
         return instance switch
         {
-            KratosUiNode.GroupEnum.Password => translator.GetTranslation("Change Password"),
-            KratosUiNode.GroupEnum.Profile => translator.GetTranslation("Profile Settings"),
-            KratosUiNode.GroupEnum.Totp => translator.GetTranslation("Manage 2FA TOTP Authenticator App"),
-            KratosUiNode.GroupEnum.LookupSecret => translator.GetTranslation("Manage 2FA Backup Recovery Codes"),
-            KratosUiNode.GroupEnum.Webauthn => translator.GetTranslation("WebAuthn Login"),
+            KratosUiNode.GroupEnum.Password => oryTranslator.Get("settings.title-password"),
+            KratosUiNode.GroupEnum.Profile => oryTranslator.Get("settings.title-profile"),
+            KratosUiNode.GroupEnum.Totp => oryTranslator.Get("settings.title-totp"),
+            KratosUiNode.GroupEnum.LookupSecret => oryTranslator.Get("settings.title-lookup-secret"),
+            KratosUiNode.GroupEnum.Webauthn => oryTranslator.Get("settings.title-webauthn"),
+            KratosUiNode.GroupEnum.Oidc => oryTranslator.Get("settings.title-oidc"),
             _ => instance.ToString()
         };
     }

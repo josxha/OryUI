@@ -1,14 +1,14 @@
 ﻿@model KratosRecoveryFlow
 @{
-    ViewData["Title"] = Translator.GetTranslation("Reset Password");
+    ViewData["Title"] = OryTranslator.Get("recovery.title");
     Layout = "_CardLayout";
 }
 
-<h1 class="title has-text-centered">@Translator.GetTranslation("Reset Password")</h1>
+<h1 class="title has-text-centered">@OryTranslator.Get("recovery.title")</h1>
 <p class="has-text-centered">
-    @Translator.GetTranslation("Remember your password?")
+    @OryTranslator.Get("recovery.login-label")
     <a href="login">
-        @Translator.GetTranslation("Sign In")
+        @OryTranslator.Get("recovery.login-button")
     </a>
 </p>
 <hr/>

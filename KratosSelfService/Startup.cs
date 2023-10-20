@@ -14,6 +14,7 @@ public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
         // localisation
         services.AddLocalization(options => options.ResourcesPath = "Resources");
         services.AddSingleton<ICustomTranslator, CustomTranslator>();
+        services.AddSingleton<IOryElementsTranslator, OryElementsTranslator>();
 
         // own services
         services.AddSingleton<EnvService>();

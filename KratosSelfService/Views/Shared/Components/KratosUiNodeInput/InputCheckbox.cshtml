@@ -2,7 +2,7 @@
 
 @{
     var attributes = Model.Attributes.GetKratosUiNodeInputAttributes();
-    var label = attributes.Label ?? Model.Meta.Label;
+    var uiText = attributes.Label ?? Model.Meta.Label;
 }
 
 <div class="field">
@@ -11,14 +11,6 @@
            value="@attributes.Value" autocomplete="@attributes.Autocomplete.ToString()?.ToLower()"
            disabled="@attributes.Disabled" name="@attributes.Name"
            onclick="@attributes.Onclick" pattern="@attributes.Pattern"/>
-    @switch (attributes.Type)
-    {
-        case KratosUiNodeInputAttributes.TypeEnum.Checkbox:
-            break;
-        default:
-            <p>Unsupported Input Type: @attributes.Type</p>
-            break;
-    }
     @foreach (var message in Model.Messages)
     {
         <KratosUiTextMessage Message="@message"/>

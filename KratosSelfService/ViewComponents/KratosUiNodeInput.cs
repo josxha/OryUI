@@ -35,7 +35,7 @@ public class KratosUiNodeInput : ViewComponent
                         return View("InputDefault", node);
                 }
             case KratosUiNode.TypeEnum.Img:
-                return View("Img", node);
+                return View("Image", node);
             case KratosUiNode.TypeEnum.A:
                 return View("Anchor", node);
             case KratosUiNode.TypeEnum.Script:

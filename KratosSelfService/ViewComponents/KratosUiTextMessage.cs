@@ -9,8 +9,8 @@ public class KratosUiTextMessage(IOryElementsTranslator oryTranslator) : ViewCom
 {
     public async Task<ViewViewComponentResult> InvokeAsync(KratosUiText uiText)
     {
-        var content = oryTranslator.Get($"identities.messages.{uiText.Id}");
-        var model = new KratosUiTextMessageModel(uiText, content, GetCssClass(uiText.Type));
+        var content = oryTranslator.ForUiText(uiText);
+        var model = new KratosUiTextMessageModel(uiText, content!, GetCssClass(uiText.Type));
         return View("Default", model);
     }
 

@@ -2,12 +2,13 @@
 
 @{
     var attributes = Model.Attributes.GetKratosUiNodeInputAttributes();
-    var label = attributes.Label ?? Model.Meta.Label;
+    var uiText = attributes.Label ?? Model.Meta.Label;
+    var caption = OryTranslator.ForUiText(uiText);
 }
 
 <div class="field">
-    <label class="label" id="@label?.Id">
-        @(attributes.Label?.Text ?? Model.Meta.Label?.Text)
+    <label class="label">
+        @caption
         <div class="control">
             <input type="@attributes.Type.ToString().ToLower()" class="input"
                    required="@attributes.Required"
@@ -16,7 +17,7 @@
                    onclick="@attributes.Onclick" pattern="@attributes.Pattern"/>
         </div>
     </label>
-    @if (attributes.Type == KratosUiNodeInputAttributes.TypeEnum.Password 
+    @if (attributes.Type == KratosUiNodeInputAttributes.TypeEnum.Password
          && Model.Group == KratosUiNode.GroupEnum.Password)
     {
         <!--<div class="field">

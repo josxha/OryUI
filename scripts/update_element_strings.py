@@ -25,7 +25,7 @@ def convert_to_resx(json_data, locale):
     xml_dom = minidom.parseString(xml_string)
     formatted_xml = xml_dom.toprettyxml(indent="  ")
 
-    with open(f'../KratosSelfService/Resources/OryElements.{locale}.resx', 'w', encoding='utf-8') as resx_file:
+    with open(f'../KratosSelfService/Resources/OryElementsTranslator.{locale}.resx', 'w', encoding='utf-8') as resx_file:
         resx_file.write(formatted_xml)
 
 

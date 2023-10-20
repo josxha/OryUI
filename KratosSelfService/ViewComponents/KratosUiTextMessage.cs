@@ -5,11 +5,12 @@ using Ory.Kratos.Client.Model;
 
 namespace KratosSelfService.ViewComponents;
 
-public class KratosUiTextMessage : ViewComponent
+public class KratosUiTextMessage(IOryElementsTranslator oryTranslator) : ViewComponent
 {
-    public async Task<ViewViewComponentResult> InvokeAsync(KratosUiText text)
+    public async Task<ViewViewComponentResult> InvokeAsync(KratosUiText uiText)
     {
-        var model = new KratosUiTextMessageModel(text, GetCssClass(text.Type));
+        var content = oryTranslator.Get($"identities.messages.{uiText.Id}");
+        var model = new KratosUiTextMessageModel(uiText, content, GetCssClass(uiText.Type));
         return View("Default", model);
     }
 

@@ -1,7 +1,11 @@
 ﻿using Microsoft.Extensions.Localization;
 
-namespace KratosSelfService.Services.l10n;
+namespace KratosSelfService;
 
+/// <summary>
+/// Custom localisation strings, This class have to be in the root project directory
+/// </summary>
+/// <param name="localizer"></param>
 public class CustomTranslator(IStringLocalizer<CustomTranslator> localizer) : ICustomTranslator
 {
     private IStringLocalizer<CustomTranslator> Localizer { get; } = localizer;

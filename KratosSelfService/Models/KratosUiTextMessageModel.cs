@@ -2,4 +2,4 @@
 
 namespace KratosSelfService.Models;
 
-public record KratosUiTextMessageModel(KratosUiText Text, string CssClass);
+public record KratosUiTextMessageModel(KratosUiText UiText, string Content, string CssClass);

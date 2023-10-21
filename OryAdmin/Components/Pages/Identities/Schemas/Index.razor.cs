@@ -20,7 +20,7 @@ public partial class Index
 
     protected override async Task OnInitializedAsync()
     {
-        _schemas = await ApiService.KratosIdentity.ListIdentitySchemasAsync();
+        _schemas ??= await ApiService.KratosIdentity.ListIdentitySchemasAsync();
         if (_schemas.Count == 0)
         {
             _isLoading = false;
@@ -28,8 +28,11 @@ public partial class Index
         }
 
         SchemaId ??= _schemas.First().Id;
-
-        _selectedSchema = _schemas.First(schema => schema.Id == SchemaId);
         _isLoading = false;
+    }
+
+    protected override void OnParametersSet()
+    {
+        _selectedSchema = _schemas?.First(schema => schema.Id == SchemaId);
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Components;
-using OryAdmin.Models;
 using OryAdmin.Services;
 
 // ReSharper disable FieldCanBeMadeReadOnly.Local
@@ -9,11 +8,6 @@ namespace OryAdmin.Components.Pages;
 
 public partial class Home
 {
-    private bool _enabledHydra;
-    private bool _enabledKeto;
-    private bool _enabledKratos;
-    private bool _enabledOathKeeper;
-
     private bool? _hydraAlive;
     private bool? _hydraReady;
     private string? _hydraVersion;
@@ -33,15 +27,10 @@ public partial class Home
 
     protected override async Task OnInitializedAsync()
     {
-        _enabledKratos = EnvService.ServiceEnabled(OryService.Kratos);
-        _enabledHydra = EnvService.ServiceEnabled(OryService.Hydra);
-        _enabledOathKeeper = EnvService.ServiceEnabled(OryService.OathKeeper);
-        _enabledKeto = EnvService.ServiceEnabled(OryService.Keto);
-
         var tasks = new List<Task>();
 
         // kratos
-        if (EnvService.ServiceEnabled(OryService.Kratos))
+        if (EnvService.EnabledKratos)
             tasks.AddRange(new[]
             {
                 Task.Run(async () =>
@@ -83,7 +72,7 @@ public partial class Home
             });
 
         // hydra
-        if (EnvService.ServiceEnabled(OryService.Hydra))
+        if (EnvService.EnabledHydra)
             tasks.AddRange(new[]
             {
                 Task.Run(async () =>
@@ -125,7 +114,7 @@ public partial class Home
             });
 
         // oathkeeper
-        if (EnvService.ServiceEnabled(OryService.Keto))
+        if (EnvService.EnabledOathkeeper)
             tasks.AddRange(new[]
             {
                 Task.Run(async () =>
@@ -167,7 +156,7 @@ public partial class Home
             });
 
         // keto
-        if (EnvService.ServiceEnabled(OryService.Keto))
+        if (EnvService.EnabledKeto)
             tasks.AddRange(new[]
             {
                 Task.Run(async () =>

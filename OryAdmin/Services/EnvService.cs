@@ -1,23 +1,11 @@
-﻿using OryAdmin.Models;
-
-namespace OryAdmin.Services;
+﻿namespace OryAdmin.Services;
 
 public class EnvService
 {
-    public readonly OryService[] EnabledServices =
-        (Environment.GetEnvironmentVariable("SERVICES") ?? "kratos,hydra,oathkeeper,keto")
-        .Split(",")
-        .Select(s => s.Trim())
-        .Select(s => s switch
-        {
-            "kratos" => OryService.Kratos,
-            "hydra" => OryService.Hydra,
-            "oathkeeper" => OryService.OathKeeper,
-            "keto" => OryService.Keto,
-            _ => throw new ArgumentOutOfRangeException(nameof(s), s,
-                "The SERVICES environment variable contains an invalid service name.")
-        })
-        .ToArray();
+    public readonly bool EnabledHydra;
+    public readonly bool EnabledKeto;
+    public readonly bool EnabledKratos;
+    public readonly bool EnabledOathkeeper;
 
     // ory hydra
     public readonly string HydraAdminUrl =
@@ -44,8 +32,30 @@ public class EnvService
     public readonly string OathKeeperApiUrl =
         Environment.GetEnvironmentVariable("OATHKEEPER_API_URL") ?? "http://127.0.0.1:4456";
 
-    public bool ServiceEnabled(OryService service)
+    public EnvService()
     {
-        return EnabledServices.Contains(service);
+        var rawServices = Environment.GetEnvironmentVariable("SERVICES") ?? "kratos,hydra,oathkeeper,keto";
+        foreach (var item in rawServices.Split(","))
+        {
+            var service = item.Trim();
+            switch (service)
+            {
+                case "kratos":
+                    EnabledKratos = true;
+                    break;
+                case "hydra":
+                    EnabledHydra = true;
+                    break;
+                case "oathkeeper":
+                    EnabledOathkeeper = true;
+                    break;
+                case "keto":
+                    EnabledKeto = true;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(service), service,
+                        "The SERVICES environment variable contains an invalid service name.");
+            }
+        }
     }
 }

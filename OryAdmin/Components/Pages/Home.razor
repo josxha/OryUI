@@ -9,7 +9,7 @@
 
 <h1 class="title">Services</h1>
 <section class="columns is-multiline">
-    @if (_enabledKratos)
+    @if (EnvService.EnabledKratos)
     {
         <div class="column is-half">
             <div class="box">
@@ -47,7 +47,7 @@
             </div>
         </div>
     }
-    @if (_enabledHydra)
+    @if (EnvService.EnabledHydra)
     {
         <div class="column is-half">
             <div class="box">
@@ -85,7 +85,7 @@
             </div>
         </div>
     }
-    @if (_enabledOathKeeper)
+    @if (EnvService.EnabledOathkeeper)
     {
         <div class="column is-half">
             <div class="box">
@@ -120,7 +120,7 @@
             </div>
         </div>
     }
-    @if (_enabledKeto)
+    @if (EnvService.EnabledKeto)
     {
         <div class="column is-half">
             <div class="box">

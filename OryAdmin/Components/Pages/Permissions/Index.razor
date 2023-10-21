@@ -24,7 +24,6 @@ else
             <thead>
             <th>Name</th>
             <th>Relationships</th>
-            <th>Permissions</th>
             </thead>
             <tbody>
             @foreach (var item in _namespaces.Namespaces)
@@ -32,10 +31,7 @@ else
                 <tr>
                     <td>@item.Name</td>
                     <td>
-                        <a href="permissions/@item.Name/relationships">Relationships</a>
-                    </td>
-                    <td>
-                        <a href="permissions/@item.Name/tree">Permissions</a>
+                        <a href="permissions/@item.Name">Relationships</a>
                     </td>
                 </tr>
             }

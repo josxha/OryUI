@@ -4,7 +4,7 @@ using OryAdmin.Services;
 
 // ReSharper disable UnusedAutoPropertyAccessor.Local
 
-namespace OryAdmin.Components.Pages.Permissions;
+namespace OryAdmin.Components.Pages.Permissions.Relationships;
 
 public partial class Tree
 {
@@ -12,8 +12,7 @@ public partial class Tree
     private bool _isLoading = true;
     private KetoExpandedPermissionTree? _permissionTree;
 
-    [Parameter]
-    public required string NamespaceName { get; set; }
+    [Parameter] public required string NamespaceName { get; set; }
 
     [SupplyParameterFromQuery(Name = "relation")]
     private string? Relation { get; set; }

@@ -1,4 +1,4 @@
-﻿@page "/permissions/{NamespaceName}/relationships"
+﻿@page "/permissions/{NamespaceName}"
 @attribute [StreamRendering]
 @attribute [RenderModeInteractiveServer]
 
@@ -7,7 +7,7 @@
 <h1 class="title">Relationships for @NamespaceName</h1>
 <div class="buttons">
     <a class="button is-dark" href="permissions">Back</a>
-    <a class="button is-success" href="permissions/@NamespaceName/relationships/create">Create Relationship</a>
+    <a class="button is-success" href="permissions/@NamespaceName/create">Create Relationship</a>
 </div>
 @if (_isLoading)
 {
@@ -37,6 +37,7 @@ else
                 <th>Relation</th>
                 <th></th>
                 <th>Object</th>
+                <th></th>
                 </thead>
                 <tbody>
                 @foreach (var relationship in _relationships.RelationTuples)
@@ -51,6 +52,11 @@ else
                             <p class="is-bold">of</p>
                         </td>
                         <td>@relationship.Object</td>
+                        <td>
+                            <a href="permissions/@NamespaceName/tree?object=@relationship.Object&relation=@relationship.Relation">
+                                Permission Tree
+                            </a>
+                        </td>
                     </tr>
                 }
                 </tbody>

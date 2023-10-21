@@ -5,8 +5,9 @@
     <ul class="menu-list">
         <li>
             <a href="/">
-                <span class="icon" style="height: 16px; width: 16px">
-                    <i class="fa-solid fa-server"></i>
+                <span class="icon">
+                    <i class="fa-solid fa-server fa-sm" 
+                    style="max-width: 16px; max-height: 16px;"></i>
                 </span> Services
             </a>
         </li>
@@ -15,26 +16,35 @@
     <ul class="menu-list">
         <li>
             <a href="identities/users" class="@(env.EnabledKratos ? "" : "is-disabled")">
-                <span class="icon" style="height: 16px; width: 16px">
-                    <i class="fa-solid fa-users"></i>
-                </span> Users
+                <span class="icon-text">
+                    <span class="icon">
+                        <i class="fa-solid fa-users fa-sm" 
+                        style="max-width: 16px; max-height: 16px;"></i>
+                    </span>
+                    <span>Users</span>
+                </span>
             </a>
         </li>
         <li>
             <a href="identities/schemas" class="@(env.EnabledKratos ? "" : "is-disabled")">
                 <span class="icon-text">
                     <span class="icon">
-                        <i class="fas fa-receipt"></i>
+                        <i class="fas fa-receipt fa-sm" 
+                        style="max-width: 16px; max-height: 16px;"></i>
                     </span>
-                    <span>Identity Schemas</span>
+                    <span>Schemas</span>
                 </span>
             </a>
         </li>
         <li>
             <a href="identities/messages" class="@(env.EnabledKratos ? "" : "is-disabled")">
-                <span class="icon" style="height: 16px; width: 16px">
-                    <i class="fa-solid fa-envelope"></i>
-                </span> Message Log
+                <span class="icon-text">
+                    <span class="icon">
+                        <i class="fa-solid fa-envelope fa-sm" 
+                        style="max-width: 16px; max-height: 16px;"></i>
+                    </span>
+                    <span>Message Log</span>
+                </span>
             </a>
         </li>
     </ul>
@@ -42,23 +52,35 @@
     <ul class="menu-list">
         <li>
             <a href="oauth2" class="@(env.EnabledHydra ? "" : "is-disabled")">
-                <span class="icon">
-                    <i class="fa-solid fa-circle-info"></i>
-                </span> Information
+                <span class="icon-text">
+                    <span class="icon">
+                        <i class="fa-solid fa-circle-info fa-sm" 
+                        style="max-width: 16px; max-height: 16px;"></i>
+                    </span>
+                    <span>Information</span>
+                </span>
             </a>
         </li>
         <li>
             <a href="oauth2/clients" class="@(env.EnabledHydra ? "" : "is-disabled")">
-                <span class="icon" style="height: 16px; width: 16px">
-                    <i class="fa-solid fa-window-restore"></i>
-                </span> Clients
+                <span class="icon-text">
+                    <span class="icon">
+                        <i class="fa-solid fa-window-restore fa-sm" 
+                        style="max-width: 16px; max-height: 16px;"></i>
+                    </span>
+                    <span>Clients</span>
+                </span>
             </a>
         </li>
         <li>
             <a href="oauth2/issuers" class="@(env.EnabledHydra ? "" : "is-disabled")">
-                <span class="icon" style="height: 16px; width: 16px">
-                    <i class="fa-solid fa-address-card"></i>
-                </span> Grant Issuers
+                <span class="icon-text">
+                    <span class="icon">
+                        <i class="fa-solid fa-address-card fa-sm" 
+                        style="max-width: 16px; max-height: 16px;"></i>
+                    </span>
+                    <span>Grant Issuers</span>
+                </span>
             </a>
         </li>
     </ul>
@@ -66,9 +88,13 @@
     <ul class="menu-list">
         <li>
             <a href="permissions" class="@(env.EnabledKeto ? "" : "is-disabled")">
-                <span class="icon" style="height: 16px; width: 16px">
-                    <i class="fa-solid fa-rectangle-list"></i>
-                </span> Permissions
+                <span class="icon-text">
+                    <span class="icon">
+                        <i class="fa-solid fa-rectangle-list fa-sm" 
+                        style="max-width: 16px; max-height: 16px;"></i>
+                    </span>
+                    <span>Permissions</span>
+                </span>
             </a>
         </li>
     </ul>

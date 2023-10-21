@@ -15,9 +15,12 @@ public partial class Create
     private bool _isLoading = true;
 
     private List<string>? _schemaIds;
-    [SupplyParameterFromQuery(Name = "schema")] private string? SchemaId { get; set; }
     private string? _selectedSchema;
     private List<TraitsSchemaData>? _traitsSchemas;
+
+    [SupplyParameterFromQuery(Name = "schema")]
+    private string? SchemaId { get; set; }
+
     [Inject] private ApiService ApiService { get; set; } = default!;
     [Inject] private IdentitySchemaService SchemaService { get; set; } = default!;
 
@@ -48,7 +51,7 @@ public partial class Create
             return;
         }
 
-        Navigation.NavigateTo("identities/users");
+        nav.NavigateTo("identities/users");
     }
 
     private void UpdateValue(TraitsSchemaData schema, ChangeEventArgs args)

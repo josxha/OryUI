@@ -1,11 +1,9 @@
 ﻿@page "/oauth2/clients/{ClientId}"
 @attribute [StreamRendering]
 @attribute [RenderModeInteractiveServer]
-@inject ICustomTranslator Translator
-@inject ILogger<Home> Logger
-@inject NavigationManager Navigation
+@inject NavigationManager nav
 
-<PageTitle>View OAuth 2 Client</PageTitle>
+<PageTitle>View OAuth 2 Client | OryAdmin</PageTitle>
 
 <h1 class="title">View OAuth 2 Client</h1>
 @if (_isLoading)

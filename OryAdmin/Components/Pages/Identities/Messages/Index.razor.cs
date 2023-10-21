@@ -28,6 +28,6 @@ public partial class Index : ComponentBase
 
     private void RefreshPage(MouseEventArgs arg)
     {
-        Navigation.Refresh(true);
+        nav.Refresh(true);
     }
 }

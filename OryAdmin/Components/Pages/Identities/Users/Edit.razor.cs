@@ -29,7 +29,7 @@ public partial class Edit
 
     private void Cancel()
     {
-        Navigation.NavigateTo($"identities/users/{UserId}");
+        nav.NavigateTo($"identities/users/{UserId}");
     }
 
     private async Task SubmitForm()
@@ -45,7 +45,7 @@ public partial class Edit
             return;
         }
 
-        Navigation.NavigateTo($"identities/users/{UserId}");
+        nav.NavigateTo($"identities/users/{UserId}");
     }
 
     private void UpdateValue(TraitsSchemaData schema, ChangeEventArgs args)

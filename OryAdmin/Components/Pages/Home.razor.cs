@@ -30,7 +30,7 @@ public partial class Home
         var tasks = new List<Task>();
 
         // kratos
-        if (EnvService.EnabledKratos)
+        if (env.EnabledKratos)
             tasks.AddRange(new[]
             {
                 Task.Run(async () =>
@@ -72,7 +72,7 @@ public partial class Home
             });
 
         // hydra
-        if (EnvService.EnabledHydra)
+        if (env.EnabledHydra)
             tasks.AddRange(new[]
             {
                 Task.Run(async () =>
@@ -114,7 +114,7 @@ public partial class Home
             });
 
         // oathkeeper
-        if (EnvService.EnabledOathkeeper)
+        if (env.EnabledOathkeeper)
             tasks.AddRange(new[]
             {
                 Task.Run(async () =>
@@ -156,7 +156,7 @@ public partial class Home
             });
 
         // keto
-        if (EnvService.EnabledKeto)
+        if (env.EnabledKeto)
             tasks.AddRange(new[]
             {
                 Task.Run(async () =>

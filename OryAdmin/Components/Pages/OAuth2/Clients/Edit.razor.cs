@@ -11,8 +11,7 @@ public partial class Edit
     private string? _errorMessage;
     private bool _isLoading = true;
 
-    [Parameter]
-    public required string ClientId { get; set; }
+    [Parameter] public required string ClientId { get; set; }
 
     [Inject] private ApiService ApiService { get; set; } = default!;
 
@@ -34,6 +33,6 @@ public partial class Edit
             return;
         }
 
-        Navigation.NavigateTo($"oauth2/clients/{ClientId}");
+        nav.NavigateTo($"oauth2/clients/{ClientId}");
     }
 }

@@ -1,11 +1,9 @@
 ﻿@page "/oauth2/issuers/create"
 @attribute [StreamRendering]
 @attribute [RenderModeInteractiveServer]
-@inject ICustomTranslator Translator
-@inject ILogger<Home> Logger
-@inject NavigationManager Navigation
+@inject NavigationManager nav
 
-<PageTitle>Trust Grant Issuer</PageTitle>
+<PageTitle>Trust Grant Issuer | OryAdmin</PageTitle>
 
 <h1 class="title">Trust Grant Issuer</h1>
 @if (_isLoading)

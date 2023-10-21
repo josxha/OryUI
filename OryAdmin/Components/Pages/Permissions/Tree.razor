@@ -1,11 +1,8 @@
 ﻿@page "/permissions/{namespaceName}/tree"
 @attribute [StreamRendering]
 @attribute [RenderModeInteractiveServer]
-@inject ICustomTranslator Translator
-@inject ILogger<Home> Logger
-@inject NavigationManager Navigation
 
-<PageTitle>Permission Tree</PageTitle>
+<PageTitle>Permission Tree | OryAdmin</PageTitle>
 
 <h1 class="title">Permission Tree</h1>
 @if (_isLoading)

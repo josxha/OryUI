@@ -1,11 +1,9 @@
 ﻿@page "/identities/messages"
 @attribute [StreamRendering]
 @attribute [RenderModeInteractiveServer]
-@inject ICustomTranslator Translator
-@inject ILogger<Home> Logger
-@inject NavigationManager Navigation
+@inject NavigationManager nav
 
-<PageTitle>Message Log</PageTitle>
+<PageTitle>Message Log | OryAdmin</PageTitle>
 
 <h1 class="title">Message Log</h1>
 @if (_isLoading)

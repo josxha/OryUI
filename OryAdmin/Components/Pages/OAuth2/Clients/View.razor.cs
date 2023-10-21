@@ -7,9 +7,9 @@ namespace OryAdmin.Components.Pages.OAuth2.Clients;
 public partial class View
 {
     private HydraOAuth2Client? _client;
-    private bool _isLoading = true;
     private bool _confirmDeleteClientModal;
     private bool _confirmNewSecretModal;
+    private bool _isLoading = true;
     private bool _showNewSecretModal;
     [Parameter] public string? ClientId { get; set; }
     [Inject] private ApiService ApiService { get; set; } = default!;
@@ -22,13 +22,13 @@ public partial class View
 
     private void EditClient()
     {
-        Navigation.NavigateTo($"oauth2/clients/{ClientId}/edit");
+        nav.NavigateTo($"oauth2/clients/{ClientId}/edit");
     }
 
     private async Task DeleteClient()
     {
         await ApiService.HydraOAuth2.DeleteOAuth2ClientAsync(ClientId);
-        Navigation.NavigateTo("oauth2/clients");
+        nav.NavigateTo("oauth2/clients");
     }
 
     private void ShowDeleteModal()

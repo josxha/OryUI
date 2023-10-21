@@ -39,6 +39,6 @@ public partial class Create
             return;
         }
 
-        Navigation.NavigateTo("oauth2/issuers");
+        nav.NavigateTo("oauth2/issuers");
     }
 }

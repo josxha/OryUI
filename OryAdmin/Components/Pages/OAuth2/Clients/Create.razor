@@ -1,11 +1,9 @@
 ﻿@page "/oauth2/clients/create"
 @attribute [StreamRendering]
 @attribute [RenderModeInteractiveServer]
-@inject ICustomTranslator Translator
-@inject ILogger<Home> Logger
-@inject NavigationManager Navigation
+@inject NavigationManager nav
 
-<PageTitle>Create Client</PageTitle>
+<PageTitle>Create Client | OryAdmin</PageTitle>
 
 <h1 class="title">Create Client</h1>
 <form @onsubmit="SubmitForm">

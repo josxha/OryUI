@@ -15,16 +15,13 @@ public partial class View
 
     protected override async Task OnInitializedAsync()
     {
-        var tasks = new List<Task>()
+        var tasks = new List<Task>
         {
-            Task.Run(async () =>
-            {
-                _identity = await ApiService.KratosIdentity.GetIdentityAsync(UserId);
-            }),
+            Task.Run(async () => { _identity = await ApiService.KratosIdentity.GetIdentityAsync(UserId); }),
             Task.Run(async () =>
             {
                 _activeSessions = await ApiService.KratosIdentity.ListIdentitySessionsAsync(UserId, active: true);
-            }),
+            })
         };
 
         await Task.WhenAll(tasks);
@@ -33,13 +30,13 @@ public partial class View
 
     private void EditIdentity()
     {
-        Navigation.NavigateTo($"identities/users/{UserId}/edit");
+        nav.NavigateTo($"identities/users/{UserId}/edit");
     }
 
     private async Task DeleteIdentity()
     {
         await ApiService.KratosIdentity.DeleteIdentityAsync(UserId);
-        Navigation.NavigateTo("identities/users");
+        nav.NavigateTo("identities/users");
     }
 
     private void ShowDeleteModal()
@@ -56,6 +53,6 @@ public partial class View
     {
         var body = new KratosCreateRecoveryLinkForIdentityBody(identityId: UserId);
         var link = await ApiService.KratosIdentity.CreateRecoveryLinkForIdentityAsync(body);
-        Navigation.NavigateTo(link.RecoveryLink);
+        nav.NavigateTo(link.RecoveryLink);
     }
 }

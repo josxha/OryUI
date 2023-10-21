@@ -1,11 +1,9 @@
 ﻿@page "/identities/users/{UserId}"
 @attribute [StreamRendering]
 @attribute [RenderModeInteractiveServer]
-@inject ICustomTranslator Translator
-@inject ILogger<Home> Logger
-@inject NavigationManager Navigation
+@inject NavigationManager nav
 
-<PageTitle>View Identity</PageTitle>
+<PageTitle>View Identity | OryAdmin</PageTitle>
 
 <h1 class="title">View Identity</h1>
 @if (_isLoading)

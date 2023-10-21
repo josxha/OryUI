@@ -1,12 +1,9 @@
 ﻿@page "/oauth2/clients/{ClientId}/edit"
-@using Ory.Hydra.Client.Model
 @attribute [StreamRendering]
 @attribute [RenderModeInteractiveServer]
-@inject ICustomTranslator Translator
-@inject ILogger<Home> Logger
-@inject NavigationManager Navigation
+@inject NavigationManager nav
 
-<PageTitle>Edit Client</PageTitle>
+<PageTitle>Edit Client | OryAdmin</PageTitle>
 
 <h1 class="title">Edit Client</h1>
 @if (_isLoading)

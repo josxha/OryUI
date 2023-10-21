@@ -27,6 +27,6 @@ public partial class Create
 
     private void GotoIndexPage()
     {
-        Navigation.NavigateTo("oauth2/clients");
+        nav.NavigateTo("oauth2/clients");
     }
 }

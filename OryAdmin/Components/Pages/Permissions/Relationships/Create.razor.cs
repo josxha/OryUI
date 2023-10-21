@@ -27,6 +27,7 @@ public partial class Create
             _errorMessage = exception.Message;
             return;
         }
-        Navigation.NavigateTo($"permissions/{NamespaceName}/relationships");
+
+        nav.NavigateTo($"permissions/{NamespaceName}/relationships");
     }
 }

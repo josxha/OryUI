@@ -1,4 +1,4 @@
-﻿@inject EnvService EnvService
+﻿@inject EnvService env
 
 <aside class="is-narrow-mobile is-fullheight">
     <p class="menu-label">Home</p>
@@ -14,14 +14,14 @@
     <p class="menu-label">Identities</p>
     <ul class="menu-list">
         <li>
-            <a href="identities/users" class="@(EnvService.EnabledKratos ? "" : "is-disabled")">
+            <a href="identities/users" class="@(env.EnabledKratos ? "" : "is-disabled")">
                 <span class="icon" style="height: 16px; width: 16px">
                     <i class="fa-solid fa-users"></i>
                 </span> Users
             </a>
         </li>
         <li>
-            <a href="identities/schemas" class="@(EnvService.EnabledKratos ? "" : "is-disabled")">
+            <a href="identities/schemas" class="@(env.EnabledKratos ? "" : "is-disabled")">
                 <span class="icon-text">
                     <span class="icon">
                         <i class="fas fa-receipt"></i>
@@ -31,7 +31,7 @@
             </a>
         </li>
         <li>
-            <a href="identities/messages" class="@(EnvService.EnabledKratos ? "" : "is-disabled")">
+            <a href="identities/messages" class="@(env.EnabledKratos ? "" : "is-disabled")">
                 <span class="icon" style="height: 16px; width: 16px">
                     <i class="fa-solid fa-envelope"></i>
                 </span> Message Log
@@ -41,21 +41,21 @@
     <p class="menu-label">OAuth2</p>
     <ul class="menu-list">
         <li>
-            <a href="oauth2" class="@(EnvService.EnabledHydra ? "" : "is-disabled")">
+            <a href="oauth2" class="@(env.EnabledHydra ? "" : "is-disabled")">
                 <span class="icon">
                     <i class="fa-solid fa-circle-info"></i>
                 </span> Information
             </a>
         </li>
         <li>
-            <a href="oauth2/clients" class="@(EnvService.EnabledHydra ? "" : "is-disabled")">
+            <a href="oauth2/clients" class="@(env.EnabledHydra ? "" : "is-disabled")">
                 <span class="icon" style="height: 16px; width: 16px">
                     <i class="fa-solid fa-window-restore"></i>
                 </span> Clients
             </a>
         </li>
         <li>
-            <a href="oauth2/issuers" class="@(EnvService.EnabledHydra ? "" : "is-disabled")">
+            <a href="oauth2/issuers" class="@(env.EnabledHydra ? "" : "is-disabled")">
                 <span class="icon" style="height: 16px; width: 16px">
                     <i class="fa-solid fa-address-card"></i>
                 </span> Grant Issuers
@@ -65,7 +65,7 @@
     <p class="menu-label">Permissions</p>
     <ul class="menu-list">
         <li>
-            <a href="permissions" class="@(EnvService.EnabledKeto ? "" : "is-disabled")">
+            <a href="permissions" class="@(env.EnabledKeto ? "" : "is-disabled")">
                 <span class="icon" style="height: 16px; width: 16px">
                     <i class="fa-solid fa-rectangle-list"></i>
                 </span> Permissions

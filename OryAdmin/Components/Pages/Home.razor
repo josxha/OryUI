@@ -1,15 +1,13 @@
 ﻿@page "/"
-@inject EnvService EnvService
+@inject EnvService env
 @attribute [StreamRendering]
 @attribute [RenderModeInteractiveServer]
-@inject ICustomTranslator Translator
-@inject ILogger<Home> Logger
 
-<PageTitle>Services</PageTitle>
+<PageTitle>Services | OryAdmin</PageTitle>
 
 <h1 class="title">Services</h1>
 <section class="columns is-multiline">
-    @if (EnvService.EnabledKratos)
+    @if (env.EnabledKratos)
     {
         <div class="column is-half">
             <div class="box">
@@ -18,11 +16,11 @@
                     <tbody>
                     <tr>
                         <td>Admin URL</td>
-                        <td>@EnvService.KratosAdminUrl</td>
+                        <td>@env.KratosAdminUrl</td>
                     </tr>
                     <tr>
                         <td>Public URL</td>
-                        <td>@EnvService.KratosPublicUrl</td>
+                        <td>@env.KratosPublicUrl</td>
                     </tr>
                     <tr>
                         <td>Alive</td>
@@ -47,7 +45,7 @@
             </div>
         </div>
     }
-    @if (EnvService.EnabledHydra)
+    @if (env.EnabledHydra)
     {
         <div class="column is-half">
             <div class="box">
@@ -56,11 +54,11 @@
                     <tbody>
                     <tr>
                         <td>Admin URL</td>
-                        <td>@EnvService.HydraAdminUrl</td>
+                        <td>@env.HydraAdminUrl</td>
                     </tr>
                     <tr>
                         <td>Public URL</td>
-                        <td>@EnvService.HydraAdminUrl</td>
+                        <td>@env.HydraAdminUrl</td>
                     </tr>
                     <tr>
                         <td>Alive</td>
@@ -85,7 +83,7 @@
             </div>
         </div>
     }
-    @if (EnvService.EnabledOathkeeper)
+    @if (env.EnabledOathkeeper)
     {
         <div class="column is-half">
             <div class="box">
@@ -94,7 +92,7 @@
                     <tbody>
                     <tr>
                         <td>API URL</td>
-                        <td>@EnvService.OathKeeperApiUrl</td>
+                        <td>@env.OathKeeperApiUrl</td>
                     </tr>
                     <tr>
                         <td>Alive</td>
@@ -120,7 +118,7 @@
             </div>
         </div>
     }
-    @if (EnvService.EnabledKeto)
+    @if (env.EnabledKeto)
     {
         <div class="column is-half">
             <div class="box">
@@ -129,11 +127,11 @@
                     <tbody>
                     <tr>
                         <td>Read URL</td>
-                        <td>@EnvService.KetoReadUrl</td>
+                        <td>@env.KetoReadUrl</td>
                     </tr>
                     <tr>
                         <td>Write URL</td>
-                        <td>@EnvService.KetoWriteUrl</td>
+                        <td>@env.KetoWriteUrl</td>
                     </tr>
                     <tr>
                         <td>Alive</td>

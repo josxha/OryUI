@@ -34,7 +34,7 @@ public class EnvService
 
     public EnvService()
     {
-        var rawServices = Environment.GetEnvironmentVariable("SERVICES") ?? "kratos,hydra,oathkeeper,keto";
+        var rawServices = Environment.GetEnvironmentVariable("ENABLED_SERVICES") ?? "kratos,hydra,oathkeeper,keto";
         foreach (var item in rawServices.Split(","))
         {
             var service = item.Trim();

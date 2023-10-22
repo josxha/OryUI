@@ -2,7 +2,6 @@
 @model SettingsModel
 @{
     ViewData["Title"] = OryTranslator.Get("settings.title");
-    Layout = "_CardLayout";
     var allGroups = Model.flow.Ui.Nodes
         .GroupBy(node => node.Group).ToList();
     var defaultNodes = allGroups
@@ -13,30 +12,33 @@
 }
 
 <section class="section">
-    <h1 class="title">@OryTranslator.Get("settings.title")</h1>
-    <p>@OryTranslator.Get("settings.subtitle-instructions")</p>
-    @if (Model.flow.Ui.Messages != null)
-    {
-        foreach (var message in Model.flow.Ui.Messages)
+    <div class="box pt-5">
+        <h1 class="title">@OryTranslator.Get("settings.title")</h1>
+        <p>@OryTranslator.Get("settings.subtitle-instructions")</p>
+        @if (Model.flow.Ui.Messages != null)
         {
-            @await Component.InvokeAsync("KratosUiTextMessage", message)
+            foreach (var message in Model.flow.Ui.Messages)
+            {
+                @await Component.InvokeAsync("KratosUiTextMessage", message)
+            }
         }
-    }
+    </div>
     @foreach (var group in groups)
     {
-        <hr/>
-        <h3 class="subtitle mt-3">@group.Key.ToLocalString(OryTranslator)</h3>
-        <form class="mb-3" action="@Model.postUri" method="post">
-            @foreach (var node in defaultNodes)
-            {
-                var model = new KratosUiNodeModel(node);
-                @await Component.InvokeAsync("KratosUiNodeInput", model)
-            }
-            @foreach (var node in group)
-            {
-                var model = new KratosUiNodeModel(node);
-                @await Component.InvokeAsync("KratosUiNodeInput", model)
-            }
-        </form>
+        <div class="box p-5">
+            <h3 class="subtitle">@group.Key.ToLocalString(OryTranslator)</h3>
+            <form class="mb-3" action="@Model.postUri" method="post">
+                @foreach (var node in defaultNodes)
+                {
+                    var model = new KratosUiNodeModel(node);
+                    @await Component.InvokeAsync("KratosUiNodeInput", model)
+                }
+                @foreach (var node in group)
+                {
+                    var model = new KratosUiNodeModel(node);
+                    @await Component.InvokeAsync("KratosUiNodeInput", model)
+                }
+            </form>
+        </div>
     }
 </section>

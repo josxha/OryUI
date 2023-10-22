@@ -1,5 +1,4 @@
-﻿using System.Web;
-using KratosSelfService.Extensions;
+﻿using KratosSelfService.Extensions;
 using Ory.Kratos.Client.Api;
 using Ory.Kratos.Client.Client;
 
@@ -12,13 +11,9 @@ public class ApiService(EnvService env)
         BasePath = env.KratosPublicUrl
     });
 
-    public string GetUrlForFlow(string flow, Dictionary<string, string>? query = null)
+    public string GetUrlForBrowserFlow(string flow, Dictionary<string, string?>? query = null)
     {
-        var queryString = HttpUtility.ParseQueryString(string.Empty);
-        if (query != null)
-            foreach (var (key, value) in query)
-                queryString.Add(key, value);
-
+        var queryString = query?.EncodeQueryString();
         var baseUrl = env.KratosBrowserUrl ?? env.KratosPublicUrl;
         return $"{baseUrl.RemoveTrailingSlash()}/self-service/{flow}/browser?{queryString}";
     }

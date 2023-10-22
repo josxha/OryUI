@@ -1,9 +1,9 @@
 ﻿@inject IOryElementsTranslator OryTranslator
-@model KratosUiNode
+@model KratosUiNodeModel
 
 @{
-    var attributes = Model.Attributes.GetKratosUiNodeInputAttributes();
-    var uiText = attributes.Label ?? Model.Meta.Label;
+    var attributes = Model.node.Attributes.GetKratosUiNodeInputAttributes();
+    var uiText = attributes.Label ?? Model.node.Meta.Label;
     var caption = OryTranslator.ForUiText(uiText);
 }
 
@@ -17,7 +17,7 @@
             @caption
         </button>
     </div>
-    @foreach (var message in Model.Messages)
+    @foreach (var message in Model.node.Messages)
     {
         <KratosUiTextMessage Message="@message"/>
     }

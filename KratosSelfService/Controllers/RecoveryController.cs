@@ -1,6 +1,5 @@
 using KratosSelfService.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Net.Http.Headers;
 using Ory.Kratos.Client.Client;
 using Ory.Kratos.Client.Model;
 
@@ -11,10 +10,7 @@ public class RecoveryController(ILogger<RecoveryController> logger, ApiService a
     [HttpGet("recovery")]
     public async Task<IActionResult> Recovery([FromQuery(Name = "flow")] string? flowId)
     {
-        if (flowId == null)
-        {
-            return Redirect(api.GetUrlForFlow("recovery"));
-        }
+        if (flowId == null) return Redirect(api.GetUrlForBrowserFlow("recovery"));
 
         KratosRecoveryFlow flow;
         try

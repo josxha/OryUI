@@ -1,6 +1,5 @@
 using KratosSelfService.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Net.Http.Headers;
 using Ory.Kratos.Client.Client;
 using Ory.Kratos.Client.Model;
 
@@ -14,7 +13,7 @@ public class RegistrationController(ILogger<RegistrationController> logger, ApiS
         if (flowId == null)
         {
             // initiate flow
-            var url = api.GetUrlForFlow("registration");
+            var url = api.GetUrlForBrowserFlow("registration");
             return Redirect(url);
         }
 

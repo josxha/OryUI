@@ -22,6 +22,7 @@
     }
     @foreach (var node in Model.Ui.Nodes)
     {
-        @await Component.InvokeAsync("KratosUiNodeInput", node)
+        var model = new KratosUiNodeModel(node);
+        @await Component.InvokeAsync("KratosUiNodeInput", model)
     }
 </form>

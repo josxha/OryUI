@@ -1,12 +1,12 @@
-﻿@model KratosUiNode
+﻿@model KratosUiNodeModel
 
 @{
-    var attributes = Model.Attributes.GetKratosUiNodeTextAttributes();
+    var attributes = Model.node.Attributes.GetKratosUiNodeTextAttributes();
 }
 
 <div class="field">
     <p id="@attributes.Id">@attributes.Text.Text</p>
-    @foreach (var message in Model.Messages)
+    @foreach (var message in Model.node.Messages)
     {
         <KratosUiTextMessage Message="@message"/>
     }

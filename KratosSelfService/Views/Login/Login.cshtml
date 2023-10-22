@@ -1,4 +1,4 @@
-﻿@model KratosLoginFlow
+﻿@model LoginModel
 @{
     ViewData["Title"] = OryTranslator.Get("login.title");
     Layout = "_CardLayout";
@@ -7,24 +7,25 @@
 <h1 class="title has-text-centered">@OryTranslator.Get("login.title")</h1>
 <p class="has-text-centered">
     @OryTranslator.Get("login.registration-label")
-    <a href="registration">
+    <a href="@Model.signupUrl">
         @OryTranslator.Get("login.registration-button")
     </a>
 </p>
 <hr/>
-<form method="@Model.Ui.Method.ToLower()" action="@Model.Ui.Action">
+<form method="@Model.flow.Ui.Method.ToLower()" action="@Model.flow.Ui.Action">
     <div class="mb-5">
-        @if (Model.Ui.Messages != null)
+        @if (Model.flow.Ui.Messages != null)
+        {
+            foreach (var message in Model.flow.Ui.Messages)
             {
-                foreach (var message in Model.Ui.Messages)
-                {
-                    @await Component.InvokeAsync("KratosUiTextMessage", message)
-                }
+                @await Component.InvokeAsync("KratosUiTextMessage", message)
             }
-            @foreach (var node in Model.Ui.Nodes)
-            {
-                @await Component.InvokeAsync("KratosUiNodeInput", node)
-            }
+        }
+        @foreach (var node in Model.flow.Ui.Nodes)
+        {
+            var model = new KratosUiNodeModel(node, Model.flow, Model.forgotPasswordUrl);
+            @await Component.InvokeAsync("KratosUiNodeInput", model)
+        }
     </div>
     <!--<div class="field separator">Or sign in with</div>
     <div class="field">

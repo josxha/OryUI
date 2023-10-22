@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using KratosSelfService.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Ory.Kratos.Client.Model;
 
@@ -6,14 +7,14 @@ namespace KratosSelfService.ViewComponents;
 
 public class KratosUiNodeInput : ViewComponent
 {
-    public async Task<ViewViewComponentResult> InvokeAsync(KratosUiNode node)
+    public async Task<ViewViewComponentResult> InvokeAsync(KratosUiNodeModel model)
     {
-        switch (node.Type)
+        switch (model.node.Type)
         {
             case KratosUiNode.TypeEnum.Text:
-                return View("Text", node);
+                return View("Text", model);
             case KratosUiNode.TypeEnum.Input:
-                switch (node.Attributes.GetKratosUiNodeInputAttributes().Type)
+                switch (model.node.Attributes.GetKratosUiNodeInputAttributes().Type)
                 {
                     case KratosUiNodeInputAttributes.TypeEnum.Text:
                     case KratosUiNodeInputAttributes.TypeEnum.Password:
@@ -24,24 +25,24 @@ public class KratosUiNodeInput : ViewComponent
                     case KratosUiNodeInputAttributes.TypeEnum.DatetimeLocal:
                     case KratosUiNodeInputAttributes.TypeEnum.Date:
                     case KratosUiNodeInputAttributes.TypeEnum.Url:
-                        return View("InputField", node);
+                        return View("InputField", model);
                     case KratosUiNodeInputAttributes.TypeEnum.Checkbox:
-                        return View("InputCheckbox", node);
+                        return View("InputCheckbox", model);
                     case KratosUiNodeInputAttributes.TypeEnum.Submit:
-                        return View("InputSubmit", node);
+                        return View("InputSubmit", model);
                     case KratosUiNodeInputAttributes.TypeEnum.Button:
-                        return View("InputButton", node);
+                        return View("InputButton", model);
                     default:
-                        return View("InputDefault", node);
+                        return View("InputDefault", model);
                 }
             case KratosUiNode.TypeEnum.Img:
-                return View("Image", node);
+                return View("Image", model);
             case KratosUiNode.TypeEnum.A:
-                return View("Anchor", node);
+                return View("Anchor", model);
             case KratosUiNode.TypeEnum.Script:
-                return View("Script", node);
+                return View("Script", model);
             default:
-                return View("Default", node);
+                return View("Default", model);
         }
     }
 }

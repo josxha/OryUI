@@ -1,3 +1,4 @@
+using KratosSelfService.Models;
 using KratosSelfService.Services;
 using Microsoft.AspNetCore.Mvc;
 using Ory.Kratos.Client.Client;
@@ -8,9 +9,18 @@ namespace KratosSelfService.Controllers;
 public class RecoveryController(ILogger<RecoveryController> logger, ApiService api) : Controller
 {
     [HttpGet("recovery")]
-    public async Task<IActionResult> Recovery([FromQuery(Name = "flow")] string? flowId)
+    public async Task<IActionResult> Recovery(
+        [FromQuery(Name = "flow")] string? flowId,
+        [FromQuery(Name = "return_to")] string? returnTo)
     {
-        if (flowId == null) return Redirect(api.GetUrlForBrowserFlow("recovery"));
+        if (flowId == null)
+        {
+            logger.LogDebug("No flow ID found in URL query initializing login flow");
+            return Redirect(api.GetUrlForBrowserFlow("recovery", new Dictionary<string, string?>()
+            {
+                ["return_to"] = returnTo
+            }));
+        }
 
         KratosRecoveryFlow flow;
         try
@@ -21,9 +31,17 @@ public class RecoveryController(ILogger<RecoveryController> logger, ApiService a
         {
             logger.LogError(exception.Message);
             // restart flow
-            return Redirect("recovery");
+            return Redirect(api.GetUrlForBrowserFlow("recovery", new Dictionary<string, string?>()
+            {
+                ["return_to"] = returnTo
+            }));
         }
 
-        return View("Recovery", flow);
+        var loginUrl = api.GetUrlForBrowserFlow("login", new Dictionary<string, string?>()
+        {
+            ["return_to"] = returnTo
+        });
+        var model = new RecoveryModel(flow, loginUrl);
+        return View("Recovery", model);
     }
 }

@@ -1,4 +1,4 @@
-﻿@model KratosRecoveryFlow
+﻿@model RecoveryModel
 @{
     ViewData["Title"] = OryTranslator.Get("recovery.title");
     Layout = "_CardLayout";
@@ -7,20 +7,20 @@
 <h1 class="title has-text-centered">@OryTranslator.Get("recovery.title")</h1>
 <p class="has-text-centered">
     @OryTranslator.Get("recovery.login-label")
-    <a href="login">
+    <a href="@Model.loginUrl">
         @OryTranslator.Get("recovery.login-button")
     </a>
 </p>
 <hr/>
-<form method="@Model.Ui.Method.ToLower()" action="@Model.Ui.Action">
-    @if (Model.Ui.Messages != null)
+<form method="@Model.flow.Ui.Method.ToLower()" action="@Model.flow.Ui.Action">
+    @if (Model.flow.Ui.Messages != null)
     {
-        foreach (var message in Model.Ui.Messages)
+        foreach (var message in Model.flow.Ui.Messages)
         {
             @await Component.InvokeAsync("KratosUiTextMessage", message)
         }
     }
-    @foreach (var node in Model.Ui.Nodes)
+    @foreach (var node in Model.flow.Ui.Nodes)
     {
         var model = new KratosUiNodeModel(node);
         @await Component.InvokeAsync("KratosUiNodeInput", model)

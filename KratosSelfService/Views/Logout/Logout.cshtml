@@ -1,0 +1,15 @@
+﻿@model LogoutModel
+@{
+    ViewData["Title"] = OryTranslator.Get("logout.title");
+    Layout = "_CardLayout";
+}
+
+<h1 class="title">@OryTranslator.Get("logout.title")</h1>
+<div class="buttons mt-5 is-fullwidth">
+    <a class="button is-dark" href="/">
+        @CustomTranslator.Get("logout.reject-button")
+    </a>
+    <a class="button is-warning" href="@Model.flow.LogoutUrl">
+        @CustomTranslator.Get("logout.accept-button")
+    </a>
+</div>

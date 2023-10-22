@@ -101,7 +101,7 @@
         <value>Läuft ab am</value>
     </data>
     <data name="sessions.noOtherActiveSessions" xml:space="preserve">
-        <value>Es gibt eine weiteren aktiven Sitzungen</value>
+        <value>Es gibt keine weiteren aktiven Sitzungen</value>
     </data>
     <data name="sessions.otherSessions" xml:space="preserve">
         <value>Weitere Sitzungen</value>

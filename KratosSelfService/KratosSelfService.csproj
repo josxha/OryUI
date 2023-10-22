@@ -71,7 +71,16 @@
     </ItemGroup>
 
     <ItemGroup>
-        <AdditionalFiles Include="Views\Entrance\Verification.cshtml"/>
+        <AdditionalFiles Include="Views\Login\Login.cshtml" />
+        <AdditionalFiles Include="Views\Login\Recovery.cshtml" />
+        <AdditionalFiles Include="Views\Login\Registration.cshtml" />
+        <AdditionalFiles Include="Views\Recovery\Login.cshtml" />
+        <AdditionalFiles Include="Views\Recovery\Recovery.cshtml" />
+        <AdditionalFiles Include="Views\Recovery\Registration.cshtml" />
+        <AdditionalFiles Include="Views\Registration\Login.cshtml" />
+        <AdditionalFiles Include="Views\Registration\Recovery.cshtml" />
+        <AdditionalFiles Include="Views\Registration\Registration.cshtml" />
+        <AdditionalFiles Include="Views\Verification\Verification.cshtml" />
         <AdditionalFiles Include="Views\Settings\Settings.cshtml"/>
     </ItemGroup>
 

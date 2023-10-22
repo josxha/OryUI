@@ -1,7 +1,6 @@
 using KratosSelfService.Services;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Ory.Kratos.Client.Client;
 using Ory.Kratos.Client.Model;
 
@@ -43,13 +42,16 @@ public class VerificationController(ILogger<VerificationController> logger, ApiS
 
         // check for custom messages in the query string
         if (string.IsNullOrWhiteSpace(jsonMessages))
-        {
-            var messages = JsonConvert.DeserializeObject<List<KratosUiText>>(jsonMessages);
-            if (messages != null)
+            try
             {
-                flow.Ui.Messages.AddRange(messages);
+                var messages = JsonConvert.DeserializeObject<List<KratosUiText>>(jsonMessages);
+                if (messages != null) flow.Ui.Messages.AddRange(messages);
             }
-        }
+            catch (Exception exception)
+            {
+                logger.LogError("Could not parse UiText Message. Message: {Message}, {Json}", exception.Message,
+                    jsonMessages);
+            }
 
         return View("Verification", flow);
     }

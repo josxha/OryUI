@@ -6,96 +6,113 @@
         <li>
             <a href="/">
                 <span class="icon">
-                    <i class="fa-solid fa-server fa-sm" 
-                    style="max-width: 16px; max-height: 16px;"></i>
+                    <i class="fa-solid fa-server fa-sm"
+                       style="max-width: 16px; max-height: 16px;">
+                    </i>
                 </span> Services
             </a>
         </li>
     </ul>
-    <p class="menu-label">Identities</p>
-    <ul class="menu-list">
-        <li>
-            <a href="identities/users" class="@(env.EnabledKratos ? "" : "is-disabled")">
-                <span class="icon-text">
-                    <span class="icon">
-                        <i class="fa-solid fa-users fa-sm" 
-                        style="max-width: 16px; max-height: 16px;"></i>
+    @if (env.EnabledKratos)
+    {
+        <p class="menu-label">Identities</p>
+        <ul class="menu-list">
+            <li>
+                <a href="identities/users">
+                    <span class="icon-text">
+                        <span class="icon">
+                            <i class="fa-solid fa-users fa-sm"
+                               style="max-width: 16px; max-height: 16px;">
+                            </i>
+                        </span>
+                        <span>Users</span>
                     </span>
-                    <span>Users</span>
-                </span>
-            </a>
-        </li>
-        <li>
-            <a href="identities/schemas" class="@(env.EnabledKratos ? "" : "is-disabled")">
-                <span class="icon-text">
-                    <span class="icon">
-                        <i class="fas fa-receipt fa-sm" 
-                        style="max-width: 16px; max-height: 16px;"></i>
+                </a>
+            </li>
+            <li>
+                <a href="identities/schemas">
+                    <span class="icon-text">
+                        <span class="icon">
+                            <i class="fas fa-receipt fa-sm"
+                               style="max-width: 16px; max-height: 16px;">
+                            </i>
+                        </span>
+                        <span>Schemas</span>
                     </span>
-                    <span>Schemas</span>
-                </span>
-            </a>
-        </li>
-        <li>
-            <a href="identities/messages" class="@(env.EnabledKratos ? "" : "is-disabled")">
-                <span class="icon-text">
-                    <span class="icon">
-                        <i class="fa-solid fa-envelope fa-sm" 
-                        style="max-width: 16px; max-height: 16px;"></i>
+                </a>
+            </li>
+            <li>
+                <a href="identities/messages">
+                    <span class="icon-text">
+                        <span class="icon">
+                            <i class="fa-solid fa-envelope fa-sm"
+                               style="max-width: 16px; max-height: 16px;">
+                            </i>
+                        </span>
+                        <span>Message Log</span>
                     </span>
-                    <span>Message Log</span>
-                </span>
-            </a>
-        </li>
-    </ul>
-    <p class="menu-label">OAuth2</p>
-    <ul class="menu-list">
-        <li>
-            <a href="oauth2" class="@(env.EnabledHydra ? "" : "is-disabled")">
-                <span class="icon-text">
-                    <span class="icon">
-                        <i class="fa-solid fa-circle-info fa-sm" 
-                        style="max-width: 16px; max-height: 16px;"></i>
+                </a>
+            </li>
+        </ul>
+    }
+    @if (env.EnabledHydra)
+    {
+        <p class="menu-label">OAuth2</p>
+        <ul class="menu-list">
+            <li>
+                <a href="oauth2">
+                    <span class="icon-text">
+                        <span class="icon">
+                            <i class="fa-solid fa-circle-info fa-sm"
+                               style="max-width: 16px; max-height: 16px;">
+                            </i>
+                        </span>
+                        <span>Information</span>
                     </span>
-                    <span>Information</span>
-                </span>
-            </a>
-        </li>
-        <li>
-            <a href="oauth2/clients" class="@(env.EnabledHydra ? "" : "is-disabled")">
-                <span class="icon-text">
-                    <span class="icon">
-                        <i class="fa-solid fa-window-restore fa-sm" 
-                        style="max-width: 16px; max-height: 16px;"></i>
+                </a>
+            </li>
+            <li>
+                <a href="oauth2/clients">
+                    <span class="icon-text">
+                        <span class="icon">
+                            <i class="fa-solid fa-window-restore fa-sm"
+                               style="max-width: 16px; max-height: 16px;">
+                            </i>
+                        </span>
+                        <span>Clients</span>
                     </span>
-                    <span>Clients</span>
-                </span>
-            </a>
-        </li>
-        <li>
-            <a href="oauth2/issuers" class="@(env.EnabledHydra ? "" : "is-disabled")">
-                <span class="icon-text">
-                    <span class="icon">
-                        <i class="fa-solid fa-address-card fa-sm" 
-                        style="max-width: 16px; max-height: 16px;"></i>
+                </a>
+            </li>
+            <li>
+                <a href="oauth2/issuers">
+                    <span class="icon-text">
+                        <span class="icon">
+                            <i class="fa-solid fa-address-card fa-sm"
+                               style="max-width: 16px; max-height: 16px;">
+                            </i>
+                        </span>
+                        <span>Grant Issuers</span>
                     </span>
-                    <span>Grant Issuers</span>
-                </span>
-            </a>
-        </li>
-    </ul>
-    <p class="menu-label">Permissions</p>
-    <ul class="menu-list">
-        <li>
-            <a href="permissions" class="@(env.EnabledKeto ? "" : "is-disabled")">
-                <span class="icon-text">
-                    <span class="icon">
-                        <i class="fa-solid fa-rectangle-list fa-sm" 
-                        style="max-width: 16px; max-height: 16px;"></i>
+                </a>
+            </li>
+        </ul>
+    }
+    @if (env.EnabledKeto)
+    {
+        <p class="menu-label">Permissions</p>
+        <ul class="menu-list">
+            <li>
+                <a href="permissions">
+                    <span class="icon-text">
+                        <span class="icon">
+                            <i class="fa-solid fa-rectangle-list fa-sm"
+                               style="max-width: 16px; max-height: 16px;">
+                            </i>
+                        </span>
+                        <span>Permissions</span>
                     </span>
-                    <span>Permissions</span>
-                </span>
-            </a>
-        </li>
-    </ul>
+                </a>
+            </li>
+        </ul>
+    }
 </aside>

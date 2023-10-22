@@ -10,7 +10,7 @@ public class RecoveryController(ILogger<RecoveryController> logger, ApiService a
 {
     [HttpGet("recovery")]
     public async Task<IActionResult> Recovery(
-        [FromQuery(Name = "flow")] string? flowId,
+        [FromQuery(Name = "flow")] Guid? flowId,
         [FromQuery(Name = "return_to")] string? returnTo)
     {
         if (flowId == null)
@@ -25,7 +25,7 @@ public class RecoveryController(ILogger<RecoveryController> logger, ApiService a
         KratosRecoveryFlow flow;
         try
         {
-            flow = await api.Frontend.GetRecoveryFlowAsync(flowId, Request.Headers.Cookie);
+            flow = await api.Frontend.GetRecoveryFlowAsync(flowId.ToString(), Request.Headers.Cookie);
         }
         catch (ApiException exception)
         {

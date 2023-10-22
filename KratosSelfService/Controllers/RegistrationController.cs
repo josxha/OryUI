@@ -10,7 +10,7 @@ public class RegistrationController(ILogger<RegistrationController> logger, ApiS
 {
     [HttpGet("registration")]
     public async Task<IActionResult> Registration(
-        [FromQuery(Name = "flow")] string? flowId,
+        [FromQuery(Name = "flow")] Guid? flowId,
         [FromQuery(Name = "return_to")] string? returnTo,
         [FromQuery(Name = "after_verification_return_to")]
         string? afterVerificationReturnTo,
@@ -38,7 +38,7 @@ public class RegistrationController(ILogger<RegistrationController> logger, ApiS
         KratosRegistrationFlow flow;
         try
         {
-            flow = await api.Frontend.GetRegistrationFlowAsync(flowId, Request.Headers.Cookie);
+            flow = await api.Frontend.GetRegistrationFlowAsync(flowId.ToString(), Request.Headers.Cookie);
         }
         catch (ApiException exception)
         {

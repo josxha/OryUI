@@ -10,7 +10,7 @@ public class SettingsController(ILogger<SettingsController> logger, ApiService a
 {
     [HttpGet("settings")]
     public async Task<IActionResult> Settings(
-        [FromQuery(Name = "flow")] string? flowId,
+        [FromQuery(Name = "flow")] Guid? flowId,
         [FromQuery(Name = "return_to")] string? returnTo
     )
     {
@@ -26,7 +26,7 @@ public class SettingsController(ILogger<SettingsController> logger, ApiService a
         KratosSettingsFlow flow;
         try
         {
-            flow = await api.Frontend.GetSettingsFlowAsync(flowId, cookie: Request.Headers.Cookie);
+            flow = await api.Frontend.GetSettingsFlowAsync(flowId.ToString(), cookie: Request.Headers.Cookie);
         }
         catch (ApiException exception)
         {

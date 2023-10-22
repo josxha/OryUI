@@ -10,7 +10,7 @@ public class VerificationController(ILogger<VerificationController> logger, ApiS
 {
     [HttpGet("verification")]
     public async Task<IActionResult> Verification(
-        [FromQuery(Name = "flow")] string? flowId,
+        [FromQuery(Name = "flow")] Guid? flowId,
         [FromQuery(Name = "return_to")] string? returnTo,
         [FromQuery(Name = "message")] string? jsonMessages)
     {
@@ -28,7 +28,7 @@ public class VerificationController(ILogger<VerificationController> logger, ApiS
         KratosVerificationFlow flow;
         try
         {
-            flow = await api.Frontend.GetVerificationFlowAsync(flowId, Request.Headers.Cookie);
+            flow = await api.Frontend.GetVerificationFlowAsync(flowId.ToString(), Request.Headers.Cookie);
         }
         catch (ApiException exception)
         {

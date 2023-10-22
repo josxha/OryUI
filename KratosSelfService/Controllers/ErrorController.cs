@@ -6,9 +6,9 @@ namespace KratosSelfService.Controllers;
 public class ErrorController(ApiService api) : Controller
 {
     [HttpGet("error")]
-    public async Task<IActionResult> Error([FromQuery(Name = "id")] string? flowId)
+    public async Task<IActionResult> Error([FromQuery(Name = "id")] Guid? flowId)
     {
-        var error = await api.Frontend.GetFlowErrorAsync(flowId);
+        var error = await api.Frontend.GetFlowErrorAsync(flowId.ToString());
         return View("Error", error);
     }
 }

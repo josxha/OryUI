@@ -12,7 +12,7 @@ public class LoginController(ILogger<LoginController> logger, ApiService api) : 
 {
     [HttpGet("login")]
     public async Task<IActionResult> Login(
-        [FromQuery(Name = "flow")] string? flowId,
+        [FromQuery(Name = "flow")] Guid? flowId,
         [FromQuery] string? aal,
         [FromQuery] string? refresh,
         [FromQuery(Name = "return_to")] string? returnTo,
@@ -29,7 +29,7 @@ public class LoginController(ILogger<LoginController> logger, ApiService api) : 
         KratosLoginFlow flow;
         try
         {
-            flow = await api.Frontend.GetLoginFlowAsync(flowId, Request.Headers.Cookie);
+            flow = await api.Frontend.GetLoginFlowAsync(flowId.ToString(), Request.Headers.Cookie);
         }
         catch (ApiException exception)
         {

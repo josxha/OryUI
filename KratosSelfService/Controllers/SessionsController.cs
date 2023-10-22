@@ -1,4 +1,5 @@
-﻿using KratosSelfService.Models;
+﻿using KratosSelfService.Extensions;
+using KratosSelfService.Models;
 using KratosSelfService.Services;
 using Microsoft.AspNetCore.Mvc;
 using Ory.Kratos.Client.Model;
@@ -10,7 +11,7 @@ public class SessionsController(ApiService api) : Controller
     [HttpGet("sessions")]
     public async Task<IActionResult> Sessions()
     {
-        var currentSession = await api.Frontend.ToSessionAsync(cookie: Request.Headers.Cookie);
+        var currentSession = HttpContext.GetSession()!;
         // retrieve all other active sessions
         var otherSessions = await api.Frontend
             .ListMySessionsAsync(cookie: Request.Headers.Cookie) ?? new List<KratosSession>();

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace KratosSelfService.Controllers;
 
@@ -6,12 +7,14 @@ namespace KratosSelfService.Controllers;
 public class HealthController : Controller
 {
     [HttpGet("alive")]
+    [AllowAnonymous]
     public string Alive()
     {
         return "ok";
     }
 
     [HttpGet("ready")]
+    [AllowAnonymous]
     public string Ready()
     {
         return "ok";

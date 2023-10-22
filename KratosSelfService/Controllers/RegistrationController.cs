@@ -1,5 +1,6 @@
 using KratosSelfService.Models;
 using KratosSelfService.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Ory.Kratos.Client.Client;
 using Ory.Kratos.Client.Model;
@@ -9,6 +10,7 @@ namespace KratosSelfService.Controllers;
 public class RegistrationController(ILogger<RegistrationController> logger, ApiService api) : Controller
 {
     [HttpGet("registration")]
+    [AllowAnonymous]
     public async Task<IActionResult> Registration(
         [FromQuery(Name = "flow")] Guid? flowId,
         [FromQuery(Name = "return_to")] string? returnTo,

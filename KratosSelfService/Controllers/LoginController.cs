@@ -1,6 +1,7 @@
 using KratosSelfService.Extensions;
 using KratosSelfService.Models;
 using KratosSelfService.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Net.Http.Headers;
 using Ory.Kratos.Client.Client;
@@ -11,6 +12,7 @@ namespace KratosSelfService.Controllers;
 public class LoginController(ILogger<LoginController> logger, ApiService api) : Controller
 {
     [HttpGet("login")]
+    [AllowAnonymous]
     public async Task<IActionResult> Login(
         [FromQuery(Name = "flow")] Guid? flowId,
         [FromQuery] string? aal,

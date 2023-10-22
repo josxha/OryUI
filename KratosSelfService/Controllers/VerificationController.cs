@@ -1,4 +1,5 @@
 using KratosSelfService.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Ory.Kratos.Client.Client;
@@ -9,6 +10,7 @@ namespace KratosSelfService.Controllers;
 public class VerificationController(ILogger<VerificationController> logger, ApiService api) : Controller
 {
     [HttpGet("verification")]
+    [AllowAnonymous]
     public async Task<IActionResult> Verification(
         [FromQuery(Name = "flow")] Guid? flowId,
         [FromQuery(Name = "return_to")] string? returnTo,

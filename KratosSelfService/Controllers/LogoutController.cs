@@ -1,6 +1,6 @@
 using KratosSelfService.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Net.Http.Headers;
 using Ory.Kratos.Client.Client;
 using Ory.Kratos.Client.Model;
 
@@ -9,6 +9,7 @@ namespace KratosSelfService.Controllers;
 public class LogoutController(ILogger<LogoutController> logger, ApiService api) : Controller
 {
     [HttpGet("logout")]
+    [AllowAnonymous]
     public async Task<IActionResult> Logout()
     {
         KratosLogoutFlow flow;
@@ -18,8 +19,8 @@ public class LogoutController(ILogger<LogoutController> logger, ApiService api) 
         }
         catch (ApiException exception)
         {
-            Console.WriteLine(exception.Message);
-            throw;
+            logger.LogDebug("Could not get logout flow: {Message}", exception.Message);
+            return Redirect("/");
         }
 
         return Redirect(flow.LogoutUrl);

@@ -17,10 +17,14 @@ public record LogoutModel(
     KratosLogoutFlow flow
 );
 
-public record RecoveryModel(KratosRecoveryFlow flow, string loginUrl);
+public record RecoveryModel(
+    KratosRecoveryFlow flow,
+    string loginUrl
+);
 
 public record RegistrationModel(
-    KratosRegistrationFlow flow
+    KratosRegistrationFlow flow,
+    string loginUrl
 );
 
 public record SessionsModel(

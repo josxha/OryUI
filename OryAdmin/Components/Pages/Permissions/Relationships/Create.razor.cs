@@ -28,6 +28,6 @@ public partial class Create
             return;
         }
 
-        nav.NavigateTo($"permissions/{NamespaceName}/relationships");
+        nav.NavigateTo($"permissions/{NamespaceName}");
     }
 }

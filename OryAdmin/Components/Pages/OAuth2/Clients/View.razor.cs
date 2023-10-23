@@ -20,11 +20,6 @@ public partial class View
         _isLoading = false;
     }
 
-    private void EditClient()
-    {
-        nav.NavigateTo($"oauth2/clients/{ClientId}/edit");
-    }
-
     private async Task DeleteClient()
     {
         await ApiService.HydraOAuth2.DeleteOAuth2ClientAsync(ClientId);
@@ -44,7 +39,14 @@ public partial class View
     private async Task CreateNewClientSecret()
     {
         _confirmNewSecretModal = false;
-        // TODO generate new client secret
+        var patches = new List<HydraJsonPatch>
+        {
+            // TODO this does not work!
+            new(op: "add", path: "/client_secret"),
+            new(op: "remove", path: "/client_secret"),
+            new(op: "replace", path: "/client_secret")
+        };
+        _client = await ApiService.HydraOAuth2.PatchOAuth2ClientAsync(ClientId, patches);
         _showNewSecretModal = true;
     }
 }

@@ -1,0 +1,66 @@
+﻿@page "/oauth2/clients/{ClientId}/sessions"
+@attribute [StreamRendering]
+@attribute [RenderModeInteractiveServer]
+
+<PageTitle>OAuth 2 Client Sessions | OryAdmin</PageTitle>
+
+<h1 class="title">OAuth 2 Client Sessions</h1>
+<div class="buttons">
+    <a href="oauth2/clients/@ClientId" class="button is-dark">
+        Back
+    </a>
+    <RefreshPageButton/>
+</div>
+@if (_isLoading)
+{
+    // is loading
+    <p>Loading data...</p>
+}
+else
+{
+    if (_sessions == null)
+    {
+        <div class="message is-danger p-2">
+            <p>The list could not be loaded.</p>
+        </div>
+    }
+    else
+    {
+        if (_sessions.Count == 0)
+        {
+            <p>The client has no active sessions</p>
+        }
+        else
+        {
+            <table class="table is-fullwidth is-striped">
+                <thead>
+                <tr>
+                    <td>Remember</td>
+                    <td>Expires at</td>
+                    <td>Grant scope</td>
+                    <td>Session</td>
+                    <td>Consent request</td>
+                    <td>Handled at</td>
+                    <td>Expires at</td>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var session in _sessions!)
+                {
+                    <tr>
+                        <td>@(session.Remember ? "Yes" : "No")</td>
+                        <td>@(session.GrantScope == null ? "-" : string.Join(", ", session.GrantScope))</td>
+                        <td>@session.Session.ToJson()</td>
+                        <td>@session.ConsentRequest.ToJson()</td>
+                        <td>
+                            @(session.GrantAccessTokenAudience == null ? "-" : string.Join(", ", session.GrantAccessTokenAudience))
+                        </td>
+                        <td>@session.HandledAt ?? "-"</td>
+                        <td>@session.ExpiresAt</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        }
+    }
+}

@@ -24,9 +24,4 @@ public partial class Create
             _errorMessage = exception.Message;
         }
     }
-
-    private void GotoIndexPage()
-    {
-        nav.NavigateTo("oauth2/clients");
-    }
 }

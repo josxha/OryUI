@@ -1,0 +1,199 @@
+﻿@using Ory.Hydra.Client.Model
+@code {
+
+    [Parameter]
+    public required HydraOAuth2Client Client { get; set; }
+
+    private void UpdateClientScope(ChangeEventArgs args)
+    {
+        var value = args.Value?.ToString();
+        if (value == null)
+        {
+            Client.Scope = null;
+            return;
+        }
+
+        var items = value
+            .Split(",")
+            .Select(s => s.Trim());
+        Client.Scope = string.Join(" ", items);
+    }
+
+}
+
+<div class="box p-5">
+    <h2 class="subtitle">General</h2>
+    <div class="field">
+        <label class="label">
+            Client name
+            <div class="control">
+                <input type="text" class="input"
+                       value="@Client.ClientName"
+                       @onchange="args => Client.ClientName = args.Value?.ToString()"/>
+            </div>
+        </label>
+    </div>
+    <div class="field">
+        <label class="label">
+            Scope
+            <div class="control">
+                <input type="text" class="input"
+                       value="@Client.Scope?.Replace(" ", ", ")"
+                       @onchange="UpdateClientScope"/>
+            </div>
+        </label>
+    </div>
+    <div class="field">
+        <label class="label">
+            Redirect URIs (one entry per line)
+            <div class="control">
+                <textarea class="textarea" rows="3" @onchange="args => Client.RedirectUris = args.MultilineToList()">
+    @string.Join("\n", Client.RedirectUris ?? new List<string>())
+    </textarea>
+            </div>
+        </label>
+    </div>
+</div>
+<div class="box p-5">
+    <h2 class="subtitle">Consent screen</h2>
+    <div class="field">
+        <label class="checkbox">
+            <input type="checkbox"
+                   value="@Client.SkipConsent"
+                   @onchange="args => Client.SkipConsent = (bool?)args.Value ?? false"/>
+            Skip consent screen
+        </label>
+    </div>
+    <div class="field">
+        <label class="label">
+            Owner
+            <div class="control">
+                <input type="text" class="input"
+                       value="@Client.Owner"
+                       @onchange="args => Client.Owner = args.Value?.ToString()"/>
+            </div>
+        </label>
+    </div>
+    <div class="field">
+        <label class="label">
+            Client URI
+            <div class="control">
+                <input type="url" class="input"
+                       value="@Client.ClientUri"
+                       @onchange="args => Client.ClientUri = args.Value?.ToString()"/>
+            </div>
+        </label>
+    </div>
+    <div class="field">
+        <label class="label">
+            Logo URI
+            <div class="control">
+                <input type="url" class="input"
+                       value="@Client.LogoUri"
+                       @onchange="args => Client.LogoUri = args.Value?.ToString()"/>
+            </div>
+        </label>
+    </div>
+    <div class="field">
+        <label class="label">
+            Policy URI
+            <div class="control">
+                <input type="url" class="input"
+                       value="@Client.PolicyUri"
+                       @onchange="args => Client.PolicyUri = args.Value?.ToString()"/>
+            </div>
+        </label>
+    </div>
+    <div class="field">
+        <label class="label">
+            Terms of services URI
+            <div class="control">
+                <input type="url" class="input"
+                       value="@Client.TosUri"
+                       @onchange="args => Client.TosUri = args.Value?.ToString()"/>
+            </div>
+        </label>
+    </div>
+    <div class="field">
+        <label class="label">
+            Contacts (one entry per line)
+            <div class="control">
+                <textarea class="textarea" rows="3" @onchange="args => Client.Contacts = args.MultilineToList()">
+    @string.Join("\n", Client.Contacts ?? new List<string>())            
+    </textarea>
+            </div>
+        </label>
+    </div>
+</div>
+<div class="box p-5">
+    <h2 class="subtitle">Supported OAuth2 flows</h2>
+    <div class="field">
+        <label class="label">
+            Grant types (one entry per line)
+            <div class="control">
+                <textarea class="textarea" rows="3" @onchange="args => Client.GrantTypes = args.MultilineToList()">
+    @string.Join("\n", Client.GrantTypes ?? new List<string>())            
+    </textarea>
+            </div>
+        </label>
+    </div>
+    <div class="field">
+        <label class="label">
+            Response types (one entry per line)
+            <div class="control">
+                <textarea class="textarea" rows="3" @onchange="args => Client.ResponseTypes = args.MultilineToList()">
+    @string.Join("\n", Client.ResponseTypes ?? new List<string>())            
+    </textarea>
+            </div>
+        </label>
+    </div>
+    <div class="field">
+        <label class="label">
+            Access token type
+            <div class="control">
+                <input type="text" class="input"
+                       value="@Client.AccessTokenStrategy"
+                       @onchange="args => Client.AccessTokenStrategy = args.Value?.ToString()"/>
+            </div>
+        </label>
+    </div>
+</div>
+<div class="box p-5">
+    <h2 class="subtitle">OpenID connect logout</h2>
+    <div class="field">
+        <label class="checkbox">
+            <input type="checkbox"
+                   value="@Client.FrontchannelLogoutSessionRequired"
+                   @onchange="args => Client.FrontchannelLogoutSessionRequired = (bool?)args.Value ?? false"/>
+            Frontchannel logout session required
+        </label>
+    </div>
+    <div class="field">
+        <label class="checkbox">
+            <input type="checkbox"
+                   value="@Client.BackchannelLogoutSessionRequired"
+                   @onchange="args => Client.BackchannelLogoutSessionRequired = (bool?)args.Value ?? false"/>
+            Backchannel logout session required
+        </label>
+    </div>
+    <div class="field">
+        <label class="label">
+            Frontchannel logout URI
+            <div class="control">
+                <input type="text" class="input"
+                       value="@Client.FrontchannelLogoutUri"
+                       @onchange="args => Client.FrontchannelLogoutUri = args.Value?.ToString()"/>
+            </div>
+        </label>
+    </div>
+    <div class="field">
+        <label class="label">
+            Backchannel logout URI
+            <div class="control">
+                <input type="text" class="input"
+                       value="@Client.BackchannelLogoutUri"
+                       @onchange="args => Client.BackchannelLogoutUri = args.Value?.ToString()"/>
+            </div>
+        </label>
+    </div>
+</div>

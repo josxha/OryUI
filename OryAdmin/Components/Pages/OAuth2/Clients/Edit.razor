@@ -14,18 +14,12 @@
 else
 {
     <form @onsubmit="SubmitForm">
-        <div class="field">
-            <label class="label">
-                Client Name
-                <div class="control">
-                    <input type="text" class="input" value="@_client?.ClientName"
-                           @onchange="args => _client!.ClientName = args.Value?.ToString()"/>
-                </div>
-            </label>
+        <div class="box p-5 @(string.IsNullOrWhiteSpace(_errorMessage) ? "is-hidden" : "")">
+            <div class="message is-warning p-2">
+                @_errorMessage
+            </div>
         </div>
-        <div class="message is-warning p-2 @(string.IsNullOrWhiteSpace(_errorMessage) ? "is-hidden" : "")">
-            @_errorMessage
-        </div>
+        <Oauth2ClientFields Client="_client"/>
         <div class="mt-5">
             <div class="buttons">
                 <a class="button" href="oauth2/clients/@ClientId">

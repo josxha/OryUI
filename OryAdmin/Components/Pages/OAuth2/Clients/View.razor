@@ -22,19 +22,19 @@ else
                 <td>@(_client!.ClientId)</td>
             </tr>
             <tr>
-                <td>Client Name</td>
+                <td>Client name</td>
                 <td>@(string.IsNullOrWhiteSpace(_client.ClientName) ? "-" : _client.ClientName)</td>
             </tr>
             <tr>
-                <td>Client Secret</td>
+                <td>Client secret</td>
                 <td>**************************</td>
             </tr>
             <tr>
-                <td>Client Secret Expires At</td>
+                <td>Client secret expires at</td>
                 <td>@(_client.ClientSecretExpiresAt == 0 ? "never" : _client.ClientSecretExpiresAt)</td>
             </tr>
             <tr>
-                <td>Client Authentication Mechanism</td>
+                <td>Client authentication mechanism</td>
                 <td>@_client.TokenEndpointAuthMethod</td>
             </tr>
             <tr>
@@ -46,11 +46,11 @@ else
                 <StringListTd List="@_client.RedirectUris"/>
             </tr>
             <tr>
-                <td>Updated At</td>
+                <td>Updated at</td>
                 <td>@_client.UpdatedAt</td>
             </tr>
             <tr>
-                <td>Created At</td>
+                <td>Created at</td>
                 <td>@_client.CreatedAt</td>
             </tr>
             </tbody>
@@ -149,7 +149,7 @@ else
         <table class="table is-fullwidth">
             <tbody>
             <tr>
-                <td>Skip Consent Screen</td>
+                <td>Skip consent screen</td>
                 <td>@(_client.SkipConsent ? "Yes" : "No")</td>
             </tr>
             <tr>
@@ -173,7 +173,7 @@ else
                 <LinkTd Uri="@_client.PolicyUri"/>
             </tr>
             <tr>
-                <td>Contact Info</td>
+                <td>Contacts</td>
                 <StringListTd List="@_client.Contacts"/>
             </tr>
             </tbody>
@@ -189,11 +189,11 @@ else
                 <StringListTd List="@_client.GrantTypes"/>
             </tr>
             <tr>
-                <td>Grant Types</td>
+                <td>Response types</td>
                 <StringListTd List="@_client.ResponseTypes"/>
             </tr>
             <tr>
-                <td>Access Token Type</td>
+                <td>Access token type</td>
                 <td>@_client.AccessTokenStrategy.ToStringOrDash()</td>
             </tr>
             </tbody>
@@ -201,23 +201,23 @@ else
     </div>
 
     <div class="box">
-        <h1 class="title">OpenID Connect logout</h1>
+        <h1 class="title">OpenID Connect Logout</h1>
         <table class="table is-fullwidth">
             <tbody>
             <tr>
-                <td>Frontchannel Logout Session Required</td>
+                <td>Frontchannel logout session required</td>
                 <td>@(_client.FrontchannelLogoutSessionRequired ? "Yes" : "No")</td>
             </tr>
             <tr>
-                <td>Backchannel Logout Session Required</td>
+                <td>Backchannel logout session required</td>
                 <td>@(_client.BackchannelLogoutSessionRequired ? "Yes" : "No")</td>
             </tr>
             <tr>
-                <td>Frontchannel Logout URI</td>
+                <td>Frontchannel logout URI</td>
                 <td>@_client.FrontchannelLogoutUri.ToStringOrDash()</td>
             </tr>
             <tr>
-                <td>Backchannel Logout URI</td>
+                <td>Backchannel logout URI</td>
                 <td>@_client.BackchannelLogoutUri.ToStringOrDash()</td>
             </tr>
             </tbody>
@@ -232,19 +232,19 @@ else
             <div class="column is-half">
                 <table class="table is-fullwidth is-narrow">
                     <thead>
-                    <th colspan="2">Refresh Token Grant</th>
+                    <th colspan="2">Refresh token grant</th>
                     </thead>
                     <tbody>
                     <tr>
-                        <td>ID Token</td>
+                        <td>ID token</td>
                         <td>@_client.RefreshTokenGrantIdTokenLifespan.ToStringOrDash()</td>
                     </tr>
                     <tr>
-                        <td>Access Token</td>
+                        <td>Access token</td>
                         <td>@_client.RefreshTokenGrantAccessTokenLifespan.ToStringOrDash()</td>
                     </tr>
                     <tr>
-                        <td>Refresh Token</td>
+                        <td>Refresh token</td>
                         <td>@_client.RefreshTokenGrantRefreshTokenLifespan.ToStringOrDash()</td>
                     </tr>
                     </tbody>
@@ -253,19 +253,19 @@ else
             <div class="column is-half">
                 <table class="table is-fullwidth is-narrow">
                     <thead>
-                    <th colspan="2">Authorization Code Grant</th>
+                    <th colspan="2">Authorization code grant</th>
                     </thead>
                     <tbody>
                     <tr>
-                        <td>ID Token</td>
+                        <td>ID token</td>
                         <td>@_client.AuthorizationCodeGrantIdTokenLifespan.ToStringOrDash()</td>
                     </tr>
                     <tr>
-                        <td>Access Token</td>
+                        <td>Access token</td>
                         <td>@_client.AuthorizationCodeGrantAccessTokenLifespan.ToStringOrDash()</td>
                     </tr>
                     <tr>
-                        <td>Refresh Token</td>
+                        <td>Refresh token</td>
                         <td>@_client.AuthorizationCodeGrantRefreshTokenLifespan.ToStringOrDash()</td>
                     </tr>
                     </tbody>
@@ -274,11 +274,11 @@ else
             <div class="column is-half">
                 <table class="table is-fullwidth is-narrow">
                     <thead>
-                    <th colspan="2">Client Credentials Grant</th>
+                    <th colspan="2">Client credentials grant</th>
                     </thead>
                     <tbody>
                     <tr>
-                        <td>Access Token</td>
+                        <td>Access token</td>
                         <td>@_client.ClientCredentialsGrantAccessTokenLifespan.ToStringOrDash()</td>
                     </tr>
                     </tbody>
@@ -287,7 +287,7 @@ else
             <div class="column is-half">
                 <table class="table is-fullwidth is-narrow">
                     <thead>
-                    <th colspan="2">JWT Bearer Grant</th>
+                    <th colspan="2">JWT bearer grant</th>
                     </thead>
                     <tbody>
                     <tr>
@@ -317,7 +317,7 @@ else
                 <StringListTd List="@_client.RequestUris"/>
             </tr>
             <tr>
-                <td>Post Logout Redirect URIs</td>
+                <td>Post logout redirect URIs</td>
                 <StringListTd List="@_client.PostLogoutRedirectUris"/>
             </tr>
             <tr>
@@ -329,35 +329,35 @@ else
                 <td>@(_client.Metadata == null ? "-" : _client.Metadata)</td>
             </tr>
             <tr>
-                <td>Subject Type</td>
+                <td>Subject type</td>
                 <td>@_client.SubjectType.ToStringOrDash()</td>
             </tr>
             <tr>
-                <td>Allowed CORS Origins</td>
+                <td>Allowed CORS origins</td>
                 <StringListTd List="@_client.AllowedCorsOrigins"/>
             </tr>
             <tr>
-                <td>Registration Access Token</td>
+                <td>Registration access token</td>
                 <td>@_client.RegistrationAccessToken.ToStringOrDash()</td>
             </tr>
             <tr>
-                <td>Registration Client URI</td>
+                <td>Registration client URI</td>
                 <td>@_client.RegistrationClientUri.ToStringOrDash()</td>
             </tr>
             <tr>
-                <td>Sector Identifier URI</td>
+                <td>Sector identifier URI</td>
                 <td>@_client.SectorIdentifierUri.ToStringOrDash()</td>
             </tr>
             <tr>
-                <td>Request Object Signing Algorithm</td>
+                <td>Request object signing algorithm</td>
                 <td>@_client.RequestObjectSigningAlg.ToStringOrDash()</td>
             </tr>
             <tr>
-                <td>Userinfo Signed Response Algorithm</td>
+                <td>Userinfo signed response algorithm</td>
                 <td>@_client.UserinfoSignedResponseAlg.ToStringOrDash()</td>
             </tr>
             <tr>
-                <td>Token Endpoint Auth Signing Algorithm</td>
+                <td>Token endpoint auth signing algorithm</td>
                 <td>@_client.TokenEndpointAuthSigningAlg.ToStringOrDash()</td>
             </tr>
             </tbody>

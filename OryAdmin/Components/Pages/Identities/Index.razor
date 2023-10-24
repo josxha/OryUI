@@ -1,0 +1,24 @@
+﻿@page "/identities"
+@attribute [StreamRendering]
+@attribute [RenderModeInteractiveServer]
+
+<PageTitle>Identity Stats | OryAdmin</PageTitle>
+
+<h1 class="title">Identity Stats</h1>
+@if (_isLoading)
+{
+    <p>Loading data...</p>
+}
+else
+{
+    <div class="columns is-multiline">
+        <div class="column is-half box p-5">
+            <h2 class="subtitle">New Users</h2>
+            @for (var i = 28; i >= 0; i--)
+            {
+                var date = DateOnly.FromDateTime(_now - new TimeSpan(i, 0, 0, 0));
+                <p>@date: @(_dailySignUps!.ContainsKey(date) ? _dailySignUps![date] : 0)</p>
+            }
+        </div>
+    </div>
+}

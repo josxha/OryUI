@@ -1,0 +1,63 @@
+﻿@page "/charts"
+
+@code {
+
+    private readonly ApexChartOptions<ChartItem> _options = new()
+    {
+        Debug = true
+    };
+
+    private readonly List<ChartItem> _items = new()
+    {
+        new ChartItem(new DateTime(2023, 10, 01), 10),
+        new ChartItem(new DateTime(2023, 10, 02), 24),
+        new ChartItem(new DateTime(2023, 10, 03), 53),
+        new ChartItem(new DateTime(2023, 10, 04), 43),
+        new ChartItem(new DateTime(2023, 10, 05), 54)
+    };
+
+    public class ChartItem(DateTime date, decimal value)
+    {
+        public DateTime Date { get; } = date;
+        public decimal Value { get; } = value;
+    }
+
+    public class Order(decimal value)
+    {
+        public decimal Value { get; } = value;
+    }
+
+    private Order[] _orders = {new(34), new(23), new(82)};
+
+}
+
+<div class="section m-6">
+    <div style="height: 1000px; width: 1000px">
+        <DemoContainer>
+            <ApexChart TItem="Order"
+                       Title="Order Gross Value">
+        
+                <ApexPointSeries TItem="Order"
+                            Items="_orders"
+                            SeriesType="SeriesType.Donut"
+                            Name="Gross Value"
+                            XValue="@(e => e.Value)"
+                            YAggregate="@(e => e.Sum(order => order.Value))"
+                            OrderByDescending="order => order.Y ?? 0" />
+            </ApexChart>
+        </DemoContainer>
+        <ApexChart TItem="@ChartItem"
+                   Title="ChartItems Value"
+                   XAxisType="XAxisType.Datetime"
+                   Options="_options"
+                   Debug>
+            <ApexPointSeries TItem="@ChartItem"
+                             Items="@_items"
+                             Name="Net Value"
+                             SeriesType="@SeriesType.Line"
+                             XValue="@(order => order.Date)"
+                             YValue="@(order => order.Value)"
+                             OrderBy="@(point => point.X)"/>
+        </ApexChart>
+    </div>
+</div>

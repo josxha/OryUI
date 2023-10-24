@@ -8,37 +8,78 @@
         .First(group => group.Key == KratosUiNode.GroupEnum.Default)
         .ToArray();
     var groups = allGroups
-        .Where(group => group.Key != KratosUiNode.GroupEnum.Default);
+        .Where(group => group.Key != KratosUiNode.GroupEnum.Default)
+        .ToArray();
 }
 
-<section class="section">
-    <div class="box pt-5">
-        <h1 class="title">@OryTranslator.Get("settings.title")</h1>
-        <p>@OryTranslator.Get("settings.subtitle-instructions")</p>
-        @if (Model.flow.Ui.Messages != null)
-        {
-            foreach (var message in Model.flow.Ui.Messages)
-            {
-                @await Component.InvokeAsync("KratosUiTextMessage", message)
-            }
-        }
-    </div>
-    @foreach (var group in groups)
-    {
-        <div class="box p-5">
-            <h3 class="subtitle">@group.Key.ToLocalString(OryTranslator)</h3>
-            <form class="mb-3" action="@Model.postUri" method="post">
-                @foreach (var node in defaultNodes)
-                {
-                    var model = new KratosUiNodeModel(node);
-                    @await Component.InvokeAsync("KratosUiNodeInput", model)
-                }
-                @foreach (var node in group)
-                {
-                    var model = new KratosUiNodeModel(node);
-                    @await Component.InvokeAsync("KratosUiNodeInput", model)
-                }
-            </form>
+<div class="columns">
+    <div class="column is-2 is-hidden-mobile">
+        <div class="section">
+            <aside style="position:fixed; z-index: 1">
+                <p class="menu-label">@OryTranslator.Get("settings.title-navigation")</p>
+                <ul class="menu-list">
+                    @foreach (var group in groups)
+                    {
+                        var groupType = group.Key;
+                        <li>
+                            <a href="#@groupType.ToSiteAnchorTag()">
+                                <span class="icon">
+                                    <i class="fa-solid @groupType.ToFaIcon() fa-sm"
+                                       style="max-width: 16px; max-height: 16px;">
+                                    </i> @groupType.ToLocalNavString(OryTranslator)
+                                </span>
+                            </a>
+                        </li>
+                    }
+                </ul>
+                <p class="menu-label mt-5">Actions</p>
+                <ul class="menu-list">
+                    <li>
+                        <a href="logout">
+                            <span class="icon">
+                                <i class="fa-solid fa-sign-out fa-sm"
+                                   style="max-width: 16px; max-height: 16px;">
+                                </i> @OryTranslator.Get("settings.navigation-logout")
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
         </div>
-    }
-</section>
+    </div>
+    <div class="column is-10">
+        <div class="section">
+            <div class="box pt-5">
+                <h1 class="title">@OryTranslator.Get("settings.title")</h1>
+                <p>@OryTranslator.Get("settings.subtitle-instructions")</p>
+                @if (Model.flow.Ui.Messages != null)
+                {
+                    foreach (var message in Model.flow.Ui.Messages)
+                    {
+                        @await Component.InvokeAsync("KratosUiTextMessage", message)
+                    }
+                }
+            </div>
+            @foreach (var group in groups)
+            {
+                <div class="box p-5">
+                    <h3 class="subtitle" id="@group.Key.ToSiteAnchorTag()">
+                        @group.Key.ToLocalTitleString(OryTranslator)
+                    </h3>
+                    <form class="mb-3" action="@Model.postUri" method="post">
+                        @foreach (var node in defaultNodes)
+                        {
+                            var model = new KratosUiNodeModel(node);
+                            @await Component.InvokeAsync("KratosUiNodeInput", model)
+                        }
+                        @foreach (var node in group)
+                        {
+                            var model = new KratosUiNodeModel(node);
+                            @await Component.InvokeAsync("KratosUiNodeInput", model)
+                        }
+                    </form>
+                </div>
+            }
+        </div>
+    </div>
+</div>

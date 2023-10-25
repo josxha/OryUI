@@ -20,7 +20,7 @@ public class LogoutController(ILogger<LogoutController> logger, ApiService api) 
         catch (ApiException exception)
         {
             logger.LogDebug("Could not get logout flow: {Message}", exception.Message);
-            return Redirect("/");
+            return Redirect("~/");
         }
 
         return Redirect(flow.LogoutUrl);

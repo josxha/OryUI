@@ -11,4 +11,12 @@ public class HomeController(ILogger<HomeController> logger) : Controller
     {
         return View("Home");
     }
+
+    [HttpGet("welcome")]
+    [AllowAnonymous]
+    public IActionResult Welcome()
+    {
+        // this endpoint exists for parity reason to the ory kratos self service ui
+        return Redirect("~/");
+    }
 }

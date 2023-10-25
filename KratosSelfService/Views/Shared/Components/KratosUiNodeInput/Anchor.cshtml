@@ -6,7 +6,9 @@
 
 <div class="field">
     <div class="is-fullwidth has-text-centered">
-        <a href="@attributes.Href" id="@attributes.Id">@attributes.Title.Text</a>
+        <a href="@attributes.Href" id="@attributes.Id">
+            @OryTranslator.ForUiText(attributes.Title)
+        </a>
     </div>
     @foreach (var message in Model.node.Messages)
     {

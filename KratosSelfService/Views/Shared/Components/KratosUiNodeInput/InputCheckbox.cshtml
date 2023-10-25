@@ -5,14 +5,15 @@
     var uiText = attributes.Label ?? Model.node.Meta.Label;
 }
 
-<div class="field">
+<label class="checkbox">
     <input type="checkbox" class="input"
            required="@attributes.Required"
            value="@attributes.Value" autocomplete="@attributes.Autocomplete.ToString()?.ToLower()"
            disabled="@attributes.Disabled" name="@attributes.Name"
            onclick="@attributes.Onclick" pattern="@attributes.Pattern"/>
+    @OryTranslator.ForUiText(uiText)
     @foreach (var message in Model.node.Messages)
     {
         <KratosUiTextMessage Message="@message"/>
     }
-</div>
+</label>

@@ -3,12 +3,11 @@
 @{
     var attributes = Model.node.Attributes.GetKratosUiNodeInputAttributes();
     var uiText = attributes.Label ?? Model.node.Meta.Label;
-    var caption = OryTranslator.ForUiText(uiText);
 }
 
 <div class="field">
     <label class="label">
-        @caption
+        @OryTranslator.ForUiText(uiText)
         <div class="control">
             <input type="@attributes.Type.ToString().ToLower()" class="input"
                    required="@attributes.Required"

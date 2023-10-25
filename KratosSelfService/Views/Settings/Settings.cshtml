@@ -62,8 +62,8 @@
             </div>
             @foreach (var group in groups)
             {
-                <div class="box p-5">
-                    <h3 class="subtitle" id="@group.Key.ToSiteAnchorTag()">
+                <div class="box p-5" id="@group.Key.ToSiteAnchorTag()">
+                    <h3 class="subtitle">
                         @group.Key.ToLocalTitleString(OryTranslator)
                     </h3>
                     <form class="mb-3" action="@Model.postUri" method="post">

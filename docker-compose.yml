@@ -21,7 +21,7 @@ services:
     #image: ghcr.io/josxha/kratos_self_service:latest
     build: ./KratosSelfService
     ports:
-      - "127.0.0.1:5110:8080"
+      - "127.0.0.1:5110:3000"
     networks:
       - ory
     environment:

@@ -1,6 +1,6 @@
 ﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
-EXPOSE 80
+EXPOSE 3000
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
@@ -16,4 +16,4 @@ RUN dotnet publish "KratosSelfService.csproj" -c Release -o /app/publish /p:UseA
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "KratosSelfService.dll"]
+ENTRYPOINT ["dotnet", "KratosSelfService.dll", "--urls", "http://0.0.0.0:3000"]

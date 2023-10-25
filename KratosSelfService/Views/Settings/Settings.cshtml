@@ -13,7 +13,7 @@
 }
 
 <div class="columns">
-    <div class="column is-2 is-hidden-mobile">
+    <div class="column is-3 is-hidden-mobile">
         <div class="section">
             <aside>
                 <p class="menu-label">@OryTranslator.Get("settings.title-navigation")</p>
@@ -23,9 +23,13 @@
                         var groupType = group.Key;
                         <li>
                             <a href="#@groupType.ToSiteAnchorTag()">
-                                <span class="icon">
-                                    <i class="fa-solid @groupType.ToFaIcon() fa-sm">
-                                    </i> @groupType.ToLocalNavString(OryTranslator)
+                                <span class="icon-text">
+                                    <span class="icon">
+                                        <i class="fa-solid @groupType.ToFaIcon() fa-sm"></i>
+                                    </span>
+                                    <span>
+                                        @groupType.ToLocalNavString(OryTranslator)
+                                    </span>
                                 </span>
                             </a>
                         </li>
@@ -35,9 +39,13 @@
                 <ul class="menu-list">
                     <li>
                         <a href="logout">
-                            <span class="icon">
-                                <i class="fa-solid fa-sign-out fa-sm">
-                                </i> @OryTranslator.Get("settings.navigation-logout")
+                            <span class="icon-text">
+                                <span class="icon">
+                                    <i class="fa-solid fa-sign-out fa-sm"></i>
+                                </span>
+                                <span>
+                                    @OryTranslator.Get("settings.navigation-logout")
+                                </span>
                             </span>
                         </a>
                     </li>
@@ -45,7 +53,7 @@
             </aside>
         </div>
     </div>
-    <div class="column is-10">
+    <div class="column is-9">
         <div class="section">
             <div class="box pt-5">
                 <h1 class="title">@OryTranslator.Get("settings.title")</h1>

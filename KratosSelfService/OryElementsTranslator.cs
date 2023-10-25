@@ -21,8 +21,18 @@ public class OryElementsTranslator(IStringLocalizer<OryElementsTranslator> local
     public string? ForUiText(KratosUiText? uiText)
     {
         if (uiText == null) return null;
-        if (uiText.Id == 1070002) return uiText.Text;
-        return Get($"identities.messages.{uiText.Id}");
+        return uiText.Id switch
+        {
+            // title
+            1070002 => uiText.Text,
+            // totp secrets
+            1050006 or 1050009 => uiText.Text,
+            // backup codes, secrets list
+            1050015 => uiText.Text,
+            // reason
+            4000001 or 5000001 => uiText.Text,
+            _ => Get($"identities.messages.{uiText.Id}")
+        };
     }
 }
 

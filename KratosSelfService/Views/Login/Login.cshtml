@@ -23,7 +23,7 @@
         }
         @foreach (var node in Model.flow.Ui.Nodes)
         {
-            var model = new KratosUiNodeModel(node, Model.flow, Model.forgotPasswordUrl);
+            var model = new KratosUiNodeModel(node, FlowType.Login, Model.forgotPasswordUrl);
             @await Component.InvokeAsync("KratosUiNodeInput", model)
         }
     </div>

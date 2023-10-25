@@ -4,7 +4,6 @@
 @{
     var attributes = Model.node.Attributes.GetKratosUiNodeInputAttributes();
     var uiText = attributes.Label ?? Model.node.Meta.Label;
-    var caption = OryTranslator.ForUiText(uiText);
 }
 
 <div class="field">
@@ -14,7 +13,7 @@
                 value="@attributes.Value" autocomplete="@attributes.Autocomplete"
                 disabled="@attributes.Disabled" name="@attributes.Name"
                 onclick="@attributes.Onclick" pattern="@attributes.Pattern">
-            @caption
+            @OryTranslator.ForUiText(uiText)
         </button>
     </div>
     @foreach (var message in Model.node.Messages)

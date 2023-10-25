@@ -50,7 +50,7 @@ Other versions may work (partially) too but haven't been tested.
 | Ory Kratos     | `v1.0`  |
 | Ory Hydra      | `v2.2`  |
 | Ory OathKeeper | `v0.40` |
-| Ory Keto       | `v1.11` |
+| Ory Keto       | `v0.11` |
 
 ### Ory Kratos Self Service UI
 KratosSelfService aims to be a drop-in replacement for the [kratos-selfservice-ui-node](https://github.com/ory/kratos-selfservice-ui-node) and is located in 

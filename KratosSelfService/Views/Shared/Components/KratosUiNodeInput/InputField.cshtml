@@ -18,7 +18,7 @@
     </label>
     @if (attributes.Type == KratosUiNodeInputAttributes.TypeEnum.Password
          && Model.node.Group == KratosUiNode.GroupEnum.Password
-         && Model.FlowType != FlowType.Login)
+         && Model.FlowType == FlowType.Login)
     {
         <div class="field">
             <div class="control">

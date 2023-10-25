@@ -15,7 +15,7 @@
 <div class="columns">
     <div class="column is-2 is-hidden-mobile">
         <div class="section">
-            <aside style="position:fixed; z-index: 1">
+            <aside>
                 <p class="menu-label">@OryTranslator.Get("settings.title-navigation")</p>
                 <ul class="menu-list">
                     @foreach (var group in groups)
@@ -24,21 +24,19 @@
                         <li>
                             <a href="#@groupType.ToSiteAnchorTag()">
                                 <span class="icon">
-                                    <i class="fa-solid @groupType.ToFaIcon() fa-sm"
-                                       style="max-width: 16px; max-height: 16px;">
+                                    <i class="fa-solid @groupType.ToFaIcon() fa-sm">
                                     </i> @groupType.ToLocalNavString(OryTranslator)
                                 </span>
                             </a>
                         </li>
                     }
                 </ul>
-                <p class="menu-label mt-5">Actions</p>
+                <p class="menu-label mt-5">@CustomTranslator.Get("Actions")</p>
                 <ul class="menu-list">
                     <li>
                         <a href="logout">
                             <span class="icon">
-                                <i class="fa-solid fa-sign-out fa-sm"
-                                   style="max-width: 16px; max-height: 16px;">
+                                <i class="fa-solid fa-sign-out fa-sm">
                                 </i> @OryTranslator.Get("settings.navigation-logout")
                             </span>
                         </a>

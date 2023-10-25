@@ -63,4 +63,7 @@
     <data name="sessions.currentSession" xml:space="preserve">
         <value>Current Session</value>
     </data>
+    <data name="Actions" xml:space="preserve">
+        <value>Actions</value>
+    </data>
 </root>

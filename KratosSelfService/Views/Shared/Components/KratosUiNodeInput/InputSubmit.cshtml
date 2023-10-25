@@ -3,11 +3,13 @@
 @{
     var attributes = Model.node.Attributes.GetKratosUiNodeInputAttributes();
     var uiText = attributes.Label ?? Model.node.Meta.Label;
+    var isFullWidth = Model.FlowType != FlowType.Settings;
 }
 
 <div class="field">
     <div class="control mt-5">
-        <button type="submit" class="button is-success is-fullwidth"
+        <button type="submit"
+                class="button is-success @(isFullWidth ? "is-fullwidth" : "")"
                 required="@attributes.Required"
                 disabled="@attributes.Disabled"
                 value="@attributes.Value"

@@ -23,7 +23,7 @@
         }
         @foreach (var node in Model.flow.Ui.Nodes)
         {
-            var model = new KratosUiNodeModel(node);
+            var model = new KratosUiNodeModel(node, FlowType.Registration);
             @await Component.InvokeAsync("KratosUiNodeInput", model)
         }
     </div>

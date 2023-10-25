@@ -47,7 +47,18 @@ public record KratosUiTextMessageModel(
     string CssClass
 );
 
-public record KratosUiNodeModel(KratosUiNode node,
-    KratosLoginFlow? loginFlow = null,
+public record KratosUiNodeModel(
+    KratosUiNode node,
+    FlowType FlowType,
     string? forgotPasswordUrl = null
 );
+
+public enum FlowType
+{
+    Settings,
+    Login,
+    Logout,
+    Registration,
+    Recovery,
+    Verification
+}

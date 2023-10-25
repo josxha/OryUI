@@ -69,12 +69,12 @@
                     <form class="mb-3" action="@Model.postUri" method="post">
                         @foreach (var node in defaultNodes)
                         {
-                            var model = new KratosUiNodeModel(node);
+                            var model = new KratosUiNodeModel(node, FlowType.Settings);
                             @await Component.InvokeAsync("KratosUiNodeInput", model)
                         }
                         @foreach (var node in group)
                         {
-                            var model = new KratosUiNodeModel(node);
+                            var model = new KratosUiNodeModel(node, FlowType.Settings);
                             @await Component.InvokeAsync("KratosUiNodeInput", model)
                         }
                     </form>

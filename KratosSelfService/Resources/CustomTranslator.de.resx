@@ -115,4 +115,7 @@
     <data name="Actions" xml:space="preserve">
         <value>Aktionen</value>
     </data>
+    <data name="sessions.authenticationMethods" xml:space="preserve">
+        <value>Authentifizierungsmethoden</value>
+    </data>
 </root>

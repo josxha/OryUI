@@ -51,7 +51,12 @@
         <div class="section">
             <div class="box pt-5">
                 <h1 class="title">@OryTranslator.Get("settings.title")</h1>
-                <p>@OryTranslator.Get("settings.subtitle-instructions")</p>
+                @if ((Model.flow.Ui.Messages?.Count ?? 0) == 0)
+                {
+                    <div class="message is-info p-3">
+                        @OryTranslator.Get("settings.subtitle-instructions")
+                    </div>
+                }
                 @if (Model.flow.Ui.Messages != null)
                 {
                     foreach (var message in Model.flow.Ui.Messages)

@@ -4,12 +4,19 @@
     var attributes = Model.node.Attributes.GetKratosUiNodeInputAttributes();
     var uiText = attributes.Label ?? Model.node.Meta.Label;
     var isFullWidth = Model.FlowType != FlowType.Settings;
+    var buttonType = attributes.Name switch
+    {
+        "lookup_secret_disable" => "is-warning",
+        "totp_unlink" => "is-warning",
+        _ => "is-success"
+        };
+
 }
 
 <div class="field">
     <div class="control mt-5">
         <button type="submit"
-                class="button is-success @(isFullWidth ? "is-fullwidth" : "")"
+                class="button @buttonType @(isFullWidth ? "is-fullwidth" : "")"
                 required="@attributes.Required"
                 disabled="@attributes.Disabled"
                 value="@attributes.Value"

@@ -1,4 +1,4 @@
-﻿@model KratosVerificationFlow
+﻿@model VerificationModel
 @{
     ViewData["Title"] = OryTranslator.Get("verification.title");
     Layout = "_CardLayout";
@@ -6,15 +6,15 @@
 
 <h1 class="title has-text-centered">@OryTranslator.Get("verification.title")</h1>
 <hr/>
-<form method="@Model.Ui.Method.ToLower()" action="@Model.Ui.Action">
-    @if (Model.Ui.Messages != null)
+<form method="@Model.flow.Ui.Method.ToLower()" action="@Model.flow.Ui.Action">
+    @if (Model.flow.Ui.Messages != null)
     {
-        foreach (var message in Model.Ui.Messages)
+        foreach (var message in Model.flow.Ui.Messages)
         {
             @await Component.InvokeAsync("KratosUiTextMessage", message)
         }
     }
-    @foreach (var node in Model.Ui.Nodes)
+    @foreach (var node in Model.flow.Ui.Nodes)
     {
         var model = new KratosUiNodeModel(node, FlowType.Verification);
         @await Component.InvokeAsync("KratosUiNodeInput", model)

@@ -1,3 +1,4 @@
+using KratosSelfService.Models;
 using KratosSelfService.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -43,7 +44,7 @@ public class VerificationController(ILogger<VerificationController> logger, ApiS
         }
 
         // check for custom messages in the query string
-        if (string.IsNullOrWhiteSpace(jsonMessages))
+        if (!string.IsNullOrWhiteSpace(jsonMessages))
             try
             {
                 var messages = JsonConvert.DeserializeObject<List<KratosUiText>>(jsonMessages);
@@ -55,6 +56,7 @@ public class VerificationController(ILogger<VerificationController> logger, ApiS
                     jsonMessages);
             }
 
-        return View("Verification", flow);
+        var model = new VerificationModel(flow);
+        return View("Verification", model);
     }
 }

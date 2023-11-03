@@ -41,6 +41,16 @@ public record VerificationModel(
     KratosVerificationFlow flow
 );
 
+public enum FlowType
+{
+    Settings,
+    Login,
+    Logout,
+    Registration,
+    Recovery,
+    Verification
+}
+
 public record KratosUiTextMessageModel(
     KratosUiText UiText,
     string Content,
@@ -53,12 +63,3 @@ public record KratosUiNodeModel(
     string? forgotPasswordUrl = null
 );
 
-public enum FlowType
-{
-    Settings,
-    Login,
-    Logout,
-    Registration,
-    Recovery,
-    Verification
-}

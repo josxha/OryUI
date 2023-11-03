@@ -77,7 +77,7 @@
                     <h3 class="subtitle">
                         @group.Key.ToLocalTitleString(OryTranslator)
                     </h3>
-                    <form class="mb-3" action="@Model.postUri" method="@Model.flow.Ui.Method">
+                    <form class="mb-3" action="@Model.flow.Ui.Action" method="@Model.flow.Ui.Method">
                         @foreach (var node in defaultNodes)
                         {
                             var model = new KratosUiNodeModel(node, FlowType.Settings);

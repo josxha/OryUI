@@ -17,10 +17,4 @@ public class ApiService(EnvService env)
         var baseUrl = env.KratosBrowserUrl ?? env.KratosPublicUrl;
         return $"{baseUrl.RemoveTrailingSlash()}/self-service/{flow}/browser?{queryString}";
     }
-
-    public string GetSettingsUrl(string flowId)
-    {
-        var baseUrl = env.KratosBrowserUrl ?? env.KratosPublicUrl;
-        return $"{baseUrl.RemoveTrailingSlash()}/self-service/settings?flow={flowId}";
-    }
 }

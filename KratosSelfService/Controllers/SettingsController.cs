@@ -33,11 +33,11 @@ public class SettingsController(ILogger<SettingsController> logger, ApiService a
             // create new flow
             logger.LogDebug("Exception while retrieving settings flow: {Message}", exception.Message);
             var newFlow = await api.Frontend
-                .CreateBrowserSettingsFlowAsync(cookie: Request.Headers.Cookie, returnTo:returnTo);
+                .CreateBrowserSettingsFlowAsync(cookie: Request.Headers.Cookie, returnTo: returnTo);
             return Redirect($"settings?flow={newFlow.Id}");
         }
 
-        var model = new SettingsModel(flow, api.GetSettingsUrl(flow.Id));
+        var model = new SettingsModel(flow);
         return View("Settings", model);
     }
 }

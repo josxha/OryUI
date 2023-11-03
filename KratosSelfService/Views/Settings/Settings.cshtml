@@ -63,13 +63,7 @@
                         @OryTranslator.Get("settings.subtitle-instructions")
                     </div>
                 }
-                @if (Model.flow.Ui.Messages != null)
-                {
-                    foreach (var message in Model.flow.Ui.Messages)
-                    {
-                        @await Component.InvokeAsync("KratosUiTextMessage", message)
-                    }
-                }
+                @await Component.InvokeAsync("KratosUiTextMessages", Model.flow.Ui.Messages)
             </div>
             @foreach (var group in groups)
             {

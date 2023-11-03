@@ -12,35 +12,28 @@
     </a>
 </p>
 <hr/>
-<form method="@Model.flow.Ui.Method.ToLower()" action="@Model.flow.Ui.Action">
-    <div class="mb-5">
-        @if (Model.flow.Ui.Messages != null)
+<div class="mb-5">
+    @await Component.InvokeAsync("KratosUiTextMessages", Model.flow.Ui.Messages)
+
+    @await Component.InvokeAsync("KratosUi", new KratosUiModel(
+               Model.flow.Ui,
+               FlowType.Login,
+               Model.forgotPasswordUrl))
+</div>
+
+<!--<div class="field separator">Or sign in with</div>
+<div class="field">
+    <div class="columns is-mobile is-multiline">
+        @for (var i = 0; i < 1; i++)
         {
-            foreach (var message in Model.flow.Ui.Messages)
-            {
-                @await Component.InvokeAsync("KratosUiTextMessage", message)
-            }
-        }
-        @foreach (var node in Model.flow.Ui.Nodes)
-        {
-            var model = new KratosUiNodeModel(node, FlowType.Login, Model.forgotPasswordUrl);
-            @await Component.InvokeAsync("KratosUiNodeInput", model)
+            <div class="column is-one-third">
+                <a class="button is-fullwidth">
+                    <span class="icon">
+                        <i class="fab fa-google"></i>
+                    </span>
+                    <span>Google</span>
+                </a>
+            </div>
         }
     </div>
-    <!--<div class="field separator">Or sign in with</div>
-    <div class="field">
-        <div class="columns is-mobile is-multiline">
-            @for (var i = 0; i < 1; i++)
-            {
-                <div class="column is-one-third">
-                    <a class="button is-fullwidth">
-                        <span class="icon">
-                            <i class="fab fa-google"></i>
-                        </span>
-                        <span>Google</span>
-                    </a>
-                </div>
-            }
-        </div>
-    </div>-->
-</form>
+</div>-->

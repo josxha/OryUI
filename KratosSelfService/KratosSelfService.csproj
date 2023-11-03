@@ -75,6 +75,7 @@
         <AdditionalFiles Include="Views\Logout\Logout.cshtml" />
         <AdditionalFiles Include="Views\Recovery\Recovery.cshtml" />
         <AdditionalFiles Include="Views\Registration\Registration.cshtml" />
+        <AdditionalFiles Include="Views\Shared\Components\KratosUiTextMessages\Default.cshtml" />
         <AdditionalFiles Include="Views\Verification\Verification.cshtml" />
         <AdditionalFiles Include="Views\Settings\Settings.cshtml"/>
     </ItemGroup>

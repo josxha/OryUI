@@ -33,8 +33,7 @@ public record SessionsModel(
 );
 
 public record SettingsModel(
-    KratosSettingsFlow flow,
-    string postUri
+    KratosSettingsFlow flow
 );
 
 public record VerificationModel(
@@ -63,3 +62,8 @@ public record KratosUiNodeModel(
     string? forgotPasswordUrl = null
 );
 
+public record KratosUiModel(
+    KratosUiContainer ui,
+    FlowType flowType,
+    string? forgotPasswordUrl = null
+);

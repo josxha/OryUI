@@ -12,17 +12,8 @@
     </a>
 </p>
 <hr/>
-<form method="@Model.flow.Ui.Method.ToLower()" action="@Model.flow.Ui.Action">
-    @if (Model.flow.Ui.Messages != null)
-    {
-        foreach (var message in Model.flow.Ui.Messages)
-        {
-            @await Component.InvokeAsync("KratosUiTextMessage", message)
-        }
-    }
-    @foreach (var node in Model.flow.Ui.Nodes)
-    {
-        var model = new KratosUiNodeModel(node, FlowType.Recovery);
-        @await Component.InvokeAsync("KratosUiNodeInput", model)
-    }
-</form>
+@await Component.InvokeAsync("KratosUiTextMessages", Model.flow.Ui.Messages)
+
+@await Component.InvokeAsync("KratosUi", new KratosUiModel(
+           Model.flow.Ui,
+           FlowType.Recovery))

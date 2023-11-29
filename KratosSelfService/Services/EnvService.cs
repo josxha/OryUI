@@ -3,6 +3,13 @@
 public class EnvService
 {
     /// <summary>
+    ///     The URL of the ory admin api. Used for things like give users the option to delete their account.
+    ///     Required to comply with the European GDPR or app store policies.
+    /// </summary>
+    public readonly string? KratosAdminUrl =
+        Environment.GetEnvironmentVariable("KRATOS_ADMIN_URL");
+
+    /// <summary>
     ///     KRATOS_BROWSER_URL (optional) The browser accessible URL where ORY Kratos's public API is located,
     ///     only needed if it differs from KRATOS_PUBLIC_URL
     /// </summary>

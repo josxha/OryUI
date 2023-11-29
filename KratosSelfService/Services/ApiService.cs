@@ -6,6 +6,13 @@ namespace KratosSelfService.Services;
 
 public class ApiService(EnvService env)
 {
+    public readonly CourierApi? Courier = env.KratosAdminUrl == null
+        ? null
+        : new CourierApi(new Configuration
+        {
+            BasePath = env.KratosAdminUrl
+        });
+
     public readonly FrontendApi Frontend = new(new Configuration
     {
         BasePath = env.KratosPublicUrl

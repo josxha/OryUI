@@ -67,16 +67,17 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="Ory.Hydra.Client" Version="2.1.1"/>
         <PackageReference Include="Ory.Kratos.Client" Version="1.0.0"/>
     </ItemGroup>
 
     <ItemGroup>
-        <AdditionalFiles Include="Views\Login\Login.cshtml" />
-        <AdditionalFiles Include="Views\Logout\Logout.cshtml" />
-        <AdditionalFiles Include="Views\Recovery\Recovery.cshtml" />
-        <AdditionalFiles Include="Views\Registration\Registration.cshtml" />
-        <AdditionalFiles Include="Views\Shared\Components\KratosUiTextMessages\Default.cshtml" />
-        <AdditionalFiles Include="Views\Verification\Verification.cshtml" />
+        <AdditionalFiles Include="Views\Login\Login.cshtml"/>
+        <AdditionalFiles Include="Views\Logout\Logout.cshtml"/>
+        <AdditionalFiles Include="Views\Recovery\Recovery.cshtml"/>
+        <AdditionalFiles Include="Views\Registration\Registration.cshtml"/>
+        <AdditionalFiles Include="Views\Shared\Components\KratosUiTextMessages\Default.cshtml"/>
+        <AdditionalFiles Include="Views\Verification\Verification.cshtml"/>
         <AdditionalFiles Include="Views\Settings\Settings.cshtml"/>
     </ItemGroup>
 

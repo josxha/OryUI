@@ -44,8 +44,10 @@ public class OAuth2Controller(ILogger<OAuth2Controller> logger, ApiService api, 
     }
 
     [HttpPost("consent")]
-    public async Task<IActionResult> ConsentPost([FromForm] string challenge, [FromForm] bool remember,
-        [FromForm(Name = "grant_scope")] string grantScopes, [FromForm] string action)
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> ConsentPost([FromForm(Name = "consent_challenge")] string challenge,
+        [FromForm] bool remember,
+        [FromForm(Name = "grant_scope")] List<string> grantScopes, [FromForm] string action)
     {
         if (env.HydraAdminUrl == null) return NotFound();
         var oAuth2Api = api.HydraOAuth2!;
@@ -74,7 +76,6 @@ public class OAuth2Controller(ILogger<OAuth2Controller> logger, ApiService api, 
         logger.LogDebug("Consent request was accepted by the user");
         var consentRequest = await oAuth2Api.GetOAuth2ConsentRequestAsync(challenge);
 
-        var scopes = grantScopes.Split(",").ToList();
         var session = new HydraAcceptOAuth2ConsentRequestSession();
 
         var acceptRequest = await oAuth2Api.AcceptOAuth2ConsentRequestAsync(challenge,
@@ -82,7 +83,7 @@ public class OAuth2Controller(ILogger<OAuth2Controller> logger, ApiService api, 
             {
                 // We can grant all scopes that have been requested - hydra already checked for us that no
                 // additional scopes are requested accidentally.
-                GrantScope = scopes,
+                GrantScope = grantScopes,
                 // If the environment variable CONFORMITY_FAKE_CLAIMS is set we are assuming that
                 // the app is built for the automated OpenID Connect Conformity Test Suite. You
                 // can peak inside the code for some ideas, but be aware that all data is fake

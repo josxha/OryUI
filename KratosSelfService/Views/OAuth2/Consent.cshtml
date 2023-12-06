@@ -7,19 +7,26 @@
 }
 
 <form class="section" action="consent" method="post">
-    <input type="hidden" name="challenge" value="@Model.request.Challenge">
-    <input type="hidden" name="_csrf" value="">
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="consent_challenge" value="@Model.request.Challenge">
     <h1 class="title">An application wants to access your Account details</h1>
     <h2 class="subtitle pt-2">These information will be accessible by @clientName:</h2>
     <nav>
-        @foreach (var scopeItem in Model.request.RequestedScope)
-        {
-            <li>@scopeItem</li>
-        }
+        <fieldset>
+            @foreach (var scopeItem in Model.request.RequestedScope)
+            {
+                <div class="is-fullwidth pt-2 pb-2">
+                    <label class="label">
+                        <input type="checkbox" name="grant_scope" checked value="@scopeItem">
+                        @scopeItem
+                    </label>
+                </div>
+            }
+        </fieldset>
     </nav>
 
     <div class="pt-5">
-        <label class="label">
+        <label>
             <input type="checkbox" name="remember" value="1">
             Don't ask me again for this application
         </label>

@@ -10,15 +10,17 @@ public class EnvService
     public readonly string? HydraAdminUrl =
         Environment.GetEnvironmentVariable("HYDRA_ADMIN_URL");
 
-    public readonly string? HydraCsrfCookieName =
-        Environment.GetEnvironmentVariable("CSRF_COOKIE_NAME");
-
-    public readonly string? HydraCsrfCookieSecret =
-        Environment.GetEnvironmentVariable("CSRF_COOKIE_SECRET");
-
+    /// <summary>
+    ///     REMEMBER_CONSENT_SESSION_FOR_SECONDS (optional): Sets the remember_for value of the accept consent
+    ///     request in seconds. The default is 3600 seconds.
+    /// </summary>
     public readonly int HydraRememberConsentSessionForSeconds =
         int.Parse(Environment.GetEnvironmentVariable("REMEMBER_CONSENT_SESSION_FOR_SECONDS") ?? "3600");
 
+    /// <summary>
+    ///     TRUSTED_CLIENT_IDS (optional): A list of trusted client ids.
+    ///     They can be set to skip the consent screen.
+    /// </summary>
     public readonly string? HydraTrustedClientIds =
         Environment.GetEnvironmentVariable("TRUSTED_CLIENT_IDS");
 

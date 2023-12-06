@@ -11,7 +11,7 @@ public class OAuth2Controller(ILogger<OAuth2Controller> logger, ApiService api, 
     [HttpGet("consent")]
     public async Task<IActionResult> ConsentGet([FromQuery(Name = "consent_challenge")] string challenge)
     {
-        if (!HydraEnabled()) return NotFound();
+        if (env.HydraAdminUrl == null) return NotFound();
         var oAuth2Api = api.HydraOAuth2!;
 
         // This section processes consent requests and either shows the consent UI or accepts
@@ -47,7 +47,7 @@ public class OAuth2Controller(ILogger<OAuth2Controller> logger, ApiService api, 
     [HttpPost("consent")]
     public async Task<IActionResult> ConsentPost([FromBody] ConsentBody body)
     {
-        if (!HydraEnabled()) return NotFound();
+        if (env.HydraAdminUrl == null) return NotFound();
         var oAuth2Api = api.HydraOAuth2!;
 
         // extractSession only gets the session data from the request
@@ -155,11 +155,6 @@ public class OAuth2Controller(ILogger<OAuth2Controller> logger, ApiService api, 
         foreach (var item in (session.IdToken as JsonObject)!) idToken[item.Key] = item.Value;
 
         return new HydraAcceptOAuth2ConsentRequestSession(session.AccessToken, idToken);
-    }
-
-    private bool HydraEnabled()
-    {
-        return env is { HydraCsrfCookieSecret: not null, HydraCsrfCookieName: not null, HydraAdminUrl: not null };
     }
 
     private bool CanSkipConsent(HydraOAuth2ConsentRequest challenge)

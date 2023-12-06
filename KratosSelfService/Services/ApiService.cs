@@ -12,11 +12,11 @@ public class ApiService(EnvService env)
         BasePath = env.KratosPublicUrl
     });
 
-    public readonly OAuth2Api? HydraOAuth2 = env.HydraOidcUrl == null
+    public readonly OAuth2Api? HydraOAuth2 = env.HydraAdminUrl == null
         ? null
         : new OAuth2Api(new Ory.Hydra.Client.Client.Configuration
         {
-            BasePath = env.HydraOidcUrl
+            BasePath = env.HydraAdminUrl
         });
 
     public string GetUrlForBrowserFlow(string flow, Dictionary<string, string?>? query = null)

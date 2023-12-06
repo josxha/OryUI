@@ -5,9 +5,9 @@ serve:
 urls:
   self:
     issuer: http://127.0.0.1:4444
-  consent: http://127.0.0.1:4455/consent
-  login: http://127.0.0.1:4455/login
-  logout: http://127.0.0.1:4455/logout
+  consent: http://127.0.0.1:5110/consent
+  login: http://127.0.0.1:4433/self-service/login/browser
+  logout: http://127.0.0.1:4433/self-service/logout/browser
 
 secrets:
   system:

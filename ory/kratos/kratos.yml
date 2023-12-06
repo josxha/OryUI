@@ -94,6 +94,9 @@ identity:
     - id: alternative
       url: file:///etc/config/kratos/identity-alternative.schema.json
 
+oauth2_provider:
+  url: http://ory-hydra-1:4445
+
 courier:
   smtp:
     connection_uri: smtps://test:test@mailslurper:1025/?skip_ssl_verify=true

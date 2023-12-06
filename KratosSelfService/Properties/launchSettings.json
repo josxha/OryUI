@@ -16,7 +16,6 @@
       "applicationUrl": "http://localhost:5110",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "TRUSTED_CLIENT_IDS": "4ea5bc94-e443-4da1-bfd4-f1d739fce50e",
         "HYDRA_ADMIN_URL": "http://127.0.0.1:4445"
       }
     },

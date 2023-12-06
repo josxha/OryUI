@@ -1,0 +1,32 @@
+﻿@model ConsentModel
+@{
+    ViewData["Title"] = CustomTranslator.Get("Grant access");
+    Layout = "_CardLayout";
+    var clientName = Model.request._Client.ClientName;
+    if (string.IsNullOrWhiteSpace(clientName)) clientName = Model.request._Client.ClientId;
+}
+
+<form class="section" action="consent" method="post">
+    <input type="hidden" name="challenge" value="@Model.request.Challenge">
+    <input type="hidden" name="_csrf" value="">
+    <h1 class="title">An application wants to access your Account details</h1>
+    <h2 class="subtitle pt-2">These information will be accessible by @clientName:</h2>
+    <nav>
+        @foreach (var scopeItem in Model.request.RequestedScope)
+        {
+            <li>@scopeItem</li>
+        }
+    </nav>
+
+    <div class="pt-5">
+        <label class="label">
+            <input type="checkbox" name="remember" value="1">
+            Don't ask me again for this application
+        </label>
+    </div>
+
+    <div class="pt-5 buttons is-justify-content-space-between">
+        <button type="submit" name="action" value="deny" class="button is-dark">Deny access</button>
+        <button type="submit" name="action" value="accept" class="button is-success">Allow access</button>
+    </div>
+</form>

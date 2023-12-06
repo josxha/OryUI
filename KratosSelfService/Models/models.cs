@@ -1,4 +1,5 @@
-﻿using Ory.Kratos.Client.Model;
+﻿using Ory.Hydra.Client.Model;
+using Ory.Kratos.Client.Model;
 
 namespace KratosSelfService.Models;
 
@@ -67,3 +68,5 @@ public record KratosUiModel(
     FlowType flowType,
     string? forgotPasswordUrl = null
 );
+
+public record ConsentModel(HydraOAuth2ConsentRequest request);

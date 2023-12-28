@@ -96,7 +96,8 @@ public class OAuth2Controller(ILogger<OAuth2Controller> logger, ApiService api, 
                 // scopes from the same user, without showing the UI, in the future.
                 Remember = remember,
                 // When this "remember" session expires, in seconds. Set this to 0 so it will never expire.
-                RememberFor = env.HydraRememberConsentSessionForSeconds
+                RememberFor = env.HydraRememberConsentSessionForSeconds,
+                HandledAt = DateTime.Now
             });
 
         // All we need to do now is to redirect the user back!

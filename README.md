@@ -1,8 +1,8 @@
-﻿# Oryon - Ory User Interfaces
+﻿# OryUI - Ory User Interfaces
 
 > This project is currently under early development.
 
-Oryon provides user interfaces for the [Ory](https://www.ory.sh/) APIs. Ory is a 
+OryUI provides user interfaces for the [Ory](https://www.ory.sh/) APIs. Ory is a 
 [FOSS solution](https://www.ory.sh/open-source/) for authentication, authorization, access control, and delegation.
 
 The Ory stack consists of the following services:

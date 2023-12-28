@@ -21,11 +21,15 @@ public class LoginController(ILogger<LoginController> logger, ApiService api) : 
         [FromQuery] string? organization,
         [FromQuery(Name = "login_challenge")] string? loginChallenge)
     {
+        // oauth2 login challenge
+        if (!string.IsNullOrWhiteSpace(loginChallenge))
+            logger.LogDebug($"login_challenge found in URL query: {loginChallenge}");
+
         if (flowId == null)
         {
             logger.LogDebug("No flow ID found in URL query initializing login flow");
             // initiate flow
-            return Redirect(GetInitFlowUrl(aal, refresh, returnTo, organization));
+            return Redirect(GetInitFlowUrl(aal, refresh, returnTo, organization, loginChallenge));
         }
 
         KratosLoginFlow flow;
@@ -37,7 +41,7 @@ public class LoginController(ILogger<LoginController> logger, ApiService api) : 
         {
             logger.LogError("Error while getting the login flow, starting new flow. {Message}", exception.Message);
             // restart flow
-            return Redirect(GetInitFlowUrl(aal, refresh, returnTo, organization));
+            return Redirect(GetInitFlowUrl(aal, refresh, returnTo, organization, loginChallenge));
         }
 
         if (flow.Ui.Messages?.Any(text => text.Id == 4000010) ?? false)
@@ -86,14 +90,16 @@ public class LoginController(ILogger<LoginController> logger, ApiService api) : 
         }
     }
 
-    private string GetInitFlowUrl(string? aal, string? refresh, string? returnTo, string? organization)
+    private string GetInitFlowUrl(string? aal, string? refresh, string? returnTo, string? organization,
+        string? loginChallenge)
     {
         return api.GetUrlForBrowserFlow("login", new Dictionary<string, string?>
         {
             ["aal"] = aal ?? "",
             ["refresh"] = refresh ?? "",
             ["return_to"] = returnTo ?? "",
-            ["organization"] = organization ?? ""
+            ["organization"] = organization ?? "",
+            ["login_challenge"] = loginChallenge ?? ""
         });
     }
 

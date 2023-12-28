@@ -1,5 +1,5 @@
 ﻿@page "/identities/users"
-@attribute [StreamRendering]
+@rendermode InteractiveServer
 
 <PageTitle>Identities | OryAdmin</PageTitle>
 
@@ -49,6 +49,6 @@ else
             }
             </tbody>
         </table>
-        <Pagination Url="identities/users" PageNr="@((int)PageNr!)" MaxPageNr="1"/>
+        <Pagination Url="identities/users" PageNr="@(PageNr)" MaxPageNr="1"/>
     }
 }

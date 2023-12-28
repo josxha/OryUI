@@ -11,15 +11,14 @@ public partial class Index : ComponentBase
     private List<KratosMessage> _messages;
 
     [SupplyParameterFromQuery(Name = "page")]
-    private int? PageNr { get; set; }
+    // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Local
+    private int PageNr { get; set; } = 1;
 
     [Inject] private IdentitySchemaService SchemaService { get; set; } = default!;
     [Inject] private ApiService ApiService { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()
     {
-        PageNr ??= 1;
-
         // TODO use pagination to support a large amount
         _messages = await ApiService.KratosCourier.ListCourierMessagesAsync();
 

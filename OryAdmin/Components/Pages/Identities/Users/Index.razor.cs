@@ -10,15 +10,14 @@ public partial class Index
     private bool _isLoading = true;
 
     [SupplyParameterFromQuery(Name = "page")]
-    private int? PageNr { get; set; }
+    // ReSharper disable once UnusedAutoPropertyAccessor.Local
+    private int PageNr { get; set; }
 
     [Inject] private IdentitySchemaService SchemaService { get; set; } = default!;
     [Inject] private ApiService ApiService { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()
     {
-        PageNr ??= 1;
-
         // TODO use pagination to support a large amount of identities
         _identities = await ApiService.KratosIdentity.ListIdentitiesAsync();
 

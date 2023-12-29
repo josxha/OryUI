@@ -27,7 +27,7 @@ jobs:
   #            - 'KratosSelfService/**'
   docker-ory-admin:
     name: OryAdmin
-    uses: josxha/Oryon/.github/workflows/docker-build-ory-admin.yml@main
+    uses: josxha/OryUI/.github/workflows/docker-build-ory-admin.yml@main
     #needs: check-changes
     #if: ${{ contains(needs.check-changes.outputs, 'ory-admin') == 'true' }}
     secrets: inherit
@@ -35,7 +35,7 @@ jobs:
       IMAGE_TAG: latest
   docker-kratos_self-service:
     name: KratosSelfService
-    uses: josxha/Oryon/.github/workflows/docker-build-kratos-self-service.yml@main
+    uses: josxha/OryUI/.github/workflows/docker-build-kratos-self-service.yml@main
     #needs: check-changes
     #if: ${{ contains(needs.check-changes.outputs, 'kratos-self-service') == 'true' }}
     secrets: inherit

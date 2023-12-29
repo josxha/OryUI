@@ -2,6 +2,7 @@
 using KratosSelfService.Models;
 using KratosSelfService.Services;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using Ory.Hydra.Client.Model;
 
 namespace KratosSelfService.Controllers;
@@ -80,10 +81,10 @@ public class OAuth2Controller(ILogger<OAuth2Controller> logger, ApiService api, 
         var consentRequest = await oAuth2Api.GetOAuth2ConsentRequestAsync(challenge);
 
         var kratosSession = HttpContext.GetSession()!;
-        var kratosTraits = (Dictionary<string, dynamic>)kratosSession.Identity.Traits;
+        var kratosTraits = (JObject)kratosSession.Identity.Traits;
 
         // https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims
-        var idToken = new Dictionary<string, dynamic>();
+        var idToken = new JObject();
 
         // TODO use configuration to dynamically map scopes to traits
         if (grantScopes.Contains("email") && kratosTraits["email"] != null)

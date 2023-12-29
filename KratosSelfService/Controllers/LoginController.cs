@@ -93,14 +93,16 @@ public class LoginController(ILogger<LoginController> logger, ApiService api) : 
     private string GetInitFlowUrl(string? aal, string? refresh, string? returnTo, string? organization,
         string? loginChallenge)
     {
-        return api.GetUrlForBrowserFlow("login", new Dictionary<string, string?>
+        var query = new Dictionary<string, string?>
         {
             ["aal"] = aal ?? "",
             ["refresh"] = refresh ?? "",
             ["return_to"] = returnTo ?? "",
-            ["organization"] = organization ?? "",
-            ["login_challenge"] = loginChallenge ?? ""
-        });
+            ["organization"] = organization ?? ""
+        };
+        if (!string.IsNullOrWhiteSpace(loginChallenge)) query["login_challenge"] = loginChallenge;
+
+        return api.GetUrlForBrowserFlow("login", query);
     }
 
     private async Task<IActionResult> RedirectToVerificationFlow(KratosLoginFlow flow)

@@ -18,6 +18,13 @@ public class EnvService
         int.Parse(Environment.GetEnvironmentVariable("REMEMBER_CONSENT_SESSION_FOR_SECONDS") ?? "3600");
 
     /// <summary>
+    ///     HYDRA_TRAITS_MAPPING (optional) Map kratos identity traits to oidc claims for the ID Token.
+    ///     Example: email:email,name.first:given_name,name.last:familiy_name
+    /// </summary>
+    public readonly string? HydraTraitsMapping =
+        Environment.GetEnvironmentVariable("HYDRA_TRAITS_MAPPING");
+
+    /// <summary>
     ///     TRUSTED_CLIENT_IDS (optional): A list of trusted client ids.
     ///     They can be set to skip the consent screen.
     /// </summary>

@@ -86,9 +86,33 @@ public class OAuth2Controller(ILogger<OAuth2Controller> logger, ApiService api, 
         // https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims
         var idToken = new JObject();
 
-        // TODO use configuration to dynamically map scopes to traits
-        if (grantScopes.Contains("email") && kratosTraits["email"] != null)
-            idToken["email"] = kratosTraits["email"];
+        if (env.HydraTraitsMapping != null)
+        {
+            var list = env.HydraTraitsMapping.Split(",");
+            foreach (var entry in list)
+            {
+                var parts = entry.Split(":");
+                if (!grantScopes.Contains("email") || kratosTraits["email"] == null) continue;
+                var pathItems = parts[0].Split(".");
+                var traits = kratosTraits;
+                var success = true;
+                for (var i = 0; i < pathItems.Length - 1; i++)
+                    if (traits[pathItems[i]] is JObject jObject)
+                    {
+                        traits = jObject;
+                    }
+                    else
+                    {
+                        success = false;
+                        break;
+                    }
+
+                if (success)
+                    idToken[parts[1]] = traits[pathItems.Last()];
+                else
+                    logger.LogError("Can't find identity trait {TraitPath}", parts[0]);
+            }
+        }
 
         // The session allows us to set session data for id and access tokens
         var hydraSession = new HydraAcceptOAuth2ConsentRequestSession(idToken: idToken);

@@ -45,9 +45,11 @@ public class OAuth2Controller(ILogger<OAuth2Controller> logger, ApiService api, 
 
     [HttpPost("consent")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> ConsentPost([FromForm(Name = "consent_challenge")] string challenge,
+    public async Task<IActionResult> ConsentPost(
+        [FromForm(Name = "consent_challenge")] string challenge,
         [FromForm] bool remember,
-        [FromForm(Name = "grant_scope")] List<string> grantScopes, [FromForm] string action)
+        [FromForm(Name = "grant_scope")] List<string> grantScopes, 
+        [FromForm] string action)
     {
         if (env.HydraAdminUrl == null) return NotFound();
         var oAuth2Api = api.HydraOAuth2!;

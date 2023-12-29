@@ -25,7 +25,16 @@ else
             </tr>
             <tr>
                 <td>Client secret</td>
-                <td>**************************</td>
+                <td>
+                    @if (string.IsNullOrWhiteSpace(_client.ClientSecret))
+                    {
+                        <p>******</p>
+                    }
+                    else
+                    {
+                        <p>@(_client.ClientSecret)</p>
+                    }
+                </td>
             </tr>
             <tr>
                 <td>Client secret expires at</td>
@@ -100,23 +109,29 @@ else
     <div id="delete-client-modal" class="modal @(_confirmNewSecretModal ? "is-active" : "")">
         <div class="modal-background"></div>
         <div class="modal-card">
-            <header class="modal-card-head">
-                <p class="modal-card-title">Reset Client Secret</p>
-                <button class="delete" aria-label="close" @onclick="() => _confirmNewSecretModal = true"></button>
-            </header>
-            <section class="modal-card-body">
-                <p>Are you sure to generate a new client secret?</p>
-                <p>This will delete the old client secret and replace it with a newly generated one.</p>
-            </section>
-            <footer class="modal-card-foot">
-                <button class="button" data-target="delete-client-modal"
-                        type="button" @onclick="() => _confirmNewSecretModal = false">
-                    Cancel
-                </button>
-                <div class="button is-danger" @onclick="CreateNewClientSecret">
-                    Accept
-                </div>
-            </footer>
+            <form @onsubmit="CreateNewClientSecret">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Reset client secret</p>
+                    <button class="delete" aria-label="close" @onclick="() => _confirmNewSecretModal = true"></button>
+                </header>
+                <section class="modal-card-body">
+                    <label class="label">
+                        New client secret
+                        <input @onchange="args => _newClientSecret = args.Value?.ToString()" minlength="6"
+                               class="input" type="text"/>
+                    </label>
+                    <p>This will delete the old client secret and replace it with new new one.</p>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button" data-target="delete-client-modal"
+                            type="button" @onclick="() => _confirmNewSecretModal = false">
+                        Cancel
+                    </button>
+                    <button class="button is-danger" type="submit">
+                        Accept
+                    </button>
+                </footer>
+            </form>
         </div>
     </div>
     <div id="delete-client-modal" class="modal @(_showNewSecretModal ? "is-active" : "")">

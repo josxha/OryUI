@@ -28,21 +28,16 @@ public class OAuth2Controller(ILogger<OAuth2Controller> logger, ApiService api, 
         logger.LogDebug("Skipping consent request and accepting it.");
 
         // Now it's time to grant the consent request. You could also deny the request if something went terribly wrong
-        var consentRequest = await oAuth2Api.AcceptOAuth2ConsentRequestAsync(challenge,
-            new HydraAcceptOAuth2ConsentRequest
-            {
-                // We can grant all scopes that have been requested - hydra already checked for
-                // us that no additional scopes are requested accidentally.
-                GrantScope = challengeRequest.RequestedScope,
-                // ORY Hydra checks if requested audiences are allowed by the client, so we can simply echo this.
-                GrantAccessTokenAudience = challengeRequest.RequestedAccessTokenAudience,
-                // The session allows us to set session data for id and access tokens
-                Session = new HydraAcceptOAuth2ConsentRequestSession()
-            });
+        var acceptRequest = await AcceptRequest(
+            challenge,
+            challengeRequest.RequestedScope,
+            challengeRequest.RequestedAccessTokenAudience,
+            false
+        );
 
         logger.LogDebug("Consent request successfully accepted");
         // All we need to do now is to redirect the user back to hydra
-        return Redirect(consentRequest.RedirectTo);
+        return Redirect(acceptRequest.RedirectTo);
     }
 
     [HttpPost("consent")]
@@ -56,10 +51,6 @@ public class OAuth2Controller(ILogger<OAuth2Controller> logger, ApiService api, 
         if (env.HydraAdminUrl == null) return NotFound();
         var oAuth2Api = api.HydraOAuth2!;
 
-        // extractSession only gets the session data from the request
-        // You can extract more data from the Ory Identities admin API
-
-        // Let's fetch the consent request again to be able to set `grantAccessTokenAudience` properly.
         // Let's see if the user decided to accept or reject the consent request.
         if (action != "accept")
         {
@@ -76,48 +67,66 @@ public class OAuth2Controller(ILogger<OAuth2Controller> logger, ApiService api, 
         }
 
         // Let's fetch the consent request again to be able to set `grantAccessTokenAudience` properly.
-        // Let's see if the user decided to accept or reject the consent request.
         logger.LogDebug("Consent request was accepted by the user");
         var consentRequest = await oAuth2Api.GetOAuth2ConsentRequestAsync(challenge);
 
+        var acceptRequest = await AcceptRequest(
+            grantAccessTokenAudience: consentRequest.RequestedAccessTokenAudience,
+            grantScopes: grantScopes,
+            remember: remember,
+            challenge: challenge
+        );
+
+        // All we need to do now is to redirect the user back!
+        logger.LogDebug("Consent request successfully accepted, redirect to: {URL}", acceptRequest.RedirectTo);
+        return Redirect(acceptRequest.RedirectTo);
+    }
+
+    private async Task<HydraOAuth2RedirectTo> AcceptRequest(string challenge, List<string> grantScopes,
+        List<string> grantAccessTokenAudience, bool remember)
+    {
+        // extractSession only gets the session data from the request
+        // You can extract more data from the Ory Identities admin API
         var kratosSession = HttpContext.GetSession()!;
         var kratosTraits = (JObject)kratosSession.Identity.Traits;
-
         // https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims
         var idToken = new JObject();
 
         if (env.HydraTraitsMapping != null)
-        {
-            var list = env.HydraTraitsMapping.Split(",");
-            foreach (var entry in list)
+            foreach (var mapping in env.HydraTraitsMapping.Split(","))
             {
-                var parts = entry.Split(":");
-                if (!grantScopes.Contains("email") || kratosTraits["email"] == null) continue;
-                var pathItems = parts[0].Split(".");
-                var traits = kratosTraits;
-                var success = true;
-                for (var i = 0; i < pathItems.Length - 1; i++)
-                    if (traits[pathItems[i]] is JObject jObject)
+                var parts = mapping.Split(":");
+                var oidcClaim = parts[1];
+                if (!grantScopes.Contains(oidcClaim)) continue;
+
+                var traitPathSegments = parts[0].Split(".");
+                var tmpTraits = kratosTraits;
+                for (var i = 0; i < traitPathSegments.Length; i++)
+                {
+                    // last index
+                    if (i == traitPathSegments.Length - 1)
                     {
-                        traits = jObject;
-                    }
-                    else
-                    {
-                        success = false;
+                        idToken[oidcClaim] = tmpTraits[traitPathSegments.Last()];
                         break;
                     }
 
-                if (success)
-                    idToken[parts[1]] = traits[pathItems.Last()];
-                else
-                    logger.LogError("Can't find identity trait {TraitPath}", parts[0]);
+                    // not last index
+                    if (tmpTraits[traitPathSegments[i]] is JObject jObject)
+                    {
+                        tmpTraits = jObject;
+                    }
+                    else
+                    {
+                        logger.LogError("Can't find identity trait {TraitPath}", parts[0]);
+                        break;
+                    }
+                }
             }
-        }
 
         // The session allows us to set session data for id and access tokens
         var hydraSession = new HydraAcceptOAuth2ConsentRequestSession(idToken: idToken);
 
-        var acceptRequest = await oAuth2Api.AcceptOAuth2ConsentRequestAsync(challenge,
+        return await api.HydraOAuth2!.AcceptOAuth2ConsentRequestAsync(challenge,
             new HydraAcceptOAuth2ConsentRequest
             {
                 // We can grant all scopes that have been requested - hydra already checked for us that no
@@ -130,7 +139,7 @@ public class OAuth2Controller(ILogger<OAuth2Controller> logger, ApiService api, 
                 // If that variable is not set, the session will be used as-is.
                 Session = hydraSession,
                 // ORY Hydra checks if requested audiences are allowed by the client, so we can simply echo this.
-                GrantAccessTokenAudience = consentRequest.RequestedAccessTokenAudience,
+                GrantAccessTokenAudience = grantAccessTokenAudience,
                 // This tells hydra to remember this consent request and allow the same client to request the same
                 // scopes from the same user, without showing the UI, in the future.
                 Remember = remember,
@@ -138,10 +147,6 @@ public class OAuth2Controller(ILogger<OAuth2Controller> logger, ApiService api, 
                 RememberFor = env.HydraRememberConsentSessionForSeconds,
                 HandledAt = DateTime.Now
             });
-
-        // All we need to do now is to redirect the user back!
-        logger.LogDebug("Consent request successfully accepted, redirect to: {URL}", acceptRequest.RedirectTo);
-        return Redirect(acceptRequest.RedirectTo);
     }
 
     private bool CanSkipConsent(HydraOAuth2ConsentRequest challenge)

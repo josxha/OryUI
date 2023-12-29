@@ -34,8 +34,8 @@ else
                 <thead>
                 <tr>
                     <td>Name</td>
+                    <td>Updated at</td>
                     <td>Created at</td>
-                    <td>Sessions</td>
                 </tr>
                 </thead>
                 <tbody>
@@ -47,10 +47,8 @@ else
                                 @(string.IsNullOrWhiteSpace(client.ClientName) ? client.ClientId : client.ClientName)
                             </a>
                         </td>
+                        <td>@client.UpdatedAt</td>
                         <td>@client.CreatedAt</td>
-                        <td>
-                            <a href="oauth2/clients/@client.ClientId/sessions">View sessions</a>
-                        </td>
                     </tr>
                 }
                 </tbody>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Ory.Hydra.Client.Model;
 using Ory.Kratos.Client.Model;
 using OryAdmin.Services;
 
@@ -9,6 +10,7 @@ public partial class View
     private List<KratosSession>? _activeSessions;
     private KratosIdentity? _identity;
     private bool _isLoading = true;
+    private List<HydraOAuth2ConsentSession>? _oauth2Sessions;
     private bool _showDeleteModal;
     [Parameter] public string? UserId { get; set; }
     [Inject] private ApiService ApiService { get; set; } = default!;
@@ -21,6 +23,10 @@ public partial class View
             Task.Run(async () =>
             {
                 _activeSessions = await ApiService.KratosIdentity.ListIdentitySessionsAsync(UserId, active: true);
+            }),
+            Task.Run(async () =>
+            {
+                _oauth2Sessions = await ApiService.HydraOAuth2.ListOAuth2ConsentSessionsAsync(UserId);
             })
         };
 

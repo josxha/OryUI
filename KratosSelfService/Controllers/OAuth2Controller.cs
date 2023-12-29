@@ -1,4 +1,5 @@
-﻿using KratosSelfService.Models;
+﻿using KratosSelfService.Extensions;
+using KratosSelfService.Models;
 using KratosSelfService.Services;
 using Microsoft.AspNetCore.Mvc;
 using Ory.Hydra.Client.Model;
@@ -48,7 +49,7 @@ public class OAuth2Controller(ILogger<OAuth2Controller> logger, ApiService api, 
     public async Task<IActionResult> ConsentPost(
         [FromForm(Name = "consent_challenge")] string challenge,
         [FromForm] bool remember,
-        [FromForm(Name = "grant_scope")] List<string> grantScopes, 
+        [FromForm(Name = "grant_scope")] List<string> grantScopes,
         [FromForm] string action)
     {
         if (env.HydraAdminUrl == null) return NotFound();
@@ -78,7 +79,18 @@ public class OAuth2Controller(ILogger<OAuth2Controller> logger, ApiService api, 
         logger.LogDebug("Consent request was accepted by the user");
         var consentRequest = await oAuth2Api.GetOAuth2ConsentRequestAsync(challenge);
 
-        var session = new HydraAcceptOAuth2ConsentRequestSession();
+        var kratosSession = HttpContext.GetSession()!;
+        var kratosTraits = (Dictionary<string, dynamic>)kratosSession.Identity.Traits;
+
+        // https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims
+        var idToken = new Dictionary<string, dynamic>();
+
+        // TODO use configuration to dynamically map scopes to traits
+        if (grantScopes.Contains("email") && kratosTraits["email"] != null)
+            idToken["email"] = kratosTraits["email"];
+
+        // The session allows us to set session data for id and access tokens
+        var hydraSession = new HydraAcceptOAuth2ConsentRequestSession(idToken: idToken);
 
         var acceptRequest = await oAuth2Api.AcceptOAuth2ConsentRequestAsync(challenge,
             new HydraAcceptOAuth2ConsentRequest
@@ -91,7 +103,7 @@ public class OAuth2Controller(ILogger<OAuth2Controller> logger, ApiService api, 
                 // can peak inside the code for some ideas, but be aware that all data is fake
                 // and this only exists to fake a login system which works in accordance to OpenID Connect.
                 // If that variable is not set, the session will be used as-is.
-                Session = session,
+                Session = hydraSession,
                 // ORY Hydra checks if requested audiences are allowed by the client, so we can simply echo this.
                 GrantAccessTokenAudience = consentRequest.RequestedAccessTokenAudience,
                 // This tells hydra to remember this consent request and allow the same client to request the same

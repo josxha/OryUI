@@ -5,11 +5,15 @@
 }
 
 <h1 class="title">@OryTranslator.Get("logout.title")</h1>
-<div class="buttons mt-5 is-fullwidth">
-    <a class="button is-dark" href="/">
-        @CustomTranslator.Get("logout.reject-button")
-    </a>
-    <a class="button is-warning" href="@Model.flow.LogoutUrl">
-        @CustomTranslator.Get("logout.accept-button")
-    </a>
-</div>
+<form method="post" action="logout">
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="challenge" value="@Model.logoutChallenge"/>
+    <div class="buttons mt-5 is-fullwidth">
+        <button class="button is-dark is-fullwidth" name="submit" type="submit" value="no">
+            @OryTranslator.Get("logout.reject-button")
+        </button>
+        <button class="button is-info is-fullwidth" name="submit" type="submit" value="yes">
+            @OryTranslator.Get("logout.accept-button")
+        </button>
+    </div>
+</form>

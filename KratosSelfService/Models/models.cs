@@ -15,7 +15,7 @@ public record LoginModel(
 );
 
 public record LogoutModel(
-    KratosLogoutFlow flow
+    string logoutChallenge
 );
 
 public record RecoveryModel(

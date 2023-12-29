@@ -44,6 +44,10 @@ else
                 <StringListTd List="@_client.RedirectUris"/>
             </tr>
             <tr>
+                <td>Post logout redirect URIs</td>
+                <StringListTd List="@_client.PostLogoutRedirectUris"/>
+            </tr>
+            <tr>
                 <td>Updated at</td>
                 <td>@_client.UpdatedAt</td>
             </tr>
@@ -317,10 +321,6 @@ else
             <tr>
                 <td>Request URIs</td>
                 <StringListTd List="@_client.RequestUris"/>
-            </tr>
-            <tr>
-                <td>Post logout redirect URIs</td>
-                <StringListTd List="@_client.PostLogoutRedirectUris"/>
             </tr>
             <tr>
                 <td>JWKS</td>

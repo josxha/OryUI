@@ -53,6 +53,16 @@
             </div>
         </label>
     </div>
+    <div class="field">
+        <label class="label">
+            Post logout redirect URIs (one entry per line)
+            <div class="control">
+                <textarea class="textarea" rows="3" @onchange="args => Client.PostLogoutRedirectUris = args.MultilineToList()">
+    @string.Join("\n", Client.PostLogoutRedirectUris ?? new List<string>())
+    </textarea>
+            </div>
+        </label>
+    </div>
 </div>
 <div class="box p-5">
     <h2 class="subtitle">Consent screen</h2>

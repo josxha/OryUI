@@ -55,7 +55,7 @@
     </div>
     <div class="field">
         <label class="label">
-            Post logout redirect URIs (one entry per line)
+            Post logout redirect URIs (one entry per line, only allowed redirect URIs are allowed)
             <div class="control">
                 <textarea class="textarea" rows="3" @onchange="args => Client.PostLogoutRedirectUris = args.MultilineToList()">
     @string.Join("\n", Client.PostLogoutRedirectUris ?? new List<string>())

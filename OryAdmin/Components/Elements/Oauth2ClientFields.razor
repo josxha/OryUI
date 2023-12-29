@@ -69,7 +69,7 @@
     <div class="field">
         <label class="checkbox">
             <input type="checkbox"
-                   value="@Client.SkipConsent"
+                   checked="@Client.SkipConsent"
                    @onchange="args => Client.SkipConsent = (bool?)args.Value ?? false"/>
             Skip consent screen
         </label>
@@ -173,7 +173,7 @@
     <div class="field">
         <label class="checkbox">
             <input type="checkbox"
-                   value="@Client.FrontchannelLogoutSessionRequired"
+                   checked="@Client.FrontchannelLogoutSessionRequired"
                    @onchange="args => Client.FrontchannelLogoutSessionRequired = (bool?)args.Value ?? false"/>
             Frontchannel logout session required
         </label>
@@ -181,7 +181,7 @@
     <div class="field">
         <label class="checkbox">
             <input type="checkbox"
-                   value="@Client.BackchannelLogoutSessionRequired"
+                   checked="@Client.BackchannelLogoutSessionRequired"
                    @onchange="args => Client.BackchannelLogoutSessionRequired = (bool?)args.Value ?? false"/>
             Backchannel logout session required
         </label>

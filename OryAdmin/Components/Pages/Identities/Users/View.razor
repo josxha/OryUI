@@ -155,6 +155,7 @@ else
                 <tr>
                     <td>Remember</td>
                     <td>Grant scope</td>
+                    <td>Grant access token audience</td>
                     <td>Handled at</td>
                     <td>Expires at</td>
                 </tr>
@@ -163,16 +164,23 @@ else
                 @foreach (var session in _oauth2Sessions!)
                 {
                     <tr>
-                        @if (session.Remember)
+                        @if (session.ConsentRequest.Skip)
                         {
-                            <td>Yes, @(session.RememberFor == 0 ? "indefinitely" : $"for {session.RememberFor} seconds")</td>
+                            <td>Consent skipped</td>
                         }
                         else
                         {
-                            <td>No</td>
+                            @if (session.Remember)
+                            {
+                                <td>Yes, @(session.RememberFor == 0 ? "indefinitely" : $"for {session.RememberFor} seconds")</td>
+                            }
+                            else
+                            {
+                                <td>No</td>
+                            }
                         }
                         <td>@(session.GrantScope == null ? "-" : string.Join(", ", session.GrantScope))</td>
-                        <td></td>
+                        <td>@session.GrantAccessTokenAudience</td>
                         <td>@session.HandledAt</td>
                         <td>@session.ExpiresAt</td>
                     </tr>

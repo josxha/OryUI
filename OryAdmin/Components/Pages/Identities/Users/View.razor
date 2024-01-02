@@ -182,7 +182,7 @@ else
                         <td>@(session.GrantScope == null ? "-" : string.Join(", ", session.GrantScope))</td>
                         <td>@session.GrantAccessTokenAudience</td>
                         <td>@session.HandledAt</td>
-                        <td>@session.ExpiresAt.RefreshToken</td>
+                        <td>@(session.ExpiresAt != null ? session.ExpiresAt?.RefreshToken : "-")</td>
                     </tr>
                 }
                 </tbody>

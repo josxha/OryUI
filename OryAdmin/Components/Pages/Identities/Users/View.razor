@@ -163,8 +163,16 @@ else
                 @foreach (var session in _oauth2Sessions!)
                 {
                     <tr>
-                        <td>@(session.Remember ? "Yes" : "No")</td>
+                        @if (session.Remember)
+                        {
+                            <td>Yes, @(session.RememberFor == 0 ? "indefinitely" : $"for {session.RememberFor} seconds")</td>
+                        }
+                        else
+                        {
+                            <td>No</td>
+                        }
                         <td>@(session.GrantScope == null ? "-" : string.Join(", ", session.GrantScope))</td>
+                        <td></td>
                         <td>@session.HandledAt</td>
                         <td>@session.ExpiresAt</td>
                     </tr>

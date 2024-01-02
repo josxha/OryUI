@@ -154,8 +154,8 @@ else
                 <thead>
                 <tr>
                     <td>Remember</td>
+                    <td>Client name</td>
                     <td>Grant scope</td>
-                    <td>Grant access token audience</td>
                     <td>Handled at</td>
                     <td>Refresh token expires at</td>
                 </tr>
@@ -164,7 +164,7 @@ else
                 @foreach (var session in _oauth2Sessions!)
                 {
                     <tr>
-                        @if (session.ConsentRequest.Skip)
+                        @if (session.ConsentRequest.Skip || session.ConsentRequest._Client.SkipConsent)
                         {
                             <td>Consent skipped</td>
                         }
@@ -179,8 +179,12 @@ else
                                 <td>No</td>
                             }
                         }
+                        <td>
+                            <a href="oauth2/clients/@session.ConsentRequest._Client.ClientId">
+                                @session.ConsentRequest._Client.ClientName
+                            </a>
+                        </td>
                         <td>@(session.GrantScope == null ? "-" : string.Join(", ", session.GrantScope))</td>
-                        <td>@(session.GrantAccessTokenAudience == null ? "-" : string.Join(", ", session.GrantAccessTokenAudience))</td>
                         <td>@session.HandledAt</td>
                         <td>@(session.ExpiresAt != null ? session.ExpiresAt?.RefreshToken : "-")</td>
                     </tr>

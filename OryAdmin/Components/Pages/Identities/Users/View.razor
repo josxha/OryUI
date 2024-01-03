@@ -36,6 +36,14 @@ else
                 <td>@_identity.Traits</td>
             </tr>
             <tr>
+                <td>Public Metadata</td>
+                <td>@(_identity.MetadataPublic ?? "-")</td>
+            </tr>
+            <tr>
+                <td>Admin Metadata</td>
+                <td>@(_identity.MetadataAdmin ?? "-")</td>
+            </tr>
+            <tr>
                 <td>Updated At</td>
                 <td>@_identity.UpdatedAt</td>
             </tr>

@@ -100,7 +100,6 @@ else
                     <td>Authentication Methods</td>
                     <td>Authenticator Assurance Level</td>
                     <td>Devices</td>
-                    <td>Additional Properties</td>
                     <td>Timestamps</td>
                 </tr>
                 </thead>
@@ -115,19 +114,6 @@ else
                             @foreach (var device in session.Devices)
                             {
                                 <p>@device.Id (@device.IpAddress)</p>
-                            }
-                        </td>
-                        <td>
-                            @if (session.AdditionalProperties.Count == 0)
-                            {
-                                <p>-</p>
-                            }
-                            else
-                            {
-                                @foreach (var (key, value) in session.AdditionalProperties)
-                                {
-                                    <p>@key: @value</p>
-                                }
                             }
                         </td>
                         <td>
@@ -208,7 +194,6 @@ else
                     <td>Type</td>
                     <td>Version</td>
                     <td>Identifiers</td>
-                    <td>Additional properties</td>
                     <td>Timestamps</td>
                 </tr>
                 </thead>
@@ -219,19 +204,6 @@ else
                         <td>@credential.Type</td>
                         <td>@credential._Version</td>
                         <td>@string.Join(", ", credential.Identifiers)</td>
-                        <td>
-                            @if (credential.AdditionalProperties.Count == 0)
-                            {
-                                <p>-</p>
-                            }
-                            else
-                            {
-                                @foreach (var (key, value) in credential.AdditionalProperties)
-                                {
-                                    <p>@key: @value</p>
-                                }
-                            }
-                        </td>
                         <td>
                             <p>Updated: @credential.UpdatedAt</p>
                             <p>Created: @credential.CreatedAt</p>
@@ -259,7 +231,6 @@ else
                     <td>Verified</td>
                     <td>Via</td>
                     <td>Status</td>
-                    <td>Additional Properties</td>
                     <td>Timestamps</td>
                 </tr>
                 </thead>
@@ -272,19 +243,6 @@ else
                         <td>@(address.Verified ? "✅" : "❌")</td>
                         <td>@address.Via</td>
                         <td>@address.Status</td>
-                        <td>
-                            @if (address.AdditionalProperties.Count == 0)
-                            {
-                                <p>-</p>
-                            }
-                            else
-                            {
-                                @foreach (var property in address.AdditionalProperties)
-                                {
-                                    <p>@property.Key: @property.Value</p>
-                                }
-                            }
-                        </td>
                         <td>
                             <p>Verified: @address.VerifiedAt</p>
                             <p>Updated: @address.UpdatedAt</p>
@@ -311,7 +269,6 @@ else
                     <td>ID</td>
                     <td>Value</td>
                     <td>Via</td>
-                    <td>Additional Properties</td>
                     <td>Timestamps</td>
                 </tr>
                 </thead>
@@ -323,19 +280,6 @@ else
                         <td>@address.Value</td>
                         <td>@address.Via</td>
                         <td>
-                            @if (address.AdditionalProperties.Count == 0)
-                            {
-                                <p>-</p>
-                            }
-                            else
-                            {
-                                @foreach (var (key, value) in address.AdditionalProperties)
-                                {
-                                    <p>@key: @value</p>
-                                }
-                            }
-                        </td>
-                        <td>
                             <p>Updated: @address.UpdatedAt</p>
                             <p>Created: @address.CreatedAt</p>
                         </td>
@@ -345,7 +289,4 @@ else
             </table>
         }
     </div>
-
-
-    <AdditionalPropertiesBox Properties="@_identity.AdditionalProperties"/>
 }

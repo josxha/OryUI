@@ -64,7 +64,6 @@ else
                 <td>ID</td>
                 <td>Status</td>
                 <td>Error</td>
-                <td>Additional properties</td>
                 <td>Timestamps</td>
             </tr>
             </thead>
@@ -76,19 +75,6 @@ else
                     <td>@(dispatch.Status == KratosMessageDispatch.StatusEnum.Success ? "✅" : "❌")</td>
                     <td>@(dispatch.Error ?? "-")</td>
                     <td>
-                        @if (dispatch.AdditionalProperties.Count == 0)
-                        {
-                            <p>-</p>
-                        }
-                        else
-                        {
-                            @foreach (var (key, value) in dispatch.AdditionalProperties)
-                            {
-                                <p>@key: @value</p>
-                            }
-                        }
-                    </td>
-                    <td>
                         <p>Updated: @dispatch.UpdatedAt</p>
                         <p>Created: @dispatch.CreatedAt</p>
                     </td>
@@ -97,8 +83,6 @@ else
             </tbody>
         </table>
     </div>
-
-    <AdditionalPropertiesBox Properties="@_message.AdditionalProperties"/>
 
     <div class="box mt-3">
         <h3 class="title">Content</h3>

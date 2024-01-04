@@ -4,44 +4,6 @@
 <PageTitle>OAuth 2 Information | OryAdmin</PageTitle>
 <h1 class="title">OAuth 2 Information</h1>
 
-<div class="box p-3">
-    <h3 class="title">Endpoints</h3>
-    <table class="table">
-        <tbody>
-        <tr>
-            <td>Authorize</td>
-            <td class="field">
-                <input class="input is-small" value="/oauth2/auth" readonly>
-            </td>
-        </tr>
-        <tr>
-            <td>Token</td>
-            <td class="field">
-                <input class="input is-small" value="/oauth2/token" readonly>
-            </td>
-        </tr>
-        <tr>
-            <td>Introspection</td>
-            <td class="field">
-                <input class="input is-small" value="/admin/oauth2/introspect" readonly>
-            </td>
-        </tr>
-        <tr>
-            <td>User Info</td>
-            <td class="field">
-                <input class="input is-small" style="min-width: 200px" value="/userinfo" readonly>
-            </td>
-        </tr>
-        <tr>
-            <td>Dynamic clients</td>
-            <td class="field">
-                <input class="input is-small" value="/oauth2/register" readonly>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-
 <div class="box p-3 mt-3">
     <h3 class="title">JSON Web Key Sets</h3>
     @if (_isLoading)

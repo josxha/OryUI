@@ -36,6 +36,7 @@
         <AdditionalFiles Include="Components\Pages\Identities\Users\Edit.razor"/>
         <AdditionalFiles Include="Components\Pages\Identities\Users\Index.razor"/>
         <AdditionalFiles Include="Components\Pages\Identities\Users\View.razor"/>
+        <AdditionalFiles Include="Components\Pages\OAuth2\Clients\EditLifespans.razor"/>
     </ItemGroup>
 
     <ItemGroup>

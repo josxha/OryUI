@@ -11,6 +11,37 @@
 }
 else
 {
+    <div class="field">
+        <label class="label">
+            Schema
+            <div class="control mb-5">
+
+                <div class="dropdown @(_schemaDropdownActive ? "is-active" : "")">
+                    <div class="dropdown-trigger">
+                        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3"
+                                @onclick="() => _schemaDropdownActive = true">
+                            <span>@SelectedSchemaId</span>
+                            <span class="icon is-small">
+                                <i class="fas fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+                        <div class="dropdown-content">
+                            @foreach (var schemaId in _schemaIds!)
+                            {
+                                <a href="/identities/users/create?schema=@schemaId" class="dropdown-item"
+                                   @onclick="OnSelectionChanged">
+                                    @schemaId
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </label>
+    </div>
+
     <form @onsubmit="SubmitForm">
         @foreach (var schema in _traitsSchemas!)
         {

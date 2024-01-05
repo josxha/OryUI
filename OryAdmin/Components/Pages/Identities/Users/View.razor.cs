@@ -38,11 +38,6 @@ public partial class View
         _isLoading = false;
     }
 
-    private void EditIdentity()
-    {
-        nav.NavigateTo($"identities/users/{UserId}/edit");
-    }
-
     private async Task DeleteIdentity()
     {
         await ApiService.KratosIdentity.DeleteIdentityAsync(UserId);
@@ -64,5 +59,12 @@ public partial class View
         var body = new KratosCreateRecoveryLinkForIdentityBody(identityId: UserId);
         var link = await ApiService.KratosIdentity.CreateRecoveryLinkForIdentityAsync(body);
         nav.NavigateTo(link.RecoveryLink);
+    }
+
+    private async Task RevokeOAuth2ConsentSessions()
+    {
+        await ApiService.HydraOAuth2.RevokeOAuth2ConsentSessionsAsync(UserId);
+        // reload oauth2 sessions
+        _oauth2Sessions = await ApiService.HydraOAuth2.ListOAuth2ConsentSessionsAsync(UserId);
     }
 }

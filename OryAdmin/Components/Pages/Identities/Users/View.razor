@@ -187,7 +187,7 @@ else
                             <td>@session.HandledAt</td>
                             <td>@(session.ExpiresAt != null ? session.ExpiresAt?.RefreshToken : "-")</td>
                             <td>
-                                <button class="button is-light is-small"
+                                <button class="button is-dark is-small"
                                         @onclick="() => _oauth2SessionDetails = session">
                                     Details
                                 </button>
@@ -196,40 +196,47 @@ else
                     }
                     </tbody>
                 </table>
+                <div class="buttons">
+                    <button class="button is-warning"
+                            @onclick="RevokeOAuth2ConsentSessions">
+                        Remove
+                    </button>
+                </div>
+
+                @if (_oauth2SessionDetails != null)
+                {
+                    <div id="oauth2-session-details" class="modal is-active">
+                        <div class="modal-background"></div>
+                        <div class="modal-card">
+                            <header class="modal-card-head">
+                                <p class="modal-card-title">OAuth2 session details</p>
+                                <button class="delete" aria-label="close" @onclick="() => _oauth2SessionDetails = null"></button>
+                            </header>
+                            <section class="modal-card-body">
+                                <table class="table is-fullwidth">
+                                    <tbody>
+                                    <tr>
+                                        <td>Session access token</td>
+                                        <td>@_oauth2SessionDetails.Session.AccessToken</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Session ID token</td>
+                                        <td>@_oauth2SessionDetails.Session.IdToken</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </section>
+                            <footer class="modal-card-foot">
+                                <button class="button" data-target="delete-client-modal"
+                                        type="button" @onclick="() => _oauth2SessionDetails = null">
+                                    OK
+                                </button>
+                            </footer>
+                        </div>
+                    </div>
+                }
             }
         </div>
-        @if (_oauth2SessionDetails != null)
-        {
-            <div id="oauth2-session-details" class="modal is-active">
-                <div class="modal-background"></div>
-                <div class="modal-card">
-                    <header class="modal-card-head">
-                        <p class="modal-card-title">OAuth2 session details</p>
-                        <button class="delete" aria-label="close" @onclick="() => _oauth2SessionDetails = null"></button>
-                    </header>
-                    <section class="modal-card-body">
-                        <table class="table is-fullwidth">
-                            <tbody>
-                            <tr>
-                                <td>Session access token</td>
-                                <td>@_oauth2SessionDetails.Session.AccessToken</td>
-                            </tr>
-                            <tr>
-                                <td>Session ID token</td>
-                                <td>@_oauth2SessionDetails.Session.IdToken</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </section>
-                    <footer class="modal-card-foot">
-                        <button class="button" data-target="delete-client-modal"
-                                type="button" @onclick="() => _oauth2SessionDetails = null">
-                            OK
-                        </button>
-                    </footer>
-                </div>
-            </div>
-        }
     }
 
     <div class="box">

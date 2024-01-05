@@ -65,18 +65,18 @@ else
                 Update Password
             </button>
             <button class="js-modal-trigger button is-danger" data-target="delete-identity-modal"
-                    type="button" @onclick="() => _showDeleteModal = true">
+                    type="button" @onclick="() => _showDeleteIdentityModal = true">
                 Delete Identity
             </button>
         </div>
-        @if (_showDeleteModal)
+        @if (_showDeleteIdentityModal)
         {
             <div id="delete-identity-modal" class="modal is-active">
                 <div class="modal-background"></div>
                 <div class="modal-card">
                     <header class="modal-card-head">
                         <p class="modal-card-title">Confirm Deletion</p>
-                        <button class="delete" aria-label="close" @onclick="() => _showDeleteModal = false"></button>
+                        <button class="delete" aria-label="close" @onclick="() => _showDeleteIdentityModal = false"></button>
                     </header>
                     <section class="modal-card-body">
                         <p>Are you sure to delete this identity?</p>
@@ -84,7 +84,7 @@ else
                     </section>
                     <footer class="modal-card-foot">
                         <button class="button" data-target="delete-identity-modal"
-                                type="button" @onclick="() => _showDeleteModal = false">
+                                type="button" @onclick="() => _showDeleteIdentityModal = false">
                             Cancel
                         </button>
                         <div class="button is-danger" @onclick="DeleteIdentity">
@@ -112,6 +112,7 @@ else
                     <td>Authenticator Assurance Level</td>
                     <td>Devices</td>
                     <td>Timestamps</td>
+                    <td></td>
                 </tr>
                 </thead>
                 <tbody>
@@ -132,20 +133,90 @@ else
                             <p>Issued: @session.IssuedAt</p>
                             <p>Expires: @session.ExpiresAt</p>
                         </td>
+                        <td>
+                            <button class="button is-warning is-small"
+                                    @onclick="() => _identitySessionToInvoke = session">
+                                Disable
+                            </button>
+                        </td>
                     </tr>
                 }
                 </tbody>
             </table>
+            <div class="buttons">
+                <button class="js-modal-trigger button is-danger" data-target="delete-identity-modal"
+                        type="button" @onclick="() => _showDeleteSessionsModal = true">
+                    Delete Sessions
+                </button>
+            </div>
+            
+            @if (_identitySessionToInvoke != null)
+            {
+                <div id="delete-identity-modal" class="modal is-active">
+                    <div class="modal-background"></div>
+                    <div class="modal-card">
+                        <header class="modal-card-head">
+                            <p class="modal-card-title">Confirm Invoke Session</p>
+                            <button class="delete" aria-label="close"
+                                    @onclick="() => _identitySessionToInvoke = null">
+                            </button>
+                        </header>
+                        <section class="modal-card-body">
+                            <p>Are you sure to invoke the identity session?</p>
+                            <p></p>
+                            <p>Be aware that this cannot be undone.</p>
+                        </section>
+                        <footer class="modal-card-foot">
+                            <button class="button" data-target="delete-identity-modal"
+                                    type="button" @onclick="() => _identitySessionToInvoke = null">
+                                Cancel
+                            </button>
+                            <div class="button is-danger"
+                                 @onclick="() => DisableIdentitySession(_identitySessionToInvoke.Id)">
+                                Yes
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+            }
+
+            @if (_showDeleteSessionsModal)
+            {
+                <div id="delete-identity-modal" class="modal is-active">
+                    <div class="modal-background"></div>
+                    <div class="modal-card">
+                        <header class="modal-card-head">
+                            <p class="modal-card-title">Confirm Delete User Sessions</p>
+                            <button class="delete" aria-label="close"
+                                    @onclick="() => _showDeleteSessionsModal = false">
+                            </button>
+                        </header>
+                        <section class="modal-card-body">
+                            <p>Are you sure to delete every session for this identity?</p>
+                            <p>Be aware that this cannot be undone.</p>
+                        </section>
+                        <footer class="modal-card-foot">
+                            <button class="button" data-target="delete-identity-modal"
+                                    type="button" @onclick="() => _showDeleteSessionsModal = false">
+                                Cancel
+                            </button>
+                            <div class="button is-danger" @onclick="DeleteIdentitySessions">
+                                Yes
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+            }
         }
     </div>
 
     @if (_oauth2Sessions != null)
     {
         <div class="box">
-            <h1 class="title">Active Oauth2 Sessions</h1>
+            <h1 class="title">Active OAuth2 Sessions</h1>
             @if (_oauth2Sessions!.Count == 0)
             {
-                <p>This user has no active oauth2 sessions.</p>
+                <p>This user has no active OAuth2 sessions.</p>
             }
             else
             {
@@ -191,7 +262,7 @@ else
                             <td>@(session.ExpiresAt != null ? session.ExpiresAt?.RefreshToken : "-")</td>
                             <td>
                                 <button class="button is-info is-small"
-                                        @onclick="() => _oauth2SessionDetails = session">
+                                        @onclick="() => _oauth2SessionToShowDetailsFor = session">
                                     Details
                                 </button>
                             </td>
@@ -231,32 +302,32 @@ else
                     </div>
                 }
 
-                @if (_oauth2SessionDetails != null)
+                @if (_oauth2SessionToShowDetailsFor != null)
                 {
                     <div id="oauth2-session-details" class="modal is-active">
                         <div class="modal-background"></div>
                         <div class="modal-card">
                             <header class="modal-card-head">
                                 <p class="modal-card-title">OAuth2 session details</p>
-                                <button class="delete" aria-label="close" @onclick="() => _oauth2SessionDetails = null"></button>
+                                <button class="delete" aria-label="close" @onclick="() => _oauth2SessionToShowDetailsFor = null"></button>
                             </header>
                             <section class="modal-card-body">
                                 <table class="table is-fullwidth">
                                     <tbody>
                                     <tr>
                                         <td>Session access token</td>
-                                        <td>@_oauth2SessionDetails.Session.AccessToken</td>
+                                        <td>@_oauth2SessionToShowDetailsFor.Session.AccessToken</td>
                                     </tr>
                                     <tr>
                                         <td>Session ID token</td>
-                                        <td>@_oauth2SessionDetails.Session.IdToken</td>
+                                        <td>@_oauth2SessionToShowDetailsFor.Session.IdToken</td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </section>
                             <footer class="modal-card-foot">
                                 <button class="button" data-target="delete-client-modal"
-                                        type="button" @onclick="() => _oauth2SessionDetails = null">
+                                        type="button" @onclick="() => _oauth2SessionToShowDetailsFor = null">
                                     OK
                                 </button>
                             </footer>

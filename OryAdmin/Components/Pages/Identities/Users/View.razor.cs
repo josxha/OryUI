@@ -9,10 +9,12 @@ public partial class View
 {
     private List<KratosSession>? _activeSessions;
     private KratosIdentity? _identity;
+    private KratosSession? _identitySessionToInvoke;
     private bool _isLoading = true;
-    private HydraOAuth2ConsentSession? _oauth2SessionDetails;
     private List<HydraOAuth2ConsentSession>? _oauth2Sessions;
-    private bool _showDeleteModal;
+    private HydraOAuth2ConsentSession? _oauth2SessionToShowDetailsFor;
+    private bool _showDeleteIdentityModal;
+    private bool _showDeleteSessionsModal;
     private bool _showRevokeOAuth2SessionsModal;
     [Parameter] public string? UserId { get; set; }
     [Inject] private ApiService ApiService { get; set; } = default!;
@@ -55,7 +57,20 @@ public partial class View
     private async Task RevokeOAuth2ConsentSessions()
     {
         await ApiService.HydraOAuth2.RevokeOAuth2ConsentSessionsAsync(UserId, all: true);
-        // reload oauth2 sessions
+        _showRevokeOAuth2SessionsModal = false;
         _oauth2Sessions = await ApiService.HydraOAuth2.ListOAuth2ConsentSessionsAsync(UserId);
+    }
+
+    private async Task DeleteIdentitySessions()
+    {
+        await ApiService.KratosIdentity.DeleteIdentitySessionsAsync(UserId);
+        _showDeleteSessionsModal = false;
+        _activeSessions = await ApiService.KratosIdentity.ListIdentitySessionsAsync(UserId, active: true);
+    }
+
+    private async Task DisableIdentitySession(string sessionId)
+    {
+        await ApiService.KratosIdentity.DisableSessionAsync(sessionId);
+        _activeSessions = await ApiService.KratosIdentity.ListIdentitySessionsAsync(UserId, active: true);
     }
 }

@@ -135,22 +135,16 @@ else
                         </td>
                         <td>
                             <button class="button is-warning is-small"
-                                    @onclick="() => _identitySessionToInvoke = session">
-                                Disable
+                                    @onclick="() => _sessionToInvoke = session">
+                                Invoke
                             </button>
                         </td>
                     </tr>
                 }
                 </tbody>
             </table>
-            <div class="buttons">
-                <button class="js-modal-trigger button is-danger" data-target="delete-identity-modal"
-                        type="button" @onclick="() => _showDeleteSessionsModal = true">
-                    Delete Sessions
-                </button>
-            </div>
-            
-            @if (_identitySessionToInvoke != null)
+
+            @if (_sessionToInvoke != null)
             {
                 <div id="delete-identity-modal" class="modal is-active">
                     <div class="modal-background"></div>
@@ -158,49 +152,20 @@ else
                         <header class="modal-card-head">
                             <p class="modal-card-title">Confirm Invoke Session</p>
                             <button class="delete" aria-label="close"
-                                    @onclick="() => _identitySessionToInvoke = null">
+                                    @onclick="() => _sessionToInvoke = null">
                             </button>
                         </header>
                         <section class="modal-card-body">
                             <p>Are you sure to invoke the identity session?</p>
-                            <p></p>
                             <p>Be aware that this cannot be undone.</p>
                         </section>
                         <footer class="modal-card-foot">
                             <button class="button" data-target="delete-identity-modal"
-                                    type="button" @onclick="() => _identitySessionToInvoke = null">
+                                    type="button" @onclick="() => _sessionToInvoke = null">
                                 Cancel
                             </button>
                             <div class="button is-danger"
-                                 @onclick="() => DisableIdentitySession(_identitySessionToInvoke.Id)">
-                                Yes
-                            </div>
-                        </footer>
-                    </div>
-                </div>
-            }
-
-            @if (_showDeleteSessionsModal)
-            {
-                <div id="delete-identity-modal" class="modal is-active">
-                    <div class="modal-background"></div>
-                    <div class="modal-card">
-                        <header class="modal-card-head">
-                            <p class="modal-card-title">Confirm Delete User Sessions</p>
-                            <button class="delete" aria-label="close"
-                                    @onclick="() => _showDeleteSessionsModal = false">
-                            </button>
-                        </header>
-                        <section class="modal-card-body">
-                            <p>Are you sure to delete every session for this identity?</p>
-                            <p>Be aware that this cannot be undone.</p>
-                        </section>
-                        <footer class="modal-card-foot">
-                            <button class="button" data-target="delete-identity-modal"
-                                    type="button" @onclick="() => _showDeleteSessionsModal = false">
-                                Cancel
-                            </button>
-                            <div class="button is-danger" @onclick="DeleteIdentitySessions">
+                                 @onclick="() => DisableIdentitySession(_sessionToInvoke.Id)">
                                 Yes
                             </div>
                         </footer>
@@ -208,6 +173,13 @@ else
                 </div>
             }
         }
+
+        <div class="buttons pt-3">
+            <a class="button is-info"
+               href="/identities/users/@UserId/sessions">
+                View All Sessions
+            </a>
+        </div>
     </div>
 
     @if (_oauth2Sessions != null)

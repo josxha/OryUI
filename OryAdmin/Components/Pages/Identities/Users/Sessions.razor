@@ -1,0 +1,207 @@
+﻿@page "/identities/users/{UserId}/sessions"
+@rendermode InteractiveServer
+@inject NavigationManager nav
+
+<PageTitle>View Identity | OryAdmin</PageTitle>
+
+<h1 class="title">Identity Sessions</h1>
+@if (_isLoading)
+{
+    <p>Loading data...</p>
+}
+else
+{
+    <div class="box">
+        <h1 class="title">Active Sessions</h1>
+        @if (_activeSessions!.Count == 0)
+        {
+            <p>This user has no active sessions.</p>
+        }
+        else
+        {
+            <table class="table is-fullwidth">
+                <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Authentication Methods</td>
+                    <td>Authenticator Assurance Level</td>
+                    <td>Devices</td>
+                    <td>Timestamps</td>
+                    <td></td>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var session in _activeSessions!)
+                {
+                    <tr>
+                        <td>@session.Id</td>
+                        <td>@string.Join(", ", session.AuthenticationMethods.Select(method => method.Method.ToString()))</td>
+                        <td>@session.AuthenticatorAssuranceLevel</td>
+                        <td>
+                            @foreach (var device in session.Devices)
+                            {
+                                <p>@device.Id (@device.IpAddress)</p>
+                            }
+                        </td>
+                        <td>
+                            <p>Authenticated: @session.AuthenticatedAt</p>
+                            <p>Issued: @session.IssuedAt</p>
+                            <p>Expires: @session.ExpiresAt</p>
+                        </td>
+                        <td>
+                            <button class="button is-warning is-small"
+                                    @onclick="() => _sessionToInvoke = session">
+                                Invoke
+                            </button>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+
+            @if (_sessionToInvoke != null)
+            {
+                <div id="delete-identity-modal" class="modal is-active">
+                    <div class="modal-background"></div>
+                    <div class="modal-card">
+                        <header class="modal-card-head">
+                            <p class="modal-card-title">Confirm Invoke Session</p>
+                            <button class="delete" aria-label="close"
+                                    @onclick="() => _sessionToInvoke = null">
+                            </button>
+                        </header>
+                        <section class="modal-card-body">
+                            <p>Are you sure to invoke the identity session?</p>
+                        </section>
+                        <footer class="modal-card-foot">
+                            <button class="button" data-target="delete-identity-modal"
+                                    type="button" @onclick="() => _sessionToInvoke = null">
+                                Cancel
+                            </button>
+                            <div class="button is-warning"
+                                 @onclick="() => InvokeSession(_sessionToInvoke.Id)">
+                                Yes
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+    <div class="box">
+        <h1 class="title">Inactive Sessions</h1>
+        @if (_inactiveSessions!.Count == 0)
+        {
+            <p>This user has no inactive sessions.</p>
+        }
+        else
+        {
+            <table class="table is-fullwidth">
+                <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Authentication Methods</td>
+                    <td>Authenticator Assurance Level</td>
+                    <td>Devices</td>
+                    <td>Timestamps</td>
+                    <td></td>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var session in _inactiveSessions!)
+                {
+                    <tr>
+                        <td>@session.Id</td>
+                        <td>@string.Join(", ", session.AuthenticationMethods.Select(method => method.Method.ToString()))</td>
+                        <td>@session.AuthenticatorAssuranceLevel</td>
+                        <td>
+                            @foreach (var device in session.Devices)
+                            {
+                                <p>@device.Id (@device.IpAddress)</p>
+                            }
+                        </td>
+                        <td>
+                            <p>Authenticated: @session.AuthenticatedAt</p>
+                            <p>Issued: @session.IssuedAt</p>
+                            <p>Expires: @session.ExpiresAt</p>
+                        </td>
+                        <td>
+                            <!--<button class="button is-warning is-small"
+                                    @onclick="() => _sessionToExtend = session">
+                                Extend
+                            </button>-->
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+
+            @if (_sessionToExtend != null)
+            {
+                <div id="delete-identity-modal" class="modal is-active">
+                    <div class="modal-background"></div>
+                    <div class="modal-card">
+                        <header class="modal-card-head">
+                            <p class="modal-card-title">Confirm Extend Session</p>
+                            <button class="delete" aria-label="close"
+                                    @onclick="() => _sessionToExtend = null">
+                            </button>
+                        </header>
+                        <section class="modal-card-body">
+                            <p>Are you sure to extend the identity session?</p>
+                        </section>
+                        <footer class="modal-card-foot">
+                            <button class="button" data-target="delete-identity-modal"
+                                    type="button" @onclick="() => _sessionToExtend = null">
+                                Cancel
+                            </button>
+                            <div class="button is-warning"
+                                 @onclick="() => ExtendSession(_sessionToExtend.Id)">
+                                Yes
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+}
+
+<div class="box p-5">
+    <div class="buttons">
+        <a class="button is-dark" href="/identities/users/@UserId">Back</a>
+        <button class="js-modal-trigger button is-danger" data-target="delete-identity-modal"
+                type="button" @onclick="() => _showDeleteSessionsModal = true">
+            Delete Sessions
+        </button>
+    </div>
+</div>
+
+@if (_showDeleteSessionsModal)
+{
+    <div id="delete-identity-modal" class="modal is-active">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Confirm Delete User Sessions</p>
+                <button class="delete" aria-label="close"
+                        @onclick="() => _showDeleteSessionsModal = false">
+                </button>
+            </header>
+            <section class="modal-card-body">
+                <p>Are you sure to delete every session for this identity?</p>
+                <p>Be aware that this cannot be undone.</p>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button" data-target="delete-identity-modal"
+                        type="button" @onclick="() => _showDeleteSessionsModal = false">
+                    Cancel
+                </button>
+                <div class="button is-danger" @onclick="DeleteIdentitySessions">
+                    Yes
+                </div>
+            </footer>
+        </div>
+    </div>
+}

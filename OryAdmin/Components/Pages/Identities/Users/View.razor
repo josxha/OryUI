@@ -201,7 +201,7 @@ else
                 </table>
                 <div class="buttons">
                     <button class="button is-warning"
-                            @onclick="RevokeOAuth2ConsentSessions">
+                            @onclick="() => _showRevokeOAuth2SessionsModal = true">
                         Revoke Sessions
                     </button>
                 </div>

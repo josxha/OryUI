@@ -18,119 +18,143 @@ else
             </div>
         </div>
 
-        <div class="box p-5">
-            <h2 class="subtitle">Lifespans</h2>
-            <div class="field">
-                <label class="label">
-                    ImplicitGrantAccessTokenLifespan
-                    <div class="control">
-                        <input type="text" class="input"
-                               value="@_lifespans.ImplicitGrantAccessTokenLifespan"
-                               @onchange="args => _lifespans.ImplicitGrantAccessTokenLifespan = args.Value?.ToString()"/>
-                    </div>
-                </label>
-            </div>
-            <div class="field">
-                <label class="label">
-                    ImplicitGrantIdTokenLifespan
-                    <div class="control">
-                        <input type="text" class="input"
-                               value="@_lifespans.ImplicitGrantIdTokenLifespan"
-                               @onchange="args => _lifespans.ImplicitGrantIdTokenLifespan = args.Value?.ToString()"/>
-                    </div>
-                </label>
-            </div>
-            <div class="field">
-                <label class="label">
-                    AuthorizationCodeGrantAccessTokenLifespan
-                    <div class="control">
-                        <input type="text" class="input"
-                               value="@_lifespans.AuthorizationCodeGrantAccessTokenLifespan"
-                               @onchange="args => _lifespans.AuthorizationCodeGrantAccessTokenLifespan = args.Value?.ToString()"/>
-                    </div>
-                </label>
-            </div>
-            <div class="field">
-                <label class="label">
-                    AuthorizationCodeGrantIdTokenLifespan
-                    <div class="control">
-                        <input type="text" class="input"
-                               value="@_lifespans.AuthorizationCodeGrantIdTokenLifespan"
-                               @onchange="args => _lifespans.AuthorizationCodeGrantIdTokenLifespan = args.Value?.ToString()"/>
-                    </div>
-                </label>
-            </div>
-            <div class="field">
-                <label class="label">
-                    AuthorizationCodeGrantRefreshTokenLifespan
-                    <div class="control">
-                        <input type="text" class="input"
-                               value="@_lifespans.AuthorizationCodeGrantRefreshTokenLifespan"
-                               @onchange="args => _lifespans.AuthorizationCodeGrantRefreshTokenLifespan = args.Value?.ToString()"/>
-                    </div>
-                </label>
-            </div>
-            <div class="field">
-                <label class="label">
-                    ClientCredentialsGrantAccessTokenLifespan
-                    <div class="control">
-                        <input type="text" class="input"
-                               value="@_lifespans.ClientCredentialsGrantAccessTokenLifespan"
-                               @onchange="args => _lifespans.ClientCredentialsGrantAccessTokenLifespan = args.Value?.ToString()"/>
-                    </div>
-                </label>
-            </div>
-            <div class="field">
-                <label class="label">
-                    JwtBearerGrantAccessTokenLifespan
-                    <div class="control">
-                        <input type="text" class="input"
-                               value="@_lifespans.JwtBearerGrantAccessTokenLifespan"
-                               @onchange="args => _lifespans.JwtBearerGrantAccessTokenLifespan = args.Value?.ToString()"/>
-                    </div>
-                </label>
-            </div>
-            <div class="field">
-                <label class="label">
-                    RefreshTokenGrantAccessTokenLifespan
-                    <div class="control">
-                        <input type="text" class="input"
-                               value="@_lifespans.RefreshTokenGrantAccessTokenLifespan"
-                               @onchange="args => _lifespans.RefreshTokenGrantAccessTokenLifespan = args.Value?.ToString()"/>
-                    </div>
-                </label>
-            </div>
-            <div class="field">
-                <label class="label">
-                    RefreshTokenGrantIdTokenLifespan
-                    <div class="control">
-                        <input type="text" class="input"
-                               value="@_lifespans.RefreshTokenGrantIdTokenLifespan"
-                               @onchange="args => _lifespans.RefreshTokenGrantIdTokenLifespan = args.Value?.ToString()"/>
-                    </div>
-                </label>
-            </div>
-            <div class="field">
-                <label class="label">
-                    RefreshTokenGrantRefreshTokenLifespan
-                    <div class="control">
-                        <input type="text" class="input"
-                               value="@_lifespans.RefreshTokenGrantRefreshTokenLifespan"
-                               @onchange="args => _lifespans.RefreshTokenGrantRefreshTokenLifespan = args.Value?.ToString()"/>
-                    </div>
-                </label>
-            </div>
-        </div>
+        <div class="columns is-multiline box p-5">
 
-        <div class="mt-5">
-            <div class="buttons">
-                <a class="button" href="oauth2/clients/@ClientId">
-                    Cancel
-                </a>
-                <button type="submit" class="button is-success">
-                    Save
-                </button>
+            <div class="column is-half">
+                <h2 class="subtitle">Implicit Grant</h2>
+                <div class="field">
+                    <label class="label">
+                        Access token
+                        <div class="control">
+                            <input type="text" class="input"
+                                   value="@_lifespans.ImplicitGrantAccessTokenLifespan"
+                                   @onchange="args => _lifespans.ImplicitGrantAccessTokenLifespan = args.Value?.ToString()"/>
+                        </div>
+                    </label>
+                </div>
+                <div class="field">
+                    <label class="label">
+                        ID token
+                        <div class="control">
+                            <input type="text" class="input"
+                                   value="@_lifespans.ImplicitGrantIdTokenLifespan"
+                                   @onchange="args => _lifespans.ImplicitGrantIdTokenLifespan = args.Value?.ToString()"/>
+                        </div>
+                    </label>
+                </div>
             </div>
+
+            <div class="column is-half">
+                <h2 class="subtitle">Authorization Code Grant</h2>
+                <div class="field">
+                    <label class="label">
+                        Access token
+                        <div class="control">
+                            <input type="text" class="input"
+                                   value="@_lifespans.AuthorizationCodeGrantAccessTokenLifespan"
+                                   @onchange="args => _lifespans.AuthorizationCodeGrantAccessTokenLifespan = args.Value?.ToString()"/>
+                        </div>
+                    </label>
+                </div>
+                <div class="field">
+                    <label class="label">
+                        ID token
+                        <div class="control">
+                            <input type="text" class="input"
+                                   value="@_lifespans.AuthorizationCodeGrantIdTokenLifespan"
+                                   @onchange="args => _lifespans.AuthorizationCodeGrantIdTokenLifespan = args.Value?.ToString()"/>
+                        </div>
+                    </label>
+                </div>
+                <div class="field">
+                    <label class="label">
+                        Refresh token
+                        <div class="control">
+                            <input type="text" class="input"
+                                   value="@_lifespans.AuthorizationCodeGrantRefreshTokenLifespan"
+                                   @onchange="args => _lifespans.AuthorizationCodeGrantRefreshTokenLifespan = args.Value?.ToString()"/>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="column is-half">
+                <h2 class="subtitle">Client Credentials Grant</h2>
+                <div class="field">
+                    <label class="label">
+                        Access token
+                        <div class="control">
+                            <input type="text" class="input"
+                                   value="@_lifespans.ClientCredentialsGrantAccessTokenLifespan"
+                                   @onchange="args => _lifespans.ClientCredentialsGrantAccessTokenLifespan = args.Value?.ToString()"/>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="column is-half">
+                <h2 class="subtitle">JWT Bearer Grant</h2>
+                <div class="field">
+                    <label class="label">
+                        Access token
+                        <div class="control">
+                            <input type="text" class="input"
+                                   value="@_lifespans.JwtBearerGrantAccessTokenLifespan"
+                                   @onchange="args => _lifespans.JwtBearerGrantAccessTokenLifespan = args.Value?.ToString()"/>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="column is-half">
+                <h2 class="subtitle">Refresh Token Grant</h2>
+                <div class="field">
+                    <label class="label">
+                        Access token
+                        <div class="control">
+                            <input type="text" class="input"
+                                   value="@_lifespans.RefreshTokenGrantAccessTokenLifespan"
+                                   @onchange="args => _lifespans.RefreshTokenGrantAccessTokenLifespan = args.Value?.ToString()"/>
+                        </div>
+                    </label>
+                </div>
+                <div class="field">
+                    <label class="label">
+                        ID token
+                        <div class="control">
+                            <input type="text" class="input"
+                                   value="@_lifespans.RefreshTokenGrantIdTokenLifespan"
+                                   @onchange="args => _lifespans.RefreshTokenGrantIdTokenLifespan = args.Value?.ToString()"/>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="column is-half">
+                <h2 class="subtitle">Refresh Token Grant</h2>
+                <div class="field">
+                    <label class="label">
+                        Refresh token
+                        <div class="control">
+                            <input type="text" class="input"
+                                   value="@_lifespans.RefreshTokenGrantRefreshTokenLifespan"
+                                   @onchange="args => _lifespans.RefreshTokenGrantRefreshTokenLifespan = args.Value?.ToString()"/>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="mt-5">
+                        <div class="buttons">
+                            <a class="button" href="oauth2/clients/@ClientId">
+                                Cancel
+                            </a>
+                            <button type="submit" class="button is-success">
+                                Save
+                            </button>
+                        </div>
+                    </div>
+            
         </div>
     </form>
 }

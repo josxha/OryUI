@@ -1,8 +1,8 @@
 ﻿@using Ory.Hydra.Client.Model
+
 @code {
 
-    [Parameter]
-    public required HydraOAuth2Client Client { get; set; }
+    [Parameter] public required HydraOAuth2Client Client { get; set; }
 
     private void UpdateClientScope(ChangeEventArgs args)
     {
@@ -48,7 +48,7 @@
             Redirect URIs (one entry per line)
             <div class="control">
                 <textarea class="textarea" rows="3" @onchange="args => Client.RedirectUris = args.MultilineToList()">
-    @string.Join("\n", Client.RedirectUris ?? new List<string>())
+    @string.Join("\n", Client.RedirectUris ?? [])
     </textarea>
             </div>
         </label>
@@ -58,7 +58,7 @@
             Post logout redirect URIs (one entry per line, only allowed redirect URIs are allowed)
             <div class="control">
                 <textarea class="textarea" rows="3" @onchange="args => Client.PostLogoutRedirectUris = args.MultilineToList()">
-    @string.Join("\n", Client.PostLogoutRedirectUris ?? new List<string>())
+    @string.Join("\n", Client.PostLogoutRedirectUris ?? [])
     </textarea>
             </div>
         </label>
@@ -129,7 +129,7 @@
             Contacts (one entry per line)
             <div class="control">
                 <textarea class="textarea" rows="3" @onchange="args => Client.Contacts = args.MultilineToList()">
-    @string.Join("\n", Client.Contacts ?? new List<string>())            
+    @string.Join("\n", Client.Contacts ?? [])            
     </textarea>
             </div>
         </label>
@@ -142,7 +142,7 @@
             Grant types (one entry per line)
             <div class="control">
                 <textarea class="textarea" rows="3" @onchange="args => Client.GrantTypes = args.MultilineToList()">
-    @string.Join("\n", Client.GrantTypes ?? new List<string>())            
+    @string.Join("\n", Client.GrantTypes ?? [])            
     </textarea>
             </div>
         </label>
@@ -152,7 +152,7 @@
             Response types (one entry per line)
             <div class="control">
                 <textarea class="textarea" rows="3" @onchange="args => Client.ResponseTypes = args.MultilineToList()">
-    @string.Join("\n", Client.ResponseTypes ?? new List<string>())            
+    @string.Join("\n", Client.ResponseTypes ?? [])            
     </textarea>
             </div>
         </label>

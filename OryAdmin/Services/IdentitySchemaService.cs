@@ -31,7 +31,7 @@ public class IdentitySchemaService(ApiService apiService)
         var schemaObject = await GetById(schemaId);
         var schema = JSchema.Parse(schemaObject.ToString());
         var traits = schema.Properties["traits"].Properties;
-        return FlattenTraits(traits, new List<string>());
+        return FlattenTraits(traits, []);
     }
 
     private static List<TraitsSchemaData> FlattenTraits(IDictionary<string, JSchema> traits, List<string> path)

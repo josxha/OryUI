@@ -7,7 +7,7 @@ namespace OryAdmin.Components.Pages.OAuth2.GrantIssuers;
 
 public partial class Create
 {
-    private readonly List<string> _scope = new();
+    private readonly List<string> _scope = [];
     private bool _allowAnySubject;
     private string? _errorMessage;
     private bool _isLoading = true;

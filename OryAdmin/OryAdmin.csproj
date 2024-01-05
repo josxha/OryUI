@@ -28,6 +28,11 @@
         <_ContentIncludedByDefault Remove="wwwroot\bootstrap\bootstrap.min.css.map"/>
         <_ContentIncludedByDefault Remove="Components\Pages\OAuth2\GrantIssuers\Index.razor"/>
         <_ContentIncludedByDefault Remove="Components\Pages\OAuth2\GrantIssuers\Trust.razor"/>
+        <_ContentIncludedByDefault Remove="Components\Pages\OAuth2\Sessions\Create.razor"/>
+        <_ContentIncludedByDefault Remove="Components\Pages\OAuth2\Sessions\Edit.razor"/>
+        <_ContentIncludedByDefault Remove="Components\Pages\OAuth2\Sessions\EditLifespans.razor"/>
+        <_ContentIncludedByDefault Remove="Components\Pages\OAuth2\Sessions\Index.razor"/>
+        <_ContentIncludedByDefault Remove="Components\Pages\OAuth2\Sessions\View.razor"/>
     </ItemGroup>
 
     <ItemGroup>

@@ -10,6 +10,7 @@ public partial class View
     private List<KratosSession>? _activeSessions;
     private KratosIdentity? _identity;
     private bool _isLoading = true;
+    private HydraOAuth2ConsentSession? _oauth2SessionDetails;
     private List<HydraOAuth2ConsentSession>? _oauth2Sessions;
     private bool _showDeleteModal;
     [Parameter] public string? UserId { get; set; }

@@ -13,6 +13,7 @@ public partial class View
     private HydraOAuth2ConsentSession? _oauth2SessionDetails;
     private List<HydraOAuth2ConsentSession>? _oauth2Sessions;
     private bool _showDeleteModal;
+    private bool _showRevokeOAuth2SessionsModal;
     [Parameter] public string? UserId { get; set; }
     [Inject] private ApiService ApiService { get; set; } = default!;
     [Inject] private EnvService EnvService { get; set; } = default!;
@@ -44,16 +45,6 @@ public partial class View
         nav.NavigateTo("identities/users");
     }
 
-    private void ShowDeleteModal()
-    {
-        _showDeleteModal = true;
-    }
-
-    private void HideDeleteModal()
-    {
-        _showDeleteModal = false;
-    }
-
     private async Task UpdatePassword()
     {
         var body = new KratosCreateRecoveryLinkForIdentityBody(identityId: UserId);
@@ -63,7 +54,7 @@ public partial class View
 
     private async Task RevokeOAuth2ConsentSessions()
     {
-        await ApiService.HydraOAuth2.RevokeOAuth2ConsentSessionsAsync(UserId);
+        await ApiService.HydraOAuth2.RevokeOAuth2ConsentSessionsAsync(UserId, all: true);
         // reload oauth2 sessions
         _oauth2Sessions = await ApiService.HydraOAuth2.ListOAuth2ConsentSessionsAsync(UserId);
     }

@@ -65,32 +65,35 @@ else
                 Update Password
             </button>
             <button class="js-modal-trigger button is-danger" data-target="delete-identity-modal"
-                    type="button" @onclick="ShowDeleteModal">
+                    type="button" @onclick="() => _showDeleteModal = true">
                 Delete Identity
             </button>
         </div>
-        <div id="delete-identity-modal" class="modal @(_showDeleteModal ? "is-active" : "")">
-            <div class="modal-background"></div>
-            <div class="modal-card">
-                <header class="modal-card-head">
-                    <p class="modal-card-title">Confirm Deletion</p>
-                    <button class="delete" aria-label="close" @onclick="HideDeleteModal"></button>
-                </header>
-                <section class="modal-card-body">
-                    <p>Are you sure to delete this identity?</p>
-                    <p>Be aware that this cannot be undone.</p>
-                </section>
-                <footer class="modal-card-foot">
-                    <button class="button" data-target="delete-identity-modal"
-                            type="button" @onclick="HideDeleteModal">
-                        Cancel
-                    </button>
-                    <div class="button is-danger" @onclick="DeleteIdentity">
-                        Delete
-                    </div>
-                </footer>
+        @if (_showDeleteModal)
+        {
+            <div id="delete-identity-modal" class="modal is-active">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                    <header class="modal-card-head">
+                        <p class="modal-card-title">Confirm Deletion</p>
+                        <button class="delete" aria-label="close" @onclick="() => _showDeleteModal = false"></button>
+                    </header>
+                    <section class="modal-card-body">
+                        <p>Are you sure to delete this identity?</p>
+                        <p>Be aware that this cannot be undone.</p>
+                    </section>
+                    <footer class="modal-card-foot">
+                        <button class="button" data-target="delete-identity-modal"
+                                type="button" @onclick="() => _showDeleteModal = false">
+                            Cancel
+                        </button>
+                        <div class="button is-danger" @onclick="DeleteIdentity">
+                            Delete
+                        </div>
+                    </footer>
+                </div>
             </div>
-        </div>
+        }
     </div>
 
     <div class="box">
@@ -202,6 +205,31 @@ else
                         Revoke Sessions
                     </button>
                 </div>
+                @if (_showRevokeOAuth2SessionsModal)
+                {
+                    <div id="delete-identity-modal" class="modal is-active">
+                        <div class="modal-background"></div>
+                        <div class="modal-card">
+                            <header class="modal-card-head">
+                                <p class="modal-card-title">Confirm Revoke OAuth2 Sessions</p>
+                                <button class="delete" aria-label="close" @onclick="() => _showRevokeOAuth2SessionsModal = false"></button>
+                            </header>
+                            <section class="modal-card-body">
+                                <p>Are you sure to revoke every OAuth2 session of this user?</p>
+                                <p>Be aware that this cannot be undone.</p>
+                            </section>
+                            <footer class="modal-card-foot">
+                                <button class="button" data-target="delete-identity-modal"
+                                        type="button" @onclick="() => _showRevokeOAuth2SessionsModal = false">
+                                    Cancel
+                                </button>
+                                <div class="button is-danger" @onclick="RevokeOAuth2ConsentSessions">
+                                    Yes
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                }
 
                 @if (_oauth2SessionDetails != null)
                 {

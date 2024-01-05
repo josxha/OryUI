@@ -181,8 +181,8 @@ else
                                     <td>No</td>
                                 }
                             }
-                            <td>@(session.GrantScope == null ? "-" : string.Join(", ", session.GrantScope))</td>
-                            <td>@(session.GrantAccessTokenAudience == null ? "-" : string.Join(", ", session.GrantAccessTokenAudience))</td>
+                            <td>@(session.GrantScope == null || session.GrantScope.Count == 0 ? "-" : string.Join(", ", session.GrantScope))</td>
+                            <td>@(session.GrantAccessTokenAudience == null || session.GrantAccessTokenAudience.Count == 0 ? "-" : string.Join(", ", session.GrantAccessTokenAudience))</td>
                             <td>@session.HandledAt</td>
                             <td>@(session.ExpiresAt != null ? session.ExpiresAt?.RefreshToken : "-")</td>
                         </tr>

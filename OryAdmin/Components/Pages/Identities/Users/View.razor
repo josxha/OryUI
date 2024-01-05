@@ -187,7 +187,7 @@ else
                             <td>@session.HandledAt</td>
                             <td>@(session.ExpiresAt != null ? session.ExpiresAt?.RefreshToken : "-")</td>
                             <td>
-                                <button class="button is-dark is-small"
+                                <button class="button is-info is-small"
                                         @onclick="() => _oauth2SessionDetails = session">
                                     Details
                                 </button>
@@ -199,7 +199,7 @@ else
                 <div class="buttons">
                     <button class="button is-warning"
                             @onclick="RevokeOAuth2ConsentSessions">
-                        Remove
+                        Revoke Sessions
                     </button>
                 </div>
 

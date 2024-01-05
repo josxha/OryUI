@@ -155,6 +155,7 @@ else
                         <td>Grant access token audience</td>
                         <td>Handled at</td>
                         <td>Refresh token expires at</td>
+                        <td></td>
                     </tr>
                     </thead>
                     <tbody>
@@ -186,7 +187,10 @@ else
                             <td>@session.HandledAt</td>
                             <td>@(session.ExpiresAt != null ? session.ExpiresAt?.RefreshToken : "-")</td>
                             <td>
-                                <button @onclick="() => _oauth2SessionDetails = session">Details</button>
+                                <button class="button is-light is-small"
+                                        @onclick="() => _oauth2SessionDetails = session">
+                                    Details
+                                </button>
                             </td>
                         </tr>
                     }

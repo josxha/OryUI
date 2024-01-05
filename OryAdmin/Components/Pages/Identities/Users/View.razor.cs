@@ -14,6 +14,7 @@ public partial class View
     private bool _showDeleteModal;
     [Parameter] public string? UserId { get; set; }
     [Inject] private ApiService ApiService { get; set; } = default!;
+    [Inject] private EnvService EnvService { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()
     {
@@ -23,12 +24,14 @@ public partial class View
             Task.Run(async () =>
             {
                 _activeSessions = await ApiService.KratosIdentity.ListIdentitySessionsAsync(UserId, active: true);
-            }),
-            Task.Run(async () =>
-            {
-                _oauth2Sessions = await ApiService.HydraOAuth2.ListOAuth2ConsentSessionsAsync(UserId);
             })
         };
+
+        if (EnvService.EnabledHydra)
+            tasks.Add(Task.Run(async () =>
+            {
+                _oauth2Sessions = await ApiService.HydraOAuth2.ListOAuth2ConsentSessionsAsync(UserId);
+            }));
 
         await Task.WhenAll(tasks);
         _isLoading = false;

@@ -136,57 +136,60 @@ else
         }
     </div>
 
-    <div class="box">
-        <h1 class="title">Active Oauth2 Sessions</h1>
-        @if (_oauth2Sessions!.Count == 0)
-        {
-            <p>This user has no active oauth2 sessions.</p>
-        }
-        else
-        {
-            <table class="table is-fullwidth is-striped">
-                <thead>
-                <tr>
-                    <td>Remember</td>
-                    <td>Client name</td>
-                    <td>Grant scope</td>
-                    <td>Handled at</td>
-                    <td>Refresh token expires at</td>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach (var session in _oauth2Sessions!)
-                {
+    @if (_oauth2Sessions != null)
+    {
+        <div class="box">
+            <h1 class="title">Active Oauth2 Sessions</h1>
+            @if (_oauth2Sessions!.Count == 0)
+            {
+                <p>This user has no active oauth2 sessions.</p>
+            }
+            else
+            {
+                <table class="table is-fullwidth is-striped">
+                    <thead>
                     <tr>
-                        @if (session.ConsentRequest.Skip || session.ConsentRequest._Client.SkipConsent)
-                        {
-                            <td>Consent skipped</td>
-                        }
-                        else
-                        {
-                            @if (session.Remember)
+                        <td>Remember</td>
+                        <td>Client name</td>
+                        <td>Grant scope</td>
+                        <td>Handled at</td>
+                        <td>Refresh token expires at</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var session in _oauth2Sessions!)
+                    {
+                        <tr>
+                            @if (session.ConsentRequest.Skip || session.ConsentRequest._Client.SkipConsent)
                             {
-                                <td>Yes, @(session.RememberFor == 0 ? "indefinitely" : $"for {session.RememberFor} seconds")</td>
+                                <td>Consent skipped</td>
                             }
                             else
                             {
-                                <td>No</td>
+                                @if (session.Remember)
+                                {
+                                    <td>Yes, @(session.RememberFor == 0 ? "indefinitely" : $"for {session.RememberFor} seconds")</td>
+                                }
+                                else
+                                {
+                                    <td>No</td>
+                                }
                             }
-                        }
-                        <td>
-                            <a href="oauth2/clients/@session.ConsentRequest._Client.ClientId">
-                                @session.ConsentRequest._Client.ClientName
-                            </a>
-                        </td>
-                        <td>@(session.GrantScope == null ? "-" : string.Join(", ", session.GrantScope))</td>
-                        <td>@session.HandledAt</td>
-                        <td>@(session.ExpiresAt != null ? session.ExpiresAt?.RefreshToken : "-")</td>
-                    </tr>
-                }
-                </tbody>
-            </table>
-        }
-    </div>
+                            <td>
+                                <a href="oauth2/clients/@session.ConsentRequest._Client.ClientId">
+                                    @session.ConsentRequest._Client.ClientName
+                                </a>
+                            </td>
+                            <td>@(session.GrantScope == null ? "-" : string.Join(", ", session.GrantScope))</td>
+                            <td>@session.HandledAt</td>
+                            <td>@(session.ExpiresAt != null ? session.ExpiresAt?.RefreshToken : "-")</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            }
+        </div>
+    }
 
     <div class="box">
         <h1 class="title">Credentials</h1>

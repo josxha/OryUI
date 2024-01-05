@@ -312,6 +312,23 @@ else
                     </tbody>
                 </table>
             </div>
+            <div class="column is-half">
+                <table class="table is-fullwidth is-narrow">
+                    <thead>
+                    <th colspan="2">Implicit grant</th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>ID Token</td>
+                        <td>@_client.ImplicitGrantIdTokenLifespan.ToStringOrDash()</td>
+                    </tr>
+                    <tr>
+                        <td>Access Token</td>
+                        <td>@_client.ImplicitGrantAccessTokenLifespan.ToStringOrDash()</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="buttons">
             <a class="button is-info" href="oauth2/clients/@(_client!.ClientId)/editLifespans">

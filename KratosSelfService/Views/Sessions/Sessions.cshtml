@@ -1,7 +1,9 @@
-﻿@model SessionsModel
+﻿@using UAParser
+@model SessionsModel
 @{
     ViewData["Title"] = CustomTranslator.Get("sessions.title");
     var totalSessions = Model.OtherSessions.Count + 1;
+    var uaParser = Parser.GetDefault();
 }
 
 <div class="section">
@@ -21,7 +23,17 @@
             </thead>
             <tbody>
             <tr>
-                <td>@string.Join(", ", Model.CurrentSession.Devices.Select(device => device.IpAddress))</td>
+                <td>
+                    @foreach (var device in Model.CurrentSession.Devices)
+                    {
+                        var info = uaParser.Parse(device.UserAgent);
+                        <p>
+                            @info.Device.Family on @info.OS
+                            @device.IpAddress
+                            @(string.IsNullOrWhiteSpace(device.Location) ? "" : $"({device.Location})")
+                        </p>
+                    }
+                </td>
                 <td>@Model.CurrentSession.AuthenticatedAt</td>
                 <td>@Model.CurrentSession.ExpiresAt</td>
             </tr>
@@ -53,6 +65,17 @@
                 @foreach (var session in Model.OtherSessions)
                 {
                     <tr>
+                        <td>
+                            @foreach (var device in session.Devices)
+                            {
+                                var info = uaParser.Parse(device.UserAgent);
+                                <p>
+                                    @info.Device.Family on @info.OS
+                                    @device.IpAddress
+                                    @(string.IsNullOrWhiteSpace(device.Location) ? "" : $"({device.Location})")
+                                </p>
+                            }
+                        </td>
                         <td>@string.Join(", ", session.Devices.Select(device => device.IpAddress))</td>
                         <td>@session.AuthenticatedAt</td>
                         <td>@session.ExpiresAt</td>

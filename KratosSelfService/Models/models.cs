@@ -1,4 +1,5 @@
-﻿using Ory.Hydra.Client.Model;
+﻿using Newtonsoft.Json.Schema;
+using Ory.Hydra.Client.Model;
 using Ory.Kratos.Client.Model;
 
 namespace KratosSelfService.Models;
@@ -12,6 +13,11 @@ public record LoginModel(
     string? forgotPasswordUrl,
     string signupUrl,
     string? logoutUrl
+);
+
+public record ProfileModel(
+    KratosSession session,
+    Dictionary<List<string>, JSchema> traitSchemas
 );
 
 public record LogoutModel(

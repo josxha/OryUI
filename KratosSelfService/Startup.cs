@@ -42,6 +42,7 @@ public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
         // own services
         services.AddSingleton<EnvService>();
         services.AddSingleton<ApiService>();
+        services.AddSingleton<IdentitySchemaService>();
     }
 
     public void Configure(WebApplication app)

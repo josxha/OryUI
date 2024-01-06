@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace KratosSelfService.Controllers;
 
-public class WellknownController(ILogger<WellknownController> logger, ApiService api) : Controller
+public class WellknownController(ApiService api) : Controller
 {
     [HttpGet("/.well-known/ory/webauthn.js")]
     [AllowAnonymous]

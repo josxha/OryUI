@@ -1,0 +1,51 @@
+﻿@using OryAdmin.Extensions
+@using Newtonsoft.Json.Linq
+@model ProfileModel
+@{
+    ViewData["Title"] = "View Profile";
+    Layout = "_Layout";
+    var traits = (JObject)Model.session.Identity.Traits;
+}
+
+<section class="hero has-background-white-ter is-fullheight">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10-tablet is-8-desktop is-6-widescreen">
+                    <div class="box">
+                        <h1 class="title">
+                            @CustomTranslator.Get("Hello") @traits.GetTraitValueFromPath(["name", "first"])
+                        </h1>
+                        <div class="columns is-one-third">
+                            <div class="column">
+                                <figure class="image is-128x128">
+                                    <img alt="Profile picture" class="is-rounded"
+                                         src="img/Missing_avatar.svg">
+                                </figure>
+                            </div>
+                            <div class="column is-two-thirds">
+                                <table class="table is-fullwidth">
+                                    <tbody>
+                                    @foreach (var (schemaPathSections, schema) in Model.traitSchemas)
+                                    {
+                                        <tr>
+                                            <td>@schema.Title</td>
+                                            <td>@traits.GetTraitValueFromPath(schemaPathSections)</td>
+                                        </tr>
+                                    }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="buttons is-right mt-3">
+                            <a class="button is-info" href="settings">@OryTranslator.Get("settings.title")</a>
+                            <a class="button is-info" href="sessions">@CustomTranslator.Get("sessions.title")</a>
+                            <a class="button is-warning" href="logout">@CustomTranslator.Get("Logout")</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

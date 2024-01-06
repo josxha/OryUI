@@ -118,4 +118,7 @@
     <data name="sessions.authenticationMethods" xml:space="preserve">
         <value>Authentifizierungsmethoden</value>
     </data>
+    <data name="Hello" xml:space="preserve">
+        <value>Hallo</value>
+    </data>
 </root>

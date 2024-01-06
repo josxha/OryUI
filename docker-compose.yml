@@ -27,6 +27,8 @@ services:
     environment:
       - KRATOS_PUBLIC_URL=http://ory-kratos-1:4433
       - KRATOS_BROWSER_URL=http://127.0.0.1:4433
+      - HYDRA_ADMIN_URL=http://ory-hydra-1:4445
+      - HYDRA_TRAITS_MAPPING=email:email,name.first:given_name,name.last:family_name
 
 networks:
   ory:

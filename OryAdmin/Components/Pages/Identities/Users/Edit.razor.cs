@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Schema;
 using Ory.Kratos.Client.Client;
 using Ory.Kratos.Client.Model;
-using OryAdmin.Extensions;
-using OryAdmin.Models;
 using OryAdmin.Services;
 
 namespace OryAdmin.Components.Pages.Identities.Users;
@@ -14,7 +13,7 @@ public partial class Edit
     private KratosIdentity? _identity;
     private bool _isLoading = true;
     private JObject? _json;
-    private List<TraitsSchemaData>? _traitSchemas;
+    private Dictionary<List<string>, JSchema>? _traitSchemas;
     [Parameter] public string? UserId { get; set; }
     [Inject] private ApiService ApiService { get; set; } = default!;
     [Inject] private IdentitySchemaService SchemaService { get; set; } = default!;
@@ -23,7 +22,7 @@ public partial class Edit
     {
         _identity = await ApiService.KratosIdentity.GetIdentityAsync(UserId);
         _json = (JObject?)_identity.Traits;
-        _traitSchemas = await SchemaService.GetTraitSchemas(_identity.SchemaId);
+        _traitSchemas = await SchemaService.GetTraits(_identity.SchemaId);
         _isLoading = false;
     }
 
@@ -48,8 +47,7 @@ public partial class Edit
         nav.NavigateTo($"identities/users/{UserId}");
     }
 
-    private void UpdateValue(TraitsSchemaData schema, ChangeEventArgs args)
+    private void UpdateValue(JSchema schema, ChangeEventArgs args)
     {
-        _json!.UpdateValueWithSchema(schema, args.Value);
     }
 }

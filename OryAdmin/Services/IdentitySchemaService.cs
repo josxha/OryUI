@@ -1,62 +1,64 @@
-﻿using Newtonsoft.Json.Linq;
-using Newtonsoft.Json.Schema;
-using OryAdmin.Models;
+﻿using Newtonsoft.Json.Schema;
 
 namespace OryAdmin.Services;
 
 public class IdentitySchemaService(ApiService apiService)
 {
-    private readonly Dictionary<string, JObject> _schemaCache = new();
+    private readonly Dictionary<string, JSchema> _schemaCache = new();
 
-    public async Task<JObject> GetById(string schemaId)
+    public async Task<JSchema> FetchById(string schemaId)
     {
         // check if schema object is cached
         if (_schemaCache.TryGetValue(schemaId, out var schema))
             return schema;
         // request and cache new schema object
         var newSchema = await apiService.KratosIdentity.GetIdentitySchemaAsync(schemaId);
-        _schemaCache[schemaId] = (JObject)newSchema;
+        _schemaCache[schemaId] = JSchema.Parse(newSchema.ToString()!);
         return _schemaCache[schemaId];
     }
 
     public async Task<List<string>> ListIds()
     {
         var schemas = await apiService.KratosIdentity.ListIdentitySchemasAsync();
-        foreach (var container in schemas) _schemaCache[container.Id] = (JObject)container.Schema;
+        foreach (var container in schemas) _schemaCache[container.Id] = JSchema.Parse(container.Schema.ToString()!);
         return schemas.Select(container => container.Id).ToList();
     }
 
-    public async Task<List<TraitsSchemaData>> GetTraitSchemas(string schemaId)
+    public async Task<Dictionary<List<string>, JSchema>> GetTraits(string schemaId)
     {
-        var schemaObject = await GetById(schemaId);
-        var schema = JSchema.Parse(schemaObject.ToString());
+        var schema = await FetchById(schemaId);
+        return GetTraits(schema);
+    }
+
+
+    public static Dictionary<List<string>, JSchema> GetTraits(JSchema schema)
+    {
         var traits = schema.Properties["traits"].Properties;
         return FlattenTraits(traits, []);
     }
 
-    private static List<TraitsSchemaData> FlattenTraits(IDictionary<string, JSchema> traits, List<string> path)
+    private static Dictionary<List<string>, JSchema> FlattenTraits(IDictionary<string, JSchema> traits,
+        IReadOnlyCollection<string> pathSections)
     {
-        var list = new List<TraitsSchemaData>();
+        var map = new Dictionary<List<string>, JSchema>();
         foreach (var (traitKey, trait) in traits)
         {
-            var newPath = new List<string>(path) { traitKey };
+            var newPathSections = new List<string>(pathSections) { traitKey };
             switch (trait.Type)
             {
-                case JSchemaType.String:
-                    list.Add(new TraitsSchemaData(trait, newPath));
-                    break;
                 case JSchemaType.Object:
-                    list.AddRange(FlattenTraits(trait.Properties, newPath));
+                    foreach (var entry in FlattenTraits(trait.Properties, newPathSections))
+                        map[entry.Key] = entry.Value;
                     break;
                 case JSchemaType.Array:
                     // TODO support arrays
                     break;
-                default:
-                    list.Add(new TraitsSchemaData(trait, newPath));
+                default: // string, etc.
+                    map[newPathSections] = trait;
                     break;
             }
         }
 
-        return list;
+        return map;
     }
 }

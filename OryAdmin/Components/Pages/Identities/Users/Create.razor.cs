@@ -1,22 +1,21 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Schema;
 using Ory.Kratos.Client.Client;
 using Ory.Kratos.Client.Model;
-using OryAdmin.Extensions;
-using OryAdmin.Models;
 using OryAdmin.Services;
 
 namespace OryAdmin.Components.Pages.Identities.Users;
 
 public partial class Create
 {
-    private JObject _json = new();
     private string? _errorMessage;
     private bool _isLoading = true;
+    private readonly JObject _json = new();
     private bool _schemaDropdownActive;
 
     private List<string>? _schemaIds;
-    private List<TraitsSchemaData>? _traitsSchemas;
+    private Dictionary<List<string>, JSchema>? _traitsSchemas;
 
     [SupplyParameterFromQuery(Name = "schema")]
     private string? SelectedSchemaId { get; set; }
@@ -35,7 +34,7 @@ public partial class Create
     {
         _schemaIds ??= await SchemaService.ListIds();
         SelectedSchemaId ??= _schemaIds.First();
-        _traitsSchemas = await SchemaService.GetTraitSchemas(SelectedSchemaId);
+        _traitsSchemas = await SchemaService.GetTraits(SelectedSchemaId);
     }
 
     private void OnSelectionChanged()
@@ -57,10 +56,5 @@ public partial class Create
         }
 
         nav.NavigateTo("identities/users");
-    }
-
-    private void UpdateValue(TraitsSchemaData schema, ChangeEventArgs args)
-    {
-        _json.UpdateValueWithSchema(schema, args.Value);
     }
 }

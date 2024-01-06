@@ -13,16 +13,16 @@
 else
 {
     <form @onsubmit="SubmitForm">
-        @foreach (var schema in _traitSchemas!)
+        @foreach (var (schemaPathSections, schema) in _traitSchemas!)
         {
-            var value = _json!.GetTraitValueFromPath(schema.Path);
+            var value = _json!.GetTraitValueFromPath(schemaPathSections);
             <div class="field">
                 <label class="label">
-                    @schema.Schema.Title
+                    @schema.Title
                     <div class="control">
-                        <input type="text" class="input" required="@schema.Schema.Required"
-                               value="@value" id="@schema.Schema.Id"
-                               @onchange="args => UpdateValue(schema, args)"/>
+                        <input type="text" class="input" required="@schema.Required"
+                               value="@value" id="@schema.Id"
+                               @onchange="args => _json!.UpdateValueWithSchema(schema, schemaPathSections, args.Value)"/>
                     </div>
                 </label>
             </div>

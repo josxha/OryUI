@@ -1,4 +1,5 @@
 ﻿@page "/identities/users/{UserId}/sessions"
+@using UAParser
 @rendermode InteractiveServer
 @inject NavigationManager nav
 
@@ -11,6 +12,7 @@
 }
 else
 {
+    var uaParser = Parser.GetDefault();
     <div class="box">
         <h1 class="title">Active Sessions</h1>
         @if (_activeSessions!.Count == 0)
@@ -40,7 +42,12 @@ else
                         <td>
                             @foreach (var device in session.Devices)
                             {
-                                <p>@device.Id (@device.IpAddress)</p>
+                                var info = uaParser.Parse(device.UserAgent);
+                                <p>
+                                    @info.Device.Family on @info.OS
+                                    @device.IpAddress
+                                    @(string.IsNullOrWhiteSpace(device.Location) ? "" : $"({device.Location})")
+                                </p>
                             }
                         </td>
                         <td>
@@ -118,7 +125,12 @@ else
                         <td>
                             @foreach (var device in session.Devices)
                             {
-                                <p>@device.Id (@device.IpAddress)</p>
+                                var info = uaParser.Parse(device.UserAgent);
+                                <p>
+                                    @info.Device.Family on @info.OS
+                                    @device.IpAddress
+                                    @(string.IsNullOrWhiteSpace(device.Location) ? "" : $"({device.Location})")
+                                </p>
                             }
                         </td>
                         <td>

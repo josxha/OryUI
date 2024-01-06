@@ -1,15 +1,16 @@
 ﻿using Newtonsoft.Json.Linq;
-using OryAdmin.Models;
+using Newtonsoft.Json.Schema;
 
 namespace OryAdmin.Extensions;
 
 public static class JObjectExt
 {
-    public static void UpdateValueWithSchema(this JObject json, TraitsSchemaData schema, object? value)
+    public static void UpdateValueWithSchema(this JObject json, JSchema schema, List<string> schemaPathSections,
+        object? value)
     {
         JObject? innerJson = null;
         JObject obj; // prevents variable name shadowing
-        foreach (var path in schema.Path[..^1])
+        foreach (var path in schemaPathSections[..^1])
         {
             obj = innerJson ?? json;
             if (!obj.ContainsKey(path)) obj.Add(path, new JObject());
@@ -17,7 +18,7 @@ public static class JObjectExt
         }
 
         // handle last path
-        var lastPath = schema.Path.Last();
+        var lastPath = schemaPathSections.Last();
         obj = innerJson ?? json;
         obj[lastPath] = new JValue(value);
     }

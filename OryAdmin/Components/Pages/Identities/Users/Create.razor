@@ -43,14 +43,14 @@ else
     </div>
 
     <form @onsubmit="SubmitForm">
-        @foreach (var schema in _traitsSchemas!)
+        @foreach (var (schemaPathSections, schema) in _traitsSchemas!)
         {
             <div class="field">
                 <label class="label">
-                    @schema.Schema.Title
+                    @schema.Title
                     <div class="control">
-                        <input type="text" class="input" id="@schema.Schema.Id" value=""
-                               @onchange="args => UpdateValue(schema, args)"/>
+                        <input type="text" class="input" id="@schema.Id" value=""
+                               @onchange="args => _json.UpdateValueWithSchema(schema, schemaPathSections, args.Value)"/>
                     </div>
                 </label>
             </div>

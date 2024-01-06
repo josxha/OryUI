@@ -67,7 +67,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Ory.Hydra.Client" Version="2.1.1"/>
+        <PackageReference Include="Ory.Hydra.Client" Version="2.2.0-rc.3"/>
         <PackageReference Include="Ory.Kratos.Client" Version="1.0.0"/>
     </ItemGroup>
 

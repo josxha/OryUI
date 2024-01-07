@@ -45,4 +45,32 @@ public class EnvService
     /// </summary>
     public readonly string KratosPublicUrl =
         Environment.GetEnvironmentVariable("KRATOS_PUBLIC_URL") ?? "http://127.0.0.1:4433";
+
+    /// <summary>
+    ///     The API access key for the S3 MinIO object storage.
+    /// </summary>
+    public readonly string MinioAccessKey =
+        Environment.GetEnvironmentVariable("MINIO_ACCESS_KEY") ??
+        throw new ArgumentException("Missing environment variable: MINIO_ACCESS_KEY");
+
+    /// <summary>
+    ///     The MinIO S3 endpoint for the object storage.
+    /// </summary>
+    public readonly string MinioEndpoint =
+        Environment.GetEnvironmentVariable("MINIO_ENDPOINT") ??
+        throw new ArgumentException("Missing environment variable: MINIO_ENDPOINT");
+
+    /// <summary>
+    ///     The used region of the MinIO object storage.
+    /// </summary>
+    public readonly string MinioRegion =
+        Environment.GetEnvironmentVariable("MINIO_REGION") ??
+        throw new ArgumentException("Missing environment variable: MINIO_REGION");
+
+    /// <summary>
+    ///     The API secret key for the S3 compatible MinIO object storage.
+    /// </summary>
+    public readonly string MinioSecretKey =
+        Environment.GetEnvironmentVariable("MINIO_SECRET_KEY") ??
+        throw new ArgumentException("Missing environment variable: MINIO_SECRET_KEY");
 }

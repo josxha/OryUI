@@ -67,6 +67,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="Minio" Version="6.0.1"/>
         <PackageReference Include="Ory.Hydra.Client" Version="2.2.0-rc.3"/>
         <PackageReference Include="Ory.Kratos.Client" Version="1.0.0"/>
         <PackageReference Include="UAParser" Version="3.1.47"/>

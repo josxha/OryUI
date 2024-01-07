@@ -43,6 +43,7 @@ public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
         services.AddSingleton<EnvService>();
         services.AddSingleton<ApiService>();
         services.AddSingleton<IdentitySchemaService>();
+        services.AddSingleton<MinioService>();
     }
 
     public void Configure(WebApplication app)

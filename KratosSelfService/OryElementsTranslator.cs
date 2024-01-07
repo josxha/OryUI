@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Localization;
+using Newtonsoft.Json.Linq;
 using Ory.Kratos.Client.Model;
 
 namespace KratosSelfService;
@@ -21,18 +22,16 @@ public class OryElementsTranslator(IStringLocalizer<OryElementsTranslator> local
     public string? ForUiText(KratosUiText? uiText)
     {
         if (uiText == null) return null;
-        return uiText.Id switch
+        var text = Localizer[$"identities.messages.{uiText.Id}"].ToString();
+        var context = (JObject?)uiText.Context;
+        if (context != null)
         {
-            // title
-            1070002 => uiText.Text,
-            // totp secrets
-            1050006 or 1050009 => uiText.Text,
-            // backup codes, secrets list
-            1050015 => uiText.Text,
-            // reason
-            4000001 or 5000001 => uiText.Text,
-            _ => Get($"identities.messages.{uiText.Id}")
-        };
+            foreach (var entry in context)
+                text = text.Replace("{" + entry.Key + "}", entry.Value?.ToString());
+        }
+        text = text.Replace("{title}", uiText.Text);
+        
+        return text;
     }
 }
 

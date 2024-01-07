@@ -17,7 +17,8 @@ public record LoginModel(
 
 public record ProfileModel(
     KratosSession session,
-    Dictionary<List<string>, JSchema> traitSchemas
+    Dictionary<List<string>, JSchema> traitSchemas,
+    string? avatarUrl
 );
 
 public record LogoutModel(

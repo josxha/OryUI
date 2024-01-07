@@ -18,10 +18,19 @@
                         </h1>
                         <div class="columns is-one-third">
                             <div class="column">
-                                <figure class="image is-128x128">
-                                    <img alt="Profile picture" class="is-rounded"
-                                         src="img/Missing_avatar.svg">
-                                </figure>
+                                <form id="changePicture" action="~/" method="post"
+                                      enctype="multipart/form-data">
+                                    <label class="is-clickable">
+                                        <figure class="image is-128x128">
+                                            <img alt="Profile picture" class="is-rounded"
+                                                 src="@(Model.avatarUrl ?? "img/Missing_avatar.svg")">
+                                        </figure>
+                                        <input type="file" name="avatar" required="required" class="is-hidden"
+                                               value="Change picture"
+                                               accept=".png, .jpg, .jpeg, .webp"
+                                               onchange="document.getElementById('changePicture').submit();"/>
+                                    </label>
+                                </form>
                             </div>
                             <div class="column is-two-thirds">
                                 <table class="table is-fullwidth">

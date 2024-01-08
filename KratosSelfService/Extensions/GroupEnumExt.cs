@@ -53,10 +53,10 @@ public static class GroupEnumExt
             KratosUiNode.GroupEnum.Password => "fa-lock",
             KratosUiNode.GroupEnum.Profile => "fa-user",
             KratosUiNode.GroupEnum.Totp => "fa-shield",
-            KratosUiNode.GroupEnum.LookupSecret => "fa-list",
-            KratosUiNode.GroupEnum.Webauthn => "fa-list",
-            KratosUiNode.GroupEnum.Oidc => "fa-list",
-            _ => instance.ToString().ToLower()
+            KratosUiNode.GroupEnum.LookupSecret => "fa-envelope-open-text",
+            KratosUiNode.GroupEnum.Webauthn => "fa-key",
+            KratosUiNode.GroupEnum.Oidc => "fa-people-group",
+            _ => "fa-key"
         };
     }
 }

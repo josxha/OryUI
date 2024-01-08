@@ -124,4 +124,7 @@
     <data name="1010001-webauthn" xml:space="preserve">
         <value>Anmeldung mit Sicherheitsschlüssel</value>
     </data>
+    <data name="sessions.amountSessions" xml:space="preserve">
+        <value>Sie haben {0} aktive Sitzungen.</value>
+    </data>
 </root>

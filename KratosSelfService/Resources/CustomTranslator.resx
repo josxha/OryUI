@@ -75,4 +75,7 @@
     <data name="1010001-webauthn" xml:space="preserve">
         <value>Sign in with security key</value>
     </data>
+    <data name="sessions.amountSessions" xml:space="preserve">
+        <value>You have {0} active sessions.</value>
+    </data>
 </root>

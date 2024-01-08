@@ -9,7 +9,7 @@
 <div class="section">
     <div class="box">
         <h1 class="title">@CustomTranslator.Get("sessions.title")</h1>
-        <h2 class="subtitle">You have @totalSessions active session@(totalSessions == 1 ? "" : "s").</h2>
+        <h2 class="subtitle">@string.Format(CustomTranslator.Get("sessions.amountSessions"), totalSessions)</h2>
     </div>
     <div class="box">
         <h4 class="title mt-3">@CustomTranslator.Get("sessions.currentSession")</h4>

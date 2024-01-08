@@ -10,7 +10,6 @@
         "totp_unlink" => "is-warning",
         _ => "is-success"
         };
-
 }
 
 <div class="field">
@@ -22,7 +21,14 @@
                 value="@attributes.Value"
                 name="@attributes.Name"
                 onclick="@attributes.Onclick">
-            @OryTranslator.ForUiText(uiText)
+            @if (Model.node.Group == KratosUiNode.GroupEnum.Webauthn && Model.node.Meta?.Label.Id == 1010001)
+            {
+                <span>@CustomTranslator.Get($"{Model.node.Meta.Label.Id}-webauthn")</span>
+            }
+            else
+            {
+                <span>@OryTranslator.ForUiText(uiText)</span>
+            }
         </button>
     </div>
     @foreach (var message in Model.node.Messages)

@@ -16,10 +16,12 @@
 @foreach (var group in groups)
 {
     <form class="mb-3" action="@Model.ui.Action" method="@Model.ui.Method">
-        @foreach (var node in defaultNodes)
-        {
-            var model = new KratosUiNodeModel(node, Model.flowType, Model.forgotPasswordUrl);
-            @await Component.InvokeAsync("KratosUiNodeInput", model)
+        @if (group.Key != KratosUiNode.GroupEnum.Oidc) {
+            foreach (var node in defaultNodes)
+            {
+                var model = new KratosUiNodeModel(node, Model.flowType, Model.forgotPasswordUrl);
+                @await Component.InvokeAsync("KratosUiNodeInput", model)
+            }
         }
         @foreach (var node in group)
         {

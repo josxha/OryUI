@@ -72,4 +72,7 @@
     <data name="Hello" xml:space="preserve">
         <value>Hello</value>
     </data>
+    <data name="1010001-webauthn" xml:space="preserve">
+        <value>Sign in with security key</value>
+    </data>
 </root>

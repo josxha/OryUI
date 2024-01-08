@@ -121,4 +121,7 @@
     <data name="Hello" xml:space="preserve">
         <value>Hallo</value>
     </data>
+    <data name="1010001-webauthn" xml:space="preserve">
+        <value>Anmeldung mit Sicherheitsschlüssel</value>
+    </data>
 </root>

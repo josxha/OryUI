@@ -28,6 +28,16 @@ selfservice:
       enabled: true
     code:
       enabled: true
+    webauthn:
+      enabled: true
+      config:
+        passwordless: true
+        rp:
+          id: 127.0.0.1
+          origins:
+            - https://127.0.0.1
+          origin: https://127.0.0.1
+          display_name: OryUI
 
   flows:
     error:

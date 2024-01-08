@@ -11,15 +11,19 @@
     var groups = allGroups
         .Where(group => group.Key != KratosUiNode.GroupEnum.Default)
         .ToArray();
+
+    var groupsWithNoDefaultFields = new List<KratosUiNode.GroupEnum> { KratosUiNode.GroupEnum.Oidc,KratosUiNode.GroupEnum.Webauthn, };
 }
 
 @foreach (var group in groups)
 {
     <form class="mb-3" action="@Model.ui.Action" method="@Model.ui.Method">
-        @foreach (var node in defaultNodes)
-        {
-            var model = new KratosUiNodeModel(node, Model.flowType, Model.forgotPasswordUrl);
-            @await Component.InvokeAsync("KratosUiNodeInput", model)
+        @if (!groupsWithNoDefaultFields.Contains(group.Key)) {
+            foreach (var node in defaultNodes)
+            {
+                var model = new KratosUiNodeModel(node, Model.flowType, Model.forgotPasswordUrl);
+                @await Component.InvokeAsync("KratosUiNodeInput", model)
+            }
         }
         @foreach (var node in group)
         {

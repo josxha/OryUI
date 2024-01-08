@@ -84,8 +84,4 @@
         <AdditionalFiles Include="Views\Settings\Settings.cshtml"/>
     </ItemGroup>
 
-    <ItemGroup>
-        <ProjectReference Include="..\OryAdmin\OryAdmin.csproj"/>
-    </ItemGroup>
-
 </Project>

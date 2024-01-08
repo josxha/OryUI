@@ -6,8 +6,6 @@
 
 <div class="field">
     <p id="@attributes.Id">@OryTranslator.ForUiText(attributes.Text)</p>
-    @foreach (var message in Model.node.Messages)
-    {
-        <KratosUiTextMessage Message="@message"/>
-    }
+    
+    <KratosUiTextMessages Message="@Model.node.Messages"/>
 </div>

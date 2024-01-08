@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Localization;
+﻿using System.Globalization;
+using Microsoft.Extensions.Localization;
 using Newtonsoft.Json.Linq;
 using Ory.Kratos.Client.Model;
 
@@ -18,7 +19,7 @@ public class OryElementsTranslator(IStringLocalizer<OryElementsTranslator> local
     {
         return Localizer[text];
     }
-
+    
     public string? ForUiText(KratosUiText? uiText)
     {
         if (uiText == null) return null;
@@ -26,10 +27,14 @@ public class OryElementsTranslator(IStringLocalizer<OryElementsTranslator> local
         var context = (JObject?)uiText.Context;
         if (context != null)
         {
-            foreach (var entry in context)
-                text = text.Replace("{" + entry.Key + "}", entry.Value?.ToString());
+            foreach (var (key, jToken) in context)
+            {
+                text = text.Replace("{" + key + "}", jToken?.ToString());
+            }
         }
-        text = text.Replace("{title}", uiText.Text);
+
+        if (text.First() == '{' && text.Last() == '}' && !text.Contains(' '))
+            text = uiText.Text;
         
         return text;
     }

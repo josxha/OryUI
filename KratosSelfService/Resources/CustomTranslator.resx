@@ -78,4 +78,7 @@
     <data name="sessions.amountSessions" xml:space="preserve">
         <value>You have {0} active sessions.</value>
     </data>
+    <data name="profile.title" xml:space="preserve">
+        <value>View profile</value>
+    </data>
 </root>

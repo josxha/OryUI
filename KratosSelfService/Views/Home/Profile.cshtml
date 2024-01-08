@@ -2,7 +2,7 @@
 @using OryAdmin.Extensions
 @model ProfileModel
 @{
-    ViewData["Title"] = "View Profile";
+    ViewData["Title"] = CustomTranslator.Get("profile.title");
     Layout = "_Layout";
     var traits = (JObject)Model.session.Identity.Traits;
 }

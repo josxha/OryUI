@@ -127,4 +127,7 @@
     <data name="sessions.amountSessions" xml:space="preserve">
         <value>Sie haben {0} aktive Sitzungen.</value>
     </data>
+    <data name="profile.title" xml:space="preserve">
+        <value>Profil ansehen</value>
+    </data>
 </root>

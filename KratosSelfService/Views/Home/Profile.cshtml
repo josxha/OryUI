@@ -3,7 +3,7 @@
 @model ProfileModel
 @{
     ViewData["Title"] = CustomTranslator.Get("profile.title");
-    Layout = "_Layout";
+    Layout = "_NavbarLayout";
     var traits = (JObject)Model.session.Identity.Traits;
 }
 

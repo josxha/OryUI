@@ -130,4 +130,7 @@
     <data name="profile.title" xml:space="preserve">
         <value>Profil ansehen</value>
     </data>
+    <data name="login.signInWithProvider" xml:space="preserve">
+        <value>Oder anmelden mit</value>
+    </data>
 </root>

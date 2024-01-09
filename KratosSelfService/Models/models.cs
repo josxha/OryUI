@@ -72,8 +72,8 @@ public record KratosUiNodeArgs(
 public record KratosUiArgs(
     KratosUiContainer ui,
     FlowType flowType,
-    string? forgotPasswordUrl = null
-);
+    List<KratosUiNode.GroupEnum>? hiddenGroups = null,
+    string? forgotPasswordUrl = null);
 
 public record KratosUiModel(
     KratosUiContainer ui,

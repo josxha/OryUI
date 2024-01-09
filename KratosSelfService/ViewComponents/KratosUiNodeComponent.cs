@@ -7,7 +7,7 @@ namespace KratosSelfService.ViewComponents;
 
 public class KratosUiNodeComponent : ViewComponent
 {
-    public ViewViewComponentResult InvokeAsync(KratosUiNodeArgs args)
+    public async Task<ViewViewComponentResult> InvokeAsync(KratosUiNodeArgs args)
     {
         switch (args.node.Type)
         {
@@ -29,6 +29,11 @@ public class KratosUiNodeComponent : ViewComponent
                     case KratosUiNodeInputAttributes.TypeEnum.Checkbox:
                         return View("InputCheckbox", args);
                     case KratosUiNodeInputAttributes.TypeEnum.Submit:
+                        var inputAttr = args.node.Attributes.GetKratosUiNodeInputAttributes();
+                        if (args.FlowType != FlowType.Settings 
+                            && inputAttr.Type == KratosUiNodeInputAttributes.TypeEnum.Submit
+                            && inputAttr.Name == "provider") 
+                            return View("InputSubmitOidc", args);
                         return View("InputSubmit", args);
                     case KratosUiNodeInputAttributes.TypeEnum.Button:
                         return View("InputButton", args);

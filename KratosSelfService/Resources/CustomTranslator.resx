@@ -81,4 +81,7 @@
     <data name="profile.title" xml:space="preserve">
         <value>View profile</value>
     </data>
+    <data name="login.signInWithProvider" xml:space="preserve">
+        <value>Or sign in with</value>
+    </data>
 </root>

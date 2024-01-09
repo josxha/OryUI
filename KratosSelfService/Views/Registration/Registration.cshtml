@@ -14,10 +14,10 @@
 <hr/>
 <div class="mb-2">
     @await Component.InvokeAsync("KratosUiTextMessages", Model.flow.Ui.Messages)
-    
+
     @await Component.InvokeAsync("KratosUiComponent", new KratosUiArgs(
-               Model.flow.Ui,
-               FlowType.Registration))
+        Model.flow.Ui,
+        FlowType.Registration))
 </div>
 <!--<div class="field separator">Or sign up with</div>
 <div class="field">

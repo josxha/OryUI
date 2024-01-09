@@ -1,0 +1,23 @@
+﻿@model KratosUiNodeArgs
+
+@{
+    var attributes = Model.node.Attributes.GetKratosUiNodeInputAttributes();
+    var uiText = attributes.Label ?? Model.node.Meta.Label;
+}
+
+<div class="column is-half">
+    <button type="submit" 
+            class="button is-fullwidth is-success"
+            required="@attributes.Required"
+            disabled="@attributes.Disabled"
+            value="@attributes.Value"
+            name="@attributes.Name"
+            onclick="@attributes.Onclick">
+        <span class="icon">
+            <i class="fab fa-@attributes.Value.ToString()?.ToLowerInvariant()"></i>
+        </span>
+        @* Not using @OryTranslator.ForUiText(uiText), label too long *@
+        <span>@attributes.Value</span>
+    </button>
+    <KratosUiTextMessages Message="@Model.node.Messages"/>
+</div>

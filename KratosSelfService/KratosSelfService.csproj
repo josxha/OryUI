@@ -81,6 +81,7 @@
         <AdditionalFiles Include="Views\Logout\Logout.cshtml"/>
         <AdditionalFiles Include="Views\Recovery\Recovery.cshtml"/>
         <AdditionalFiles Include="Views\Registration\Registration.cshtml"/>
+        <AdditionalFiles Include="Views\Shared\Components\KratosUiComponent\Oidc.cshtml" />
         <AdditionalFiles Include="Views\Shared\Components\KratosUiNodeComponent\InputButton.cshtml" />
         <AdditionalFiles Include="Views\Shared\Components\KratosUiNodeComponent\InputCheckbox.cshtml" />
         <AdditionalFiles Include="Views\Shared\Components\KratosUiNodeComponent\InputDefault.cshtml" />

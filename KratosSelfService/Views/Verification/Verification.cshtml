@@ -8,6 +8,6 @@
 <hr/>
 @await Component.InvokeAsync("KratosUiTextMessages", Model.flow.Ui.Messages)
 
-@await Component.InvokeAsync("KratosUi", new KratosUiModel(
-           Model.flow.Ui,
-           FlowType.Verification))
+@await Component.InvokeAsync("KratosUiComponent", new KratosUiArgs(
+    Model.flow.Ui,
+    FlowType.Verification))

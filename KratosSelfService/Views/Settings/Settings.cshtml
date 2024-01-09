@@ -74,13 +74,13 @@
                     <form class="mb-3" action="@Model.flow.Ui.Action" method="@Model.flow.Ui.Method">
                         @foreach (var node in defaultNodes)
                         {
-                            var model = new KratosUiNodeModel(node, FlowType.Settings);
-                            @await Component.InvokeAsync("KratosUiNodeInput", model)
+                            var model = new KratosUiNodeArgs(node, FlowType.Settings);
+                            @await Component.InvokeAsync("KratosUiNodeComponent", model)
                         }
                         @foreach (var node in group)
                         {
-                            var model = new KratosUiNodeModel(node, FlowType.Settings);
-                            @await Component.InvokeAsync("KratosUiNodeInput", model)
+                            var model = new KratosUiNodeArgs(node, FlowType.Settings);
+                            @await Component.InvokeAsync("KratosUiNodeComponent", model)
                         }
                     </form>
                 </div>

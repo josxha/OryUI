@@ -63,15 +63,23 @@ public record KratosUiTextMessageModel(
     string CssClass
 );
 
-public record KratosUiNodeModel(
+public record KratosUiNodeArgs(
     KratosUiNode node,
     FlowType FlowType,
     string? forgotPasswordUrl = null
 );
 
+public record KratosUiArgs(
+    KratosUiContainer ui,
+    FlowType flowType,
+    List<KratosUiNode.GroupEnum>? hiddenGroups = null,
+    string? forgotPasswordUrl = null);
+
 public record KratosUiModel(
     KratosUiContainer ui,
     FlowType flowType,
+    Dictionary<KratosUiNode.GroupEnum, List<KratosUiNode>> nodeGroups,
+    List<KratosUiNode> defaultGroup,
     string? forgotPasswordUrl = null
 );
 

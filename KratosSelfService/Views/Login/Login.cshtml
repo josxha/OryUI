@@ -11,7 +11,8 @@
     <p class="has-text-centered mt-3">
         @OryTranslator.Get("login.logout-label") <a href="">@OryTranslator.Get("login.logout-button")</a>
     </p>
-} else
+}
+else
 {
     <p class="has-text-centered">
         @OryTranslator.Get("login.registration-label")
@@ -24,28 +25,26 @@
 <div class="mb-2">
     @await Component.InvokeAsync("KratosUiTextMessages", Model.flow.Ui.Messages)
 
-    @await Component.InvokeAsync("KratosUi", new KratosUiModel(
-               Model.flow.Ui,
-               FlowType.Login,
-               Model.forgotPasswordUrl))
+    @await Component.InvokeAsync("KratosUiComponent", new KratosUiArgs(
+        Model.flow.Ui,
+        FlowType.Login,
+        hiddenGroups: [KratosUiNode.GroupEnum.Oidc],
+        forgotPasswordUrl: Model.forgotPasswordUrl))
 </div>
 
 @if (!is2Fa)
 {
-    <!--<div class="field separator">Or sign in with</div>
-    <div class="field">
-        <div class="columns is-mobile is-multiline">
-            @for (var i = 0; i < 1; i++)
-            {
-                <div class="column is-one-third">
-                    <a class="button is-fullwidth">
-                        <span class="icon">
-                            <i class="fab fa-google"></i>
-                        </span>
-                        <span>Google</span>
-                    </a>
-                </div>
-            }
+    var nodes = Model.flow.Ui.Nodes.Where(node => node.Group == KratosUiNode.GroupEnum.Oidc);
+    <div class="field separator">@CustomTranslator.Get("login.signInWithProvider")</div>
+    <form class="mb-3" action="@Model.flow.Ui.Action" method="@Model.flow.Ui.Method">
+        <div class="field">
+            <div class="columns is-mobile is-multiline">
+                @foreach (var node in nodes)
+                {
+                    @await Component.InvokeAsync("KratosUiNodeComponent", new KratosUiNodeArgs(
+                        node, FlowType.Login, Model.forgotPasswordUrl))
+                }
+            </div>
         </div>
-    </div>-->
+    </form>
 }

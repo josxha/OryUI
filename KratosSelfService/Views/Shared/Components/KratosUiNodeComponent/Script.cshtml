@@ -1,4 +1,4 @@
-﻿@model KratosUiNodeModel
+﻿@model KratosUiNodeArgs
 
 @{
     var attributes = Model.node.Attributes.GetKratosUiNodeScriptAttributes();
@@ -9,8 +9,5 @@
             crossorigin="@attributes.Crossorigin" referrerpolicy="@attributes.Referrerpolicy"
             nonce="@attributes.Nonce" integrity="@attributes.Integrity"
             id="@attributes.Id"></script>
-    @foreach (var message in Model.node.Messages)
-    {
-        <KratosUiTextMessage Message="@message"/>
-    }
+    <KratosUiTextMessages Message="@Model.node.Messages"/>
 </div>

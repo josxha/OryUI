@@ -1,4 +1,4 @@
-﻿@model KratosUiNodeModel
+﻿@model KratosUiNodeArgs
 
 @{
     var attributes = Model.node.Attributes.GetKratosUiNodeInputAttributes();
@@ -12,8 +12,5 @@
            disabled="@attributes.Disabled" name="@attributes.Name"
            onclick="@attributes.Onclick" pattern="@attributes.Pattern"/>
     @OryTranslator.ForUiText(uiText)
-    @foreach (var message in Model.node.Messages)
-    {
-        <KratosUiTextMessage Message="@message"/>
-    }
+    <KratosUiTextMessages Message="@Model.node.Messages"/>
 </label>

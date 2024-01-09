@@ -1,4 +1,4 @@
-﻿@model KratosUiNodeModel
+﻿@model KratosUiNodeArgs
 
 @{
     var attributes = Model.node.Attributes.GetKratosUiNodeInputAttributes();
@@ -6,10 +6,9 @@
     var isFullWidth = Model.FlowType != FlowType.Settings;
     var buttonType = attributes.Name switch
     {
-        "lookup_secret_disable" => "is-warning",
-        "webauthn_remove" or "totp_unlink" => "is-warning",
-        _ => "is-success"
-        };
+        "lookup_secret_disable" or "webauthn_remove" or "totp_unlink" or "unlink" => "is-warning",
+        _ => "is-info"
+    };
 }
 
 <div class="field">
@@ -31,8 +30,5 @@
             }
         </button>
     </div>
-    @foreach (var message in Model.node.Messages)
-    {
-        <KratosUiTextMessage Message="@message"/>
-    }
+    <KratosUiTextMessages Message="@Model.node.Messages"/>
 </div>

@@ -1,4 +1,4 @@
-﻿@model KratosUiNodeModel
+﻿@model KratosUiNodeArgs
 
 @{
     var attributes = Model.node.Attributes.GetKratosUiNodeAnchorAttributes();
@@ -10,8 +10,5 @@
             @OryTranslator.ForUiText(attributes.Title)
         </a>
     </div>
-    @foreach (var message in Model.node.Messages)
-    {
-        <KratosUiTextMessage Message="@message"/>
-    }
+    <KratosUiTextMessages Message="@Model.node.Messages"/>
 </div>

@@ -42,7 +42,7 @@ selfservice:
       enabled: true
       config:
         providers:
-          - id: google
+          - id: Google
             provider: google
             client_id: 'notARealClientId.apps.googleusercontent.com'
             # https://www.ory.sh/docs/kratos/social-signin/google#data-mapping
@@ -58,6 +58,13 @@ selfservice:
                 email: null
                 email_verified: null
             label: 'Google'
+          - id: Facebook
+            provider: facebook
+            client_id: "fakeClientId"
+            client_secret: "fakeClientSecret"            
+            mapper_url: "base64://bG9jYWwgY2xhaW1zID0gewogIGVtYWlsX3ZlcmlmaWVkOiBmYWxzZSwKfSArIHN0ZC5leHRWYXIoJ2NsYWltcycpOwoKewogIGlkZW50aXR5OiB7CiAgICB0cmFpdHM6IHsKICAgICAgW2lmICdlbWFpbCcgaW4gY2xhaW1zICYmIGNsYWltcy5lbWFpbF92ZXJpZmllZCB0aGVuICdlbWFpbCcgZWxzZSBudWxsXTogY2xhaW1zLmVtYWlsLAogICAgICBuYW1lOiB7CiAgICAgICAgZmlyc3Q6IGNsYWltcy5naXZlbl9uYW1lLAogICAgICAgIGxhc3Q6IGNsYWltcy5mYW1pbHlfbmFtZQogICAgICB9LAogICAgICBbaWYgJ2hkJyBpbiBjbGFpbXMgJiYgY2xhaW1zLmVtYWlsX3ZlcmlmaWVkIHRoZW4gJ2hkJyBlbHNlIG51bGxdOiBjbGFpbXMuaGQsCiAgICB9LAogIH0sCn0="
+            scope:
+              - email
 
   flows:
     error:

@@ -38,6 +38,26 @@ selfservice:
             - https://127.0.0.1
           origin: https://127.0.0.1
           display_name: OryUI
+    oidc:
+      enabled: true
+      config:
+        providers:
+          - id: google
+            provider: google
+            client_id: 'notARealClientId.apps.googleusercontent.com'
+            # https://www.ory.sh/docs/kratos/social-signin/google#data-mapping
+            mapper_url: "base64://bG9jYWwgY2xhaW1zID0gewogIGVtYWlsX3ZlcmlmaWVkOiBmYWxzZSwKfSArIHN0ZC5leHRWYXIoJ2NsYWltcycpOwoKewogIGlkZW50aXR5OiB7CiAgICB0cmFpdHM6IHsKICAgICAgW2lmICdlbWFpbCcgaW4gY2xhaW1zICYmIGNsYWltcy5lbWFpbF92ZXJpZmllZCB0aGVuICdlbWFpbCcgZWxzZSBudWxsXTogY2xhaW1zLmVtYWlsLAogICAgICBuYW1lOiB7CiAgICAgICAgZmlyc3Q6IGNsYWltcy5naXZlbl9uYW1lLAogICAgICAgIGxhc3Q6IGNsYWltcy5mYW1pbHlfbmFtZQogICAgICB9LAogICAgICBbaWYgJ2hkJyBpbiBjbGFpbXMgJiYgY2xhaW1zLmVtYWlsX3ZlcmlmaWVkIHRoZW4gJ2hkJyBlbHNlIG51bGxdOiBjbGFpbXMuaGQsCiAgICB9LAogIH0sCn0="
+            client_secret: 'clientSecret'
+            issuer_url: 'https://accounts.google.com'
+            auth_url: 'https://accounts.google.com/o/oauth2/v2/auth'
+            token_url: 'https://www.googleapis.com/oauth2/v4/token'
+            scope: [ offline_access, email, profile ]
+            subject_source: userinfo
+            requested_claims:
+              id_token:
+                email: null
+                email_verified: null
+            label: 'Google'
 
   flows:
     error:

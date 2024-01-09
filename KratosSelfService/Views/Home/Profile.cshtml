@@ -20,9 +20,21 @@
                             <tbody>
                             @foreach (var (schemaPathSections, schema) in Model.traitSchemas)
                             {
+                                var value = traits.GetTraitValueFromPath(schemaPathSections);
                                 <tr>
                                     <td>@schema.Title</td>
-                                    <td>@traits.GetTraitValueFromPath(schemaPathSections)</td>
+                                    @if (string.IsNullOrWhiteSpace(value))
+                                    {
+                                        <td>
+                                            <p class="is-italic has-text-grey">
+                                                @CustomTranslator.Get("profile.empty")
+                                            </p>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td>@value</td>
+                                    }
                                 </tr>
                             }
                             </tbody>

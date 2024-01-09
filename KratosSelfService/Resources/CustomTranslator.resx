@@ -84,4 +84,7 @@
     <data name="login.signInWithProvider" xml:space="preserve">
         <value>Or sign in with</value>
     </data>
+    <data name="profile.empty" xml:space="preserve">
+        <value>empty</value>
+    </data>
 </root>

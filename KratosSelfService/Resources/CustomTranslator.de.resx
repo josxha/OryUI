@@ -133,4 +133,7 @@
     <data name="login.signInWithProvider" xml:space="preserve">
         <value>Oder anmelden mit</value>
     </data>
+    <data name="profile.empty" xml:space="preserve">
+        <value>leer</value>
+    </data>
 </root>

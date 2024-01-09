@@ -2,7 +2,9 @@
 @{
     ViewData["Title"] = OryTranslator.Get("login.title");
     Layout = "_CardLayout";
-    var is2Fa = Model.flow.Ui.Messages?.All(text => text.Id == 1010004) ?? false;
+    var is2Fa = Model.flow.Ui.Nodes?.Any(node => 
+        node.Type == KratosUiNode.TypeEnum.Input && 
+        node.Attributes.GetKratosUiNodeInputAttributes().Name == "lookup_secret") ?? false;
 }
 
 <h1 class="title has-text-centered">@OryTranslator.Get("login.title")</h1>
@@ -34,17 +36,22 @@ else
 
 @if (!is2Fa)
 {
-    var nodes = Model.flow.Ui.Nodes.Where(node => node.Group == KratosUiNode.GroupEnum.Oidc);
-    <div class="field separator">@CustomTranslator.Get("login.signInWithProvider")</div>
-    <form class="mb-3" action="@Model.flow.Ui.Action" method="@Model.flow.Ui.Method">
-        <div class="field">
-            <div class="columns is-mobile is-multiline">
-                @foreach (var node in nodes)
-                {
-                    @await Component.InvokeAsync("KratosUiNodeComponent", new KratosUiNodeArgs(
-                        node, FlowType.Login, Model.forgotPasswordUrl))
-                }
+    var nodes = Model.flow.Ui.Nodes?
+        .Where(node => node.Group == KratosUiNode.GroupEnum.Oidc)
+        .ToList();
+    if (nodes is { Count: > 0 })
+    {
+        <div class="field separator">@CustomTranslator.Get("login.signInWithProvider")</div>
+        <form class="mb-3" action="@Model.flow.Ui.Action" method="@Model.flow.Ui.Method">
+            <div class="field">
+                <div class="columns is-mobile is-multiline">
+                    @foreach (var node in nodes)
+                    {
+                        @await Component.InvokeAsync("KratosUiNodeComponent", new KratosUiNodeArgs(
+                            node, FlowType.Login, Model.forgotPasswordUrl))
+                    }
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    }
 }

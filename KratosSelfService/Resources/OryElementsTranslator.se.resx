@@ -604,6 +604,10 @@
     <value>Skapa ett konto</value>
     <comment>registration.title</comment>
   </data>
+  <data name="settings.navigation-back-button" xml:space="preserve">
+    <value>Tillbaka</value>
+    <comment>settings.navigation-back-button</comment>
+  </data>
   <data name="settings.navigation-backup-codes" xml:space="preserve">
     <value>2FA backupkoder</value>
     <comment>settings.navigation-backup-codes</comment>

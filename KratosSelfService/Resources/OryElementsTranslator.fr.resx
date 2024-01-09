@@ -604,6 +604,10 @@
     <value>Créer un compte</value>
     <comment>registration.title</comment>
   </data>
+  <data name="settings.navigation-back-button" xml:space="preserve">
+    <value>Revenir en arrière</value>
+    <comment>settings.navigation-back-button</comment>
+  </data>
   <data name="settings.navigation-backup-codes" xml:space="preserve">
     <value>Codes de secours 2FA</value>
     <comment>settings.navigation-backup-codes</comment>

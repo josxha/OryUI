@@ -36,7 +36,7 @@ public class AuthenticationHandler(ApiService api) : IAuthenticationHandler
         {
             session = await api.Frontend.ToSessionAsync(cookie: cookies);
         }
-        catch (ApiException exception)
+        catch (ApiException)
         {
             return AuthenticateResult.Fail("No valid session.");
         }

@@ -1,0 +1,19 @@
+﻿@model KratosUiModel
+
+@foreach (var (group, nodes) in Model.nodeGroups)
+{
+    <form class="mb-3" action="@Model.ui.Action" method="@Model.ui.Method">
+        @if (group != KratosUiNode.GroupEnum.Oidc) {
+            foreach (var node in Model.defaultGroup)
+            {
+                @await Component.InvokeAsync("KratosUiNodeComponent", new KratosUiNodeArgs(
+                    node, Model.flowType, Model.forgotPasswordUrl))
+            }
+        }
+        @foreach (var node in nodes)
+        {
+            @await Component.InvokeAsync("KratosUiNodeComponent", new KratosUiNodeArgs(
+                node, Model.flowType, Model.forgotPasswordUrl))
+        }
+    </form>
+}

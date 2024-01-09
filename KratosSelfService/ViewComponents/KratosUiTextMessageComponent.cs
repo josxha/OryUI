@@ -5,7 +5,7 @@ using Ory.Kratos.Client.Model;
 
 namespace KratosSelfService.ViewComponents;
 
-public class KratosUiTextMessage(IOryElementsTranslator oryTranslator) : ViewComponent
+public class KratosUiTextMessageComponent(IOryElementsTranslator oryTranslator) : ViewComponent
 {
     public async Task<ViewViewComponentResult> InvokeAsync(KratosUiText uiText)
     {

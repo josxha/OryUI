@@ -1,9 +1,0 @@
-﻿@model KratosUiNodeModel
-
-<div class="field">
-    <p>Unsupported UI Type: @Model.node.Type</p>
-    @foreach (var message in Model.node.Messages)
-    {
-        <KratosUiTextMessage Message="@message"/>
-    }
-</div>

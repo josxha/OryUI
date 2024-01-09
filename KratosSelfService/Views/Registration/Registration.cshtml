@@ -15,7 +15,7 @@
 <div class="mb-2">
     @await Component.InvokeAsync("KratosUiTextMessages", Model.flow.Ui.Messages)
     
-    @await Component.InvokeAsync("KratosUi", new KratosUiModel(
+    @await Component.InvokeAsync("KratosUiComponent", new KratosUiArgs(
                Model.flow.Ui,
                FlowType.Registration))
 </div>

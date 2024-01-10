@@ -1,5 +1,6 @@
 ﻿@{
     Layout = "_Layout";
+    var path = Context.Request.Path.ToString();
 }
 
 <body class="has-navbar-fixed-top">
@@ -19,15 +20,15 @@
 
     <div id="navBar" class="navbar-menu">
         <div class="navbar-end">
-            <a class="navbar-item" href="~/">
+            <a class="navbar-item @(path == "/" ? "is-active" : "")" href="~/">
                 Profile
             </a>
 
-            <a class="navbar-item" href="~/sessions">
+            <a class="navbar-item @(path == "/sessions" ? "is-active" : "")" href="~/sessions">
                 Active Sessions
             </a>
 
-            <a class="navbar-item" href="~/settings">
+            <a class="navbar-item @(path == "/settings" ? "is-active" : "")" href="~/settings">
                 Settings
             </a>
             <div class="navbar-item">

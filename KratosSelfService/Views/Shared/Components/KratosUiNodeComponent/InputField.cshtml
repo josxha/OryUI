@@ -39,5 +39,5 @@
         </div>
     }
 
-    <KratosUiTextMessages Message="@Model.node.Messages"/>
+    @await Component.InvokeAsync("KratosUiTextMessages", Model.node.Messages)
 </div>

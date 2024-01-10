@@ -9,5 +9,5 @@
             crossorigin="@attributes.Crossorigin" referrerpolicy="@attributes.Referrerpolicy"
             nonce="@attributes.Nonce" integrity="@attributes.Integrity"
             id="@attributes.Id"></script>
-    <KratosUiTextMessages Message="@Model.node.Messages"/>
+    @await Component.InvokeAsync("KratosUiTextMessages", Model.node.Messages)
 </div>

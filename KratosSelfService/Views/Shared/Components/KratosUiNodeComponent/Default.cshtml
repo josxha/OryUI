@@ -2,5 +2,5 @@
 
 <div class="field">
     <p>Unsupported UI Type: @Model.node.Type</p>
-    <KratosUiTextMessages Message="@Model.node.Messages"/>
+    @await Component.InvokeAsync("KratosUiTextMessages", Model.node.Messages)
 </div>

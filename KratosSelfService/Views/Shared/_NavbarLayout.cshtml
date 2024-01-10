@@ -1,4 +1,6 @@
-﻿@{
+﻿@using KratosSelfService.Services
+@inject EnvService env
+@{
     Layout = "_Layout";
     var path = Context.Request.Path.ToString();
 }
@@ -8,7 +10,14 @@
 <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="~/">
-            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+            @if (!string.IsNullOrWhiteSpace(env.WebsiteLogoUri))
+            {
+                <img src="@env.WebsiteLogoUri" width="112" height="28" alt="Logo">
+            }
+            @if (!string.IsNullOrWhiteSpace(env.WebsiteTitle))
+            {
+                <span class="title">OryUI</span>
+            }
         </a>
 
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navBar">

@@ -1,0 +1,61 @@
+﻿@using KratosSelfService.Services
+@inject EnvService env
+@{
+    Layout = "_Layout";
+    var path = Context.Request.Path.ToString();
+}
+
+<body class="has-navbar-fixed-top">
+
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="~/">
+            @if (!string.IsNullOrWhiteSpace(env.WebsiteLogoUri))
+            {
+                <img src="@env.WebsiteLogoUri" width="112" height="28" alt="Logo">
+            }
+            @if (!string.IsNullOrWhiteSpace(env.WebsiteTitle))
+            {
+                <span class="title">OryUI</span>
+            }
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navBar">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navBar" class="navbar-menu">
+        <div class="navbar-end">
+            <a class="navbar-item @(path == "/" ? "is-active" : "")" href="~/">
+                @CustomTranslator.Get("navbar.profile")
+            </a>
+
+            <a class="navbar-item @(path == "/sessions" ? "is-active" : "")" href="~/sessions">
+                @CustomTranslator.Get("navbar.sessions")
+            </a>
+
+            <a class="navbar-item @(path == "/settings" ? "is-active" : "")" href="~/settings">
+                @CustomTranslator.Get("navbar.settings")
+            </a>
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-dark" href="~/logout">
+                        @CustomTranslator.Get("navbar.logout")
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main>
+    @RenderBody()
+</main>
+
+<script src="~/lib/fontawesome-all.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", false)
+</body>

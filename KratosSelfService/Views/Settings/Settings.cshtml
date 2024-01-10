@@ -1,6 +1,7 @@
 ﻿@using KratosSelfService.Extensions
 @model SettingsModel
 @{
+    Layout = "_NavbarLayout";
     ViewData["Title"] = OryTranslator.Get("settings.title");
     var allGroups = Model.flow.Ui.Nodes
         .GroupBy(node => node.Group).ToList();

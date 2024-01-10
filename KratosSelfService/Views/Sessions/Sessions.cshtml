@@ -1,6 +1,7 @@
 ﻿@using UAParser
 @model SessionsModel
 @{
+    Layout = "_NavbarLayout";
     ViewData["Title"] = CustomTranslator.Get("sessions.title");
     var totalSessions = Model.OtherSessions.Count + 1;
     var uaParser = Parser.GetDefault();

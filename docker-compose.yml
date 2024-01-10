@@ -29,6 +29,8 @@ services:
       - KRATOS_BROWSER_URL=http://127.0.0.1:4433
       - HYDRA_ADMIN_URL=http://ory-hydra-1:4445
       - HYDRA_TRAITS_MAPPING=email:email,name.first:given_name,name.last:family_name
+      - WEBSITE_TITLE=OryUI
+      #- WEBSITE_LOGO_URI=https://example.com/logo.png
 
 networks:
   ory:

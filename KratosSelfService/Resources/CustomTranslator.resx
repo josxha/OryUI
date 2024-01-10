@@ -19,7 +19,7 @@
         <value>Welcome</value>
     </data>
     <data name="Logout" xml:space="preserve">
-        <value>Logout</value>
+        <value>Log out</value>
     </data>
     <data name="Or sign in with" xml:space="preserve">
         <value>Or login with</value>
@@ -79,12 +79,24 @@
         <value>You have {0} active sessions.</value>
     </data>
     <data name="profile.title" xml:space="preserve">
-        <value>View profile</value>
+        <value>My Profile</value>
     </data>
     <data name="login.signInWithProvider" xml:space="preserve">
         <value>Or sign in with</value>
     </data>
     <data name="profile.empty" xml:space="preserve">
         <value>empty</value>
+    </data>
+    <data name="navbar.profile" xml:space="preserve">
+        <value>My Profile</value>
+    </data>
+    <data name="navbar.sessions" xml:space="preserve">
+        <value>Active Sessions</value>
+    </data>
+    <data name="navbar.settings" xml:space="preserve">
+        <value>Settings</value>
+    </data>
+    <data name="navbar.logout" xml:space="preserve">
+        <value>Log out</value>
     </data>
 </root>

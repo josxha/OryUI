@@ -128,12 +128,24 @@
         <value>Sie haben {0} aktive Sitzungen.</value>
     </data>
     <data name="profile.title" xml:space="preserve">
-        <value>Profil ansehen</value>
+        <value>Mein Profil</value>
     </data>
     <data name="login.signInWithProvider" xml:space="preserve">
         <value>Oder anmelden mit</value>
     </data>
     <data name="profile.empty" xml:space="preserve">
         <value>leer</value>
+    </data>
+    <data name="navbar.profile" xml:space="preserve">
+        <value>Mein Profil</value>
+    </data>
+    <data name="navbar.sessions" xml:space="preserve">
+        <value>Aktive Sitzungen</value>
+    </data>
+    <data name="navbar.settings" xml:space="preserve">
+        <value>Einstellungen</value>
+    </data>
+    <data name="navbar.logout" xml:space="preserve">
+        <value>Abmelden</value>
     </data>
 </root>

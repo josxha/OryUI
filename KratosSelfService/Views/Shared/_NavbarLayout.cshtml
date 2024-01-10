@@ -21,20 +21,20 @@
     <div id="navBar" class="navbar-menu">
         <div class="navbar-end">
             <a class="navbar-item @(path == "/" ? "is-active" : "")" href="~/">
-                Profile
+                @CustomTranslator.Get("navbar.profile")
             </a>
 
             <a class="navbar-item @(path == "/sessions" ? "is-active" : "")" href="~/sessions">
-                Active Sessions
+                @CustomTranslator.Get("navbar.sessions")
             </a>
 
             <a class="navbar-item @(path == "/settings" ? "is-active" : "")" href="~/settings">
-                Settings
+                @CustomTranslator.Get("navbar.settings")
             </a>
             <div class="navbar-item">
                 <div class="buttons">
                     <a class="button is-dark" href="~/logout">
-                        Log out
+                        @CustomTranslator.Get("navbar.logout")
                     </a>
                 </div>
             </div>

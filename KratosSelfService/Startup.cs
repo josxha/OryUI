@@ -51,7 +51,12 @@ public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
         var supportedCultures = new[]
         {
             new CultureInfo("en"),
-            new CultureInfo("de")
+            new CultureInfo("de"),
+            new CultureInfo("es"),
+            new CultureInfo("fr"),
+            new CultureInfo("nl"),
+            new CultureInfo("pt"),
+            new CultureInfo("se")
         };
         app.UseRequestLocalization(new RequestLocalizationOptions
         {
@@ -62,9 +67,11 @@ public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
 
         // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment())
+        {
             // The default HSTS value is 30 days. You may want to change this
             // for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
+        }
 
         app.UseStaticFiles();
         app.UseRouting();

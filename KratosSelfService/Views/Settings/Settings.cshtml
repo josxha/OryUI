@@ -35,21 +35,36 @@
                         </li>
                     }
                 </ul>
-                <!--<p class="menu-label mt-5">@CustomTranslator.Get("Actions")</p>
-                <ul class="menu-list">
-                    <li>
-                        <a href="logout">
-                            <span class="icon-text">
-                                <span class="icon">
-                                    <i class="fa-solid fa-sign-out fa-sm"></i>
+                @if (!string.IsNullOrWhiteSpace(Model.flow.ReturnTo))
+                {
+                    <p class="menu-label mt-5">@CustomTranslator.Get("Actions")</p>
+                    <ul class="menu-list">
+                        <li>
+                            <a href="@Model.flow.ReturnTo">
+                                <span class="icon-text">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-backward fa-sm"></i>
+                                    </span>
+                                    <span>
+                                        @OryTranslator.Get("settings.navigation-back-bu")
+                                    </span>
                                 </span>
-                                <span>
-                                    @OryTranslator.Get("settings.navigation-logout")
+                            </a>
+                        </li>
+                        <!--<li>
+                            <a href="logout">
+                                <span class="icon-text">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-sign-out fa-sm"></i>
+                                    </span>
+                                    <span>
+                                        @OryTranslator.Get("settings.navigation-logout")
+                                    </span>
                                 </span>
-                            </span>
-                        </a>
-                    </li>
-                </ul>-->
+                            </a>
+                        </li>-->
+                    </ul>
+                }
             </aside>
         </div>
     </div>

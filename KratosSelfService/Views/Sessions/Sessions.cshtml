@@ -29,9 +29,9 @@
                     {
                         var info = uaParser.Parse(device.UserAgent);
                         <p>
-                            @info.Device.Family on @info.OS
-                            @device.IpAddress
-                            @(string.IsNullOrWhiteSpace(device.Location) ? "" : $"({device.Location})")
+                            @info.Device.ToString() on @info.OS
+                            (@device.IpAddress
+                            @(string.IsNullOrWhiteSpace(device.Location) ? "" : $"({device.Location}"))
                         </p>
                     }
                 </td>
@@ -71,13 +71,12 @@
                             {
                                 var info = uaParser.Parse(device.UserAgent);
                                 <p>
-                                    @info.Device.Family on @info.OS
-                                    @device.IpAddress
-                                    @(string.IsNullOrWhiteSpace(device.Location) ? "" : $"({device.Location})")
+                                    @info.Device.ToString() on @info.OS
+                                    (@device.IpAddress
+                                    @(string.IsNullOrWhiteSpace(device.Location) ? "" : $"{device.Location}"))
                                 </p>
                             }
                         </td>
-                        <td>@string.Join(", ", session.Devices.Select(device => device.IpAddress))</td>
                         <td>@session.AuthenticatedAt</td>
                         <td>@session.ExpiresAt</td>
                     </tr>

@@ -13,7 +13,6 @@ public partial class Index
     // ReSharper disable once UnusedAutoPropertyAccessor.Local
     private int PageNr { get; set; }
 
-    [Inject] private IdentitySchemaService SchemaService { get; set; } = default!;
     [Inject] private ApiService ApiService { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()

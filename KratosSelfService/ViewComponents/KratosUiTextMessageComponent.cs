@@ -7,11 +7,11 @@ namespace KratosSelfService.ViewComponents;
 
 public class KratosUiTextMessageComponent(IOryElementsTranslator oryTranslator) : ViewComponent
 {
-    public async Task<ViewViewComponentResult> InvokeAsync(KratosUiText uiText)
+    public Task<ViewViewComponentResult> InvokeAsync(KratosUiText uiText)
     {
         var content = oryTranslator.ForUiText(uiText);
         var model = new KratosUiTextMessageModel(uiText, content!, GetCssClass(uiText.Type));
-        return View("Default", model);
+        return Task.FromResult(View("Default", model));
     }
 
     private static string GetCssClass(KratosUiText.TypeEnum type)

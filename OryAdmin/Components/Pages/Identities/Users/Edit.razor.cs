@@ -26,11 +26,6 @@ public partial class Edit
         _isLoading = false;
     }
 
-    private void Cancel()
-    {
-        nav.NavigateTo($"identities/users/{UserId}");
-    }
-
     private async Task SubmitForm()
     {
         var updateBody = new KratosUpdateIdentityBody(traits: _json, schemaId: _identity!.SchemaId);
@@ -45,9 +40,5 @@ public partial class Edit
         }
 
         nav.NavigateTo($"identities/users/{UserId}");
-    }
-
-    private void UpdateValue(JSchema schema, ChangeEventArgs args)
-    {
     }
 }

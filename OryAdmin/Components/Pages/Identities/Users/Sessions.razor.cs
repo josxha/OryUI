@@ -14,7 +14,6 @@ public partial class Sessions
     private bool _showDeleteSessionsModal;
     [Parameter] public string? UserId { get; set; }
     [Inject] private ApiService ApiService { get; set; } = default!;
-    [Inject] private EnvService EnvService { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()
     {

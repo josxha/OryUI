@@ -7,7 +7,7 @@ namespace KratosSelfService.ViewComponents;
 
 public class KratosUiComponent : ViewComponent
 {
-    public async Task<ViewViewComponentResult> InvokeAsync(KratosUiArgs args)
+    public Task<ViewViewComponentResult> InvokeAsync(KratosUiArgs args)
     {
         var nodeGroups = new Dictionary<KratosUiNode.GroupEnum, List<KratosUiNode>>();
         foreach (var node in args.ui.Nodes)
@@ -22,11 +22,11 @@ public class KratosUiComponent : ViewComponent
         foreach (var hiddenGroup in args.hiddenGroups ?? [])
             nodeGroups.Remove(hiddenGroup);
 
-        return View("Default", new KratosUiModel(
+        return Task.FromResult(View("Default", new KratosUiModel(
             args.ui,
             args.flowType,
             nodeGroups,
             defaultGroup,
-            args.forgotPasswordUrl));
+            args.forgotPasswordUrl)));
     }
 }

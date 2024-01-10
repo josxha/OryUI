@@ -6,8 +6,8 @@ namespace KratosSelfService.ViewComponents;
 
 public class KratosUiTextMessages : ViewComponent
 {
-    public async Task<ViewViewComponentResult> InvokeAsync(List<KratosUiText>? model)
+    public Task<ViewViewComponentResult> InvokeAsync(List<KratosUiText>? model)
     {
-        return View("Default", model);
+        return Task.FromResult(View("Default", model));
     }
 }

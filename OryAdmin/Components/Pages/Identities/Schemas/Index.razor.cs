@@ -16,7 +16,6 @@ public partial class Index
     private string? SchemaId { get; set; }
 
     [Inject] private ApiService ApiService { get; set; } = default!;
-    [Inject] private IdentitySchemaService SchemaService { get; set; } = default!;
 
     protected override async Task OnInitializedAsync()
     {
@@ -33,6 +32,6 @@ public partial class Index
 
     protected override void OnParametersSet()
     {
-        _selectedSchema = _schemas?.First(schema => schema.Id == SchemaId);
+        _selectedSchema = _schemas?.FirstOrDefault(schema => schema.Id == SchemaId);
     }
 }

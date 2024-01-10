@@ -1,6 +1,6 @@
 ﻿@model KratosUiModel
 
-@foreach (var (group, nodes) in Model.nodeGroups)
+@foreach (var (_, nodes) in Model.nodeGroups)
 {
     <form class="mb-3" action="@Model.ui.Action" method="@Model.ui.Method">
         @foreach (var node in Model.defaultGroup)

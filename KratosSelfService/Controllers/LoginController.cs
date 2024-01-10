@@ -35,7 +35,7 @@ public class LoginController(ILogger<LoginController> logger, ApiService api) : 
                 
                 Console.WriteLine(cookie);
             }
-            if (Request.Headers.Cookie.Any(s => s.Contains("ory_kratos_session=")))
+            if (Request.Headers.Cookie.Any(s => s?.Contains("ory_kratos_session=") ?? false))
                 return Redirect("logout");
             // initiate flow
             return Redirect(GetInitFlowUrl(aal, refresh, returnTo, organization, loginChallenge));
@@ -122,7 +122,7 @@ public class LoginController(ILogger<LoginController> logger, ApiService api) : 
                 .CreateBrowserVerificationFlowWithHttpInfoAsync(flow.ReturnTo);
             var verificationFlow = response.Data;
             // we need the csrf cookie from the verification flow
-            Response.Headers.Add(HeaderNames.SetCookie, response.Headers[HeaderNames.SetCookie].ToString());
+            Response.Headers.Append(HeaderNames.SetCookie, response.Headers[HeaderNames.SetCookie].ToString());
             // encode the verification flow id in the query parameters
             var paramDict = new Dictionary<string, string?>
             {
@@ -130,8 +130,6 @@ public class LoginController(ILogger<LoginController> logger, ApiService api) : 
                 ["message"] = flow.Ui.Messages.ToString()
             };
             var parameters = paramDict.EncodeQueryString();
-            var segments = new Uri(Request.Path).Segments;
-            var baseUrl = string.Join("/", segments[..^1]);
 
             var url = $"{Request.PathBase}/verification?{parameters}";
             return Redirect(url);

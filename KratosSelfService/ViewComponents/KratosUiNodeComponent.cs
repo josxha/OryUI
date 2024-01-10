@@ -7,12 +7,12 @@ namespace KratosSelfService.ViewComponents;
 
 public class KratosUiNodeComponent : ViewComponent
 {
-    public async Task<ViewViewComponentResult> InvokeAsync(KratosUiNodeArgs args)
+    public Task<ViewViewComponentResult> InvokeAsync(KratosUiNodeArgs args)
     {
         switch (args.node.Type)
         {
             case KratosUiNode.TypeEnum.Text:
-                return View("Text", args);
+                return Task.FromResult(View("Text", args));
             case KratosUiNode.TypeEnum.Input:
                 switch (args.node.Attributes.GetKratosUiNodeInputAttributes().Type)
                 {
@@ -25,29 +25,29 @@ public class KratosUiNodeComponent : ViewComponent
                     case KratosUiNodeInputAttributes.TypeEnum.DatetimeLocal:
                     case KratosUiNodeInputAttributes.TypeEnum.Date:
                     case KratosUiNodeInputAttributes.TypeEnum.Url:
-                        return View("InputField", args);
+                        return Task.FromResult(View("InputField", args));
                     case KratosUiNodeInputAttributes.TypeEnum.Checkbox:
-                        return View("InputCheckbox", args);
+                        return Task.FromResult(View("InputCheckbox", args));
                     case KratosUiNodeInputAttributes.TypeEnum.Submit:
                         var inputAttr = args.node.Attributes.GetKratosUiNodeInputAttributes();
                         if (args.FlowType != FlowType.Settings 
                             && inputAttr.Type == KratosUiNodeInputAttributes.TypeEnum.Submit
                             && inputAttr.Name == "provider") 
-                            return View("InputSubmitOidc", args);
-                        return View("InputSubmit", args);
+                            return Task.FromResult(View("InputSubmitOidc", args));
+                        return Task.FromResult(View("InputSubmit", args));
                     case KratosUiNodeInputAttributes.TypeEnum.Button:
-                        return View("InputButton", args);
+                        return Task.FromResult(View("InputButton", args));
                     default:
-                        return View("InputDefault", args);
+                        return Task.FromResult(View("InputDefault", args));
                 }
             case KratosUiNode.TypeEnum.Img:
-                return View("Image", args);
+                return Task.FromResult(View("Image", args));
             case KratosUiNode.TypeEnum.A:
-                return View("Anchor", args);
+                return Task.FromResult(View("Anchor", args));
             case KratosUiNode.TypeEnum.Script:
-                return View("Script", args);
+                return Task.FromResult(View("Script", args));
             default:
-                return View("Default", args);
+                return Task.FromResult(View("Default", args));
         }
     }
 }

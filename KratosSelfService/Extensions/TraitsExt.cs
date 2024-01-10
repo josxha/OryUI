@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 
-namespace OryAdmin.Extensions;
+namespace KratosSelfService.Extensions;
 
 public static class TraitsExt
 {

@@ -1,6 +1,5 @@
 ﻿@page "/identities/messages"
 @rendermode InteractiveServer
-@inject NavigationManager nav
 
 <PageTitle>Message Log | OryAdmin</PageTitle>
 
@@ -28,7 +27,7 @@ else
             </tr>
             </thead>
             <tbody>
-            @foreach (var message in _messages!)
+            @foreach (var message in _messages)
             {
                 <tr>
                     <td>

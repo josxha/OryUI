@@ -1,0 +1,33 @@
+﻿@model KratosUiModel
+
+<form class="mb-3" action="@Model.ui.Action" method="@Model.ui.Method">
+    @foreach (var node in Model.defaultGroup)
+    {
+        @await Component.InvokeAsync("KratosUiNodeComponent", new KratosUiNodeArgs(
+            node, Model.flowType, Model.forgotPasswordUrl))
+    }
+    @foreach (var nodeGroup in Model.nodeGroups.Keys)
+    {
+        string? caption = null;
+        <div class="field">
+            <button class="button is-info is-fullwidth" type="button" onclick="setGroup('@nodeGroup')">
+                Use @(caption ?? nodeGroup.ToString())
+            </button>
+        </div>
+    }
+</form>
+
+<script type="text/javascript">
+    const groupFields = {
+        @foreach (var (group, nodes) in Model.nodeGroups)
+        {
+            
+        }
+    }
+    let group = null
+    
+    function setGroup(selectedGroup) {
+      group = selectedGroup;
+      alert(group);
+    }
+</script>

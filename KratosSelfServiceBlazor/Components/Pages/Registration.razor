@@ -1,0 +1,55 @@
+﻿@page "/registration"
+@layout CardLayout
+@inject NavigationManager nav
+@inject ILogger<Login> logger
+@inject ApiService api
+@inject IHttpContextAccessor accessor
+@using KratosSelfServiceBlazor.Components.Elements
+@using System.ComponentModel
+
+<PageTitle>@OryTranslator.Get("registration.title")</PageTitle>
+
+<h1 class="title has-text-centered">@OryTranslator.Get("registration.title")</h1>
+
+@if (_isLoading)
+{
+    <Spinner/>
+}
+else
+{
+    <p class="has-text-centered">
+        @OryTranslator.Get("registration.login-label")
+        <a href="@_loginUrl">
+            @OryTranslator.Get("registration.login-button")
+        </a>
+    </p>
+    <hr/>
+    <div class="mb-2">
+        await Component.InvokeAsync("KratosUiTextMessages", _flow.Ui.Messages)
+
+        await Component.InvokeAsync("KratosUiComponent", new KratosUiArgs(
+        _flow.Ui,
+        FlowType.Registration,
+        hiddenGroups: [KratosUiNode.GroupEnum.Oidc]))
+    </div>
+
+    var nodes = _flow.Ui.Nodes?
+        .Where(node => node.Group == KratosUiNode.GroupEnum.Oidc)
+        .ToList();
+
+    if (nodes is { Count: > 0 })
+    {
+        <div class="field separator">@CustomTranslator.Get("login.signInWithProvider")</div>
+        <form class="mb-3" action="@_flow.Ui.Action" method="@_flow.Ui.Method">
+            <div class="field">
+                <div class="columns is-mobile is-multiline">
+                    foreach (var node in nodes)
+                    {
+                    await Component.InvokeAsync("KratosUiNodeComponent", new KratosUiNodeArgs(
+                    node, FlowType.Login))
+                    }
+                </div>
+            </div>
+        </form>
+    }
+}

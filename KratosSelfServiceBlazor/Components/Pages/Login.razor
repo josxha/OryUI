@@ -4,14 +4,15 @@
 @inject ILogger<Login> logger
 @inject ApiService api
 @inject IHttpContextAccessor accessor
+@using KratosSelfServiceBlazor.Components.Elements
 
 <PageTitle>@OryTranslator.Get("login.title")</PageTitle>
 
 <h1 class="title has-text-centered">@OryTranslator.Get("login.title")</h1>
-
+    
 @if (_isLoading)
 {
-    <p>Loading...</p>
+    <Spinner />
 }
 else
 {

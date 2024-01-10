@@ -1,0 +1,75 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager nav
+@inject EnvService env
+
+@{
+    var path = new Uri(nav.Uri).LocalPath;
+}
+
+<body class="has-navbar-fixed-top">
+
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            @if (!string.IsNullOrWhiteSpace(env.WebsiteLogoUri))
+            {
+                <img src="@env.WebsiteLogoUri" height="28" alt="Logo">
+            }
+            @if (!string.IsNullOrWhiteSpace(env.WebsiteTitle))
+            {
+                <span class="title">OryUI</span>
+            }
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navBar">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navBar" class="navbar-menu">
+        <div class="navbar-end">
+            <a class="navbar-item @(path == "/" ? "is-active" : "")" href="/">
+                @CustomTranslator.Get("navbar.profile")
+            </a>
+
+            <a class="navbar-item @(path == "/sessions" ? "is-active" : "")" href="/sessions">
+                @CustomTranslator.Get("navbar.sessions")
+            </a>
+
+            <a class="navbar-item @(path == "/settings" ? "is-active" : "")" href="/settings">
+                @CustomTranslator.Get("navbar.settings")
+            </a>
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-dark" href="/logout">
+                        @CustomTranslator.Get("navbar.logout")
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+          const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+          $navbarBurgers.forEach( el => {
+            el.addEventListener('click', () => {
+              const target = el.dataset.target;
+              const $target = document.getElementById(target);
+              el.classList.toggle('is-active');
+              $target.classList.toggle('is-active');
+            });
+          });
+        });
+    </script>
+</nav>
+
+<main>
+    @Body
+</main>
+
+<script src="/lib/fontawesome-all.min.js"></script>
+<script src="/js/site.js" asp-append-version="true"></script>
+<script src="_framework/blazor.web.js"></script>
+</body>

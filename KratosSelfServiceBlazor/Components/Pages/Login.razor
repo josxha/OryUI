@@ -1,0 +1,65 @@
+﻿@page "/login"
+@layout CardLayout
+@inject NavigationManager nav
+@inject ILogger<Login> logger
+@inject ApiService api
+@inject IHttpContextAccessor accessor
+
+<PageTitle>@OryTranslator.Get("login.title")</PageTitle>
+
+<h1 class="title has-text-centered">@OryTranslator.Get("login.title")</h1>
+
+@if (_isLoading)
+{
+    <p>Loading...</p>
+}
+else
+{
+    @if (_is2Fa)
+    {
+        <p class="has-text-centered mt-3">
+            @OryTranslator.Get("login.logout-label") <a href="logout">@OryTranslator.Get("login.logout-button")</a>
+        </p>
+    }
+    else
+    {
+        <p class="has-text-centered">
+            @OryTranslator.Get("login.registration-label")
+            <a href="@_signupUrl">
+                @OryTranslator.Get("login.registration-button")
+            </a>
+        </p>
+    }
+    <hr/>
+    <div class="mb-2">
+        await Component.InvokeAsync("KratosUiTextMessages", flow.Ui.Messages)
+
+        await Component.InvokeAsync("KratosUiComponent", new KratosUiArgs(
+        flow.Ui,
+        FlowType.Login,
+        hiddenGroups: [KratosUiNode.GroupEnum.Oidc],
+        forgotPasswordUrl: forgotPasswordUrl))
+    </div>
+
+    @if (!_is2Fa)
+    {
+        var nodes = _flow.Ui.Nodes?
+            .Where(node => node.Group == KratosUiNode.GroupEnum.Oidc)
+            .ToList();
+        if (nodes is { Count: > 0 })
+        {
+            <div class="field separator">@CustomTranslator.Get("login.signInWithProvider")</div>
+            <form class="mb-3" action="@_flow.Ui.Action" method="@_flow.Ui.Method">
+                <div class="field">
+                    <div class="columns is-mobile is-multiline">
+                        foreach (var node in nodes)
+                        {
+                        await Component.InvokeAsync("KratosUiNodeComponent", new KratosUiNodeArgs(
+                        node, FlowType.Login, forgotPasswordUrl))
+                        }
+                    </div>
+                </div>
+            </form>
+        }
+    }
+}

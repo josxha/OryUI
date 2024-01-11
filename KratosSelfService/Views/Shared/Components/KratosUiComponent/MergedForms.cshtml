@@ -6,28 +6,48 @@
         @await Component.InvokeAsync("KratosUiNodeComponent", new KratosUiNodeArgs(
             node, Model.flowType, Model.forgotPasswordUrl))
     }
-    @foreach (var nodeGroup in Model.nodeGroups.Keys)
+    @foreach (var (nodeGroup, nodes) in Model.nodeGroups)
     {
-        string? caption = null;
-        <div class="field">
-            <button class="button is-info is-fullwidth" type="button" onclick="setGroup('@nodeGroup')">
-                Use @(caption ?? nodeGroup.ToString())
-            </button>
+        <div id="method-@nodeGroup" class="is-hidden">
+            @foreach (var node in nodes)
+            {
+                @await Component.InvokeAsync("KratosUiNodeComponent", new KratosUiNodeArgs(
+                    node, Model.flowType, Model.forgotPasswordUrl))
+            }
         </div>
+        @if (nodes.Count == 1)
+        {
+            @await Component.InvokeAsync("KratosUiNodeComponent", new KratosUiNodeArgs(
+                nodes.First(), Model.flowType, Model.forgotPasswordUrl))
+        }
+        else
+        {
+            <div class="field">
+                <button class="button is-info is-fullwidth" type="button" onclick="setGroup('@nodeGroup')">
+                    Use @nodeGroup
+                </button>
+            </div>
+        }
     }
 </form>
 
 <script type="text/javascript">
-    const groupFields = {
-        @foreach (var (group, nodes) in Model.nodeGroups)
-        {
-            
-        }
-    }
-    let group = null
-    
     function setGroup(selectedGroup) {
-      group = selectedGroup;
-      alert(group);
+      const enabledGroups = [
+          @Html.Raw(string.Join(", ", Model.nodeGroups.Keys
+              .Where(group => Model.nodeGroups[group].Count > 1)
+              .Select(group => $"\'{group}\'")))
+      ];
+
+      // hide all groups
+      for (let group in enabledGroups) {
+        let div = document.getElementById("method-" + selectedGroup);
+        if (div !== null) div.classList.remove("is-hidden");
+      }
+      // show selected group
+      if (selectedGroup !== null) {
+          let div = document.getElementById("method-" + selectedGroup);
+          div.classList.remove("is-hidden");
+      }
     }
 </script>

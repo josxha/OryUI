@@ -1,0 +1,23 @@
+﻿@page "/verification"
+@layout CardLayout
+@inject NavigationManager nav
+@inject ILogger<Login> logger
+@inject ApiService api
+@inject IHttpContextAccessor accessor
+@attribute [AllowAnonymous]
+
+<PageTitle>@OryTranslator.Get("verification.title")</PageTitle>
+
+<h1 class="title has-text-centered">@OryTranslator.Get("verification.title")</h1>
+
+@if (_isLoading)
+{
+    <Spinner/>
+}
+else
+{
+    <hr/>
+    <KratosUiTextMessages list="@_flow.Ui.Messages"/>
+
+    <KratosUiComponent ui="@_flow.Ui" flowType="@FlowType.Verification"/>
+}

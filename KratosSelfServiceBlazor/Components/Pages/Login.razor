@@ -1,0 +1,70 @@
+﻿@page "/login"
+@layout CardLayout
+@inject NavigationManager nav
+@inject ILogger<Login> logger
+@inject ApiService api
+@inject IHttpContextAccessor accessor
+@attribute [AllowAnonymous]
+@using global::Ory.Kratos.Client.Model
+
+<PageTitle>@OryTranslator.Get("login.title")</PageTitle>
+
+<h1 class="title has-text-centered">@OryTranslator.Get("login.title")</h1>
+
+@if (_isLoading)
+{
+    <Spinner/>
+}
+else
+{
+    @if (_is2Fa)
+    {
+        <p class="has-text-centered mt-3">
+            @OryTranslator.Get("login.logout-label") <a href="logout">@OryTranslator.Get("login.logout-button")</a>
+        </p>
+    }
+    else
+    {
+        <p class="has-text-centered">
+            @OryTranslator.Get("login.registration-label")
+            <a href="@_signupUrl">
+                @OryTranslator.Get("login.registration-button")
+            </a>
+        </p>
+    }
+
+    <hr/>
+    <div class="mb-2">
+        <KratosUiTextMessages list="_flow.Ui.Messages"/>
+
+        <KratosUiComponent
+            ui="@_flow.Ui"
+            flowType="@FlowType.Login"
+            hiddenGroups="@(new List<KratosUiNode.GroupEnum> { KratosUiNode.GroupEnum.Oidc })"
+            forgotPasswordUrl="@_forgotPasswordUrl"/>
+    </div>
+
+    @if (!_is2Fa)
+    {
+        var nodes = _flow.Ui.Nodes?
+            .Where(node => node.Group == KratosUiNode.GroupEnum.Oidc)
+            .ToList();
+        if (nodes is { Count: > 0 })
+        {
+            <div class="field separator">@CustomTranslator.Get("login.signInWithProvider")</div>
+            <form class="mb-3" action="@_flow.Ui.Action" method="@_flow.Ui.Method">
+                <div class="field">
+                    <div class="columns is-mobile is-multiline">
+                        @foreach (var node in nodes)
+                        {
+                            <KratosUiNodeComponent
+                                node="node"
+                                flowType="FlowType.Login"
+                                forgotPasswordUrl="@_forgotPasswordUrl"/>
+                        }
+                    </div>
+                </div>
+            </form>
+        }
+    }
+}

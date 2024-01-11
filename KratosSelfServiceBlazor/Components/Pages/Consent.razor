@@ -1,0 +1,48 @@
+﻿@page "/consent"
+@layout CardLayout
+@inject NavigationManager nav
+@inject ILogger<Login> logger
+@inject ApiService api
+@inject EnvService env
+@inject IHttpContextAccessor accessor
+
+<PageTitle>CustomTranslator.Get("Grant access")</PageTitle>
+
+@if (_isLoading)
+{
+    <Spinner/>
+}
+else
+{
+    <form class="section" action="consent" method="post" @formname="consent">
+        <AntiForgeryToken />
+        <input type="hidden" name="consent_challenge" value="@_challengeRequest.Challenge">
+        <h1 class="title">An application wants to access your Account details</h1>
+        <h2 class="subtitle pt-2">These information will be accessible by @_clientName:</h2>
+        <nav>
+            <fieldset>
+                @foreach (var scopeItem in _challengeRequest.RequestedScope)
+                {
+                    <div class="is-fullwidth pt-2 pb-2">
+                        <label class="label">
+                            <input type="checkbox" name="grant_scope" checked value="@scopeItem">
+                            @scopeItem
+                        </label>
+                    </div>
+                }
+            </fieldset>
+        </nav>
+    
+        <div class="pt-5">
+            <label>
+                <input type="checkbox" name="remember" value="1">
+                Don't ask me again for this application
+            </label>
+        </div>
+    
+        <div class="pt-5 buttons is-justify-content-space-between">
+            <button type="submit" name="action" value="deny" class="button is-dark">Deny access</button>
+            <button type="submit" name="action" value="accept" class="button is-success">Allow access</button>
+        </div>
+    </form>
+}

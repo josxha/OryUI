@@ -22,6 +22,7 @@ public class SessionsController(ApiService api) : Controller
     [HttpGet("sessions-logout")]
     public async Task<IActionResult> LogoutAllOtherSessions()
     {
+        //TODO: protect with anti forgery token
         _ = await api.Frontend.DisableMyOtherSessionsAsync(cookie: Request.Headers.Cookie);
         return Redirect("sessions");
     }

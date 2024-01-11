@@ -19,11 +19,15 @@ public class SessionsController(ApiService api) : Controller
         return View("Sessions", model);
     }
 
-    [HttpGet("sessions-logout")]
-    public async Task<IActionResult> LogoutAllOtherSessions()
+    [HttpPost("sessions")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> LogoutAllOtherSessions([FromForm] string? action)
     {
-        //TODO: protect with anti forgery token
-        _ = await api.Frontend.DisableMyOtherSessionsAsync(cookie: Request.Headers.Cookie);
+        if (action == "invokeSessions")
+        {
+            _ = await api.Frontend.DisableMyOtherSessionsAsync(cookie: Request.Headers.Cookie);
+        }
+
         return Redirect("sessions");
     }
 }

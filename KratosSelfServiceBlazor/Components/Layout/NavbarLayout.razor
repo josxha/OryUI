@@ -21,14 +21,16 @@
             }
         </a>
 
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navBar">
+        <button type="button" role="button" class="navbar-burger" 
+           aria-label="menu" aria-expanded="false" data-target="navBar"
+           @onclick="() => _expanded = !_expanded">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
-        </a>
+        </button>
     </div>
 
-    <div id="navBar" class="navbar-menu">
+    <div id="navBar" class='navbar-menu @(_expanded ? "is-active" : "")'>
         <div class="navbar-end">
             <a class="navbar-item @(path == "/" ? "is-active" : "")" href="/">
                 @CustomTranslator.Get("navbar.profile")

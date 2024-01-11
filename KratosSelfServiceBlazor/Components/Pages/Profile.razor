@@ -1,0 +1,60 @@
+﻿@page "/profile"
+@layout NavbarLayout
+@inject NavigationManager nav
+@inject ILogger<Login> logger
+@inject ApiService api
+@inject IHttpContextAccessor accessor
+@inject IdentitySchemaService schemaService
+@using KratosSelfServiceBlazor.Components.Elements
+@using KratosSelfServiceBlazor.Components.OryElements
+@using global::Ory.Kratos.Client.Model
+
+<PageTitle>@CustomTranslator.Get("profile.title")</PageTitle>
+
+<h1 class="title has-text-centered">@CustomTranslator.Get("profile.title")</h1>
+
+@if (_isLoading)
+{
+    <Spinner/>
+}
+else
+{
+    <section class="hero has-background-white-ter is-fullheight">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-10-tablet is-8-desktop is-6-widescreen">
+                        <div class="box">
+                            <h1 class="title">
+                                @CustomTranslator.Get("profile.title")
+                            </h1>
+                            <table class="table is-fullwidth">
+                                <tbody>
+                                @foreach (var (schemaPathSections, schema) in _flatSchema)
+                                {
+                                    var value = _traits.GetTraitValueFromPath(schemaPathSections);
+                                    <tr>
+                                        <td>@schema.Title</td>
+                                        @if (string.IsNullOrWhiteSpace(value))
+                                        {
+                                            <td>
+                                                <p class="is-italic has-text-grey">
+                                                    @CustomTranslator.Get("profile.empty")
+                                                </p>
+                                            </td>
+                                        }
+                                        else
+                                        {
+                                            <td>@value</td>
+                                        }
+                                    </tr>
+                                }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}

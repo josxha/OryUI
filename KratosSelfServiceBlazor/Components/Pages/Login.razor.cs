@@ -26,10 +26,10 @@ public partial class Login
 
     private bool _isLoading = true;
 
-    private KratosLoginFlow _flow;
-    private string? _forgotPasswordUrl = null;
-    private string _signupUrl;
-    private string? _logoutUrl = null;
+    private KratosLoginFlow _flow = default!;
+    private string? _forgotPasswordUrl;
+    private string _signupUrl = default!;
+    private string? _logoutUrl;
     private bool _is2Fa;
 
     protected override async Task OnInitializedAsync()

@@ -1,0 +1,25 @@
+﻿@page "/logout"
+@layout CardLayout
+@inject NavigationManager nav
+@inject ILogger<Login> logger
+@inject ApiService api
+@inject IHttpContextAccessor accessor
+@using KratosSelfServiceBlazor.Components.Elements
+@using KratosSelfServiceBlazor.Components.OryElements
+@using global::Ory.Kratos.Client.Model
+
+<PageTitle>@OryTranslator.Get("logout.title")</PageTitle>
+
+<h1 class="title">@OryTranslator.Get("logout.title")</h1>
+<form method="post" action="logout">
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="challenge" value="@logoutChallenge"/>
+    <div class="buttons mt-5 is-fullwidth">
+        <button class="button is-info is-fullwidth" name="submit" type="submit" value="yes">
+            @OryTranslator.Get("logout.accept-button")
+        </button>
+        <button class="button is-light is-fullwidth" name="submit" type="submit" value="no">
+            @OryTranslator.Get("logout.reject-button")
+        </button>
+    </div>
+</form>

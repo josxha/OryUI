@@ -1,0 +1,12 @@
+﻿@page "/welcome"
+@inject NavigationManager nav
+
+@* this endpoint exists for parity reason to the ory kratos self service ui *@
+@code{
+    
+    protected override void OnInitialized()
+    {
+        nav.NavigateTo("/");
+    }
+
+}

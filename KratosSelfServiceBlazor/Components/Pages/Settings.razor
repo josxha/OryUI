@@ -29,7 +29,9 @@ else
                                 <a href="#@groupType.ToSiteAnchorTag()">
                                     <span class="icon-text">
                                         <span class="icon">
-                                            <i class="fa-solid @groupType.ToFaIcon() fa-sm"></i>
+                                            <i class="fa-solid @groupType.ToFaIcon() fa-sm"
+                                               style="max-width: 16px; max-height: 16px;">
+                                            </i>
                                         </span>
                                         <span>
                                             @groupType.ToLocalNavString(OryTranslator)
@@ -47,7 +49,9 @@ else
                                 <a href="@_flow.ReturnTo">
                                     <span class="icon-text">
                                         <span class="icon">
-                                            <i class="fa-solid fa-backward fa-sm"></i>
+                                            <i class="fa-solid fa-backward fa-sm"
+                                               style="max-width: 16px; max-height: 16px;">
+                                            </i>
                                         </span>
                                         <span>
                                             @OryTranslator.Get("settings.navigation-back-bu")
@@ -59,7 +63,8 @@ else
                             <a href="logout">
                                 <span class="icon-text">
                                     <span class="icon">
-                                        <i class="fa-solid fa-sign-out fa-sm"></i>
+                                        <i class="fa-solid fa-sign-out fa-sm" 
+                                           style="max-width: 16px; max-height: 16px;"></i>
                                     </span>
                                     <span>
                                         @OryTranslator.Get("settings.navigation-logout")

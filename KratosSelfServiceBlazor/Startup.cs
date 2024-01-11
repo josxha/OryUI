@@ -86,5 +86,6 @@ public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
         app.UseAntiforgery();
         app.MapRazorComponents<App>()
             .AddInteractiveServerRenderMode();
+        app.MapControllers();
     }
 }

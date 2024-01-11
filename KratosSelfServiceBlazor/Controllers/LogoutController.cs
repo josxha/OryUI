@@ -1,5 +1,4 @@
 using KratosSelfServiceBlazor.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Ory.Hydra.Client.Model;
 using Ory.Kratos.Client.Client;

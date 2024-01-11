@@ -1,10 +1,8 @@
 ﻿@page "/error"
 @layout CardLayout
-@inject NavigationManager nav
 @inject ILogger<Login> logger
 @inject ApiService api
 @attribute [AllowAnonymous]
-@inject IHttpContextAccessor accessor
 
 <PageTitle>@OryTranslator.Get("error.title")</PageTitle>
 

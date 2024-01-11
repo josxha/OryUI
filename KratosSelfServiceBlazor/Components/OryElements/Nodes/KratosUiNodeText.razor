@@ -1,7 +1,7 @@
-﻿@if (_isLoading)
+﻿@if (!_isLoading)
 {
     <div class="field">
-        <p id="@_attributes.Id">@OryTranslator.ForUiText(_attributes.Text)</p>
+        <p id="@_attributes!.Id">@OryTranslator.ForUiText(_attributes.Text)</p>
     
         <KratosUiTextMessages list="@node.Messages" />
     </div>

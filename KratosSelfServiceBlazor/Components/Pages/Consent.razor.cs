@@ -29,6 +29,7 @@ public partial class Consent
         // If a user has granted this application the requested scope, hydra will tell us to not show the UI.
         if (!CanSkipConsent(_challengeRequest))
         {
+            _isLoading = false;
             return;
         }
 

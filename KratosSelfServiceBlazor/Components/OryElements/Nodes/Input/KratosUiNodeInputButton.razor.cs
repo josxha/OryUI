@@ -1,5 +1,6 @@
 ﻿using KratosSelfServiceBlazor.models;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using Ory.Kratos.Client.Model;
 
 namespace KratosSelfServiceBlazor.Components.OryElements.Nodes.Input;

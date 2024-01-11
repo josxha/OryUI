@@ -1,4 +1,5 @@
-﻿@if (!_isLoading)
+﻿@inject IJSRuntime jsRuntime
+@if (!_isLoading)
 {
     <div class="field">
         <script src="@_attributes!.Src" async="@_attributes.Async"

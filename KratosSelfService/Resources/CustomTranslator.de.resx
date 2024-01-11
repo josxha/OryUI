@@ -148,4 +148,16 @@
     <data name="navbar.logout" xml:space="preserve">
         <value>Abmelden</value>
     </data>
+    <data name="sessions.nav-other" xml:space="preserve">
+        <value>Weitere Sitzungen</value>
+    </data>
+    <data name="sessions.nav-overview" xml:space="preserve">
+        <value>Übersicht</value>
+    </data>
+    <data name="sessions.nav-this" xml:space="preserve">
+        <value>Diese Sitzung</value>
+    </data>
+    <data name="sessions.title-navigation" xml:space="preserve">
+        <value>Aktive Sitzungen</value>
+    </data>
 </root>

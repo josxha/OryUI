@@ -99,4 +99,19 @@
     <data name="navbar.logout" xml:space="preserve">
         <value>Log out</value>
     </data>
+    <data name="unsupportedNodeType" xml:space="preserve">
+        <value>Unsupported UI Type</value>
+    </data>
+    <data name="sessions.nav-overview" xml:space="preserve">
+        <value>Overview</value>
+    </data>
+    <data name="sessions.nav-this" xml:space="preserve">
+        <value>This Session</value>
+    </data>
+    <data name="sessions.nav-other" xml:space="preserve">
+        <value>Other Sessions</value>
+    </data>
+    <data name="sessions.title-navigation" xml:space="preserve">
+        <value>Active sessions</value>
+    </data>
 </root>

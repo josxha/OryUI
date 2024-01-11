@@ -28,15 +28,6 @@ public class LoginController(ILogger<LoginController> logger, ApiService api) : 
         if (flowId == null)
         {
             logger.LogDebug("No flow ID found in URL query initializing login flow");
-            // workaround: if the user is in the 2fa flow, the user would get redirected infinitely,
-            // therefore log the user out first
-            foreach (var cookie in Request.Headers.Cookie)
-            {
-                
-                Console.WriteLine(cookie);
-            }
-            if (Request.Headers.Cookie.Any(s => s?.Contains("ory_kratos_session=") ?? false))
-                return Redirect("logout");
             // initiate flow
             return Redirect(GetInitFlowUrl(aal, refresh, returnTo, organization, loginChallenge));
         }

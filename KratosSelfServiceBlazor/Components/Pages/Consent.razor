@@ -14,7 +14,7 @@
 }
 else
 {
-    <form class="section" action="consent" method="post">
+    <form class="section" action="consent" method="post" @formname="consent">
         <AntiForgeryToken />
         <input type="hidden" name="consent_challenge" value="@_challengeRequest.Challenge">
         <h1 class="title">An application wants to access your Account details</h1>

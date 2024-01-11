@@ -57,7 +57,7 @@ else
             }
             else
             {
-                <form action="/sessions" method="post">
+                <form action="/sessions" method="post" @formname="sessions">
                     <AntiForgeryToken />
                     <div class="buttons">
                         <button type="submit" class="button is-warning" name="action" value="invokeSessions">

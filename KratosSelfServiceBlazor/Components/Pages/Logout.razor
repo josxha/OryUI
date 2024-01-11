@@ -8,7 +8,7 @@
 <PageTitle>@OryTranslator.Get("logout.title")</PageTitle>
 
 <h1 class="title">@OryTranslator.Get("logout.title")</h1>
-<form method="post" action="logout">
+<form method="post" action="logout" @formname="logout">
     <AntiForgeryToken />
     <div class="buttons mt-5 is-fullwidth">
         <button class="button is-info is-fullwidth" name="submit" type="submit" value="yes">

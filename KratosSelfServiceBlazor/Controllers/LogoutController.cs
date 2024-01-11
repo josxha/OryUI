@@ -10,7 +10,7 @@ public class LogoutController(ILogger<LogoutController> logger, ApiService api) 
 {
 
     [HttpPost("logout")]
-    [AllowAnonymous]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> LogoutPost([FromForm(Name = "challenge")] string logoutChallenge,
         [FromForm(Name = "submit")] string action)
     {

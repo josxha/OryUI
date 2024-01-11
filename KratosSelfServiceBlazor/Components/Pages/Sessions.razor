@@ -58,7 +58,7 @@ else
             else
             {
                 <form action="/sessions" method="post">
-                    @*Html.AntiForgeryToken()*@
+                    <AntiForgeryToken />
                     <div class="buttons">
                         <button type="submit" class="button is-warning" name="action" value="invokeSessions">
                             @CustomTranslator.Get("sessions.logoutOtherSessions")

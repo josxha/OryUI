@@ -4,9 +4,11 @@
 @inject ILogger<Login> logger
 @inject ApiService api
 @inject IHttpContextAccessor accessor
+@attribute [AllowAnonymous]
 @using KratosSelfServiceBlazor.Components.Elements
 @using KratosSelfServiceBlazor.Components.OryElements
 @using global::Ory.Kratos.Client.Model
+@using Microsoft.AspNetCore.Authorization
 
 <PageTitle>@OryTranslator.Get("login.title")</PageTitle>
 

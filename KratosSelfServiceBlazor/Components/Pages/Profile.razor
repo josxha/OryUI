@@ -1,4 +1,4 @@
-﻿@page "/profile"
+﻿@page "/"
 @layout NavbarLayout
 @inject NavigationManager nav
 @inject ILogger<Login> logger
@@ -11,23 +11,21 @@
 
 <PageTitle>@CustomTranslator.Get("profile.title")</PageTitle>
 
-<h1 class="title has-text-centered">@CustomTranslator.Get("profile.title")</h1>
-
-@if (_isLoading)
-{
-    <Spinner/>
-}
-else
-{
-    <section class="hero has-background-white-ter is-fullheight">
-        <div class="hero-body">
-            <div class="container">
-                <div class="columns is-centered">
-                    <div class="column is-10-tablet is-8-desktop is-6-widescreen">
-                        <div class="box">
-                            <h1 class="title">
-                                @CustomTranslator.Get("profile.title")
-                            </h1>
+<section class="hero has-background-white-ter is-fullheight">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10-tablet is-8-desktop is-6-widescreen">
+                    <div class="box">
+                        <h1 class="title">
+                            @CustomTranslator.Get("profile.title")
+                        </h1>
+                        @if (_isLoading)
+                        {
+                            <Spinner/>
+                        }
+                        else
+                        {
                             <table class="table is-fullwidth">
                                 <tbody>
                                 @foreach (var (schemaPathSections, schema) in _flatSchema)
@@ -51,10 +49,10 @@ else
                                 }
                                 </tbody>
                             </table>
-                        </div>
+                        }
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-}
+    </div>
+</section>

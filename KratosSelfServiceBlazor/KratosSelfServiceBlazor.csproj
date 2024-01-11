@@ -38,6 +38,8 @@
       <_ContentIncludedByDefault Remove="Components\Nodes\KratosUiNodeImage.razor" />
       <_ContentIncludedByDefault Remove="Components\Nodes\KratosUiNodeScript.razor" />
       <_ContentIncludedByDefault Remove="Components\Nodes\KratosUiNodeText.razor" />
+      <_ContentIncludedByDefault Remove="Components\Pages\Health\Alive.razor" />
+      <_ContentIncludedByDefault Remove="Components\Pages\Health\Ready.razor" />
     </ItemGroup>
 
     <ItemGroup>

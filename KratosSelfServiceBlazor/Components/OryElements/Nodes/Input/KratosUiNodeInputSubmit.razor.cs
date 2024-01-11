@@ -19,7 +19,7 @@ public partial class KratosUiNodeInputSubmit
     {
         _attributes = node.Attributes.GetKratosUiNodeInputAttributes();
         _uiText = _attributes.Label ?? node.Meta.Label;
-        _isFullWidth = flowType == FlowType.Settings;
+        _isFullWidth = flowType != FlowType.Settings;
         _buttonType = _attributes.Name switch
         {
             "lookup_secret_disable" or "webauthn_remove" or "totp_unlink" or "unlink" => "is-warning",

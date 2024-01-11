@@ -12,7 +12,7 @@
 
 <h1 class="title">@OryTranslator.Get("logout.title")</h1>
 <form method="post" action="logout">
-    @Html.AntiForgeryToken()
+    @*Html.AntiForgeryToken()*@
     <input type="hidden" name="challenge" value="@logoutChallenge"/>
     <div class="buttons mt-5 is-fullwidth">
         <button class="button is-info is-fullwidth" name="submit" type="submit" value="yes">

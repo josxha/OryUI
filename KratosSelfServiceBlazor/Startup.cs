@@ -2,6 +2,8 @@
 using System.Security.Claims;
 using KratosSelfServiceBlazor.Components;
 using KratosSelfServiceBlazor.Services;
+using KratosSelfServiceBlazor.Utils;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Localization;
 
@@ -15,6 +17,29 @@ public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
             .AddInteractiveServerComponents();
         services.AddHttpContextAccessor();
 
+        services.AddControllersWithViews();
+
+        // authentication and authorisation
+        services.AddAuthentication(options =>
+        {
+            options.AddScheme<AuthenticationHandler>("DefaultScheme", "Default authentication scheme");
+            options.DefaultChallengeScheme = "DefaultScheme"; // 401 Unauthorized
+            options.DefaultForbidScheme = "DefaultScheme"; // 403 Forbid
+        });
+        services.AddAuthorization(options =>
+        {
+            options.AddPolicy("LoggedIn", policyBuilder => { policyBuilder.RequireClaim(ClaimTypes.NameIdentifier); });
+            // The fallback authorization policy requires all users to be authenticated, except for controllers or action
+            // methods with an authorization attribute. For example, controllers or action methods with [AllowAnonymous] or
+            // [Authorize(PolicyName="MyPolicy")] use the applied authorization attribute rather than the fallback
+            // authorization policy.
+            // The fallback authorization policy is applied to all requests that don't explicitly specify an authorization
+            // policy.
+            options.FallbackPolicy = new AuthorizationPolicyBuilder()
+                .RequireAuthenticatedUser()
+                .Build();
+        });
+        
         // localisation
         services.AddLocalization(options => options.ResourcesPath = "Resources");
         services.AddSingleton<ICustomTranslator, CustomTranslator>();
@@ -41,7 +66,7 @@ public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
         };
         app.UseRequestLocalization(new RequestLocalizationOptions
         {
-            DefaultRequestCulture = new RequestCulture("de"),
+            DefaultRequestCulture = new RequestCulture("en"),
             SupportedCultures = supportedCultures,
             SupportedUICultures = supportedCultures
         });
@@ -56,6 +81,9 @@ public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
         }
 
         app.UseStaticFiles();
+        app.UseRouting();
+        app.UseAuthentication();
+        app.UseAuthorization();
         app.UseAntiforgery();
         app.MapRazorComponents<App>()
             .AddInteractiveServerRenderMode();

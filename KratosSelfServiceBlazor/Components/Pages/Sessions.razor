@@ -60,11 +60,14 @@ else
             }
             else
             {
-                <div class="buttons">
-                    <a class="button is-warning" href="sessions-logout">
-                        @CustomTranslator.Get("sessions.logoutOtherSessions")
-                    </a>
-                </div>
+                <form action="/sessions" method="post">
+                    @*Html.AntiForgeryToken()*@
+                    <div class="buttons">
+                        <button type="submit" class="button is-warning" name="action" value="invokeSessions">
+                            @CustomTranslator.Get("sessions.logoutOtherSessions")
+                        </button>
+                    </div>
+                </form>
                 <table class="table is-fullwidth">
                     <thead>
                     <tr>

@@ -18,7 +18,7 @@ public partial class KratosUiNodeInputButton
     {
         _attributes = node.Attributes.GetKratosUiNodeInputAttributes();
         _uiText = _attributes.Label ?? node.Meta.Label;
-        _isFullWidth = flowType == FlowType.Settings;
+        _isFullWidth = flowType != FlowType.Settings;
         _isLoading = false;
     }
 }

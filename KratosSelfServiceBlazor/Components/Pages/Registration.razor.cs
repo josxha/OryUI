@@ -1,7 +1,4 @@
-﻿using KratosSelfServiceBlazor.Extensions;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Net.Http.Headers;
+﻿using Microsoft.AspNetCore.Components;
 using Ory.Kratos.Client.Client;
 using Ory.Kratos.Client.Model;
 

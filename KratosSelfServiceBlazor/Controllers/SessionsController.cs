@@ -1,7 +1,5 @@
-﻿using KratosSelfServiceBlazor.Extensions;
-using KratosSelfServiceBlazor.Services;
+﻿using KratosSelfServiceBlazor.Services;
 using Microsoft.AspNetCore.Mvc;
-using Ory.Kratos.Client.Model;
 
 namespace KratosSelfServiceBlazor.Controllers;
 

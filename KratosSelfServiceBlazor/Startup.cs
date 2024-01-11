@@ -3,7 +3,6 @@ using System.Security.Claims;
 using KratosSelfServiceBlazor.Components;
 using KratosSelfServiceBlazor.Services;
 using KratosSelfServiceBlazor.Utils;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Localization;
 

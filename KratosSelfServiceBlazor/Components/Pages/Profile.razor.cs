@@ -1,11 +1,6 @@
-﻿using KratosSelfServiceBlazor.Extensions;
-using KratosSelfServiceBlazor.Services;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Net.Http.Headers;
+﻿using KratosSelfServiceBlazor.Services;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Schema;
-using Ory.Kratos.Client.Client;
 using Ory.Kratos.Client.Model;
 
 namespace KratosSelfServiceBlazor.Components.Pages;

@@ -1,0 +1,8 @@
+﻿<div class="field">
+    @if (_attributes != null)
+    {
+        <p id="@_attributes.Id">@OryTranslator.ForUiText(_attributes.Text)</p>
+    }
+    
+    <KratosUiTextMessages list="@node.Messages" />
+</div>

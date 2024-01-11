@@ -148,4 +148,7 @@
     <data name="navbar.logout" xml:space="preserve">
         <value>Abmelden</value>
     </data>
+    <data name="unsupportedNodeType" xml:space="preserve">
+        <value>Nicht unterstützter UI Typ</value>
+    </data>
 </root>

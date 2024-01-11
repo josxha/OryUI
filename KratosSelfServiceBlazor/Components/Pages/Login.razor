@@ -5,14 +5,16 @@
 @inject ApiService api
 @inject IHttpContextAccessor accessor
 @using KratosSelfServiceBlazor.Components.Elements
+@using KratosSelfServiceBlazor.Components.OryElements
+@using global::Ory.Kratos.Client.Model
 
 <PageTitle>@OryTranslator.Get("login.title")</PageTitle>
 
 <h1 class="title has-text-centered">@OryTranslator.Get("login.title")</h1>
-    
+
 @if (_isLoading)
 {
-    <Spinner />
+    <Spinner/>
 }
 else
 {
@@ -31,15 +33,16 @@ else
             </a>
         </p>
     }
+
     <hr/>
     <div class="mb-2">
-        await Component.InvokeAsync("KratosUiTextMessages", flow.Ui.Messages)
+        <KratosUiTextMessages list="_flow.Ui.Messages"/>
 
-        await Component.InvokeAsync("KratosUiComponent", new KratosUiArgs(
-        flow.Ui,
-        FlowType.Login,
-        hiddenGroups: [KratosUiNode.GroupEnum.Oidc],
-        forgotPasswordUrl: forgotPasswordUrl))
+        <KratosUiComponent
+            ui="@_flow.Ui"
+            flowType="@FlowType.Login"
+            hiddenGroups="@(new List<KratosUiNode.GroupEnum> { KratosUiNode.GroupEnum.Oidc })"
+            forgotPasswordUrl="@_forgotPasswordUrl"/>
     </div>
 
     @if (!_is2Fa)
@@ -53,10 +56,12 @@ else
             <form class="mb-3" action="@_flow.Ui.Action" method="@_flow.Ui.Method">
                 <div class="field">
                     <div class="columns is-mobile is-multiline">
-                        foreach (var node in nodes)
+                        @foreach (var node in nodes)
                         {
-                        await Component.InvokeAsync("KratosUiNodeComponent", new KratosUiNodeArgs(
-                        node, FlowType.Login, forgotPasswordUrl))
+                            <KratosUiNodeComponent
+                                node="node"
+                                flowType="FlowType.Login"
+                                forgotPasswordUrl="forgotPasswordUrl"/>
                         }
                     </div>
                 </div>

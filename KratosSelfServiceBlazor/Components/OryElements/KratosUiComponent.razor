@@ -1,0 +1,22 @@
+﻿@if (!_isLoading)
+{
+    @foreach (var (_, nodes) in _nodeGroups)
+    {
+        <form class="mb-3" action="@ui.Action" method="@ui.Method">
+            @foreach (var node in _defaultGroup)
+            {
+                <KratosUiNodeComponent
+                    node="node"
+                    flowType="flowType"
+                    forgotPasswordUrl="forgotPasswordUrl"/>
+            }
+            @foreach (var node in nodes)
+            {
+                <KratosUiNodeComponent
+                    node="node"
+                    flowType="flowType"
+                    forgotPasswordUrl="forgotPasswordUrl"/>
+            }
+        </form>
+    }
+}

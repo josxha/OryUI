@@ -5,7 +5,9 @@
 @inject ApiService api
 @inject IHttpContextAccessor accessor
 @using KratosSelfServiceBlazor.Components.Elements
+@using KratosSelfServiceBlazor.Components.OryElements
 @using System.ComponentModel
+@using global::Ory.Kratos.Client.Model
 
 <PageTitle>@OryTranslator.Get("registration.title")</PageTitle>
 
@@ -25,12 +27,12 @@ else
     </p>
     <hr/>
     <div class="mb-2">
-        await Component.InvokeAsync("KratosUiTextMessages", _flow.Ui.Messages)
+        <KratosUiTextMessages list="_flow.Ui.Messages"/>
 
-        await Component.InvokeAsync("KratosUiComponent", new KratosUiArgs(
-        _flow.Ui,
-        FlowType.Registration,
-        hiddenGroups: [KratosUiNode.GroupEnum.Oidc]))
+        <KratosUiComponent
+            ui="@_flow.Ui"
+            flowType="@FlowType.Registration"
+            hiddenGroups="@(new List<KratosUiNode.GroupEnum> { KratosUiNode.GroupEnum.Oidc })"/>
     </div>
 
     var nodes = _flow.Ui.Nodes?
@@ -43,10 +45,11 @@ else
         <form class="mb-3" action="@_flow.Ui.Action" method="@_flow.Ui.Method">
             <div class="field">
                 <div class="columns is-mobile is-multiline">
-                    foreach (var node in nodes)
+                    @foreach (var node in nodes)
                     {
-                    await Component.InvokeAsync("KratosUiNodeComponent", new KratosUiNodeArgs(
-                    node, FlowType.Login))
+                        <KratosUiNodeComponent
+                            node="node"
+                            flowType="FlowType.Registration"/>
                     }
                 </div>
             </div>

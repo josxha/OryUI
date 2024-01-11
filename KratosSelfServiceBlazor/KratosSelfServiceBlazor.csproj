@@ -16,6 +16,28 @@
     <ItemGroup>
       <_ContentIncludedByDefault Remove="wwwroot\bootstrap\bootstrap.min.css" />
       <_ContentIncludedByDefault Remove="wwwroot\bootstrap\bootstrap.min.css.map" />
+      <_ContentIncludedByDefault Remove="Components\OryElements\Nodes\Input\KratosUiNodeInputButton.razor" />
+      <_ContentIncludedByDefault Remove="Components\OryElements\Nodes\Input\KratosUiNodeInputCheckbox.razor" />
+      <_ContentIncludedByDefault Remove="Components\OryElements\Nodes\Input\KratosUiNodeInputDefault.razor" />
+      <_ContentIncludedByDefault Remove="Components\OryElements\Nodes\Input\KratosUiNodeInputField.razor" />
+      <_ContentIncludedByDefault Remove="Components\OryElements\Nodes\Input\KratosUiNodeInputSubmit.razor" />
+      <_ContentIncludedByDefault Remove="Components\OryElements\Nodes\Input\KratosUiNodeInputSubmitOidc.razor" />
+      <_ContentIncludedByDefault Remove="Components\OryElements\Nodes\KratosUiNodeAnchor.razor" />
+      <_ContentIncludedByDefault Remove="Components\OryElements\Nodes\KratosUiNodeDefault.razor" />
+      <_ContentIncludedByDefault Remove="Components\OryElements\Nodes\KratosUiNodeImage.razor" />
+      <_ContentIncludedByDefault Remove="Components\OryElements\Nodes\KratosUiNodeScript.razor" />
+      <_ContentIncludedByDefault Remove="Components\OryElements\Nodes\KratosUiNodeText.razor" />
+      <_ContentIncludedByDefault Remove="Components\Nodes\Input\KratosUiNodeInputButton.razor" />
+      <_ContentIncludedByDefault Remove="Components\Nodes\Input\KratosUiNodeInputCheckbox.razor" />
+      <_ContentIncludedByDefault Remove="Components\Nodes\Input\KratosUiNodeInputDefault.razor" />
+      <_ContentIncludedByDefault Remove="Components\Nodes\Input\KratosUiNodeInputField.razor" />
+      <_ContentIncludedByDefault Remove="Components\Nodes\Input\KratosUiNodeInputSubmit.razor" />
+      <_ContentIncludedByDefault Remove="Components\Nodes\Input\KratosUiNodeInputSubmitOidc.razor" />
+      <_ContentIncludedByDefault Remove="Components\Nodes\KratosUiNodeAnchor.razor" />
+      <_ContentIncludedByDefault Remove="Components\Nodes\KratosUiNodeDefault.razor" />
+      <_ContentIncludedByDefault Remove="Components\Nodes\KratosUiNodeImage.razor" />
+      <_ContentIncludedByDefault Remove="Components\Nodes\KratosUiNodeScript.razor" />
+      <_ContentIncludedByDefault Remove="Components\Nodes\KratosUiNodeText.razor" />
     </ItemGroup>
 
     <ItemGroup>

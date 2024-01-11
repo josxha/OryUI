@@ -1,8 +1,11 @@
-﻿<div class="field">
-    <div class="is-fullwidth has-text-centered">
-        <a href="@_attributes.Href" id="@_attributes.Id">
-            @OryTranslator.ForUiText(_attributes.Title)
-        </a>
+﻿@if (!_isLoading)
+{
+    <div class="field">
+        <div class="is-fullwidth has-text-centered">
+            <a href="@_attributes.Href" id="@_attributes.Id">
+                @OryTranslator.ForUiText(_attributes.Title)
+            </a>
+        </div>
+        <KratosUiTextMessages list="@node.Messages"/>
     </div>
-    <KratosUiTextMessages list="@node.Messages" />
-</div>
+}

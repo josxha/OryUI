@@ -1,6 +1,9 @@
-﻿<div class="field">
-    <img src="@_attributes.Src" class="image" height="@_attributes.Height" width="@_attributes.Width"
-         id="@_attributes.Id" alt="image"/>
+﻿@if (!_isLoading)
+{
+    <div class="field">
+        <img src="@_attributes.Src" class="image" height="@_attributes.Height" width="@_attributes.Width"
+             id="@_attributes.Id" alt="image"/>
     
-    <KratosUiTextMessages list="@node.Messages" />
-</div>
+        <KratosUiTextMessages list="@node.Messages" />
+    </div>
+}

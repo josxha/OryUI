@@ -8,9 +8,11 @@ public partial class KratosUiNodeAnchor
     [Parameter] public required KratosUiNode node { get; set; }
 
     private KratosUiNodeAnchorAttributes? _attributes;
+    private bool _isLoading = true;
 
     protected override void OnInitialized()
     {
         _attributes = node.Attributes.GetKratosUiNodeAnchorAttributes();
+        _isLoading = false;
     }
 }

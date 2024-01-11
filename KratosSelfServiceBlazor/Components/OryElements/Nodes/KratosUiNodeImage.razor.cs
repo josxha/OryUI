@@ -13,5 +13,6 @@ public partial class KratosUiNodeImage
     protected override void OnInitialized()
     {
         _attributes = node.Attributes.GetKratosUiNodeImageAttributes();
+        _isLoading = false;
     }
 }

@@ -11,10 +11,10 @@ public partial class Verification
     private Guid? flowId { get; set; }
 
     [SupplyParameterFromQuery(Name = "return_to")]
-    string? returnTo { get; set; }
+    private string? returnTo { get; set; }
 
     [SupplyParameterFromQuery(Name = "message")]
-    string? jsonMessages { get; set; }
+    private string? jsonMessages { get; set; }
 
     private KratosVerificationFlow _flow = default!;
     private bool _isLoading = true;
@@ -32,10 +32,9 @@ public partial class Verification
             return;
         }
 
-        KratosVerificationFlow flow;
         try
         {
-            flow = await api.Frontend.GetVerificationFlowAsync(flowId.ToString(),
+            _flow = await api.Frontend.GetVerificationFlowAsync(flowId.ToString(),
                 accessor.HttpContext!.Request.Headers.Cookie);
         }
         catch (ApiException exception)
@@ -53,7 +52,7 @@ public partial class Verification
             try
             {
                 var messages = JsonConvert.DeserializeObject<List<KratosUiText>>(jsonMessages);
-                if (messages != null) flow.Ui.Messages.AddRange(messages);
+                if (messages != null) _flow.Ui.Messages.AddRange(messages);
             }
             catch (Exception exception)
             {

@@ -13,24 +13,59 @@ public partial class KratosUiComponent
 
     private Dictionary<KratosUiNode.GroupEnum, List<KratosUiNode>> _nodeGroups = default!;
     private List<KratosUiNode> _defaultGroup = default!;
+    private bool _mergedFormFields;
+    private KratosUiNode.GroupEnum? _selectedMethod;
 
     private bool _isLoading = true;
     
     protected override void OnInitialized()
     {
         _nodeGroups = new Dictionary<KratosUiNode.GroupEnum, List<KratosUiNode>>();
-        foreach (var node in ui.Nodes)
+        _defaultGroup = [];
+
+        var visibleNodes = ui.Nodes.Where(node => !(hiddenGroups?.Contains(node.Group) ?? false));
+        foreach (var node in visibleNodes)
         {
-            if (!_nodeGroups.ContainsKey(node.Group)) _nodeGroups[node.Group] = [];
-            _nodeGroups[node.Group].Add(node);
+            if (node.Group == KratosUiNode.GroupEnum.Default)
+            {
+                _defaultGroup.Add(node);
+                continue;
+            }
+
+            if (!_nodeGroups.TryGetValue(node.Group, out var list)) 
+                _nodeGroups[node.Group] = [node];
+            else
+                list.Add(node);
         }
 
-        _defaultGroup = _nodeGroups[KratosUiNode.GroupEnum.Default];
-        _nodeGroups.Remove(KratosUiNode.GroupEnum.Default);
+        if (_nodeGroups.Count == 1)
+        {
+            _mergedFormFields = false;
+            return;
+        }
 
-        foreach (var hiddenGroup in hiddenGroups ?? [])
-            _nodeGroups.Remove(hiddenGroup);
+        // merge form fields as much as possible
+        var otherGroups = _nodeGroups.Values.Skip(1).ToList();
+        for (var i = 0; i < _nodeGroups.First().Value.Count; i++)
+        {
+            var compareNode = _nodeGroups.First().Value[i];
+            if (otherGroups.Any(nodes => 
+                    nodes.Count < i || 
+                    !nodes[i].Equals(compareNode))) break;
 
+            _defaultGroup.Add(compareNode);
+            foreach (var group in _nodeGroups.Keys)
+                _nodeGroups[group].RemoveAt(i);
+        }
+
+        _mergedFormFields = true;
         _isLoading = false;
+    }
+
+    private void SelectGroup(KratosUiNode.GroupEnum group)
+    {
+        _selectedMethod = group;
+        Console.WriteLine("SelectGroup");
+        StateHasChanged();
     }
 }

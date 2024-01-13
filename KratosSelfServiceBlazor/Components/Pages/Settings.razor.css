@@ -1,0 +1,9 @@
+﻿aside {
+    position: fixed;
+    z-index: 1;
+}
+
+i {
+    max-width: 16px;
+    max-height: 16px;
+}

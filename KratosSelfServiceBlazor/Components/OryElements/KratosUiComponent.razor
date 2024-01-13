@@ -1,0 +1,70 @@
+﻿@using Ory.Kratos.Client.Model
+@if (!_isLoading)
+{
+    if (_mergedFormFields)
+    {
+        <form class="mb-3" action="@ui.Action" method="@ui.Method">
+            @foreach (var node in _defaultGroup)
+            {
+                <KratosUiNodeComponent
+                    node="@node"
+                    flowType="@flowType"
+                    forgotPasswordUrl="@forgotPasswordUrl"/>
+            }
+            @foreach (var (nodeGroup, nodes) in _nodeGroups)
+            {
+                if (nodes.Count == 1)
+                {
+                    <KratosUiNodeComponent
+                        node="@nodes.First()"
+                        flowType="@flowType"
+                        forgotPasswordUrl="@forgotPasswordUrl"/>
+                    continue;
+                }
+
+                @if (_selectedMethod == null)
+                {
+                    <div class="field @(_selectedMethod == null ? "" : "is-hidden")">
+                        <button class="button is-info is-fullwidth" type="button"
+                                @onclick="() => SelectGroup(nodeGroup)">
+                            Use @nodeGroup
+                        </button>
+                    </div>
+                }
+
+                @if (_selectedMethod == nodeGroup || true)
+                {
+                    foreach (var node in nodes)
+                    {
+                        <KratosUiNodeComponent
+                            node="@node"
+                            flowType="@flowType"
+                            forgotPasswordUrl="@forgotPasswordUrl"/>
+                    }
+                }
+            }
+        </form>
+    }
+    else
+    {
+        @foreach (var (_, nodes) in _nodeGroups)
+        {
+            <form class="mb-3" action="@ui.Action" method="@ui.Method">
+                @foreach (var node in _defaultGroup)
+                {
+                    <KratosUiNodeComponent
+                        node="node"
+                        flowType="@flowType"
+                        forgotPasswordUrl="@forgotPasswordUrl"/>
+                }
+                @foreach (var node in nodes)
+                {
+                    <KratosUiNodeComponent
+                        node="node"
+                        flowType="@flowType"
+                        forgotPasswordUrl="@forgotPasswordUrl"/>
+                }
+            </form>
+        }
+    }
+}

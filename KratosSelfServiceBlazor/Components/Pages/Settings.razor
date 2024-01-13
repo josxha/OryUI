@@ -1,0 +1,111 @@
+﻿@page "/settings"
+@layout NavbarLayout
+@inject NavigationManager nav
+@inject ILogger<Login> logger
+@inject ApiService api
+@inject IHttpContextAccessor accessor
+@attribute [StreamRendering]
+
+<PageTitle>@OryTranslator.Get("settings.title")</PageTitle>
+
+@if (_isLoading)
+{
+    <Spinner/>
+}
+else
+{
+    <div class="columns">
+        <div class="column is-3 is-hidden-mobile">
+            <div class="section">
+                <aside>
+                    <p class="menu-label">@OryTranslator.Get("settings.title-navigation")</p>
+                    <ul class="menu-list">
+                        @foreach (var group in _groups)
+                        {
+                            var groupType = group.Key;
+                            <li>
+                                <a href="#@groupType.ToSiteAnchorTag()">
+                                    <span class="icon-text">
+                                        <span class="icon">
+                                            <i class="fa-solid @groupType.ToFaIcon() fa-sm"
+                                               style="max-width: 16px; max-height: 16px;">
+                                            </i>
+                                        </span>
+                                        <span>
+                                            @groupType.ToLocalNavString(OryTranslator)
+                                        </span>
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                    @if (!string.IsNullOrWhiteSpace(_flow.ReturnTo))
+                    {
+                        <p class="menu-label mt-5">@CustomTranslator.Get("Actions")</p>
+                        <ul class="menu-list">
+                            <li>
+                                <a href="@_flow.ReturnTo">
+                                    <span class="icon-text">
+                                        <span class="icon">
+                                            <i class="fa-solid fa-backward fa-sm"
+                                               style="max-width: 16px; max-height: 16px;">
+                                            </i>
+                                        </span>
+                                        <span>
+                                            @OryTranslator.Get("settings.navigation-back-bu")
+                                        </span>
+                                    </span>
+                                </a>
+                            </li>
+                            <!--<li>
+                            <a href="logout">
+                                <span class="icon-text">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-sign-out fa-sm" 
+                                           style="max-width: 16px; max-height: 16px;"></i>
+                                    </span>
+                                    <span>
+                                        @OryTranslator.Get("settings.navigation-logout")
+                                    </span>
+                                </span>
+                            </a>
+                        </li>-->
+                        </ul>
+                    }
+                </aside>
+            </div>
+        </div>
+        <div class="column is-9">
+            <div class="section">
+                <div class="box pt-5">
+                    <h1 class="title">@OryTranslator.Get("settings.title")</h1>
+                    @if ((_flow.Ui.Messages?.Count ?? 0) == 0)
+                    {
+                        <div class="message is-info p-3">
+                            @OryTranslator.Get("settings.subtitle-instructions")
+                        </div>
+                    }
+                    <KratosUiTextMessages list="@_flow.Ui.Messages"/>
+                </div>
+                @foreach (var group in _groups)
+                {
+                    <div class="box p-5" id="@group.Key.ToSiteAnchorTag()">
+                        <h3 class="subtitle">
+                            @group.Key.ToLocalTitleString(OryTranslator)
+                        </h3>
+                        <form class="mb-3" action="@_flow.Ui.Action" method="@_flow.Ui.Method">
+                            @foreach (var node in _defaultNodes)
+                            {
+                                <KratosUiNodeComponent node="@node" flowType="FlowType.Settings"/>
+                            }
+                            @foreach (var node in group)
+                            {
+                                <KratosUiNodeComponent node="@node" flowType="FlowType.Settings"/>
+                            }
+                        </form>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}

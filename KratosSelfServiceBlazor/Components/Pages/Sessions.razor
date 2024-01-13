@@ -1,0 +1,146 @@
+﻿@page "/sessions"
+@layout NavbarLayout
+@inject ApiService api
+@inject IHttpContextAccessor accessor
+@attribute [StreamRendering]
+
+<PageTitle>@CustomTranslator.Get("sessions.title")</PageTitle>
+
+@if (_isLoading)
+{
+    <Spinner/>
+}
+else
+{
+    <div class="columns">
+        <div class="column is-3 is-hidden-mobile">
+            <div class="section">
+                <aside>
+                    <p class="menu-label">@CustomTranslator.Get("sessions.title-navigation")</p>
+                    <ul class="menu-list">
+                        <li>
+                            <a href="#overview">
+                                <span class="icon-text">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-info fa-sm"
+                                           style="max-width: 16px; max-height: 16px;">
+                                        </i>
+                                    </span>
+                                    <span>@CustomTranslator.Get("sessions.nav-overview")</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#this">
+                                <span class="icon-text">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-computer fa-sm"
+                                           style="max-width: 16px; max-height: 16px;">
+                                        </i>
+                                    </span>
+                                    <span>@CustomTranslator.Get("sessions.nav-this")</span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#other">
+                                <span class="icon-text">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-table-list fa-sm"
+                                           style="max-width: 16px; max-height: 16px;">
+                                        </i>
+                                    </span>
+                                    <span>@CustomTranslator.Get("sessions.nav-other")</span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+        <div class="column is-9">
+            <div class="section">
+                <div class="box" id="overview">
+                    <h1 class="title">@CustomTranslator.Get("sessions.title")</h1>
+                    <h2 class="subtitle">@string.Format(CustomTranslator.Get("sessions.amountSessions"), _totalSessions)</h2>
+                </div>
+                <div class="box" id="this">
+                    <h4 class="title mt-3">@CustomTranslator.Get("sessions.currentSession")</h4>
+                    <table class="table is-fullwidth">
+                        <thead>
+                        <tr>
+                            <td>@CustomTranslator.Get("sessions.devices")</td>
+                            <td>@CustomTranslator.Get("sessions.authenticatedAt")</td>
+                            <td>@CustomTranslator.Get("sessions.expiresAt")</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                @foreach (var device in _currentSession.Devices)
+                                {
+                                    var info = _uaParser.Parse(device.UserAgent);
+                                    <p>
+                                        @info.Device.ToString() on @info.OS
+                                        (@device.IpAddress
+                                        @(string.IsNullOrWhiteSpace(device.Location) ? "" : $"({device.Location}"))
+                                    </p>
+                                }
+                            </td>
+                            <td>@_currentSession.AuthenticatedAt</td>
+                            <td>@_currentSession.ExpiresAt</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="box" id="other">
+                    <h4 class="title mt-3">@CustomTranslator.Get("sessions.otherSessions")</h4>
+                    @if (_otherSessions.Count == 0)
+                    {
+                        <p>@CustomTranslator.Get("sessions.noOtherActiveSessions")</p>
+                    }
+                    else
+                    {
+                        <form action="/sessions" method="post" @formname="sessions">
+                            <AntiForgeryToken/>
+                            <div class="buttons">
+                                <button type="submit" class="button is-warning" name="action" value="invokeSessions">
+                                    @CustomTranslator.Get("sessions.logoutOtherSessions")
+                                </button>
+                            </div>
+                        </form>
+                        <table class="table is-fullwidth">
+                            <thead>
+                            <tr>
+                                <td>@CustomTranslator.Get("sessions.devices")</td>
+                                <td>@CustomTranslator.Get("sessions.authenticatedAt")</td>
+                                <td>@CustomTranslator.Get("sessions.expiresAt")</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach (var session in _otherSessions)
+                            {
+                                <tr>
+                                    <td>
+                                        @foreach (var device in session.Devices)
+                                        {
+                                            var info = _uaParser.Parse(device.UserAgent);
+                                            <p>
+                                                @info.Device.ToString() on @info.OS
+                                                (@device.IpAddress
+                                                @(string.IsNullOrWhiteSpace(device.Location) ? "" : $"{device.Location}"))
+                                            </p>
+                                        }
+                                    </td>
+                                    <td>@session.AuthenticatedAt</td>
+                                    <td>@session.ExpiresAt</td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,25 @@
+﻿@using Ory.Kratos.Client.Model
+@if (!_isLoading)
+{
+    <div class="field">
+        <div class="control mt-5">
+            <button type="submit"
+                    class="button @_buttonType @(_isFullWidth ? "is-fullwidth" : "")"
+                    required="@_attributes.Required"
+                    disabled="@_attributes.Disabled"
+                    value="@_attributes.Value"
+                    name="@_attributes.Name"
+                    onclick="@_attributes.Onclick">
+                @if (node.Group == KratosUiNode.GroupEnum.Webauthn && node.Meta?.Label.Id == 1010001)
+                {
+                    <span>@CustomTranslator.Get($"{node.Meta.Label.Id}-webauthn")</span>
+                }
+                else
+                {
+                    <span>@OryTranslator.ForUiText(_uiText)</span>
+                }
+            </button>
+        </div>
+        <KratosUiTextMessages list="@node.Messages"/>
+    </div>
+}

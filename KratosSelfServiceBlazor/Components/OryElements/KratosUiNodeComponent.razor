@@ -1,0 +1,90 @@
+﻿@using Ory.Kratos.Client.Model
+
+@switch (node.Type)
+{
+    case KratosUiNode.TypeEnum.Text:
+    {
+        <KratosUiNodeText node="@node" />
+    }
+        break;
+    case KratosUiNode.TypeEnum.Input:
+        switch (node.Attributes.GetKratosUiNodeInputAttributes().Type)
+        {
+            case KratosUiNodeInputAttributes.TypeEnum.Text:
+            case KratosUiNodeInputAttributes.TypeEnum.Password:
+            case KratosUiNodeInputAttributes.TypeEnum.Number:
+            case KratosUiNodeInputAttributes.TypeEnum.Hidden:
+            case KratosUiNodeInputAttributes.TypeEnum.Email:
+            case KratosUiNodeInputAttributes.TypeEnum.Tel:
+            case KratosUiNodeInputAttributes.TypeEnum.DatetimeLocal:
+            case KratosUiNodeInputAttributes.TypeEnum.Date:
+            case KratosUiNodeInputAttributes.TypeEnum.Url:
+            {
+                <KratosUiNodeInputField
+                    node="@node"
+                    flowType="@flowType"
+                    forgotPasswordUrl="@forgotPasswordUrl"/>
+            }
+                break;
+            case KratosUiNodeInputAttributes.TypeEnum.Checkbox:
+            {
+                <KratosUiNodeInputCheckbox
+                    node="@node"
+                    flowType="@flowType"/>
+            }
+                break;
+            case KratosUiNodeInputAttributes.TypeEnum.Submit:
+                var inputAttr = node.Attributes.GetKratosUiNodeInputAttributes();
+                if (flowType != FlowType.Settings
+                    && inputAttr is { Type: KratosUiNodeInputAttributes.TypeEnum.Submit, Name: "provider" })
+                {
+                    <KratosUiNodeInputSubmitOidc
+                        node="@node"
+                        flowType="@flowType"/>
+                }
+                else
+                {
+                    <KratosUiNodeInputSubmit
+                        node="@node"
+                        flowType="@flowType"/>
+                }
+
+                break;
+            case KratosUiNodeInputAttributes.TypeEnum.Button:
+            {
+                <KratosUiNodeInputButton
+                    node="@node"
+                    flowType="@flowType"/>
+            }
+                break;
+            default:
+            {
+                <KratosUiNodeInputDefault
+                    node="@node"
+                    flowType="@flowType"/>
+            }
+                break;
+        }
+
+        break;
+    case KratosUiNode.TypeEnum.Img:
+    {
+        <KratosUiNodeImage node="@node" />
+    }
+        break;
+    case KratosUiNode.TypeEnum.A:
+    {
+        <KratosUiNodeAnchor node="@node" />
+    }
+        break;
+    case KratosUiNode.TypeEnum.Script:
+    {
+        <KratosUiNodeScript node="@node" />
+    }
+        break;
+    default:
+    {
+        <KratosUiNodeDefault node="@node" />
+    }
+        break;
+}

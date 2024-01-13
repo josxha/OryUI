@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+                id="root"
+                xmlns="">
+        <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="metadata">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" use="required" type="xsd:string"/>
+                            <xsd:attribute name="type" type="xsd:string"/>
+                            <xsd:attribute name="mimetype" type="xsd:string"/>
+                            <xsd:attribute ref="xml:space"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="assembly">
+                        <xsd:complexType>
+                            <xsd:attribute name="alias" type="xsd:string"/>
+                            <xsd:attribute name="name" type="xsd:string"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+                            <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+                            <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+                            <xsd:attribute ref="xml:space"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required"/>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+    </resheader>
+    <data name="Password" xml:space="preserve">
+        <value>Passwort</value>
+    </data>
+    <data name="Remember me" xml:space="preserve">
+        <value>Angemeldet bleiben</value>
+    </data>
+    <data name="Username or Email" xml:space="preserve">
+        <value>Nutzername oder E-Mail</value>
+    </data>
+    <data name="Or sign in with" xml:space="preserve">
+        <value>Oder anmelden mit</value>
+    </data>
+    <data name="en" xml:space="preserve">
+        <value>de</value>
+    </data>
+    <data name="Welcome" xml:space="preserve">
+        <value>Willkommen</value>
+    </data>
+    <data name="Logout" xml:space="preserve">
+        <value>Abmelden</value>
+    </data>
+    <data name="sessions.title" xml:space="preserve">
+        <value>Aktive Sitzungen</value>
+    </data>
+    <data name="sessions.devices" xml:space="preserve">
+        <value>Geräte</value>
+    </data>
+    <data name="sessions.authenticatedWith" xml:space="preserve">
+        <value>Authentifiziert mit</value>
+    </data>
+    <data name="sessions.authenticatedAt" xml:space="preserve">
+        <value>Authentifiziert am</value>
+    </data>
+    <data name="sessions.expiresAt" xml:space="preserve">
+        <value>Läuft ab am</value>
+    </data>
+    <data name="sessions.noOtherActiveSessions" xml:space="preserve">
+        <value>Es gibt keine weiteren aktiven Sitzungen</value>
+    </data>
+    <data name="sessions.otherSessions" xml:space="preserve">
+        <value>Weitere Sitzungen</value>
+    </data>
+    <data name="sessions.logoutOtherSessions" xml:space="preserve">
+        <value>Alle anderen Sitzungen abmelden</value>
+    </data>
+    <data name="sessions.currentSession" xml:space="preserve">
+        <value>Diese Sitzung</value>
+    </data>
+    <data name="Actions" xml:space="preserve">
+        <value>Aktionen</value>
+    </data>
+    <data name="sessions.authenticationMethods" xml:space="preserve">
+        <value>Authentifizierungsmethoden</value>
+    </data>
+    <data name="Hello" xml:space="preserve">
+        <value>Hallo</value>
+    </data>
+    <data name="1010001-webauthn" xml:space="preserve">
+        <value>Anmeldung mit Sicherheitsschlüssel</value>
+    </data>
+    <data name="sessions.amountSessions" xml:space="preserve">
+        <value>Sie haben {0} aktive Sitzungen.</value>
+    </data>
+    <data name="profile.title" xml:space="preserve">
+        <value>Mein Profil</value>
+    </data>
+    <data name="login.signInWithProvider" xml:space="preserve">
+        <value>Oder anmelden mit</value>
+    </data>
+    <data name="profile.empty" xml:space="preserve">
+        <value>leer</value>
+    </data>
+    <data name="navbar.profile" xml:space="preserve">
+        <value>Mein Profil</value>
+    </data>
+    <data name="navbar.sessions" xml:space="preserve">
+        <value>Aktive Sitzungen</value>
+    </data>
+    <data name="navbar.settings" xml:space="preserve">
+        <value>Einstellungen</value>
+    </data>
+    <data name="navbar.logout" xml:space="preserve">
+        <value>Abmelden</value>
+    </data>
+    <data name="unsupportedNodeType" xml:space="preserve">
+        <value>Nicht unterstützter UI Typ</value>
+    </data>
+    <data name="sessions.nav-overview" xml:space="preserve">
+        <value>Übersicht</value>
+    </data>
+    <data name="sessions.nav-this" xml:space="preserve">
+        <value>Diese Sitzung</value>
+    </data>
+    <data name="sessions.nav-other" xml:space="preserve">
+        <value>Weitere Sitzungen</value>
+    </data>
+    <data name="sessions.title-navigation" xml:space="preserve">
+        <value>Aktive Sitzungen</value>
+    </data>
+</root>

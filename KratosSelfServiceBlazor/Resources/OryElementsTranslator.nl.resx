@@ -1,0 +1,687 @@
+<?xml version="1.0" ?>
+<root>
+  <data name="consent.action-accept" xml:space="preserve">
+    <value>Toestaan</value>
+    <comment>consent.action-accept</comment>
+  </data>
+  <data name="consent.action-reject" xml:space="preserve">
+    <value>Weigeren</value>
+    <comment>consent.action-reject</comment>
+  </data>
+  <data name="consent.description" xml:space="preserve">
+    <value>Verleen alleen toestemming als u deze site of app vertrouwt. U hoeft niet alle toestemmingen te accepteren.</value>
+    <comment>consent.description</comment>
+  </data>
+  <data name="consent.privacy-policy-label" xml:space="preserve">
+    <value>Privacybeleid</value>
+    <comment>consent.privacy-policy-label</comment>
+  </data>
+  <data name="consent.remember-label" xml:space="preserve">
+    <value>Onthoud deze beslissing voor de volgende keer. De toepassing kan geen aanvullende toestemming vragen zonder uw toestemming.</value>
+    <comment>consent.remember-label</comment>
+  </data>
+  <data name="consent.remember-tooltip" xml:space="preserve">
+    <value>Onthoud mijn beslissing</value>
+    <comment>consent.remember-tooltip</comment>
+  </data>
+  <data name="consent.requested-permissions-label" xml:space="preserve">
+    <value>De toepassing vraagt toegang tot de volgende toestemmingen:</value>
+    <comment>consent.requested-permissions-label</comment>
+  </data>
+  <data name="consent.terms-of-service-label" xml:space="preserve">
+    <value>Gebruiksvoorwaarden</value>
+    <comment>consent.terms-of-service-label</comment>
+  </data>
+  <data name="error.back-button" xml:space="preserve">
+    <value>Ga terug</value>
+    <comment>error.back-button</comment>
+  </data>
+  <data name="error.description" xml:space="preserve">
+    <value>Er is een fout opgetreden met de volgende melding:</value>
+    <comment>error.description</comment>
+  </data>
+  <data name="error.support-email-link" xml:space="preserve">
+    <value>Als het probleem aanhoudt, neem dan contact op met &lt;a&gt;{contactSupportEmail}&lt;/a&gt;</value>
+    <comment>error.support-email-link</comment>
+  </data>
+  <data name="error.title" xml:space="preserve">
+    <value>Er is een fout opgetreden</value>
+    <comment>error.title</comment>
+  </data>
+  <data name="error.title-internal-server-error" xml:space="preserve">
+    <value>Interne serverfout</value>
+    <comment>error.title-internal-server-error</comment>
+  </data>
+  <data name="error.title-not-found" xml:space="preserve">
+    <value>404 - Pagina niet gevonden</value>
+    <comment>error.title-not-found</comment>
+  </data>
+  <data name="identities.messages.1010001" xml:space="preserve">
+    <value>Aanmelden</value>
+    <comment>identities.messages.1010001</comment>
+  </data>
+  <data name="identities.messages.1010002" xml:space="preserve">
+    <value>Aanmelden met {provider}</value>
+    <comment>identities.messages.1010002</comment>
+  </data>
+  <data name="identities.messages.1010003" xml:space="preserve">
+    <value>Bevestig deze actie door te verifiëren dat u het bent.</value>
+    <comment>identities.messages.1010003</comment>
+  </data>
+  <data name="identities.messages.1010004" xml:space="preserve">
+    <value>Voltooi alstublieft de tweede authenticatie-uitdaging.</value>
+    <comment>identities.messages.1010004</comment>
+  </data>
+  <data name="identities.messages.1010005" xml:space="preserve">
+    <value>Verifiëren</value>
+    <comment>identities.messages.1010005</comment>
+  </data>
+  <data name="identities.messages.1010006" xml:space="preserve">
+    <value>Verificatiecode</value>
+    <comment>identities.messages.1010006</comment>
+  </data>
+  <data name="identities.messages.1010007" xml:space="preserve">
+    <value>Back-up herstelcode</value>
+    <comment>identities.messages.1010007</comment>
+  </data>
+  <data name="identities.messages.1010008" xml:space="preserve">
+    <value>Beveiligingssleutel gebruiken</value>
+    <comment>identities.messages.1010008</comment>
+  </data>
+  <data name="identities.messages.1010009" xml:space="preserve">
+    <value>Authenticator gebruiken</value>
+    <comment>identities.messages.1010009</comment>
+  </data>
+  <data name="identities.messages.1010010" xml:space="preserve">
+    <value>Back-up herstelcode gebruiken</value>
+    <comment>identities.messages.1010010</comment>
+  </data>
+  <data name="identities.messages.1010011" xml:space="preserve">
+    <value>Doorgaan met beveiligingssleutel</value>
+    <comment>identities.messages.1010011</comment>
+  </data>
+  <data name="identities.messages.1010012" xml:space="preserve">
+    <value>Bereid uw WebAuthn-apparaat voor (bijv. beveiligingssleutel, biometrische scanner, ...) en druk op doorgaan.</value>
+    <comment>identities.messages.1010012</comment>
+  </data>
+  <data name="identities.messages.1010013" xml:space="preserve">
+    <value>Doorgaan</value>
+    <comment>identities.messages.1010013</comment>
+  </data>
+  <data name="identities.messages.1010014" xml:space="preserve">
+    <value>Er is een e-mail met een code verzonden naar het opgegeven e-mailadres. Als u geen e-mail heeft ontvangen, controleer dan de spelling van het adres en probeer opnieuw in te loggen.</value>
+    <comment>identities.messages.1010014</comment>
+  </data>
+  <data name="identities.messages.1010015" xml:space="preserve">
+    <value>Aanmelden met code</value>
+    <comment>identities.messages.1010015</comment>
+  </data>
+  <data name="identities.messages.1040001" xml:space="preserve">
+    <value>Registreren</value>
+    <comment>identities.messages.1040001</comment>
+  </data>
+  <data name="identities.messages.1040002" xml:space="preserve">
+    <value>Registreren met {provider}</value>
+    <comment>identities.messages.1040002</comment>
+  </data>
+  <data name="identities.messages.1040003" xml:space="preserve">
+    <value>Doorgaan</value>
+    <comment>identities.messages.1040003</comment>
+  </data>
+  <data name="identities.messages.1040004" xml:space="preserve">
+    <value>Registreren met beveiligingssleutel</value>
+    <comment>identities.messages.1040004</comment>
+  </data>
+  <data name="identities.messages.1040005" xml:space="preserve">
+    <value>Er is een e-mail met een code verzonden naar het opgegeven e-mailadres. Als u geen e-mail heeft ontvangen, controleer dan de spelling van het adres en probeer opnieuw te registreren.</value>
+    <comment>identities.messages.1040005</comment>
+  </data>
+  <data name="identities.messages.1040006" xml:space="preserve">
+    <value>Registreren met code</value>
+    <comment>identities.messages.1040006</comment>
+  </data>
+  <data name="identities.messages.1050001" xml:space="preserve">
+    <value>Uw wijzigingen zijn opgeslagen!</value>
+    <comment>identities.messages.1050001</comment>
+  </data>
+  <data name="identities.messages.1050002" xml:space="preserve">
+    <value>Koppelen aan {provider}</value>
+    <comment>identities.messages.1050002</comment>
+  </data>
+  <data name="identities.messages.1050003" xml:space="preserve">
+    <value>Ontkoppelen van {provider}</value>
+    <comment>identities.messages.1050003</comment>
+  </data>
+  <data name="identities.messages.1050004" xml:space="preserve">
+    <value>Ontkoppelen van TOTP Authenticator-app</value>
+    <comment>identities.messages.1050004</comment>
+  </data>
+  <data name="identities.messages.1050005" xml:space="preserve">
+    <value>QR-code voor Authenticator-app</value>
+    <comment>identities.messages.1050005</comment>
+  </data>
+  <data name="identities.messages.1050006" xml:space="preserve">
+    <value>{secret}</value>
+    <comment>identities.messages.1050006</comment>
+  </data>
+  <data name="identities.messages.1050007" xml:space="preserve">
+    <value>Toon back-up herstelcodes</value>
+    <comment>identities.messages.1050007</comment>
+  </data>
+  <data name="identities.messages.1050008" xml:space="preserve">
+    <value>Nieuwe back-up herstelcodes genereren</value>
+    <comment>identities.messages.1050008</comment>
+  </data>
+  <data name="identities.messages.1050009" xml:space="preserve">
+    <value>{secret}</value>
+    <comment>identities.messages.1050009</comment>
+  </data>
+  <data name="identities.messages.1050010" xml:space="preserve">
+    <value>Dit zijn uw back-up herstelcodes. Bewaar ze op een veilige plaats!</value>
+    <comment>identities.messages.1050010</comment>
+  </data>
+  <data name="identities.messages.1050011" xml:space="preserve">
+    <value>Bevestig back-up herstelcodes</value>
+    <comment>identities.messages.1050011</comment>
+  </data>
+  <data name="identities.messages.1050012" xml:space="preserve">
+    <value>Beveiligingssleutel toevoegen</value>
+    <comment>identities.messages.1050012</comment>
+  </data>
+  <data name="identities.messages.1050013" xml:space="preserve">
+    <value>Naam van de beveiligingssleutel</value>
+    <comment>identities.messages.1050013</comment>
+  </data>
+  <data name="identities.messages.1050014" xml:space="preserve">
+    <value>&lt;del&gt;Gebruikt&lt;/del&gt;</value>
+    <comment>identities.messages.1050014</comment>
+  </data>
+  <data name="identities.messages.1050015" xml:space="preserve">
+    <value>{secrets_list}</value>
+    <comment>identities.messages.1050015</comment>
+  </data>
+  <data name="identities.messages.1050016" xml:space="preserve">
+    <value>Deze methode uitschakelen</value>
+    <comment>identities.messages.1050016</comment>
+  </data>
+  <data name="identities.messages.1050017" xml:space="preserve">
+    <value>Dit is uw geheime Authenticator-app. Gebruik het als u de QR-code niet kunt scannen.</value>
+    <comment>identities.messages.1050017</comment>
+  </data>
+  <data name="identities.messages.1050018" xml:space="preserve">
+    <value>Beveiligingssleutel verwijderen &quot;{display_name}&quot;</value>
+    <comment>identities.messages.1050018</comment>
+  </data>
+  <data name="identities.messages.1060001" xml:space="preserve">
+    <value>U heeft met succes uw account hersteld. Wijzig alstublieft uw wachtwoord of stel een alternatieve aanmeldingsmethode in (bijv. sociale aanmelding) binnen de komende {privileged_session_expires_at_unix_until_minutes} minuten.</value>
+    <comment>identities.messages.1060001</comment>
+  </data>
+  <data name="identities.messages.1060002" xml:space="preserve">
+    <value>Er is een e-mail met een herstelkoppeling verzonden naar het opgegeven e-mailadres. Als u geen e-mail heeft ontvangen, controleer dan de spelling van het e-mailadres en zorg ervoor dat u het e-mailadres gebruikt waarmee u zich heeft geregistreerd.</value>
+    <comment>identities.messages.1060002</comment>
+  </data>
+  <data name="identities.messages.1060003" xml:space="preserve">
+    <value>Er is een e-mail met een herstelcode verzonden naar het opgegeven e-mailadres. Als u geen e-mail heeft ontvangen, controleer dan de spelling van het e-mailadres en zorg ervoor dat u het e-mailadres gebruikt waarmee u zich heeft geregistreerd.</value>
+    <comment>identities.messages.1060003</comment>
+  </data>
+  <data name="identities.messages.1070001" xml:space="preserve">
+    <value>Wachtwoord</value>
+    <comment>identities.messages.1070001</comment>
+  </data>
+  <data name="identities.messages.1070002" xml:space="preserve">
+    <value>{title}</value>
+    <comment>identities.messages.1070002</comment>
+  </data>
+  <data name="identities.messages.1070003" xml:space="preserve">
+    <value>Opslaan</value>
+    <comment>identities.messages.1070003</comment>
+  </data>
+  <data name="identities.messages.1070004" xml:space="preserve">
+    <value>ID</value>
+    <comment>identities.messages.1070004</comment>
+  </data>
+  <data name="identities.messages.1070005" xml:space="preserve">
+    <value>Verzenden</value>
+    <comment>identities.messages.1070005</comment>
+  </data>
+  <data name="identities.messages.1070006" xml:space="preserve">
+    <value>Verificatiecode controleren</value>
+    <comment>identities.messages.1070006</comment>
+  </data>
+  <data name="identities.messages.1070007" xml:space="preserve">
+    <value>E-mail</value>
+    <comment>identities.messages.1070007</comment>
+  </data>
+  <data name="identities.messages.1070008" xml:space="preserve">
+    <value>Code opnieuw verzenden</value>
+    <comment>identities.messages.1070008</comment>
+  </data>
+  <data name="identities.messages.1070009" xml:space="preserve">
+    <value>Doorgaan</value>
+    <comment>identities.messages.1070009</comment>
+  </data>
+  <data name="identities.messages.1070010" xml:space="preserve">
+    <value>Herstelcode</value>
+    <comment>identities.messages.1070010</comment>
+  </data>
+  <data name="identities.messages.1070011" xml:space="preserve">
+    <value>Verificatiecode</value>
+    <comment>identities.messages.1070011</comment>
+  </data>
+  <data name="identities.messages.1070012" xml:space="preserve">
+    <value>Registratiecode</value>
+    <comment>identities.messages.1070012</comment>
+  </data>
+  <data name="identities.messages.1070013" xml:space="preserve">
+    <value>Aanmeldingscode</value>
+    <comment>identities.messages.1070013</comment>
+  </data>
+  <data name="identities.messages.1080001" xml:space="preserve">
+    <value>Er is een e-mail met een verificatielink naar het opgegeven e-mailadres gestuurd. Als je geen e-mail hebt ontvangen, controleer dan de spelling van het e-mailadres en zorg ervoor dat je het e-mailadres hebt gebruikt waarmee je hebt geregistreerd.</value>
+    <comment>identities.messages.1080001</comment>
+  </data>
+  <data name="identities.messages.1080002" xml:space="preserve">
+    <value>Je hebt succesvol je e-mailadres geverifieerd.</value>
+    <comment>identities.messages.1080002</comment>
+  </data>
+  <data name="identities.messages.1080003" xml:space="preserve">
+    <value>Er is een e-mail met een verificatiecode naar het opgegeven e-mailadres gestuurd. Als je geen e-mail hebt ontvangen, controleer dan de spelling van het e-mailadres en zorg ervoor dat je het e-mailadres hebt gebruikt waarmee je hebt geregistreerd.</value>
+    <comment>identities.messages.1080003</comment>
+  </data>
+  <data name="identities.messages.4000001" xml:space="preserve">
+    <value>{reason}</value>
+    <comment>identities.messages.4000001</comment>
+  </data>
+  <data name="identities.messages.4000002" xml:space="preserve">
+    <value>Eigenschap {property} ontbreekt.</value>
+    <comment>identities.messages.4000002</comment>
+  </data>
+  <data name="identities.messages.4000003" xml:space="preserve">
+    <value>lengte moet &gt;= {min_length} zijn, maar is {actual_length}</value>
+    <comment>identities.messages.4000003</comment>
+  </data>
+  <data name="identities.messages.4000004" xml:space="preserve">
+    <value>komt niet overeen met patroon &quot;{pattern}&quot;</value>
+    <comment>identities.messages.4000004</comment>
+  </data>
+  <data name="identities.messages.4000005" xml:space="preserve">
+    <value>Het wachtwoord kan niet worden gebruikt vanwege {reason}.</value>
+    <comment>identities.messages.4000005</comment>
+  </data>
+  <data name="identities.messages.4000006" xml:space="preserve">
+    <value>De verstrekte referenties zijn ongeldig, controleer op typefouten in je wachtwoord of gebruikersnaam, e-mailadres of telefoonnummer.</value>
+    <comment>identities.messages.4000006</comment>
+  </data>
+  <data name="identities.messages.4000007" xml:space="preserve">
+    <value>Er bestaat al een account met dezelfde identificatiegegevens (e-mail, telefoon, gebruikersnaam, ...).</value>
+    <comment>identities.messages.4000007</comment>
+  </data>
+  <data name="identities.messages.4000008" xml:space="preserve">
+    <value>De verstrekte verificatiecode is ongeldig, probeer het opnieuw.</value>
+    <comment>identities.messages.4000008</comment>
+  </data>
+  <data name="identities.messages.4000009" xml:space="preserve">
+    <value>Kon geen aanmeldingsidentificatoren vinden. Ben je ze vergeten in te stellen? Dit kan ook worden veroorzaakt door een servermisconfiguratie.</value>
+    <comment>identities.messages.4000009</comment>
+  </data>
+  <data name="identities.messages.4000010" xml:space="preserve">
+    <value>Account nog niet actief. Ben je vergeten je e-mailadres te verifiëren?</value>
+    <comment>identities.messages.4000010</comment>
+  </data>
+  <data name="identities.messages.4000011" xml:space="preserve">
+    <value>Je hebt geen TOTP-apparaat ingesteld.</value>
+    <comment>identities.messages.4000011</comment>
+  </data>
+  <data name="identities.messages.4000012" xml:space="preserve">
+    <value>Deze herstelcode is al gebruikt.</value>
+    <comment>identities.messages.4000012</comment>
+  </data>
+  <data name="identities.messages.4000013" xml:space="preserve">
+    <value>Je hebt geen WebAuthn-apparaat ingesteld.</value>
+    <comment>identities.messages.4000013</comment>
+  </data>
+  <data name="identities.messages.4000014" xml:space="preserve">
+    <value>Je hebt geen herstelcodes ingesteld.</value>
+    <comment>identities.messages.4000014</comment>
+  </data>
+  <data name="identities.messages.4000015" xml:space="preserve">
+    <value>Dit account bestaat niet of heeft geen beveiligingssleutel ingesteld.</value>
+    <comment>identities.messages.4000015</comment>
+  </data>
+  <data name="identities.messages.4000016" xml:space="preserve">
+    <value>De herstelcode is niet geldig.</value>
+    <comment>identities.messages.4000016</comment>
+  </data>
+  <data name="identities.messages.4000017" xml:space="preserve">
+    <value>lengte moet &lt;= {max_length} zijn, maar is {actual_length}</value>
+    <comment>identities.messages.4000017</comment>
+  </data>
+  <data name="identities.messages.4000018" xml:space="preserve">
+    <value>moet &gt;= {minimum} zijn, maar is {actual}</value>
+    <comment>identities.messages.4000018</comment>
+  </data>
+  <data name="identities.messages.4000019" xml:space="preserve">
+    <value>moet &gt; {minimum} zijn, maar is {actual}</value>
+    <comment>identities.messages.4000019</comment>
+  </data>
+  <data name="identities.messages.4000020" xml:space="preserve">
+    <value>moet &lt;= {maximum} zijn, maar is {actual}</value>
+    <comment>identities.messages.4000020</comment>
+  </data>
+  <data name="identities.messages.4000021" xml:space="preserve">
+    <value>moet &lt; {maximum} zijn, maar is {actual}</value>
+    <comment>identities.messages.4000021</comment>
+  </data>
+  <data name="identities.messages.4000022" xml:space="preserve">
+    <value>{actual} is geen veelvoud van {base}</value>
+    <comment>identities.messages.4000022</comment>
+  </data>
+  <data name="identities.messages.4000023" xml:space="preserve">
+    <value>maximaal {max_items} items toegestaan, maar er zijn {actual_items} items gevonden</value>
+    <comment>identities.messages.4000023</comment>
+  </data>
+  <data name="identities.messages.4000024" xml:space="preserve">
+    <value>minimaal {min_items} items toegestaan, maar er zijn {actual_items} items gevonden</value>
+    <comment>identities.messages.4000024</comment>
+  </data>
+  <data name="identities.messages.4000025" xml:space="preserve">
+    <value>items op index {index_a} en {index_b} zijn gelijk</value>
+    <comment>identities.messages.4000025</comment>
+  </data>
+  <data name="identities.messages.4000026" xml:space="preserve">
+    <value>verwacht {allowed_types_list}, maar kreeg {actual_type}</value>
+    <comment>identities.messages.4000026</comment>
+  </data>
+  <data name="identities.messages.4000027" xml:space="preserve">
+    <value>Er bestaat al een account met dezelfde identificatiegegevens (e-mail, telefoon, gebruikersnaam, ...). Meld je aan bij je bestaande account en koppel je sociale profiel in de instellingenpagina.</value>
+    <comment>identities.messages.4000027</comment>
+  </data>
+  <data name="identities.messages.4000028" xml:space="preserve">
+    <value>Je hebt geprobeerd in te loggen met {credential_identifier_hint}, dat al wordt gebruikt door een ander account. Je kunt inloggen met {available_credential_types_list}. Je kunt inloggen met een van de volgende sociale aanmeldingsproviders: {Available_oidc_providers_list}.</value>
+    <comment>identities.messages.4000028</comment>
+  </data>
+  <data name="identities.messages.4000029" xml:space="preserve">
+    <value>moet gelijk zijn aan constante {expected}</value>
+    <comment>identities.messages.4000029</comment>
+  </data>
+  <data name="identities.messages.4000030" xml:space="preserve">
+    <value>constante mislukt</value>
+    <comment>identities.messages.4000030</comment>
+  </data>
+  <data name="identities.messages.4000031" xml:space="preserve">
+    <value>Het wachtwoord kan niet worden gebruikt omdat het te veel lijkt op de identificatiegegevens.</value>
+    <comment>identities.messages.4000031</comment>
+  </data>
+  <data name="identities.messages.4000032" xml:space="preserve">
+    <value>Het wachtwoord moet minstens {min_length} tekens lang zijn, maar is {actual_length}.</value>
+    <comment>identities.messages.4000032</comment>
+  </data>
+  <data name="identities.messages.4000033" xml:space="preserve">
+    <value>Het wachtwoord mag hoogstens {max_length} tekens lang zijn, maar is {actual_length}.</value>
+    <comment>identities.messages.4000033</comment>
+  </data>
+  <data name="identities.messages.4000034" xml:space="preserve">
+    <value>Het wachtwoord is gevonden in datalekken en mag niet langer worden gebruikt.</value>
+    <comment>identities.messages.4000034</comment>
+  </data>
+  <data name="identities.messages.4000035" xml:space="preserve">
+    <value>Dit account bestaat niet of heeft geen aanmelding met code ingesteld.</value>
+    <comment>identities.messages.4000035</comment>
+  </data>
+  <data name="identities.messages.4000036" xml:space="preserve">
+    <value>De verstrekte kenmerken komen niet overeen met de eerder geassocieerde kenmerken met deze stroom.</value>
+    <comment>identities.messages.4000036</comment>
+  </data>
+  <data name="identities.messages.4010001" xml:space="preserve">
+    <value>De aanmeldingsstroom is verlopen {expired_at_unix_since_minutes} minuten geleden, probeer het opnieuw.</value>
+    <comment>identities.messages.4010001</comment>
+  </data>
+  <data name="identities.messages.4010002" xml:space="preserve">
+    <value>Kon geen strategie vinden om mee in te loggen. Heb je het formulier correct ingevuld?</value>
+    <comment>identities.messages.4010002</comment>
+  </data>
+  <data name="identities.messages.4010003" xml:space="preserve">
+    <value>Kon geen strategie vinden om je mee aan te melden. Heb je het formulier correct ingevuld?</value>
+    <comment>identities.messages.4010003</comment>
+  </data>
+  <data name="identities.messages.4010004" xml:space="preserve">
+    <value>Kon geen strategie vinden om je instellingen bij te werken. Heb je het formulier correct ingevuld?</value>
+    <comment>identities.messages.4010004</comment>
+  </data>
+  <data name="identities.messages.4010005" xml:space="preserve">
+    <value>Kon geen strategie vinden om je account mee te herstellen. Heb je het formulier correct ingevuld?</value>
+    <comment>identities.messages.4010005</comment>
+  </data>
+  <data name="identities.messages.4010006" xml:space="preserve">
+    <value>Kon geen strategie vinden om je account mee te verifiëren. Heb je het formulier correct ingevuld?</value>
+    <comment>identities.messages.4010006</comment>
+  </data>
+  <data name="identities.messages.4010007" xml:space="preserve">
+    <value>Het verzoek is al met succes voltooid en kan niet opnieuw worden geprobeerd.</value>
+    <comment>identities.messages.4010007</comment>
+  </data>
+  <data name="identities.messages.4010008" xml:space="preserve">
+    <value>De aanmeldingscode is ongeldig of is al gebruikt. Probeer het opnieuw.</value>
+    <comment>identities.messages.4010008</comment>
+  </data>
+  <data name="identities.messages.4040001" xml:space="preserve">
+    <value>De registratie flowis verlopen {expired_at_unix_since_minutes} minuten geleden, probeer het opnieuw.</value>
+    <comment>identities.messages.4040001</comment>
+  </data>
+  <data name="identities.messages.4040002" xml:space="preserve">
+    <value>Het verzoek is al met succes voltooid en kan niet opnieuw worden geprobeerd.</value>
+    <comment>identities.messages.4040002</comment>
+  </data>
+  <data name="identities.messages.4040003" xml:space="preserve">
+    <value>De registratiecode is ongeldig of is al gebruikt. Probeer het opnieuw.</value>
+    <comment>identities.messages.4040003</comment>
+  </data>
+  <data name="identities.messages.4050001" xml:space="preserve">
+    <value>De instellingen flow is verlopen {expired_at_unix_since_minutes} minuten geleden, probeer het opnieuw.</value>
+    <comment>identities.messages.4050001</comment>
+  </data>
+  <data name="identities.messages.4060001" xml:space="preserve">
+    <value>Het verzoek is al met succes voltooid en kan niet opnieuw worden geprobeerd.</value>
+    <comment>identities.messages.4060001</comment>
+  </data>
+  <data name="identities.messages.4060002" xml:space="preserve">
+    <value>De herstel flow heeft een fout bereikt en moet opnieuw worden geprobeerd.</value>
+    <comment>identities.messages.4060002</comment>
+  </data>
+  <data name="identities.messages.4060004" xml:space="preserve">
+    <value>De hersteltoken is ongeldig of is al gebruikt. Probeer de flow opnieuw.</value>
+    <comment>identities.messages.4060004</comment>
+  </data>
+  <data name="identities.messages.4060005" xml:space="preserve">
+    <value>De herstel flow is verlopen {expired_at_unix_since_minutes} minuten geleden, probeer het opnieuw.</value>
+    <comment>identities.messages.4060005</comment>
+  </data>
+  <data name="identities.messages.4060006" xml:space="preserve">
+    <value>De herstelcode is ongeldig of is al gebruikt. Probeer het opnieuw.</value>
+    <comment>identities.messages.4060006</comment>
+  </data>
+  <data name="identities.messages.4070001" xml:space="preserve">
+    <value>De verificatietoken is ongeldig of is al gebruikt. Probeer de flow opnieuw.</value>
+    <comment>identities.messages.4070001</comment>
+  </data>
+  <data name="identities.messages.4070002" xml:space="preserve">
+    <value>Het verzoek is al met succes voltooid en kan niet opnieuw worden geprobeerd.</value>
+    <comment>identities.messages.4070002</comment>
+  </data>
+  <data name="identities.messages.4070003" xml:space="preserve">
+    <value>De verificatie flow heeft een fout bereikt en moet opnieuw worden geprobeerd.</value>
+    <comment>identities.messages.4070003</comment>
+  </data>
+  <data name="identities.messages.4070005" xml:space="preserve">
+    <value>De verificatie flow is verlopen {expired_at_unix_since_minutes} minuten geleden, probeer het opnieuw.</value>
+    <comment>identities.messages.4070005</comment>
+  </data>
+  <data name="identities.messages.4070006" xml:space="preserve">
+    <value>De verificatiecode is ongeldig of is al gebruikt. Probeer het opnieuw.</value>
+    <comment>identities.messages.4070006</comment>
+  </data>
+  <data name="identities.messages.5000001" xml:space="preserve">
+    <value>{reason}</value>
+    <comment>identities.messages.5000001</comment>
+  </data>
+  <data name="login.forgot-password" xml:space="preserve">
+    <value>Wachtwoord vergeten?</value>
+    <comment>login.forgot-password</comment>
+  </data>
+  <data name="login.logged-in-as-label" xml:space="preserve">
+    <value>Je bent ingelogd als:</value>
+    <comment>login.logged-in-as-label</comment>
+  </data>
+  <data name="login.logout-button" xml:space="preserve">
+    <value>Uitloggen</value>
+    <comment>login.logout-button</comment>
+  </data>
+  <data name="login.logout-label" xml:space="preserve">
+    <value>Er is iets mis?</value>
+    <comment>login.logout-label</comment>
+  </data>
+  <data name="login.registration-button" xml:space="preserve">
+    <value>Registreren</value>
+    <comment>login.registration-button</comment>
+  </data>
+  <data name="login.registration-label" xml:space="preserve">
+    <value>Heb je nog geen account?</value>
+    <comment>login.registration-label</comment>
+  </data>
+  <data name="login.subtitle-oauth2" xml:space="preserve">
+    <value>Om te authenticeren bij {clientName}</value>
+    <comment>login.subtitle-oauth2</comment>
+  </data>
+  <data name="login.title" xml:space="preserve">
+    <value>Inloggen</value>
+    <comment>login.title</comment>
+  </data>
+  <data name="login.title-aal2" xml:space="preserve">
+    <value>Twee-Factor Authenticatie</value>
+    <comment>login.title-aal2</comment>
+  </data>
+  <data name="login.title-refresh" xml:space="preserve">
+    <value>Bevestig dat jij het bent</value>
+    <comment>login.title-refresh</comment>
+  </data>
+  <data name="logout.accept-button" xml:space="preserve">
+    <value>Ja</value>
+    <comment>logout.accept-button</comment>
+  </data>
+  <data name="logout.reject-button" xml:space="preserve">
+    <value>Nee</value>
+    <comment>logout.reject-button</comment>
+  </data>
+  <data name="logout.title" xml:space="preserve">
+    <value>Wil je uitloggen?</value>
+    <comment>logout.title</comment>
+  </data>
+  <data name="recovery.login-button" xml:space="preserve">
+    <value>Inloggen</value>
+    <comment>recovery.login-button</comment>
+  </data>
+  <data name="recovery.login-label" xml:space="preserve">
+    <value>Herinner je je inloggegevens?</value>
+    <comment>recovery.login-label</comment>
+  </data>
+  <data name="recovery.title" xml:space="preserve">
+    <value>Herstel je account</value>
+    <comment>recovery.title</comment>
+  </data>
+  <data name="registration.login-button" xml:space="preserve">
+    <value>Inloggen</value>
+    <comment>registration.login-button</comment>
+  </data>
+  <data name="registration.login-label" xml:space="preserve">
+    <value>Heb je al een account?</value>
+    <comment>registration.login-label</comment>
+  </data>
+  <data name="registration.subtitle-oauth2" xml:space="preserve">
+    <value>Om te authenticeren bij {clientName}</value>
+    <comment>registration.subtitle-oauth2</comment>
+  </data>
+  <data name="registration.title" xml:space="preserve">
+    <value>Registreer een account</value>
+    <comment>registration.title</comment>
+  </data>
+  <data name="settings.navigation-back-button" xml:space="preserve">
+    <value>Ga terug</value>
+    <comment>settings.navigation-back-button</comment>
+  </data>
+  <data name="settings.navigation-backup-codes" xml:space="preserve">
+    <value>2FA Backupcodes</value>
+    <comment>settings.navigation-backup-codes</comment>
+  </data>
+  <data name="settings.navigation-logout" xml:space="preserve">
+    <value>Uitloggen</value>
+    <comment>settings.navigation-logout</comment>
+  </data>
+  <data name="settings.navigation-oidc" xml:space="preserve">
+    <value>Sociaal Inloggen</value>
+    <comment>settings.navigation-oidc</comment>
+  </data>
+  <data name="settings.navigation-password" xml:space="preserve">
+    <value>Wachtwoord</value>
+    <comment>settings.navigation-password</comment>
+  </data>
+  <data name="settings.navigation-profile" xml:space="preserve">
+    <value>Profiel</value>
+    <comment>settings.navigation-profile</comment>
+  </data>
+  <data name="settings.navigation-totp" xml:space="preserve">
+    <value>Authenticator App</value>
+    <comment>settings.navigation-totp</comment>
+  </data>
+  <data name="settings.navigation-webauthn" xml:space="preserve">
+    <value>Hardware Tokens</value>
+    <comment>settings.navigation-webauthn</comment>
+  </data>
+  <data name="settings.subtitle-instructions" xml:space="preserve">
+    <value>Hier kun je instellingen beheren die verband houden met je account. Houd er rekening mee dat bepaalde acties vereisen dat je opnieuw wordt geauthenticeerd.</value>
+    <comment>settings.subtitle-instructions</comment>
+  </data>
+  <data name="settings.title" xml:space="preserve">
+    <value>Accountinstellingen</value>
+    <comment>settings.title</comment>
+  </data>
+  <data name="settings.title-lookup-secret" xml:space="preserve">
+    <value>Beheer 2FA Backup Herstelcodes</value>
+    <comment>settings.title-lookup-secret</comment>
+  </data>
+  <data name="settings.title-navigation" xml:space="preserve">
+    <value>Accountinstellingen</value>
+    <comment>settings.title-navigation</comment>
+  </data>
+  <data name="settings.title-oidc" xml:space="preserve">
+    <value>Sociaal Inloggen</value>
+    <comment>settings.title-oidc</comment>
+  </data>
+  <data name="settings.title-password" xml:space="preserve">
+    <value>Wachtwoord wijzigen</value>
+    <comment>settings.title-password</comment>
+  </data>
+  <data name="settings.title-profile" xml:space="preserve">
+    <value>Profielinstellingen</value>
+    <comment>settings.title-profile</comment>
+  </data>
+  <data name="settings.title-totp" xml:space="preserve">
+    <value>Beheer 2FA TOTP Authenticator App</value>
+    <comment>settings.title-totp</comment>
+  </data>
+  <data name="settings.title-webauthn" xml:space="preserve">
+    <value>Beheer Hardware Tokens</value>
+    <comment>settings.title-webauthn</comment>
+  </data>
+  <data name="verification.registration-button" xml:space="preserve">
+    <value>Registreren</value>
+    <comment>verification.registration-button</comment>
+  </data>
+  <data name="verification.registration-label" xml:space="preserve">
+    <value>Heb je nog geen account?</value>
+    <comment>verification.registration-label</comment>
+  </data>
+  <data name="verification.title" xml:space="preserve">
+    <value>Verifieer je account</value>
+    <comment>verification.title</comment>
+  </data>
+</root>

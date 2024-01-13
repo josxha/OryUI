@@ -1,0 +1,27 @@
+﻿@page "/error"
+@layout CardLayout
+@inject ILogger<Login> logger
+@inject ApiService api
+@attribute [AllowAnonymous]
+@attribute [StreamRendering]
+
+<PageTitle>@OryTranslator.Get("error.title")</PageTitle>
+
+<h1 class="title has-text-centered">@OryTranslator.Get("error.title")</h1>
+
+@if (_isLoading)
+{
+    <Spinner/>
+}
+else
+{
+    <h2 class="subtitle">@(_error["code"]) @(_error["status"])</h2>
+    <div class="message is-warning p-2">
+        @(_error["message"])
+    </div>
+    <hr/>
+    <p>@(_error["reason"])</p>
+    <a class="button is-dark mt-5 is-fullwidth" href="/">
+        @OryTranslator.Get("error.back-button")
+    </a>
+}

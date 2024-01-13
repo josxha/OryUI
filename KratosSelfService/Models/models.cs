@@ -66,7 +66,8 @@ public record KratosUiTextMessageModel(
 public record KratosUiNodeArgs(
     KratosUiNode node,
     FlowType FlowType,
-    string? forgotPasswordUrl = null
+    string? forgotPasswordUrl = null,
+    string? additionalClass = null
 );
 
 public record KratosUiArgs(

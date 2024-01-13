@@ -8,6 +8,8 @@ namespace KratosSelfServiceBlazor.Components.Pages;
 
 public partial class Login
 {
+    [CascadingParameter] public HttpContext? HttpContext { get; set; }
+
     [SupplyParameterFromQuery(Name = "flow")]
     private Guid? flowId { get; set; }
 
@@ -33,6 +35,13 @@ public partial class Login
 
     protected override async Task OnInitializedAsync()
     {
+        var session = HttpContext?.GetSession();
+        if (session is { Active: true })
+        {
+            nav.NavigateTo(returnTo ?? "/");
+            return;
+        }
+        
         // oauth2 login challenge
         if (!string.IsNullOrWhiteSpace(loginChallenge))
             logger.LogDebug($"login_challenge found in URL query: {loginChallenge}");
@@ -42,7 +51,7 @@ public partial class Login
             logger.LogDebug("No flow ID found in URL query initializing login flow");
             // workaround: if the user is in the 2fa flow, the user would get redirected infinitely,
             // therefore log the user out first
-            if (accessor.HttpContext!.Request.Headers.Cookie.Any(s => s?.Contains("ory_kratos_session=") ?? false))
+            if (HttpContext!.Request.Headers.Cookie.Any(s => s?.Contains("ory_kratos_session=") ?? false))
             {
                 nav.NavigateTo("/logout");
                 return;
@@ -56,7 +65,7 @@ public partial class Login
         try
         {
             _flow = await api.Frontend.GetLoginFlowAsync(flowId.ToString(),
-                accessor.HttpContext!.Request.Headers.Cookie);
+                HttpContext!.Request.Headers.Cookie);
         }
         catch (ApiException exception)
         {
@@ -107,7 +116,7 @@ public partial class Login
         try
         {
             var logoutFlow =
-                await api.Frontend.CreateBrowserLogoutFlowAsync(accessor.HttpContext!.Request.Headers.Cookie,
+                await api.Frontend.CreateBrowserLogoutFlowAsync(HttpContext!.Request.Headers.Cookie,
                     flow.ReturnTo);
             return logoutFlow.LogoutUrl;
         }
@@ -140,7 +149,7 @@ public partial class Login
                 .CreateBrowserVerificationFlowWithHttpInfoAsync(flow.ReturnTo);
             var verificationFlow = response.Data;
             // we need the csrf cookie from the verification flow
-            accessor.HttpContext!.Response.Headers.Append(HeaderNames.SetCookie,
+            HttpContext!.Response.Headers.Append(HeaderNames.SetCookie,
                 response.Headers[HeaderNames.SetCookie].ToString());
             // encode the verification flow id in the query parameters
             var paramDict = new Dictionary<string, string?>
@@ -150,7 +159,7 @@ public partial class Login
             };
             var parameters = paramDict.EncodeQueryString();
 
-            return $"{accessor.HttpContext!.Request.PathBase}/verification?{parameters}";
+            return $"verification?{parameters}";
         }
         catch (Exception exception)
         {

@@ -44,7 +44,7 @@ public partial class Login
             // therefore log the user out first
             if (accessor.HttpContext!.Request.Headers.Cookie.Any(s => s?.Contains("ory_kratos_session=") ?? false))
             {
-                nav.NavigateTo("logout");
+                nav.NavigateTo("/logout");
                 return;
             }
 

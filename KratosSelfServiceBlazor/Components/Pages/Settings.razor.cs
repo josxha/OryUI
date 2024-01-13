@@ -28,7 +28,7 @@ public partial class Settings
             var newFlow = await api.Frontend
                 .CreateBrowserSettingsFlowAsync(cookie: accessor.HttpContext!.Request.Headers.Cookie,
                     returnTo: returnTo);
-            nav.NavigateTo($"settings?flow={newFlow.Id}");
+            nav.NavigateTo($"/settings?flow={newFlow.Id}");
             return;
         }
 
@@ -44,7 +44,7 @@ public partial class Settings
             var newFlow = await api.Frontend
                 .CreateBrowserSettingsFlowAsync(cookie: accessor.HttpContext!.Request.Headers.Cookie,
                     returnTo: returnTo);
-            nav.NavigateTo($"settings?flow={newFlow.Id}");
+            nav.NavigateTo($"/settings?flow={newFlow.Id}");
             return;
         }
 

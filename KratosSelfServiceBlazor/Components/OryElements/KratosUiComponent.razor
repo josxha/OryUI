@@ -32,7 +32,8 @@
                     </div>
                 }
 
-                @if (_selectedMethod == nodeGroup || true)
+                // temporary change to be able to login
+                @if (_selectedMethod == nodeGroup || flowType == FlowType.Login) 
                 {
                     foreach (var node in nodes)
                     {

@@ -1,5 +1,6 @@
 ﻿using KratosSelfServiceBlazor.Extensions;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Net.Http.Headers;
 using Ory.Kratos.Client.Client;
 using Ory.Kratos.Client.Model;
@@ -8,6 +9,7 @@ namespace KratosSelfServiceBlazor.Components.Pages;
 
 public partial class Login
 {
+    [CascadingParameter] private Task<AuthenticationState> authStateProvider { get; set; } = default!;
     [CascadingParameter] public HttpContext? HttpContext { get; set; }
 
     [SupplyParameterFromQuery(Name = "flow")]
@@ -35,6 +37,12 @@ public partial class Login
 
     protected override async Task OnInitializedAsync()
     {
+        if (HttpContext == null)
+        {
+            _isLoading = false;
+            return;
+        }
+        
         var session = HttpContext?.GetSession();
         if (session is { Active: true })
         {

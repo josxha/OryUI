@@ -5,12 +5,15 @@
 @inject ApiService api
 @inject IHttpContextAccessor accessor
 @attribute [AllowAnonymous]
+@rendermode InteractiveServer
 @using global::Ory.Kratos.Client.Model
-@attribute [StreamRendering]
 
 <PageTitle>@OryTranslator.Get("registration.title")</PageTitle>
 
 <h1 class="title has-text-centered">@OryTranslator.Get("registration.title")</h1>
+
+@code { int counter;  }
+<button @onclick="() => counter++">@counter</button>
 
 @if (_isLoading)
 {

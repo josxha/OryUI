@@ -27,6 +27,7 @@ public partial class Registration
 
     protected override async Task OnInitializedAsync()
     {
+        Console.WriteLine("OnInitializedAsync");
         if (loginChallenge != null)
             logger.LogDebug("login_challenge found in URL query: {Challenge}", loginChallenge);
         else

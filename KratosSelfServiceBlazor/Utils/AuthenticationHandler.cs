@@ -70,7 +70,7 @@ public class AuthenticationHandler(ApiService api) : IAuthenticationHandler
     public Task ChallengeAsync(AuthenticationProperties? properties)
     {
         // redirect to login page
-        _context.Response.Redirect("login");
+        _context.Response.Redirect("/login");
         return Task.CompletedTask;
     }
 

@@ -62,7 +62,7 @@ public partial class KratosUiComponent
         _isLoading = false;
     }
 
-    private void SelectGroup(KratosUiNode.GroupEnum group)
+    private void SelectGroup(KratosUiNode.GroupEnum? group)
     {
         _selectedMethod = group;
         Console.WriteLine("SelectGroup");

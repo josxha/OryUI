@@ -24,7 +24,7 @@
 
                 @if (_selectedMethod == null)
                 {
-                    <div class="field @(_selectedMethod == null ? "" : "is-hidden")">
+                    <div class="field">
                         <button class="button is-info is-fullwidth" type="button"
                                 @onclick="() => SelectGroup(nodeGroup)">
                             Use @nodeGroup
@@ -42,6 +42,14 @@
                             flowType="@flowType"
                             forgotPasswordUrl="@forgotPasswordUrl"/>
                     }
+                    
+                    @* use other method button *@
+                    <div class="field">
+                        <button class="button is-dark is-fullwidth" type="button"
+                                @onclick="() => SelectGroup(null)">
+                            Use an other method
+                        </button>
+                    </div>
                 }
             }
         </form>

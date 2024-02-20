@@ -27,6 +27,7 @@ public partial class Registration
 
     protected override async Task OnInitializedAsync()
     {
+        //if (accessor.HttpContext == null) return;
         Console.WriteLine("OnInitializedAsync");
         if (loginChallenge != null)
             logger.LogDebug("login_challenge found in URL query: {Challenge}", loginChallenge);
@@ -35,7 +36,7 @@ public partial class Registration
 
         if (flowId == null)
         {
-            logger.LogDebug("No flow ID found in URL query initializing login flow");
+            logger.LogDebug("No flow ID found in URL query initializing registration flow");
             // initiate flow
             var parameters = new Dictionary<string, string?>();
             if (returnTo != null) parameters["return_to"] = returnTo;

@@ -114,7 +114,7 @@ Other versions may work too but haven't been tested.
 
 | Kratos | Hydra  | OathKeeper | Keto    |
 |--------|--------|------------|---------|
-| `v1.0` | `v2.2` | `v0.40`    | `v0.11` |
+| `v1.1` | `v2.2` | `v0.40`    | `v0.12` |
 
 ### ORY Kratos Self Service UI
 

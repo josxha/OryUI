@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   kratos-migrate:
-    image: oryd/kratos:v1.0.0
+    image: oryd/kratos:v1.1.0
     environment:
       - DSN=sqlite:///var/lib/sqlite/db.sqlite?_fk=true&mode=rwc
     volumes:
@@ -16,18 +16,22 @@ services:
     networks:
       - ory
   kratos-selfservice-ui-node:
-    image: oryd/kratos-selfservice-ui-node:v1.0.0
+    image: oryd/kratos-selfservice-ui-node:v1.1.0
     environment:
       - KRATOS_PUBLIC_URL=http://kratos:4433/
       - KRATOS_BROWSER_URL=http://127.0.0.1:4433/
+      - COOKIE_SECRET=changeme123
+      - CSRF_COOKIE_NAME=x-csrf-token
+      - CSRF_COOKIE_SECRET=changeme123
+      - DANGEROUSLY_DISABLE_SECURE_CSRF_COOKIES=true
     networks:
       - ory
     ports:
-      - '127.0.0.1:4450:3000'
+      - '127.0.0.1:3000:3000'
   kratos:
     depends_on:
       - kratos-migrate
-    image: oryd/kratos:v1.0.0
+    image: oryd/kratos:v1.1.0
     ports:
       - '127.0.0.1:4433:4433' # public
       - '127.0.0.1:4434:4434' # admin
@@ -88,16 +92,16 @@ services:
         target: /etc/config/hydra
     networks:
       - ory
-  consent:
-    environment:
-      - HYDRA_ADMIN_URL=http://hydra:4445
-    image: oryd/hydra-login-consent-node:v2.2.0-rc.3
-    ports:
-      - "127.0.0.1:3000:3000"
-    networks:
-      - ory
+#  consent:
+#    environment:
+#      - HYDRA_ADMIN_URL=http://hydra:4445
+#    image: oryd/hydra-login-consent-node:v2.2.0
+#    ports:
+#      - "127.0.0.1:3000:3000"
+#    networks:
+#      - ory
   keto:
-    image: oryd/keto:v0.11
+    image: oryd/keto:v0.12
     ports:
       - "127.0.0.1:4466:4466" # read api
       - "127.0.0.1:4467:4467" # write api

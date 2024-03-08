@@ -36,7 +36,6 @@ selfservice:
           id: 127.0.0.1
           origins:
             - https://127.0.0.1
-          origin: https://127.0.0.1
           display_name: OryUI
     oidc:
       enabled: true

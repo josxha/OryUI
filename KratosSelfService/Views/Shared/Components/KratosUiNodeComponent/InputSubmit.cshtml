@@ -6,7 +6,7 @@
     var isFullWidth = Model.FlowType != FlowType.Settings;
     var buttonType = attributes.Name switch
     {
-        "lookup_secret_disable" or "webauthn_remove" or "totp_unlink" or "unlink" => "is-warning",
+        "lookup_secret_disable" or "webauthn_remove" or "totp_unlink" or "unlink" or "lookup_secret_confirm" => "is-warning",
         _ => "is-info"
     };
 }

@@ -83,8 +83,14 @@
                                 </p>
                             }
                         </td>
-                        <td>@Model.CurrentSession.AuthenticatedAt</td>
-                        <td>@Model.CurrentSession.ExpiresAt</td>
+                        <td>
+                            @Model.CurrentSession.AuthenticatedAt.ToShortDateString()
+                            @Model.CurrentSession.AuthenticatedAt.ToShortTimeString()
+                        </td>
+                        <td>
+                            @Model.CurrentSession.ExpiresAt.ToShortDateString()
+                            @Model.CurrentSession.ExpiresAt.ToShortTimeString()
+                        </td>
                     </tr>
                     </tbody>
                 </table>

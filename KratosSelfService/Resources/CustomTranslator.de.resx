@@ -160,4 +160,25 @@
     <data name="sessions.title-navigation" xml:space="preserve">
         <value>Aktive Sitzungen</value>
     </data>
+    <data name="settings.deleteAccount" xml:space="preserve">
+        <value>Account löschen</value>
+    </data>
+    <data name="unsupportedNodeType" xml:space="preserve">
+        <value>UI Typ nicht unterstützt</value>
+    </data>
+    <data name="deleteAccount.title" xml:space="preserve">
+        <value>Account löschen</value>
+    </data>
+    <data name="deleteAccount.warning" xml:space="preserve">
+        <value>Diese Aktion kann nicht rückgängig gemacht werden!</value>
+    </data>
+    <data name="deleteAccount.cancel" xml:space="preserve">
+        <value>Abbrechen</value>
+    </data>
+    <data name="deleteAccount.confirm" xml:space="preserve">
+        <value>Bestätigen</value>
+    </data>
+    <data name="deleteAccount.text" xml:space="preserve">
+        <value>Möchten Sie wirklich, dass Ihr Benutzerkonto gelöscht wird?</value>
+    </data>
 </root>

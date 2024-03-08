@@ -114,4 +114,22 @@
     <data name="sessions.title-navigation" xml:space="preserve">
         <value>Active sessions</value>
     </data>
+    <data name="settings.deleteAccount" xml:space="preserve">
+        <value>Delete Account</value>
+    </data>
+    <data name="deleteAccount.title" xml:space="preserve">
+        <value>Delete Account</value>
+    </data>
+    <data name="deleteAccount.warning" xml:space="preserve">
+        <value>This action cannot be undone!</value>
+    </data>
+    <data name="deleteAccount.text" xml:space="preserve">
+        <value>Do you really want your user account to be deleted?</value>
+    </data>
+    <data name="deleteAccount.cancel" xml:space="preserve">
+        <value>Cancel</value>
+    </data>
+    <data name="deleteAccount.confirm" xml:space="preserve">
+        <value>Confirm</value>
+    </data>
 </root>

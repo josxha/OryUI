@@ -11,6 +11,10 @@ public class ApiService(EnvService env)
     {
         BasePath = env.KratosPublicUrl
     });
+    public readonly IdentityApi KratosIdentity = new(new Configuration
+    {
+        BasePath = env.KratosAdminUrl
+    });
 
     public readonly OAuth2Api? HydraOAuth2 = env.HydraAdminUrl == null
         ? null

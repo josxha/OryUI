@@ -10,6 +10,9 @@ public class EnvService
     public readonly string? HydraAdminUrl =
         Environment.GetEnvironmentVariable("HYDRA_ADMIN_URL");
 
+    public readonly string KratosAdminUrl =
+        Environment.GetEnvironmentVariable("KRATOS_ADMIN_URL") ?? "http://127.0.0.1:4434";
+
     /// <summary>
     ///     REMEMBER_CONSENT_SESSION_FOR_SECONDS (optional): Sets the remember_for value of the accept consent
     ///     request in seconds. The default is 3600 seconds.

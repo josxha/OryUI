@@ -35,6 +35,18 @@
                             </a>
                         </li>
                     }
+                    <li>
+                        <a href="settings/delete-account?flow=@Model.flow.Id&return_to=@Model.flow.ReturnTo">
+                            <span class="icon-text is-warning">
+                                <span class="icon">
+                                    <i class="fa-solid fa-user-xmark fa-sm"></i>
+                                </span>
+                                <span>
+                                    @CustomTranslator.Get("settings.deleteAccount")
+                                </span>
+                            </span>
+                        </a>
+                    </li>
                 </ul>
                 @if (!string.IsNullOrWhiteSpace(Model.flow.ReturnTo))
                 {

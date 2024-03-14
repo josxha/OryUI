@@ -1,0 +1,11 @@
+﻿@model KratosUiNodeArgs
+
+@{
+    var attributes = Model.node.Attributes.GetKratosUiNodeInputAttributes();
+}
+
+<input type="@attributes.Type.ToString().ToLower()" class="input"
+       required="@attributes.Required"
+       value="@attributes.Value" autocomplete="@attributes.Autocomplete.ToString()?.ToLower()"
+       disabled="@attributes.Disabled" name="@attributes.Name"
+       onclick="@attributes.Onclick" pattern="@attributes.Pattern"/>

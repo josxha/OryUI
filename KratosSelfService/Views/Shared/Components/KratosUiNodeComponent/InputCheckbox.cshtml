@@ -9,7 +9,7 @@
     <label class="checkbox">
         <input type="checkbox" class="checkbox"
                @(attributes.Required ? "required" : "")
-               @(attributes.Value.ToString() == "True" ? "checked" : "")
+               @(attributes.Value?.ToString() == "True" ? "checked" : "")
                @(attributes.Disabled ? "disabled" : "") 
                name="@attributes.Name"
                value="true"

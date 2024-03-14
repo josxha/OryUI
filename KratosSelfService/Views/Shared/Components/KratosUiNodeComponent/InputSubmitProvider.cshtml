@@ -13,7 +13,7 @@
             name="@attributes.Name"
             onclick="@attributes.Onclick">
         <span class="icon">
-            <i class="fab fa-@attributes.Value.ToString()?.ToLowerInvariant()"></i>
+            <i class="fab fa-@(attributes.Value?.ToString()?.ToLowerInvariant() ?? "building")"></i>
         </span>
         @* Not using @OryTranslator.ForUiText(uiText), label too long *@
         <span>@attributes.Value</span>

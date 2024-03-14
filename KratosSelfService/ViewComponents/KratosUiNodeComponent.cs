@@ -16,10 +16,11 @@ public class KratosUiNodeComponent : ViewComponent
             case KratosUiNode.TypeEnum.Input:
                 switch (args.node.Attributes.GetKratosUiNodeInputAttributes().Type)
                 {
+                    case KratosUiNodeInputAttributes.TypeEnum.Hidden:
+                        return Task.FromResult(View("InputFieldHidden", args));
                     case KratosUiNodeInputAttributes.TypeEnum.Text:
                     case KratosUiNodeInputAttributes.TypeEnum.Password:
                     case KratosUiNodeInputAttributes.TypeEnum.Number:
-                    case KratosUiNodeInputAttributes.TypeEnum.Hidden:
                     case KratosUiNodeInputAttributes.TypeEnum.Email:
                     case KratosUiNodeInputAttributes.TypeEnum.Tel:
                     case KratosUiNodeInputAttributes.TypeEnum.DatetimeLocal:

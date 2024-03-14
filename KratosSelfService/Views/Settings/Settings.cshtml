@@ -36,7 +36,7 @@
                         </li>
                     }
                     <li>
-                        <a href="settings/delete-account?flow=@Model.flow.Id&return_to=@Model.flow.ReturnTo">
+                        <a href="#delete-account">
                             <span class="icon-text is-warning">
                                 <span class="icon">
                                     <i class="fa-solid fa-user-xmark fa-sm"></i>
@@ -99,8 +99,8 @@
                     <h3 class="subtitle">
                         @group.Key.ToLocalTitleString(OryTranslator)
                     </h3>
-                    <form class="mb-3 @(group.Key == KratosUiNode.GroupEnum.Oidc ? "columns is-multiline" : "")" 
-                          action="@Model.flow.Ui.Action" 
+                    <form class="mb-3 @(group.Key == KratosUiNode.GroupEnum.Oidc ? "columns is-multiline" : "")"
+                          action="@Model.flow.Ui.Action"
                           method="@Model.flow.Ui.Method">
                         @foreach (var node in defaultNodes)
                         {
@@ -115,6 +115,21 @@
                     </form>
                 </div>
             }
+            <div class="box p-5" id="delete-account">
+                <h3 class="subtitle">
+                    @CustomTranslator.Get("settings.deleteAccount")
+                </h3>
+                <div class="mb-3">
+                    <div class="field">
+                        <div class="control">
+                            <a href="settings/delete-account?flow=@Model.flow.Id&return_to=@Model.flow.ReturnTo"
+                               class="button is-danger">
+                                @CustomTranslator.Get("settings.deleteAccountButtonLabel")
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

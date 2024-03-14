@@ -132,4 +132,7 @@
     <data name="deleteAccount.confirm" xml:space="preserve">
         <value>Confirm</value>
     </data>
+    <data name="settings.deleteAccountButtonLabel" xml:space="preserve">
+        <value>Delete Account</value>
+    </data>
 </root>

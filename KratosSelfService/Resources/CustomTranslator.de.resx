@@ -181,4 +181,7 @@
     <data name="deleteAccount.text" xml:space="preserve">
         <value>Möchten Sie wirklich, dass Ihr Benutzerkonto gelöscht wird?</value>
     </data>
+    <data name="settings.deleteAccountButtonLabel" xml:space="preserve">
+        <value>Account löschen</value>
+    </data>
 </root>

@@ -5,12 +5,16 @@
     var uiText = attributes.Label ?? Model.node.Meta.Label;
 }
 
-<label class="checkbox">
-    <input type="checkbox" class="input"
-           required="@attributes.Required"
-           value="@attributes.Value" autocomplete="@attributes.Autocomplete.ToString()?.ToLower()"
-           disabled="@attributes.Disabled" name="@attributes.Name"
-           onclick="@attributes.Onclick" pattern="@attributes.Pattern"/>
-    @OryTranslator.ForUiText(uiText)
+<div class="field">
+    <label class="checkbox">
+        <input type="checkbox" class="checkbox"
+               @(attributes.Required ? "required" : "") 
+               @(ReferenceEquals(attributes.Value, "on") ? "checked" : "")
+               @(attributes.Disabled ? "disabled" : "") 
+               name="@attributes.Name"
+               value="true"
+               onclick="@attributes.Onclick" pattern="@attributes.Pattern"/>
+        @OryTranslator.ForUiText(uiText)
+    </label>
     @await Component.InvokeAsync("KratosUiTextMessages", Model.node.Messages)
-</label>
+</div>

@@ -38,6 +38,23 @@
               "type": "string"
             }
           }
+        },
+        "compliance": {
+          "type": "object",
+          "properties": {
+            "privacy": {
+              "type": "boolean",
+              "title": "Accept the privacy policy"
+            },
+            "tos": {
+              "type": "boolean",
+              "title": "Accept the terms of service"
+            }
+          },
+          "required": [
+            "privacy",
+            "tos"
+          ]
         }
       },
       "required": [

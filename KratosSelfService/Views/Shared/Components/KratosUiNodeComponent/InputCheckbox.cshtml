@@ -14,7 +14,7 @@
                name="@attributes.Name"
                value="true"
                onclick="@attributes.Onclick" pattern="@attributes.Pattern"/>
-        @OryTranslator.ForUiText(uiText)
+        @OryTranslator.ForUiText(uiText)@(attributes.Required ? "*" : "")
     </label>
     @await Component.InvokeAsync("KratosUiTextMessages", Model.node.Messages)
 </div>

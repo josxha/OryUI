@@ -30,10 +30,13 @@ public class KratosUiNodeComponent : ViewComponent
                         return Task.FromResult(View("InputCheckbox", args));
                     case KratosUiNodeInputAttributes.TypeEnum.Submit:
                         var inputAttr = args.node.Attributes.GetKratosUiNodeInputAttributes();
-                        if (args.FlowType != FlowType.Settings 
+                        if (args.FlowType != FlowType.Settings
                             && inputAttr.Type == KratosUiNodeInputAttributes.TypeEnum.Submit
-                            && inputAttr.Name == "provider") 
-                            return Task.FromResult(View("InputSubmitOidc", args));
+                            && inputAttr.Name == "provider")
+                            return Task.FromResult(View("InputSubmitProvider", args));
+                        if (args.FlowType == FlowType.Settings && inputAttr.Name == "link" ||
+                            inputAttr.Name == "unlink")
+                            return Task.FromResult(View("InputSubmitLink", args));
                         return Task.FromResult(View("InputSubmit", args));
                     case KratosUiNodeInputAttributes.TypeEnum.Button:
                         return Task.FromResult(View("InputButton", args));

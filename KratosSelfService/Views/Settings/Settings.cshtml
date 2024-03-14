@@ -99,7 +99,9 @@
                     <h3 class="subtitle">
                         @group.Key.ToLocalTitleString(OryTranslator)
                     </h3>
-                    <form class="mb-3" action="@Model.flow.Ui.Action" method="@Model.flow.Ui.Method">
+                    <form class="mb-3 @(group.Key == KratosUiNode.GroupEnum.Oidc ? "columns is-multiline" : "")" 
+                          action="@Model.flow.Ui.Action" 
+                          method="@Model.flow.Ui.Method">
                         @foreach (var node in defaultNodes)
                         {
                             var model = new KratosUiNodeArgs(node, FlowType.Settings);

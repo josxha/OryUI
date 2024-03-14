@@ -4,14 +4,10 @@
     var attributes = Model.node.Attributes.GetKratosUiNodeInputAttributes();
     var uiText = attributes.Label ?? Model.node.Meta.Label;
     var isFullWidth = Model.FlowType != FlowType.Settings;
-    var buttonType = attributes.Name switch
-    {
-        "lookup_secret_disable" or "webauthn_remove" or "totp_unlink" or "unlink" or "lookup_secret_confirm" => "is-warning",
-        _ => "is-info"
-    };
+    var buttonType = attributes.Name == "unlink" ? "is-warning" : "is-info";
 }
 
-<div class="field">
+<div class="column is-narrow">
     <div class="control">
         <button type="submit"
                 class="button @buttonType @(isFullWidth ? "is-fullwidth" : "")"
@@ -20,14 +16,7 @@
                 value="@attributes.Value"
                 name="@attributes.Name"
                 onclick="@attributes.Onclick">
-            @if (Model.node.Group == KratosUiNode.GroupEnum.Webauthn && Model.node.Meta?.Label.Id == 1010001)
-            {
-                <span>@CustomTranslator.Get($"{Model.node.Meta.Label.Id}-webauthn")</span>
-            }
-            else
-            {
-                <span>@OryTranslator.ForUiText(uiText)</span>
-            }
+            <span>@OryTranslator.ForUiText(uiText)</span>
         </button>
     </div>
     @await Component.InvokeAsync("KratosUiTextMessages", Model.node.Messages)

@@ -20,19 +20,17 @@ public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
             options.DefaultChallengeScheme = "DefaultScheme"; // 401 Unauthorized
             options.DefaultForbidScheme = "DefaultScheme"; // 403 Forbid
         });
-        services.AddAuthorization(options =>
-        {
-            options.AddPolicy("LoggedIn", policyBuilder => { policyBuilder.RequireClaim(ClaimTypes.NameIdentifier); });
-            // The fallback authorization policy requires all users to be authenticated, except for controllers or action
-            // methods with an authorization attribute. For example, controllers or action methods with [AllowAnonymous] or
-            // [Authorize(PolicyName="MyPolicy")] use the applied authorization attribute rather than the fallback
-            // authorization policy.
-            // The fallback authorization policy is applied to all requests that don't explicitly specify an authorization
-            // policy.
-            options.FallbackPolicy = new AuthorizationPolicyBuilder()
+        
+        // The fallback authorization policy requires all users to be authenticated, except for controllers or action
+        // methods with an authorization attribute. For example, controllers or action methods with [AllowAnonymous] or
+        // [Authorize(PolicyName="MyPolicy")] use the applied authorization attribute rather than the fallback
+        // authorization policy.
+        // The fallback authorization policy is applied to all requests that don't explicitly specify an authorization
+        // policy.
+        services.AddAuthorizationBuilder()
+            .SetFallbackPolicy(new AuthorizationPolicyBuilder()
                 .RequireAuthenticatedUser()
-                .Build();
-        });
+                .Build());
 
         // localisation
         services.AddLocalization(options => options.ResourcesPath = "Resources");

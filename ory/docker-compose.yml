@@ -5,32 +5,14 @@ services:
     environment:
       - DSN=sqlite:///var/lib/sqlite/db.sqlite?_fk=true&mode=rwc
     volumes:
-      - type: bind
-        source: ./kratos-sqlite
-        target: /var/lib/sqlite
-        read_only: false
-      - type: bind
-        source: ./kratos
-        target: /etc/config/kratos
+      - "./kratos-sqlite:/var/lib/sqlite"
+      - "./kratos:/etc/config/kratos"
     command: -c /etc/config/kratos/kratos.yml migrate sql -e --yes
-    networks:
-      - ory
-  kratos-selfservice-ui-node:
-    image: oryd/kratos-selfservice-ui-node:v1.1.0
-    environment:
-      - KRATOS_PUBLIC_URL=http://kratos:4433/
-      - KRATOS_BROWSER_URL=http://127.0.0.1:4433/
-      - COOKIE_SECRET=changeme123
-      - CSRF_COOKIE_NAME=x-csrf-token
-      - CSRF_COOKIE_SECRET=changeme123
-      - DANGEROUSLY_DISABLE_SECURE_CSRF_COOKIES=true
-    networks:
-      - ory
-    ports:
-      - '127.0.0.1:3000:3000'
+    networks: [ ory ]
   kratos:
     depends_on:
-      - kratos-migrate
+      kratos-migrate:
+        condition: service_completed_successfully
     image: oryd/kratos:v1.1.0
     ports:
       - '127.0.0.1:4433:4433' # public
@@ -40,22 +22,39 @@ services:
       - LOG_LEVEL=trace
     command: serve -c /etc/config/kratos/kratos.yml --dev --watch-courier
     volumes:
-      - type: bind
-        source: kratos-sqlite
-        target: /var/lib/sqlite
-        read_only: false
-      - type: bind
-        source: ./kratos
-        target: /etc/config/kratos
-    networks:
-      - ory
+      - "./kratos-sqlite:/var/lib/sqlite"
+      - "./kratos:/etc/config/kratos"
+    networks: [ ory ]
+  kratos-selfservice-ui-node:
+    image: oryd/kratos-selfservice-ui-node:v1.1.0
+    environment:
+      - KRATOS_PUBLIC_URL=http://kratos:4433/
+      - KRATOS_BROWSER_URL=http://127.0.0.1:4433/
+      - COOKIE_SECRET=changeme123
+      - CSRF_COOKIE_NAME=x-csrf-token
+      - CSRF_COOKIE_SECRET=changeme123
+      - DANGEROUSLY_DISABLE_SECURE_CSRF_COOKIES=true
+    depends_on: 
+      kratos:
+        condition: service_started
+    networks: [ ory ]
+    ports:
+      - '127.0.0.1:3000:3000'
   mailslurper:
     image: oryd/mailslurper:latest-smtps
     ports:
       - '127.0.0.1:4436:4436'
       - '127.0.0.1:4437:4437'
-    networks:
-      - ory
+    networks: [ ory ]
+  hydra-migrate:
+    image: oryd/hydra:v2.2
+    environment:
+      - DSN=sqlite:///var/lib/sqlite/db.sqlite?_fk=true
+    command: migrate -c /etc/config/hydra/hydra.yml sql -e --yes
+    volumes:
+      - "./hydra-sqlite:/var/lib/sqlite"
+      - "./hydra:/etc/config/hydra"
+    networks: [ ory ]
   hydra:
     image: oryd/hydra:v2.2
     ports:
@@ -64,42 +63,22 @@ services:
       - "127.0.0.1:5555:5555" # Port for hydra token user
     command: serve -c /etc/config/hydra/hydra.yml all --dev
     volumes:
-      - type: bind
-        source: ./hydra-sqlite
-        target: /var/lib/sqlite
-        read_only: false
-      - type: bind
-        source: ./hydra
-        target: /etc/config/hydra
+      - "./hydra-sqlite:/var/lib/sqlite"
+      - "./hydra:/etc/config/hydra"
     environment:
       - DSN=sqlite:///var/lib/sqlite/db.sqlite?_fk=true
     depends_on:
-      - hydra-migrate
-    networks:
-      - ory
-  hydra-migrate:
-    image: oryd/hydra:v2.2
-    environment:
-      - DSN=sqlite:///var/lib/sqlite/db.sqlite?_fk=true
-    command: migrate -c /etc/config/hydra/hydra.yml sql -e --yes
-    volumes:
-      - type: bind
-        source: ./hydra-sqlite
-        target: /var/lib/sqlite
-        read_only: false
-      - type: bind
-        source: ./hydra
-        target: /etc/config/hydra
-    networks:
-      - ory
-#  consent:
-#    environment:
-#      - HYDRA_ADMIN_URL=http://hydra:4445
-#    image: oryd/hydra-login-consent-node:v2.2.0
-#    ports:
-#      - "127.0.0.1:3000:3000"
-#    networks:
-#      - ory
+      hydra-migrate:
+        condition: service_completed_successfully
+    networks: [ ory ]
+  #  consent:
+  #    environment:
+  #      - HYDRA_ADMIN_URL=http://hydra:4445
+  #    image: oryd/hydra-login-consent-node:v2.2.0
+  #    ports:
+  #      - "127.0.0.1:3000:3000"
+  #    networks:
+  #      - ory
   keto:
     image: oryd/keto:v0.12
     ports:
@@ -110,8 +89,7 @@ services:
       - type: bind
         source: ./keto/keto.yml
         target: /home/ory/keto.yml
-    networks:
-      - ory
+    networks: [ ory ]
   oathkeeper:
     image: oryd/oathkeeper:v0.40
     ports:
@@ -129,14 +107,12 @@ services:
       - type: bind
         source: ./oathkeeper
         target: /etc/config/oathkeeper
-    networks:
-      - ory
+    networks: [ ory ]
   jaeger:
     image: jaegertracing/all-in-one
     ports:
       - "127.0.0.1:16686:16686" # The UI port
-    networks:
-      - ory
+    networks: [ ory ]
 
 
 networks:

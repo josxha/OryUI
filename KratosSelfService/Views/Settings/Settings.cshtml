@@ -35,6 +35,21 @@
                             </a>
                         </li>
                     }
+                    @if (Model.exportUserDataEnabled)
+                    {
+                        <li>
+                            <a href="#export-data">
+                                <span class="icon-text is-info">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-download fa-sm"></i>
+                                    </span>
+                                    <span>
+                                        @CustomTranslator.Get("settings.exportData")
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                    }
                     <li>
                         <a href="#delete-account">
                             <span class="icon-text is-warning">

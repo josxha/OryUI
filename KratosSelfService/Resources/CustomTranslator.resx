@@ -135,4 +135,22 @@
     <data name="settings.deleteAccountButtonLabel" xml:space="preserve">
         <value>Delete Account</value>
     </data>
+    <data name="settings.exportData" xml:space="preserve">
+        <value>Download user data</value>
+    </data>
+    <data name="settings.exportDataButtonLabel" xml:space="preserve">
+        <value>Ok</value>
+    </data>
+    <data name="exportUserData.title" xml:space="preserve">
+        <value>Extract user data</value>
+    </data>
+    <data name="exportUserData.info" xml:space="preserve">
+        <value>You can download your user data here.</value>
+    </data>
+    <data name="exportUserData.goBack" xml:space="preserve">
+        <value>Back</value>
+    </data>
+    <data name="exportUserData.confirm" xml:space="preserve">
+        <value>Download</value>
+    </data>
 </root>

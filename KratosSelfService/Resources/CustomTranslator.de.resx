@@ -184,4 +184,22 @@
     <data name="settings.deleteAccountButtonLabel" xml:space="preserve">
         <value>Account löschen</value>
     </data>
+    <data name="settings.exportData" xml:space="preserve">
+        <value>Benutzerdaten herunterladen</value>
+    </data>
+    <data name="settings.exportDataButtonLabel" xml:space="preserve">
+        <value>Ok</value>
+    </data>
+    <data name="exportUserData.info" xml:space="preserve">
+        <value>Hier können sie ihre Benutzerdaten herunterladen</value>
+    </data>
+    <data name="exportUserData.title" xml:space="preserve">
+        <value>Benutzerdaten herunterladen</value>
+    </data>
+    <data name="exportUserData.goBack" xml:space="preserve">
+        <value>Zurück</value>
+    </data>
+    <data name="exportUserData.confirm" xml:space="preserve">
+        <value>Herunterladen</value>
+    </data>
 </root>

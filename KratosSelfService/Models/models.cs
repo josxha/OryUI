@@ -40,7 +40,8 @@ public record SessionsModel(
 );
 
 public record SettingsModel(
-    KratosSettingsFlow flow
+    KratosSettingsFlow flow,
+    bool exportUserDataEnabled
 );
 
 public record VerificationModel(

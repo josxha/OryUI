@@ -1,0 +1,32 @@
+﻿@model SettingsModel
+@{
+    Layout = "_CardLayout";
+    ViewData["Title"] = CustomTranslator.Get("exportUserData.title");
+}
+
+<h1 class="title has-text-centered">@CustomTranslator.Get("exportUserData.title")</h1>
+<div class="mb-2">
+    <div class="message is-info p-3">
+        @CustomTranslator.Get("exportUserData.info")
+    </div>
+</div>
+<hr/>
+
+<form class="mb-3" action="/settings/export-data?flow=@Model.flow.Id&return_to=@Model.flow.ReturnTo" method="post">
+    @Html.AntiForgeryToken()
+    <div class="field">
+        <div class="columns is-mobile is-multiline">
+            <div class="column is-half">
+                <a class="button is-dark is-fullwidth"
+                   href="/settings?flow=@Model.flow.Id&return_to=@Model.flow.ReturnTo">
+                    @CustomTranslator.Get("exportUserData.goBack")
+                </a>
+            </div>
+            <div class="column is-half">
+                <button type="submit" class="button is-success is-fullwidth">
+                    @CustomTranslator.Get("exportUserData.confirm")
+                </button>
+            </div>
+        </div>
+    </div>
+</form>

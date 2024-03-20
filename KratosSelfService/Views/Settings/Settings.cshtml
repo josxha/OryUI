@@ -115,6 +115,23 @@
                     </form>
                 </div>
             }
+            @if (Model.exportUserDataEnabled) {
+                <div class="box p-5" id="export-data">
+                    <h3 class="subtitle">
+                        @CustomTranslator.Get("settings.exportData")
+                    </h3>
+                    <div class="mb-3">
+                        <div class="field">
+                            <div class="control">
+                                <a href="settings/export-data?flow=@Model.flow.Id&return_to=@Model.flow.ReturnTo"
+                                   class="button is-info">
+                                    @CustomTranslator.Get("settings.exportDataButtonLabel")
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
             <div class="box p-5" id="delete-account">
                 <h3 class="subtitle">
                     @CustomTranslator.Get("settings.deleteAccount")

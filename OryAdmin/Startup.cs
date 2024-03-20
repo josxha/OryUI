@@ -9,6 +9,7 @@ public class Startup(IConfigurationRoot config, IWebHostEnvironment env)
 {
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddSingleton(typeof(ILogger), provider => provider.GetRequiredService<ILogger<Program>>());
         services.AddHttpContextAccessor();
         services.AddRazorComponents()
             .AddInteractiveServerComponents();

@@ -58,6 +58,14 @@ public class EnvService
     /// <summary>
     ///     The optional logo URI for the website
     /// </summary>
-    public readonly string? WebsiteTitle =
+    public readonly string WebsiteTitle =
         Environment.GetEnvironmentVariable("WEBSITE_TITLE") ?? "OryUI";
+
+    /// <summary>
+    ///     Optional internal URL to collect and bundle all user data.
+    ///     Setting this allows the user to download its user data.
+    ///     {Id} will get replaced by the uuid of the user.
+    /// </summary>
+    public readonly string? ExportUserDataUrl =
+        Environment.GetEnvironmentVariable("EXPORT_USER_DATA_URL");
 }

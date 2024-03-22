@@ -66,6 +66,7 @@
         <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-validation\LICENSE.md"/>
         <_ContentIncludedByDefault Remove="wwwroot\img\Missing_avatar.svg" />
         <_ContentIncludedByDefault Remove="Views\Shared\Components\_Head\Default.cshtml" />
+        <_ContentIncludedByDefault Remove="Views\Logout\Logout.cshtml" />
     </ItemGroup>
 
     <ItemGroup>
@@ -78,7 +79,6 @@
     <ItemGroup>
         <AdditionalFiles Include="Views\OAuth2\Consent.cshtml"/>
         <AdditionalFiles Include="Views\Login\Login.cshtml"/>
-        <AdditionalFiles Include="Views\Logout\Logout.cshtml"/>
         <AdditionalFiles Include="Views\Recovery\Recovery.cshtml"/>
         <AdditionalFiles Include="Views\Registration\Registration.cshtml"/>
         <AdditionalFiles Include="Views\Shared\Components\KratosUiNodeComponent\InputButton.cshtml" />

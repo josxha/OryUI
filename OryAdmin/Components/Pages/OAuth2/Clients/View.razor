@@ -94,7 +94,7 @@ else
                     <p>Are you sure to delete this client?</p>
                     <p>Be aware that this cannot be undone.</p>
                 </section>
-                <footer class="modal-card-foot">
+                <footer class="modal-card-foot buttons">
                     <button class="button" data-target="delete-client-modal"
                             type="button" @onclick="HideDeleteModal">
                         Cancel
@@ -122,7 +122,7 @@ else
                     </label>
                     <p>This will delete the old client secret and replace it with new new one.</p>
                 </section>
-                <footer class="modal-card-foot">
+                <footer class="modal-card-foot buttons">
                     <button class="button" data-target="delete-client-modal"
                             type="button" @onclick="() => _confirmNewSecretModal = false">
                         Cancel
@@ -153,7 +153,7 @@ else
                     Please store your Client Secret because it can only be viewed once.
                 </div>
             </section>
-            <footer class="modal-card-foot">
+            <footer class="modal-card-foot buttons">
                 <div class="button is-info" @onclick="() => _showNewSecretModal = false">
                     Done
                 </div>
@@ -359,7 +359,7 @@ else
             </tr>
             <tr>
                 <td>Metadata</td>
-                <td>@(_client.Metadata == null ? "-" : _client.Metadata)</td>
+                <td>@(_client.Metadata ?? "-")</td>
             </tr>
             <tr>
                 <td>Subject type</td>

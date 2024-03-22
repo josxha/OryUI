@@ -8,9 +8,9 @@
 }
 
 <div class="columns">
-    <div class="column is-3 is-hidden-mobile">
+    <div class="column is-3 is-hidden-touch">
         <div class="section">
-            <aside>
+            <aside class="menu">
                 <p class="menu-label">@CustomTranslator.Get("sessions.title-navigation")</p>
                 <ul class="menu-list">
                     <li>
@@ -53,7 +53,7 @@
             </aside>
         </div>
     </div>
-    <div class="column is-9">
+    <div class="column is-12 is-9-desktop">
         <div class="section">
             <div class="box" id="overview">
                 <h1 class="title">@CustomTranslator.Get("sessions.title")</h1>
@@ -66,7 +66,7 @@
                     <tr>
                         <td>@CustomTranslator.Get("sessions.devices")</td>
                         <td>@CustomTranslator.Get("sessions.authenticatedAt")</td>
-                        <td>@CustomTranslator.Get("sessions.expiresAt")</td>
+                        <td class="is-hidden-mobile">@CustomTranslator.Get("sessions.expiresAt")</td>
                     </tr>
                     </thead>
                     <tbody>
@@ -85,7 +85,7 @@
                             @Model.CurrentSession.AuthenticatedAt.ToShortDateString()
                             @Model.CurrentSession.AuthenticatedAt.ToShortTimeString()
                         </td>
-                        <td>
+                        <td class="is-hidden-mobile">
                             @Model.CurrentSession.ExpiresAt.ToShortDateString()
                             @Model.CurrentSession.ExpiresAt.ToShortTimeString()
                         </td>
@@ -114,7 +114,7 @@
                         <tr>
                             <td>@CustomTranslator.Get("sessions.devices")</td>
                             <td>@CustomTranslator.Get("sessions.authenticatedAt")</td>
-                            <td>@CustomTranslator.Get("sessions.expiresAt")</td>
+                            <td class="is-hidden-mobile">@CustomTranslator.Get("sessions.expiresAt")</td>
                         </tr>
                         </thead>
                         <tbody>
@@ -132,7 +132,7 @@
                                     }
                                 </td>
                                 <td>@session.AuthenticatedAt</td>
-                                <td>@session.ExpiresAt</td>
+                                <td class="is-hidden-mobile">@session.ExpiresAt</td>
                             </tr>
                         }
                         </tbody>

@@ -14,9 +14,9 @@
 }
 
 <div class="columns">
-    <div class="column is-3 is-hidden-mobile">
+    <div class="column is-3 is-hidden-touch">
         <div class="section">
-            <aside>
+            <aside class="menu">
                 <p class="menu-label">@OryTranslator.Get("settings.title-navigation")</p>
                 <ul class="menu-list">
                     @foreach (var group in groups)
@@ -96,7 +96,7 @@
             </aside>
         </div>
     </div>
-    <div class="column is-9">
+    <div class="column is-12 is-9-desktop">
         <div class="section">
             <div class="box pt-5">
                 <h1 class="title">@OryTranslator.Get("settings.title")</h1>
@@ -130,7 +130,8 @@
                     </form>
                 </div>
             }
-            @if (Model.exportUserDataEnabled) {
+            @if (Model.exportUserDataEnabled)
+            {
                 <div class="box p-5" id="export-data">
                     <h3 class="subtitle">
                         @CustomTranslator.Get("settings.exportData")
@@ -139,7 +140,11 @@
                         <div class="field">
                             <div class="control">
                                 <a href="settings/export-data?flow=@Model.flow.Id&return_to=@Model.flow.ReturnTo"
-                                   class="button is-info">
+                                   class="button is-info is-fullwidth is-hidden-tablet">
+                                    @CustomTranslator.Get("settings.exportDataButtonLabel")
+                                </a>
+                                <a href="settings/export-data?flow=@Model.flow.Id&return_to=@Model.flow.ReturnTo"
+                                   class="button is-info is-hidden-mobile">
                                     @CustomTranslator.Get("settings.exportDataButtonLabel")
                                 </a>
                             </div>
@@ -155,7 +160,11 @@
                     <div class="field">
                         <div class="control">
                             <a href="settings/delete-account?flow=@Model.flow.Id&return_to=@Model.flow.ReturnTo"
-                               class="button is-danger">
+                               class="button is-danger is-hidden-mobile">
+                                @CustomTranslator.Get("settings.deleteAccountButtonLabel")
+                            </a>
+                            <a href="settings/delete-account?flow=@Model.flow.Id&return_to=@Model.flow.ReturnTo"
+                               class="button is-danger is-fullwidth is-hidden-tablet">
                                 @CustomTranslator.Get("settings.deleteAccountButtonLabel")
                             </a>
                         </div>

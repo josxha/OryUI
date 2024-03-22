@@ -185,7 +185,7 @@
         <value>Account löschen</value>
     </data>
     <data name="settings.exportData" xml:space="preserve">
-        <value>Benutzerdaten herunterladen</value>
+        <value>Daten exportieren</value>
     </data>
     <data name="settings.exportDataButtonLabel" xml:space="preserve">
         <value>Daten exportieren</value>

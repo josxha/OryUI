@@ -136,7 +136,7 @@
         <value>Delete Account</value>
     </data>
     <data name="settings.exportData" xml:space="preserve">
-        <value>Download user data</value>
+        <value>Export data</value>
     </data>
     <data name="settings.exportDataButtonLabel" xml:space="preserve">
         <value>Export data</value>

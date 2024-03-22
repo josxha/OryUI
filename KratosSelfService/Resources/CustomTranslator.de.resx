@@ -188,7 +188,7 @@
         <value>Benutzerdaten herunterladen</value>
     </data>
     <data name="settings.exportDataButtonLabel" xml:space="preserve">
-        <value>Ok</value>
+        <value>Daten exportieren</value>
     </data>
     <data name="exportUserData.info" xml:space="preserve">
         <value>Hier können sie ihre Benutzerdaten herunterladen</value>

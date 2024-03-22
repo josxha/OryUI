@@ -139,7 +139,7 @@
         <value>Download user data</value>
     </data>
     <data name="settings.exportDataButtonLabel" xml:space="preserve">
-        <value>Ok</value>
+        <value>Export data</value>
     </data>
     <data name="exportUserData.title" xml:space="preserve">
         <value>Extract user data</value>

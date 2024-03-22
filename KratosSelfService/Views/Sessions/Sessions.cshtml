@@ -76,9 +76,8 @@
                             {
                                 var info = uaParser.Parse(device.UserAgent);
                                 <p>
-                                    @info.Device.ToString() on @info.OS
-                                    (@device.IpAddress
-                                    @(string.IsNullOrWhiteSpace(device.Location) ? "" : $"({device.Location}"))
+                                    @info.OS
+                                    (@device.IpAddress@(string.IsNullOrWhiteSpace(device.Location) ? "" : $" {device.Location}"))
                                 </p>
                             }
                         </td>

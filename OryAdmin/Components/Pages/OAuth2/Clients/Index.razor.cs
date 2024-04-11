@@ -28,7 +28,7 @@ public partial class Index : ComponentBase
         try
         {
             var clientsResponse = await ApiService.HydraOAuth2
-                .ListOAuth2ClientsWithHttpInfoAsync(PageSize);
+                .ListOAuth2ClientsWithHttpInfoAsync(PageSize, PageToken);
             PaginationTokens = clientsResponse.Headers["Link"].First().PaginationTokens();
             _clients = clientsResponse.Data;
         }

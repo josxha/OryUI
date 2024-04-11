@@ -25,6 +25,7 @@ public partial class Index
     {
         if (PageSize == 0) PageSize = 50;
 
+        // TODO use page token (currently not possible since it's a long)
         var identitiesResponse = await ApiService.KratosIdentity
             .ListIdentitiesWithHttpInfoAsync(PageSize);
         PaginationTokens = identitiesResponse.Headers["Link"].First().PaginationTokens();

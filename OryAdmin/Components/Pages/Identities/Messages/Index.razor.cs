@@ -26,7 +26,8 @@ public partial class Index : ComponentBase
     {
         if (PageSize == 0) PageSize = 50;
         
-        var messagesResponse = await ApiService.KratosCourier.ListCourierMessagesWithHttpInfoAsync(PageSize);
+        var messagesResponse = await ApiService.KratosCourier
+            .ListCourierMessagesWithHttpInfoAsync(PageSize, PageToken);
         PaginationTokens = messagesResponse.Headers["Link"].First().PaginationTokens();
         _messages = messagesResponse.Data;
         

@@ -1,35 +1,38 @@
-﻿@if (MaxPageNr > 1)
-{
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-        <a href="@Url?page=@(PageNr - 1)"
-           class="pagination-previous @(PageNr < 2 ? "is-disabled" : "")">
-            Previous
+﻿@using OryAdmin.Utils
+<nav class="pagination is-centered" role="navigation" aria-label="pagination">
+    @if (PageToken == PaginationTokens.First || PageToken == null)
+    {
+        <button class="pagination-previous is-disabled">
+            First Page
+        </button>
+    }
+    else
+    {
+        <a href="@Url?page_size=@(PageSize)&page_token=@(PaginationTokens.First)" 
+           class="pagination-previous">
+            First Page
         </a>
-        <a href="@Url?page=@(PageNr + 1)"
-           class="pagination-next @(PageNr >= MaxPageNr ? "is-disabled" : "")">
+    }
+    @if (string.IsNullOrWhiteSpace(PaginationTokens.Next))
+    {
+        <button class="pagination-next is-disabled">
+            Next Page
+        </button>
+    }
+    else
+    {
+        <a href="@Url?page_size=@(PageSize)&page_token=@(PaginationTokens.Next)" 
+           class="pagination-next">
             Next Page
         </a>
-        <ul class="pagination-list">
-            <PaginationLink IsActive="@(PageNr == 1)" PageNr="1" Url="@Url"/>
-            <PaginationEllipsis IsHidden="@(PageNr < 5)"/>
-            @for (var i = int.Max(2, PageNr - 2); i < int.Min(MaxPageNr, PageNr + 3); i++)
-            {
-                <PaginationLink IsActive="@(i == PageNr)" PageNr="i" Url="@Url"/>
-            }
-            <PaginationEllipsis IsHidden="@(PageNr > MaxPageNr - 4)"/>
-            <PaginationLink IsActive="@(PageNr == MaxPageNr)" PageNr="@MaxPageNr" Url="@Url"/>
-        </ul>
-    </nav>
-}
+    }
+</nav>
 
 @code
 {
-    [Parameter]
-    public required int PageNr { get; set; }
+    [Parameter] public required int PageSize { get; set; }
+    [Parameter] public required string? PageToken { get; set; }
+    [Parameter] public required PaginationTokens PaginationTokens { get; set; }
 
-    [Parameter]
-    public required int MaxPageNr { get; set; }
-
-    [Parameter]
-    public required string Url { get; set; }
+    [Parameter] public required string Url { get; set; }
 }

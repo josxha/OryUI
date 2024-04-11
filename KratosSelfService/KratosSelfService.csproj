@@ -91,4 +91,43 @@
         <AdditionalFiles Include="Views\Settings\Settings.cshtml"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\CustomTranslator.de.resx">
+        <DependentUpon>CustomTranslator.resx</DependentUpon>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\CustomTranslator.es.resx">
+        <DependentUpon>CustomTranslator.resx</DependentUpon>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\CustomTranslator.fr.resx">
+        <DependentUpon>CustomTranslator.resx</DependentUpon>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\CustomTranslator.nl.resx">
+        <DependentUpon>CustomTranslator.resx</DependentUpon>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\CustomTranslator.pt.resx">
+        <DependentUpon>CustomTranslator.resx</DependentUpon>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\CustomTranslator.se.resx">
+        <DependentUpon>CustomTranslator.resx</DependentUpon>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\OryElementsTranslator.de.resx">
+        <DependentUpon>OryElementsTranslator.resx</DependentUpon>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\OryElementsTranslator.es.resx">
+        <DependentUpon>OryElementsTranslator.resx</DependentUpon>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\OryElementsTranslator.fr.resx">
+        <DependentUpon>OryElementsTranslator.resx</DependentUpon>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\OryElementsTranslator.nl.resx">
+        <DependentUpon>OryElementsTranslator.resx</DependentUpon>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\OryElementsTranslator.pt.resx">
+        <DependentUpon>OryElementsTranslator.resx</DependentUpon>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\OryElementsTranslator.se.resx">
+        <DependentUpon>OryElementsTranslator.resx</DependentUpon>
+      </EmbeddedResource>
+    </ItemGroup>
+
 </Project>

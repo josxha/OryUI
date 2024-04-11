@@ -1,4 +1,5 @@
-﻿using Ory.Kratos.Client.Client;
+﻿using System.Web;
+using Ory.Kratos.Client.Client;
 using OryAdmin.Utils;
 
 namespace OryAdmin.Extensions;
@@ -11,18 +12,21 @@ public static class KratosApiResponseExt
         // </admin/identities?page_size=1&page_token=1302cdef-30e6-490c-abec-0b6d3406158b>; rel="next"
         string? first = null;
         string? next = null;
-        foreach (var entry in headers["Link"])
+        foreach (var entry in headers["Link"].FirstOrDefault()?.Split(",") ?? [])
         {
             if (string.IsNullOrWhiteSpace(entry)) continue;
             var sections = entry.Split("; ");
             var uriRaw = sections[0].Substring(1, sections[0].Length - 2);
+            var queryString = uriRaw.Split("?").Last();
+            var queryParams = HttpUtility.ParseQueryString($"?{queryString}");
+            var pageToken = queryParams.Get("page_token");
             switch (sections[1])
             {
                 case "rel=\"first\"":
-                    first = uriRaw;
+                    first = pageToken;
                     break;
                 case "rel=\"next\"":
-                    next = uriRaw;
+                    next = pageToken;
                     break;
             }
         }

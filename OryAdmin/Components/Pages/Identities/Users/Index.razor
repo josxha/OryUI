@@ -50,7 +50,8 @@ else
             </tbody>
         </table>
         <Pagination Url="identities/users" 
-                    PageTokenNext="@(paginationTokens.Next)" 
-                    PageTokenFirst="@(paginationTokens.First)"/>
+                    PageSize="@PageSize"
+                    PaginationTokens="@PaginationTokens"
+                    PageToken="@PageToken"/>
     }
 }

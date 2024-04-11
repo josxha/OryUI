@@ -14,7 +14,7 @@ public partial class Index
     [SupplyParameterFromQuery(Name = "page_token")]
     private string? PageToken { get; set; }
 
-    private PaginationTokens paginationTokens { get; set; } = null!;
+    private PaginationTokens PaginationTokens { get; set; } = null!;
 
     [SupplyParameterFromQuery(Name = "page_size")]
     private int PageSize { get; set; }
@@ -23,12 +23,11 @@ public partial class Index
 
     protected override async Task OnInitializedAsync()
     {
-        if (PageSize == 0) PageSize = 2; // TODO 100
+        if (PageSize == 0) PageSize = 100;
 
         var identitiesResponse = await ApiService.KratosIdentity
             .ListIdentitiesWithHttpInfoAsync(PageSize);
-        paginationTokens = identitiesResponse.Headers.PaginationTokens();
-        Console.WriteLine(paginationTokens);
+        PaginationTokens = identitiesResponse.Headers.PaginationTokens();
         _identities = identitiesResponse.Data;
 
         _isLoading = false;

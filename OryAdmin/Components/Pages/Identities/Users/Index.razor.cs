@@ -23,11 +23,11 @@ public partial class Index
 
     protected override async Task OnInitializedAsync()
     {
-        if (PageSize == 0) PageSize = 100;
+        if (PageSize == 0) PageSize = 50;
 
         var identitiesResponse = await ApiService.KratosIdentity
             .ListIdentitiesWithHttpInfoAsync(PageSize);
-        PaginationTokens = identitiesResponse.Headers.PaginationTokens();
+        PaginationTokens = identitiesResponse.Headers["Link"].First().PaginationTokens();
         _identities = identitiesResponse.Data;
 
         _isLoading = false;

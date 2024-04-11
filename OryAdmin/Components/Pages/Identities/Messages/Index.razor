@@ -43,7 +43,9 @@ else
             }
             </tbody>
         </table>
-
-        <Pagination Url="identities/messages" PageToken="@(PageToken)"/>
+        <Pagination Url="identities/messages" 
+                    PageSize="@PageSize"
+                    PaginationTokens="@PaginationTokens"
+                    PageToken="@PageToken"/>
     }
 }

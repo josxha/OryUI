@@ -52,6 +52,10 @@ else
                 }
                 </tbody>
             </table>
+            <Pagination Url="oauth2/clients" 
+                        PageSize="@PageSize"
+                        PaginationTokens="@PaginationTokens"
+                        PageToken="@PageToken"/>
         }
     }
 }

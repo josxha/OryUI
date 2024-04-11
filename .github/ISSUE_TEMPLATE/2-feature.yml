@@ -1,4 +1,4 @@
-﻿name: "Feature Request"
+name: "Feature Request"
 description: "Suggest a Feature"
 title: "[FEATURE] <title>"
 labels: [ "feature" ]

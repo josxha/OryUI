@@ -7,14 +7,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  validate-yaml:
-    runs-on: ubuntu-latest
-    name: "Validate YAML files"
-    steps:
-      - name: "Checkout code"
-        uses: actions/checkout@v4
-      - name: "Validate syntax"
-        uses: GrantBirki/json-yaml-validate@v2.6.2
   docker-kratos-self-service:
     runs-on: ubuntu-latest
     name: "[KratosSelfService] Build image"

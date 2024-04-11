@@ -9,9 +9,8 @@ public partial class Index : ComponentBase
     private bool _isLoading = true;
     private List<KratosMessage>? _messages;
 
-    [SupplyParameterFromQuery(Name = "page")]
-    // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Local
-    private int PageNr { get; set; } = 1;
+    [SupplyParameterFromQuery(Name = "page_token")]
+    private string? PageToken { get; set; }
 
     [Inject] private ApiService ApiService { get; set; } = default!;
 

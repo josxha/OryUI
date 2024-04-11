@@ -2,7 +2,7 @@
 
 <li>
     <a class="pagination-link @(IsActive ? "is-current" : "")"
-       aria-current="page" href="@Url?page=@PageNr">
+       aria-current="page" href="@Url?count=@(AmountPerPage)&page=@PageNr">
         @PageNr
     </a>
 </li>
@@ -14,6 +14,9 @@
 
     [Parameter]
     public required bool IsActive { get; set; }
+
+    [Parameter]
+    public required int AmountPerPage { get; set; }
 
     [Parameter]
     public required string Url { get; set; }

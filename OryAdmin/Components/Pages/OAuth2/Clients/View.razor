@@ -251,16 +251,43 @@ else
                     </thead>
                     <tbody>
                     <tr>
-                        <td>ID token</td>
-                        <td>@_client.RefreshTokenGrantIdTokenLifespan.ToStringOrDash()</td>
+                        <td>Access token</td>
+                        @if (string.IsNullOrWhiteSpace(_client.RefreshTokenGrantAccessTokenLifespan))
+                        {
+                            <td>
+                                <p class="is-italic is-color-grey">hydra default value</p>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>@_client.RefreshTokenGrantAccessTokenLifespan</td>
+                        }
                     </tr>
                     <tr>
-                        <td>Access token</td>
-                        <td>@_client.RefreshTokenGrantAccessTokenLifespan.ToStringOrDash()</td>
+                        <td>ID token</td>
+                        @if (string.IsNullOrWhiteSpace(_client.RefreshTokenGrantIdTokenLifespan))
+                        {
+                            <td>
+                                <p class="is-italic is-color-grey">hydra default value</p>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>@_client.RefreshTokenGrantIdTokenLifespan</td>
+                        }
                     </tr>
                     <tr>
                         <td>Refresh token</td>
-                        <td>@_client.RefreshTokenGrantRefreshTokenLifespan.ToStringOrDash()</td>
+                        @if (string.IsNullOrWhiteSpace(_client.RefreshTokenGrantRefreshTokenLifespan))
+                        {
+                            <td>
+                                <p class="is-italic is-color-grey">hydra default value</p>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>@_client.RefreshTokenGrantRefreshTokenLifespan</td>
+                        }
                     </tr>
                     </tbody>
                 </table>
@@ -272,16 +299,43 @@ else
                     </thead>
                     <tbody>
                     <tr>
-                        <td>ID token</td>
-                        <td>@_client.AuthorizationCodeGrantIdTokenLifespan.ToStringOrDash()</td>
+                        <td>Access token</td>
+                        @if (string.IsNullOrWhiteSpace(_client.AuthorizationCodeGrantAccessTokenLifespan))
+                        {
+                            <td>
+                                <p class="is-italic is-color-grey">hydra default value</p>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>@_client.AuthorizationCodeGrantAccessTokenLifespan</td>
+                        }
                     </tr>
                     <tr>
-                        <td>Access token</td>
-                        <td>@_client.AuthorizationCodeGrantAccessTokenLifespan.ToStringOrDash()</td>
+                        <td>ID token</td>
+                        @if (string.IsNullOrWhiteSpace(_client.AuthorizationCodeGrantIdTokenLifespan))
+                        {
+                            <td>
+                                <p class="is-italic is-color-grey">hydra default value</p>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>@_client.AuthorizationCodeGrantIdTokenLifespan</td>
+                        }
                     </tr>
                     <tr>
                         <td>Refresh token</td>
-                        <td>@_client.AuthorizationCodeGrantRefreshTokenLifespan.ToStringOrDash()</td>
+                        @if (string.IsNullOrWhiteSpace(_client.AuthorizationCodeGrantRefreshTokenLifespan))
+                        {
+                            <td>
+                                <p class="is-italic is-color-grey">hydra default value</p>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>@_client.AuthorizationCodeGrantRefreshTokenLifespan</td>
+                        }
                     </tr>
                     </tbody>
                 </table>
@@ -294,7 +348,16 @@ else
                     <tbody>
                     <tr>
                         <td>Access token</td>
-                        <td>@_client.ClientCredentialsGrantAccessTokenLifespan.ToStringOrDash()</td>
+                        @if (string.IsNullOrWhiteSpace(_client.ClientCredentialsGrantAccessTokenLifespan))
+                        {
+                            <td>
+                                <p class="is-italic is-color-grey">hydra default value</p>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>@_client.ClientCredentialsGrantAccessTokenLifespan</td>
+                        }
                     </tr>
                     </tbody>
                 </table>
@@ -307,7 +370,16 @@ else
                     <tbody>
                     <tr>
                         <td>Access Token</td>
-                        <td>@_client.JwtBearerGrantAccessTokenLifespan.ToStringOrDash()</td>
+                        @if (string.IsNullOrWhiteSpace(_client.JwtBearerGrantAccessTokenLifespan))
+                        {
+                            <td>
+                                <p class="is-italic is-color-grey">hydra default value</p>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>@_client.JwtBearerGrantAccessTokenLifespan</td>
+                        }
                     </tr>
                     </tbody>
                 </table>
@@ -319,12 +391,30 @@ else
                     </thead>
                     <tbody>
                     <tr>
-                        <td>ID Token</td>
-                        <td>@_client.ImplicitGrantIdTokenLifespan.ToStringOrDash()</td>
+                        <td>Access Token</td>
+                        @if (string.IsNullOrWhiteSpace(_client.ImplicitGrantAccessTokenLifespan))
+                        {
+                            <td>
+                                <p class="is-italic is-color-grey">hydra default value</p>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>@_client.ImplicitGrantAccessTokenLifespan</td>
+                        }
                     </tr>
                     <tr>
-                        <td>Access Token</td>
-                        <td>@_client.ImplicitGrantAccessTokenLifespan.ToStringOrDash()</td>
+                        <td>ID Token</td>
+                        @if (string.IsNullOrWhiteSpace(_client.ImplicitGrantIdTokenLifespan))
+                        {
+                            <td>
+                                <p class="is-italic is-color-grey">hydra default value</p>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>@_client.ImplicitGrantIdTokenLifespan</td>
+                        }
                     </tr>
                     </tbody>
                 </table>

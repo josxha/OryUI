@@ -12,6 +12,12 @@
 else
 {
     <form @onsubmit="SubmitForm">
+        <div class="box p-5">
+            <div class="message is-info p-2">
+                <p>Format the durations as "1h0m0s" or similar.</p>
+                <p>Leave a field empty to use the configured hydra default lifespan.</p>
+            </div>
+        </div>
         <div class="box p-5 @(string.IsNullOrWhiteSpace(_errorMessage) ? "is-hidden" : "")">
             <div class="message is-warning p-2">
                 @_errorMessage
@@ -27,8 +33,9 @@ else
                         Access token
                         <div class="control">
                             <input type="text" class="input"
+                                   placeholder="hydra default value"
                                    value="@_lifespans.RefreshTokenGrantAccessTokenLifespan"
-                                   @onchange="args => _lifespans.RefreshTokenGrantAccessTokenLifespan = args.Value?.ToString()"/>
+                                   @onchange="args => _lifespans.RefreshTokenGrantAccessTokenLifespan = args.Value is string value && string.IsNullOrWhiteSpace(value) ? null : args.Value?.ToString()"/>
                         </div>
                     </label>
                 </div>
@@ -37,8 +44,9 @@ else
                         ID token
                         <div class="control">
                             <input type="text" class="input"
+                                   placeholder="hydra default value"
                                    value="@_lifespans.RefreshTokenGrantIdTokenLifespan"
-                                   @onchange="args => _lifespans.RefreshTokenGrantIdTokenLifespan = args.Value?.ToString()"/>
+                                   @onchange="args => _lifespans.RefreshTokenGrantIdTokenLifespan = args.Value is string value && string.IsNullOrWhiteSpace(value) ? null : args.Value?.ToString()"/>
                         </div>
                     </label>
                 </div>
@@ -47,8 +55,9 @@ else
                         Refresh token
                         <div class="control">
                             <input type="text" class="input"
+                                   placeholder="hydra default value"
                                    value="@_lifespans.RefreshTokenGrantRefreshTokenLifespan"
-                                   @onchange="args => _lifespans.RefreshTokenGrantRefreshTokenLifespan = args.Value?.ToString()"/>
+                                   @onchange="args => _lifespans.RefreshTokenGrantRefreshTokenLifespan = args.Value is string value && string.IsNullOrWhiteSpace(value) ? null : args.Value?.ToString()"/>
                         </div>
                     </label>
                 </div>
@@ -61,8 +70,9 @@ else
                         Access token
                         <div class="control">
                             <input type="text" class="input"
+                                   placeholder="hydra default value"
                                    value="@_lifespans.AuthorizationCodeGrantAccessTokenLifespan"
-                                   @onchange="args => _lifespans.AuthorizationCodeGrantAccessTokenLifespan = args.Value?.ToString()"/>
+                                   @onchange="args => _lifespans.AuthorizationCodeGrantAccessTokenLifespan = args.Value is string value && string.IsNullOrWhiteSpace(value) ? null : args.Value?.ToString()"/>
                         </div>
                     </label>
                 </div>
@@ -71,8 +81,9 @@ else
                         ID token
                         <div class="control">
                             <input type="text" class="input"
+                                   placeholder="hydra default value"
                                    value="@_lifespans.AuthorizationCodeGrantIdTokenLifespan"
-                                   @onchange="args => _lifespans.AuthorizationCodeGrantIdTokenLifespan = args.Value?.ToString()"/>
+                                   @onchange="args => _lifespans.AuthorizationCodeGrantIdTokenLifespan = args.Value is string value && string.IsNullOrWhiteSpace(value) ? null : args.Value?.ToString()"/>
                         </div>
                     </label>
                 </div>
@@ -81,8 +92,9 @@ else
                         Refresh token
                         <div class="control">
                             <input type="text" class="input"
+                                   placeholder="hydra default value"
                                    value="@_lifespans.AuthorizationCodeGrantRefreshTokenLifespan"
-                                   @onchange="args => _lifespans.AuthorizationCodeGrantRefreshTokenLifespan = args.Value?.ToString()"/>
+                                   @onchange="args => _lifespans.AuthorizationCodeGrantRefreshTokenLifespan = args.Value is string value && string.IsNullOrWhiteSpace(value) ? null : args.Value?.ToString()"/>
                         </div>
                     </label>
                 </div>
@@ -95,8 +107,9 @@ else
                         Access token
                         <div class="control">
                             <input type="text" class="input"
+                                   placeholder="hydra default value"
                                    value="@_lifespans.ClientCredentialsGrantAccessTokenLifespan"
-                                   @onchange="args => _lifespans.ClientCredentialsGrantAccessTokenLifespan = args.Value?.ToString()"/>
+                                   @onchange="args => _lifespans.ClientCredentialsGrantAccessTokenLifespan = args.Value is string value && string.IsNullOrWhiteSpace(value) ? null : args.Value?.ToString()"/>
                         </div>
                     </label>
                 </div>
@@ -109,8 +122,9 @@ else
                         Access token
                         <div class="control">
                             <input type="text" class="input"
+                                   placeholder="hydra default value"
                                    value="@_lifespans.JwtBearerGrantAccessTokenLifespan"
-                                   @onchange="args => _lifespans.JwtBearerGrantAccessTokenLifespan = args.Value?.ToString()"/>
+                                   @onchange="args => _lifespans.JwtBearerGrantAccessTokenLifespan = args.Value is string value && string.IsNullOrWhiteSpace(value) ? null : args.Value?.ToString()"/>
                         </div>
                     </label>
                 </div>
@@ -123,8 +137,9 @@ else
                         Access token
                         <div class="control">
                             <input type="text" class="input"
+                                   placeholder="hydra default value"
                                    value="@_lifespans.ImplicitGrantAccessTokenLifespan"
-                                   @onchange="args => _lifespans.ImplicitGrantAccessTokenLifespan = args.Value?.ToString()"/>
+                                   @onchange="args => _lifespans.ImplicitGrantAccessTokenLifespan = args.Value is string value && string.IsNullOrWhiteSpace(value) ? null : args.Value?.ToString()"/>
                         </div>
                     </label>
                 </div>
@@ -133,8 +148,9 @@ else
                         ID token
                         <div class="control">
                             <input type="text" class="input"
+                                   placeholder="hydra default value"
                                    value="@_lifespans.ImplicitGrantIdTokenLifespan"
-                                   @onchange="args => _lifespans.ImplicitGrantIdTokenLifespan = args.Value?.ToString()"/>
+                                   @onchange="args => _lifespans.ImplicitGrantIdTokenLifespan = args.Value is string value && string.IsNullOrWhiteSpace(value) ? null : args.Value?.ToString()"/>
                         </div>
                     </label>
                 </div>

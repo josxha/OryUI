@@ -20,3 +20,6 @@ oidc:
       - public
     pairwise:
       salt: youReallyNeedToChangeThis
+
+ttl:
+  refresh_token: -1

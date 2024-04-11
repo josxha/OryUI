@@ -72,7 +72,6 @@
     <ItemGroup>
         <PackageReference Include="Newtonsoft.Json.Schema" Version="3.0.15" />
         <PackageReference Include="Ory.Hydra.Client" Version="2.2.0-rc.3"/>
-        <PackageReference Include="Ory.Kratos.Client" Version="1.0.0"/>
         <PackageReference Include="UAParser" Version="3.1.47"/>
     </ItemGroup>
 
@@ -128,6 +127,10 @@
       <EmbeddedResource Update="Resources\OryElementsTranslator.se.resx">
         <DependentUpon>OryElementsTranslator.resx</DependentUpon>
       </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Ory.Kratos.Client\Ory.Kratos.Client.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Mvc;
 using Ory.Hydra.Client.Model;
 using Ory.Kratos.Client.Model;
 using OryAdmin.Services;
@@ -15,7 +16,7 @@ public partial class View
     private KratosSession? _sessionToInvoke;
     private bool _showDeleteIdentityModal;
     private bool _showRevokeOAuth2SessionsModal;
-    [Parameter] public string? UserId { get; set; }
+    [Parameter] public string UserId { get; set; } = default!;
     [Inject] private ApiService ApiService { get; set; } = default!;
     [Inject] private EnvService EnvService { get; set; } = default!;
 
@@ -49,7 +50,8 @@ public partial class View
     private async Task UpdatePassword()
     {
         var body = new KratosCreateRecoveryLinkForIdentityBody(identityId: UserId);
-        var link = await ApiService.KratosIdentity.CreateRecoveryLinkForIdentityAsync(body);
+        var link = await ApiService.KratosIdentity
+            .CreateRecoveryLinkForIdentityAsync(null, body);
         nav.NavigateTo(link.RecoveryLink);
     }
 

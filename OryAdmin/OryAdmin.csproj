@@ -19,7 +19,6 @@
         <PackageReference Include="Newtonsoft.Json.Schema" Version="3.0.15"/>
         <PackageReference Include="Ory.Hydra.Client" Version="2.2.0-rc.3"/>
         <PackageReference Include="Ory.Keto.Client" Version="0.11.0-alpha.0"/>
-        <PackageReference Include="Ory.Kratos.Client" Version="1.0.0"/>
         <PackageReference Include="Ory.Oathkeeper.Client" Version="0.40.6"/>
         <PackageReference Include="UAParser" Version="3.1.47"/>
     </ItemGroup>
@@ -43,6 +42,10 @@
         <AdditionalFiles Include="Components\Pages\Identities\Users\Index.razor"/>
         <AdditionalFiles Include="Components\Pages\Identities\Users\View.razor"/>
         <AdditionalFiles Include="Components\Pages\OAuth2\Clients\EditLifespans.razor"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Ory.Kratos.Client\Ory.Kratos.Client.csproj" />
     </ItemGroup>
 
 </Project>

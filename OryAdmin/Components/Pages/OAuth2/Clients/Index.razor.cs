@@ -21,14 +21,15 @@ public partial class Index : ComponentBase
 
     [Inject] private ApiService ApiService { get; set; } = default!;
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnParametersSetAsync()
     {
+        _isLoading = true;
         if (PageSize == 0) PageSize = 50;
         
         try
         {
             var clientsResponse = await ApiService.HydraOAuth2
-                .ListOAuth2ClientsWithHttpInfoAsync(PageSize, PageToken);
+                .ListOAuth2ClientsWithHttpInfoAsync(pageSize:PageSize, pageToken:PageToken);
             PaginationTokens = clientsResponse.Headers["Link"].First().PaginationTokens();
             _clients = clientsResponse.Data;
         }

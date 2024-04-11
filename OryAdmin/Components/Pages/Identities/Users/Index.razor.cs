@@ -21,13 +21,16 @@ public partial class Index
 
     [Inject] private ApiService ApiService { get; set; } = default!;
 
-    protected override async Task OnInitializedAsync()
+    /**
+     * Using OnParametersSetAsync here to reload the page if the pagination page is changed
+     */
+    protected override async Task OnParametersSetAsync()
     {
+        _isLoading = true;
         if (PageSize == 0) PageSize = 50;
 
-        // TODO use page token (currently not possible since it's a long)
         var identitiesResponse = await ApiService.KratosIdentity
-            .ListIdentitiesWithHttpInfoAsync(PageSize);
+            .ListIdentitiesWithHttpInfoAsync(pageSize:PageSize, pageToken:PageToken);
         PaginationTokens = identitiesResponse.Headers["Link"].First().PaginationTokens();
         _identities = identitiesResponse.Data;
 

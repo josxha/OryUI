@@ -1,9 +1,7 @@
-using KratosSelfService.Models;
 using KratosSelfService.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Ory.Hydra.Client.Model;
-using Ory.Kratos.Client.Client;
 
 namespace KratosSelfService.Controllers;
 
@@ -23,7 +21,7 @@ public class LogoutController(ILogger<LogoutController> logger, ApiService api) 
             {
                 hydraResponse = await api.HydraOAuth2.AcceptOAuth2LogoutRequestAsync(logoutChallenge, cancellationToken);
             }
-            catch (ApiException exception)
+            catch (Ory.Hydra.Client.Client.ApiException exception)
             {
                 logger.LogWarning("Could not logout: {Message}", exception.Message);
                 return Redirect("~/");
@@ -37,7 +35,7 @@ public class LogoutController(ILogger<LogoutController> logger, ApiService api) 
                 hydraResponse?.RedirectTo, cancellationToken);
             return Redirect(flow.LogoutUrl);
         }
-        catch (ApiException exception)
+        catch (Ory.Kratos.Client.Client.ApiException exception)
         {
             logger.LogDebug("Could not get logout flow: {Message}", exception.Message);
             return Redirect("~/");

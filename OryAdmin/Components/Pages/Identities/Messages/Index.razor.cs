@@ -22,12 +22,13 @@ public partial class Index : ComponentBase
 
     [Inject] private ApiService ApiService { get; set; } = default!;
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnParametersSetAsync()
     {
+        _isLoading = true;
         if (PageSize == 0) PageSize = 50;
         
         var messagesResponse = await ApiService.KratosCourier
-            .ListCourierMessagesWithHttpInfoAsync(PageSize, PageToken);
+            .ListCourierMessagesWithHttpInfoAsync(pageSize:PageSize, pageToken:PageToken);
         PaginationTokens = messagesResponse.Headers["Link"].First().PaginationTokens();
         _messages = messagesResponse.Data;
         

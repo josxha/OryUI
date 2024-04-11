@@ -8,7 +8,7 @@
     }
     else
     {
-        <a href="@Url?page_token=@(PaginationTokens.First)&page_size=@(PageSize)" 
+        <a href="@Url?page_size=@(PageSize)&page_token=@(PaginationTokens.First)" 
            class="pagination-previous">
             First Page
         </a>
@@ -21,7 +21,7 @@
     }
     else
     {
-        <a href="@Url?page_token=@(PaginationTokens.Next)&page_size=@(PageSize)" 
+        <a href="@Url?page_size=@(PageSize)&page_token=@(PaginationTokens.Next)" 
            class="pagination-next">
             Next Page
         </a>

@@ -18,28 +18,29 @@ public class SettingsController(
     [HttpGet("")]
     public async Task<IActionResult> Settings(
         [FromQuery(Name = "flow")] Guid? flowId,
-        [FromQuery(Name = "return_to")] string? returnTo)
+        [FromQuery(Name = "return_to")] string? returnTo,
+        CancellationToken cancellationToken)
     {
         if (flowId == null)
         {
             // init new flow
             logger.LogDebug("No flow ID found in URL query initializing settings flow");
             var newFlow = await api.Frontend
-                .CreateBrowserSettingsFlowAsync(cookie: Request.Headers.Cookie, returnTo: returnTo);
+                .CreateBrowserSettingsFlowAsync(cookie: Request.Headers.Cookie, returnTo: returnTo, cancellationToken: cancellationToken);
             return Redirect($"settings?flow={newFlow.Id}");
         }
 
         KratosSettingsFlow flow;
         try
         {
-            flow = await api.Frontend.GetSettingsFlowAsync(flowId.ToString(), cookie: Request.Headers.Cookie);
+            flow = await api.Frontend.GetSettingsFlowAsync(flowId.ToString(), cookie: Request.Headers.Cookie, cancellationToken: cancellationToken);
         }
         catch (ApiException exception)
         {
             // create new flow
             logger.LogDebug("Exception while retrieving settings flow: {Message}", exception.Message);
             var newFlow = await api.Frontend
-                .CreateBrowserSettingsFlowAsync(cookie: Request.Headers.Cookie, returnTo: returnTo);
+                .CreateBrowserSettingsFlowAsync(cookie: Request.Headers.Cookie, returnTo: returnTo, cancellationToken: cancellationToken);
             return Redirect($"/settings?flow={newFlow.Id}");
         }
 
@@ -50,7 +51,8 @@ public class SettingsController(
     [HttpGet("delete-account")]
     public async Task<IActionResult> DeleteAccount(
         [FromQuery(Name = "flow")] Guid? flowId,
-        [FromQuery(Name = "return_to")] string? returnTo)
+        [FromQuery(Name = "return_to")] string? returnTo,
+        CancellationToken cancellationToken)
     {
         if (flowId == null)
         {
@@ -62,7 +64,7 @@ public class SettingsController(
         KratosSettingsFlow flow;
         try
         {
-            flow = await api.Frontend.GetSettingsFlowAsync(flowId.ToString(), cookie: Request.Headers.Cookie);
+            flow = await api.Frontend.GetSettingsFlowAsync(flowId.ToString(), cookie: Request.Headers.Cookie, cancellationToken: cancellationToken);
         }
         catch (ApiException exception)
         {
@@ -106,7 +108,8 @@ public class SettingsController(
     [HttpGet("export-data")]
     public async Task<IActionResult> ExportData(
         [FromQuery(Name = "flow")] Guid? flowId,
-        [FromQuery(Name = "return_to")] string? returnTo)
+        [FromQuery(Name = "return_to")] string? returnTo,
+        CancellationToken cancellationToken)
     {
         if (string.IsNullOrWhiteSpace(envService.ExportUserDataUrl))
         {
@@ -123,7 +126,7 @@ public class SettingsController(
         KratosSettingsFlow flow;
         try
         {
-            flow = await api.Frontend.GetSettingsFlowAsync(flowId.ToString(), cookie: Request.Headers.Cookie);
+            flow = await api.Frontend.GetSettingsFlowAsync(flowId.ToString(), cookie: Request.Headers.Cookie, cancellationToken: cancellationToken);
         }
         catch (ApiException exception)
         {

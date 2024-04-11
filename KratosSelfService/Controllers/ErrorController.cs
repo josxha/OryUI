@@ -11,7 +11,7 @@ public class ErrorController(ILogger<ErrorController> logger, ApiService api) : 
     public async Task<IActionResult> Error([FromQuery(Name = "id")] Guid? flowId)
     {
         var error = await api.Frontend.GetFlowErrorAsync(flowId.ToString());
-        logger.LogError(error.ToString());
+        logger.LogError("{Error}", error.ToString());
         return View("Error", error);
     }
 }

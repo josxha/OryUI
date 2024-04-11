@@ -17,7 +17,8 @@ public class RegistrationController(ILogger<RegistrationController> logger, ApiS
         [FromQuery(Name = "after_verification_return_to")]
         string? afterVerificationReturnTo,
         [FromQuery(Name = "login_challenge")] string? loginChallenge,
-        [FromQuery] string? organization)
+        [FromQuery] string? organization,
+        CancellationToken cancellationToken)
     {
         if (loginChallenge != null)
             logger.LogDebug("login_challenge found in URL query: {Challenge}", loginChallenge);
@@ -40,11 +41,11 @@ public class RegistrationController(ILogger<RegistrationController> logger, ApiS
         KratosRegistrationFlow flow;
         try
         {
-            flow = await api.Frontend.GetRegistrationFlowAsync(flowId.ToString(), Request.Headers.Cookie);
+            flow = await api.Frontend.GetRegistrationFlowAsync(flowId.ToString(), Request.Headers.Cookie, cancellationToken);
         }
         catch (ApiException exception)
         {
-            logger.LogError(exception.Message);
+            logger.LogError("{Message}", exception.Message);
             // restart flow
             var parameters = new Dictionary<string, string?>();
             if (returnTo != null) parameters["return_to"] = returnTo;

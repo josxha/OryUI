@@ -6,26 +6,29 @@ using Ory.Kratos.Client.Model;
 
 namespace KratosSelfService.Controllers;
 
+[Route("sessions")]
 public class SessionsController(ApiService api) : Controller
 {
-    [HttpGet("sessions")]
-    public async Task<IActionResult> Sessions()
+    [HttpGet("")]
+    public async Task<IActionResult> Sessions(CancellationToken cancellationToken)
     {
         var currentSession = HttpContext.GetSession()!;
         // retrieve all other active sessions
         var otherSessions = await api.Frontend
-            .ListMySessionsAsync(cookie: Request.Headers.Cookie) ?? new List<KratosSession>();
+            .ListMySessionsAsync(cookie: Request.Headers.Cookie, cancellationToken: cancellationToken) ?? [];
         var model = new SessionsModel(currentSession, otherSessions);
         return View("Sessions", model);
     }
 
-    [HttpPost("sessions")]
+    [HttpPost("")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> LogoutAllOtherSessions([FromForm] string? action)
+    public async Task<IActionResult> LogoutAllOtherSessions([FromForm] string? action,
+        CancellationToken cancellationToken)
     {
         if (action == "invokeSessions")
         {
-            _ = await api.Frontend.DisableMyOtherSessionsAsync(cookie: Request.Headers.Cookie);
+            _ = await api.Frontend.DisableMyOtherSessionsAsync(cookie: Request.Headers.Cookie,
+                cancellationToken: cancellationToken);
         }
 
         return Redirect("sessions");

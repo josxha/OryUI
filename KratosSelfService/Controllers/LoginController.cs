@@ -19,11 +19,12 @@ public class LoginController(ILogger<LoginController> logger, ApiService api) : 
         [FromQuery] string? refresh,
         [FromQuery(Name = "return_to")] string? returnTo,
         [FromQuery] string? organization,
-        [FromQuery(Name = "login_challenge")] string? loginChallenge)
+        [FromQuery(Name = "login_challenge")] string? loginChallenge, 
+        CancellationToken cancellationToken)
     {
         // oauth2 login challenge
         if (!string.IsNullOrWhiteSpace(loginChallenge))
-            logger.LogDebug($"login_challenge found in URL query: {loginChallenge}");
+            logger.LogDebug("login_challenge found in URL query: {LoginChallenge}", loginChallenge);
 
         if (flowId == null)
         {
@@ -35,7 +36,7 @@ public class LoginController(ILogger<LoginController> logger, ApiService api) : 
         KratosLoginFlow flow;
         try
         {
-            flow = await api.Frontend.GetLoginFlowAsync(flowId.ToString(), Request.Headers.Cookie);
+            flow = await api.Frontend.GetLoginFlowAsync(flowId.ToString(), Request.Headers.Cookie, cancellationToken);
         }
         catch (ApiException exception)
         {
@@ -47,7 +48,7 @@ public class LoginController(ILogger<LoginController> logger, ApiService api) : 
         if (flow.Ui.Messages?.Any(text => text.Id == 4000010) ?? false)
             // the login requires that the user verifies their email address before logging in
             // we will create a new verification flow and redirect the user to the verification page
-            return await RedirectToVerificationFlow(flow);
+            return await RedirectToVerificationFlow(flow, cancellationToken);
 
         // Render the data using a view:
         var initRegistrationQuery = new Dictionary<string, string?>
@@ -67,20 +68,20 @@ public class LoginController(ILogger<LoginController> logger, ApiService api) : 
 
         string? logoutUrl = null;
         if (flow.RequestedAal == KratosAuthenticatorAssuranceLevel.Aal2 || flow.Refresh)
-            logoutUrl = await GetLogoutUrl(flow);
+            logoutUrl = await GetLogoutUrl(flow, cancellationToken);
 
         var model = new LoginModel(flow, initRecoveryUrl, initRegistrationUrl, logoutUrl);
         return View("Login", model);
     }
 
-    private async Task<string?> GetLogoutUrl(KratosLoginFlow flow)
+    private async Task<string?> GetLogoutUrl(KratosLoginFlow flow, CancellationToken cancellationToken)
     {
         // It is probably a bit strange to have a logout URL here, however this screen
         // is also used for 2FA flows. If something goes wrong there, we probably want
         // to give the user the option to sign out!
         try
         {
-            var logoutFlow = await api.Frontend.CreateBrowserLogoutFlowAsync(Request.Headers.Cookie, flow.ReturnTo);
+            var logoutFlow = await api.Frontend.CreateBrowserLogoutFlowAsync(Request.Headers.Cookie, flow.ReturnTo, cancellationToken);
             return logoutFlow.LogoutUrl;
         }
         catch (Exception exception)
@@ -105,12 +106,12 @@ public class LoginController(ILogger<LoginController> logger, ApiService api) : 
         return api.GetUrlForBrowserFlow("login", query);
     }
 
-    private async Task<IActionResult> RedirectToVerificationFlow(KratosLoginFlow flow)
+    private async Task<IActionResult> RedirectToVerificationFlow(KratosLoginFlow flow, CancellationToken cancellationToken)
     {
         try
         {
             var response = await api.Frontend
-                .CreateBrowserVerificationFlowWithHttpInfoAsync(flow.ReturnTo);
+                .CreateBrowserVerificationFlowWithHttpInfoAsync(flow.ReturnTo, cancellationToken);
             var verificationFlow = response.Data;
             // we need the csrf cookie from the verification flow
             Response.Headers.Append(HeaderNames.SetCookie, response.Headers[HeaderNames.SetCookie].ToString());
@@ -127,7 +128,7 @@ public class LoginController(ILogger<LoginController> logger, ApiService api) : 
         }
         catch (Exception exception)
         {
-            logger.LogError(exception.Message);
+            logger.LogError("{Message}", exception.Message);
             var url = api.GetUrlForBrowserFlow("verification", new Dictionary<string, string?>
             {
                 ["return_to"] = flow.ReturnTo

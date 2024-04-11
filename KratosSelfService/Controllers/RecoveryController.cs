@@ -13,7 +13,8 @@ public class RecoveryController(ILogger<RecoveryController> logger, ApiService a
     [AllowAnonymous]
     public async Task<IActionResult> Recovery(
         [FromQuery(Name = "flow")] Guid? flowId,
-        [FromQuery(Name = "return_to")] string? returnTo)
+        [FromQuery(Name = "return_to")] string? returnTo, 
+        CancellationToken cancellationToken)
     {
         if (flowId == null)
         {
@@ -27,11 +28,11 @@ public class RecoveryController(ILogger<RecoveryController> logger, ApiService a
         KratosRecoveryFlow flow;
         try
         {
-            flow = await api.Frontend.GetRecoveryFlowAsync(flowId.ToString(), Request.Headers.Cookie);
+            flow = await api.Frontend.GetRecoveryFlowAsync(flowId.ToString(), Request.Headers.Cookie, cancellationToken);
         }
         catch (ApiException exception)
         {
-            logger.LogError(exception.Message);
+            logger.LogError("{Message}", exception.Message);
             // restart flow
             return Redirect(api.GetUrlForBrowserFlow("recovery", new Dictionary<string, string?>
             {

@@ -11,7 +11,9 @@ public class LogoutController(ILogger<LogoutController> logger, ApiService api) 
 {
     [HttpGet("logout")]
     [AllowAnonymous]
-    public async Task<IActionResult> LogoutGet([FromQuery(Name = "logout_challenge")] string? logoutChallenge)
+    public async Task<IActionResult> LogoutGet(
+        [FromQuery(Name = "logout_challenge")] string? logoutChallenge, 
+        CancellationToken cancellationToken)
     {
         HydraOAuth2RedirectTo? hydraResponse = null;
         if (api.HydraOAuth2 != null && !string.IsNullOrWhiteSpace(logoutChallenge))
@@ -19,7 +21,7 @@ public class LogoutController(ILogger<LogoutController> logger, ApiService api) 
             // end hydra session
             try
             {
-                hydraResponse = await api.HydraOAuth2.AcceptOAuth2LogoutRequestAsync(logoutChallenge);
+                hydraResponse = await api.HydraOAuth2.AcceptOAuth2LogoutRequestAsync(logoutChallenge, cancellationToken);
             }
             catch (ApiException exception)
             {
@@ -32,7 +34,7 @@ public class LogoutController(ILogger<LogoutController> logger, ApiService api) 
         try
         {
             var flow = await api.Frontend.CreateBrowserLogoutFlowAsync(Request.Headers.Cookie, 
-                hydraResponse?.RedirectTo);
+                hydraResponse?.RedirectTo, cancellationToken);
             return Redirect(flow.LogoutUrl);
         }
         catch (ApiException exception)

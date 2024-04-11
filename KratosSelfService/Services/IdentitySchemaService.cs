@@ -7,12 +7,12 @@ public class IdentitySchemaService
     private readonly HttpClient _httpClient = new();
     private readonly Dictionary<string, JSchema> _schemaCache = new();
 
-    public async Task<JSchema> FetchSchema(string schemaId, string schemaUri)
+    public async Task<JSchema> FetchSchema(string schemaId, string schemaUri, CancellationToken cancellationToken)
     {
         // check if schema object is cached
         if (_schemaCache.TryGetValue(schemaId, out var schema))
             return schema;
-        var response = await _httpClient.GetStringAsync(schemaUri);
+        var response = await _httpClient.GetStringAsync(schemaUri, cancellationToken);
         // request and cache new schema object
         _schemaCache[schemaId] = JSchema.Parse(response);
         return _schemaCache[schemaId];
@@ -31,6 +31,7 @@ public class IdentitySchemaService
         foreach (var (traitKey, trait) in traits)
         {
             var newPathSections = new List<string>(pathSections) { traitKey };
+            // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
             switch (trait.Type)
             {
                 case JSchemaType.Object:

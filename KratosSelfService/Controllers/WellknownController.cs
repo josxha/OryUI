@@ -8,9 +8,9 @@ public class WellknownController(ApiService api) : Controller
 {
     [HttpGet("/.well-known/ory/webauthn.js")]
     [AllowAnonymous]
-    public async Task<IActionResult> Webauthn()
+    public async Task<IActionResult> Webauthn(CancellationToken cancellationToken)
     {
-        var script = await api.Frontend.GetWebAuthnJavaScriptAsync();
+        var script = await api.Frontend.GetWebAuthnJavaScriptAsync(cancellationToken);
         //Response.ContentType = "text/javascript";
         return new ObjectResult(script);
     }

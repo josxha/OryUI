@@ -8,11 +8,13 @@ namespace KratosSelfService.Controllers;
 
 public class WelcomeController(IdentitySchemaService schemaService) : Controller
 {
+    /**
+     * This endpoint exists for parity reason to the ory kratos self service ui.
+     */
     [HttpGet("welcome")]
     [AllowAnonymous]
     public IActionResult Welcome()
     {
-        // this endpoint exists for parity reason to the ory kratos self service ui
         return Redirect("~/");
     }
 }

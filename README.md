@@ -1,18 +1,21 @@
 ﻿# OryUI - ORY User Interfaces
+[![stars](https://badgen.net/github/stars/josxha/OryUI?label=stars&color=green&icon=github)](https://github.com/josxha/OryUI/stargazers)
+[![GitHub last commit](https://img.shields.io/github/last-commit/josxha/OryUI)](https://github.com/josxha/OryUI)
+[![Issues](https://img.shields.io/github/issues/josxha/OryUI)](https://github.com/josxha/OryUI/issues)
+[![Open PRs](https://badgen.net/github/open-prs/josxha/flutter_map_cache?label=Open+PRs&color=green)](https://GitHub.com/josxha/OryUI/pulls)
+
 
 #### This project is not affiliated with ORY Corp in any way.
 
-![GitHub last commit](https://img.shields.io/github/last-commit/josxha/Oryon)
-![GitHub issues](https://img.shields.io/github/issues/josxha/Oryon)
-![GitHub Repo stars](https://img.shields.io/github/stars/josxha/Oryon?style=social)
+> ### The project is currently under active development. Configurations might change without backwards compatibility.
 
+- [What is Ory](#what-is-ory)
 - [Projects](#projects)
     - [ORY Admin UI](#ory-admin-ui)
     - [ORY Kratos Self Service UI](#ory-kratos-self-service-ui)
 - [Get started](#get-started)
-- [How to contribute](#how-to-contribute)
 
-> #### The project is currently under active development. Configurations might change without backwards compatibility.
+## What is Ory
 
 OryUI provides user interfaces for the [Ory](https://www.ory.sh/) APIs. ORY is a
 [FOSS solution](https://www.ory.sh/open-source/) for authentication, authorization, access control, and delegation.
@@ -137,7 +140,9 @@ the [/KratosSelfService](/KratosSelfService) directory.
 You can either run the ORY UI projects standalone or run it inside of docker containers.
 
 ### Run containerized with Docker
+
 There are prebuilt container images:
+
 ```bash
 docker pull ghcr.io/josxha/ory_admin:latest
 docker pull ghcr.io/josxha/kratos_self_service:latest
@@ -147,14 +152,18 @@ Check out the [./docker-compose.yml](https://github.com/josxha/OryUI/blob/main/d
 
 ### Run standalone
 
-1. Install the required software: [asp.net version 8](https://learn.microsoft.com/de-de/dotnet/core/install/windows), [Docker](https://docs.docker.com/engine/install/) and [docker-compose](https://docs.docker.com/compose/install/)
+1. Install the required
+   software: [asp.net version 8](https://learn.microsoft.com/de-de/dotnet/core/install/windows), [Docker](https://docs.docker.com/engine/install/)
+   and [docker-compose](https://docs.docker.com/compose/install/)
 2. Clone the repository
 
 ```bash
 git clone https://github.com/josxha/OryUI.git
 ```
-3. Start the ORY services: Run ORY locally by using the [/ory/docker-compose.yml](ory/docker-compose.yml) file. ORY will store its data
-persistently in SqLite databases:
+
+3. Start the ORY services: Run ORY locally by using the [/ory/docker-compose.yml](ory/docker-compose.yml) file. ORY will
+   store its data
+   persistently in SqLite databases:
 
 ```bash
 docker network create ory

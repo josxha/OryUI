@@ -1,47 +1,27 @@
-﻿@if (MaxPageNr > 1)
-{
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-        @if (string.IsNullOrWhiteSpace(PageTokenFirst))
-        {
-            <button class="pagination-previous is-disabled">First Page</button>
-        }
-        else
-        {
-            <a href="@Url?page_token=@PageTokenFirst" class="pagination-previous">First Page</a>
-        }
-        @if (string.IsNullOrWhiteSpace(PageTokenNext))
-        {
-            <button class="pagination-next is-disabled">Next Page</button>
-        }
-        else
-        {
-            <a href="@Url?page_token=@PageTokenNext" class="pagination-next">Next Page</a>
-        }
-        <ul class="pagination-list">
-            <PaginationLink IsActive="@(PageToken == 1)"
-                            PageNr="1" Url="@Url" AmountPerPage="AmountPerPage"/>
-            <PaginationEllipsis IsHidden="@(PageToken < 5)"/>
-            @for (var i = int.Max(2, PageToken - 2); i < int.Min(MaxPageNr, PageToken + 3); i++)
-            {
-                <PaginationLink IsActive="@(i == PageToken)"
-                                PageNr="i" Url="@Url" AmountPerPage="AmountPerPage"/>
-            }
-            <PaginationEllipsis IsHidden="@(PageToken > MaxPageNr - 4)"/>
-            <PaginationLink IsActive="@(PageToken == MaxPageNr)"
-                            PageNr="@MaxPageNr" Url="@Url" AmountPerPage="AmountPerPage"/>
-        </ul>
-    </nav>
-}
+﻿<nav class="pagination is-centered" role="navigation" aria-label="pagination">
+    @if (string.IsNullOrWhiteSpace(PageTokenFirst) || PageToken == PageTokenFirst)
+    {
+        <button class="pagination-previous is-disabled">First Page</button>
+    }
+    else
+    {
+        <a href="@Url?page_token=@PageTokenFirst" class="pagination-previous">First Page</a>
+    }
+    @if (string.IsNullOrWhiteSpace(PageTokenNext))
+    {
+        <button class="pagination-next is-disabled">Next Page</button>
+    }
+    else
+    {
+        <a href="@Url?page_token=@PageTokenNext" class="pagination-next">Next Page</a>
+    }
+</nav>
 
 @code
 {
     [Parameter] public required string? PageToken { get; set; }
     [Parameter] public required string? PageTokenNext { get; set; }
     [Parameter] public required string? PageTokenFirst { get; set; }
-
-    [Parameter] public required int MaxPageNr { get; set; }
-
-    [Parameter] public required int AmountPerPage { get; set; }
 
     [Parameter] public required string Url { get; set; }
 }

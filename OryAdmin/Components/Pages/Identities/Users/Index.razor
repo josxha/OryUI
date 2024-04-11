@@ -1,4 +1,5 @@
 ﻿@page "/identities/users"
+@using OryAdmin.Utils
 @rendermode InteractiveServer
 
 <PageTitle>Identities | OryAdmin</PageTitle>
@@ -49,9 +50,7 @@ else
             </tbody>
         </table>
         <Pagination Url="identities/users" 
-                    PageTokenNext="@PageTokenNext" 
-                    PageTokenFirst="@PageTokenFirst" 
-                    AmountPerPage="PageSize" 
-                    MaxPageNr="10"/>
+                    PageTokenNext="@(paginationTokens.Next)" 
+                    PageTokenFirst="@(paginationTokens.First)"/>
     }
 }

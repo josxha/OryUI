@@ -1,0 +1,34 @@
+﻿name: Feature Request
+description: Suggest a Feature
+title: "[FEATURE] <title>"
+labels: [ "feature" ]
+body:
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package
+      description: For what is your feature request?
+      options:
+        - "other"
+        - "OryAdmin"
+        - "KratosSelfService"
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Feature Description
+      description: Please give describe the feature you have in mind.
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Feature importance
+      description: How important is this feature to you?
+      options:
+        - "(1) would be nice to have"
+        - "(2) would be good to have"
+        - "(3) can't live without it"
+    validations:
+      required: true

@@ -1,0 +1,45 @@
+﻿name: Bug Report
+description: Report a bug
+title: "[BUG] <title>"
+labels: [ "bug" ]
+body:
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package
+      description: For what is your bug report?
+      options:
+        - "other"
+        - "ory admin"
+        - "self service"
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Bug Description
+      description: Please give a quick description about the bug you found.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Steps to Reproduce
+      description: Please list the steps required to reproduce the problem one by one.
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Expected Results
+      description: Please describe what is expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Actual Results
+      description: Please describe what is actually happening and if beneficial add videos or screenshots.
+    validations:
+      required: true

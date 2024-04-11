@@ -1,0 +1,37 @@
+﻿name: Pull Request to main
+on:
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-yaml:
+    runs-on: ubuntu-latest
+    name: Validate YAML files
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Validate syntax
+        uses: GrantBirki/json-yaml-validate@v2.6.2
+  docker-kratos-self-service:
+    runs-on: ubuntu-latest
+    name: KratosSelfService Build image
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Build the Docker image
+        run: |
+          docker build . --file KratosSelfService/Dockerfile \
+          --tag ghcr.io/josxha/kratos_self_service:${{ github.sha }}
+  docker-ory-admin:
+    runs-on: ubuntu-latest
+    name: OryAdmin Build image
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Build the Docker image
+        run: |
+          docker build . --file OryAdmin/Dockerfile \
+          --tag ghcr.io/josxha/ory_admin:${{ github.sha }}

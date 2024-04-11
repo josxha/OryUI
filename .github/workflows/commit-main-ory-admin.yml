@@ -1,0 +1,32 @@
+﻿name: [OryAdmin] Commit to main
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - .github/workflows/*
+      - OryAdmin/**
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}-OryAdmin
+  cancel-in-progress: true
+
+jobs:
+  docker-ory-admin:
+    runs-on: ubuntu-latest
+    name: Build image
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build the Docker image
+        run: |
+          docker build . --file OryAdmin/Dockerfile \
+          --tag ghcr.io/josxha/ory_admin:${{ github.sha }} \
+          --tag ghcr.io/josxha/ory_admin:latest
+      - name: Push the Docker image
+        run: docker push ghcr.io/josxha/ory_admin --all-tags

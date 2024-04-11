@@ -10,8 +10,8 @@ body:
       description: For what is your bug report?
       options:
         - "other"
-        - "OryAdmin"
-        - "KratosSelfService"
+        - "ory admin"
+        - "self service"
     validations:
       required: true
   - type: textarea

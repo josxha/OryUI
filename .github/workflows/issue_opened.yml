@@ -1,0 +1,44 @@
+﻿name: Issue opened
+on:
+  issues:
+    types: [ opened, reopened ]
+
+permissions:
+  contents: read
+
+jobs:
+  label-component:
+    name: "Label issue"
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v4
+      - name: "Parse bug report form"
+        uses: stefanbuck/github-issue-parser@v3
+        id: issue-parser-bug
+        with:
+          template-path: .github/ISSUE_TEMPLATE/1-bug.yml
+      - name: "Set labels based on package field"
+        uses: redhat-plumbers-in-action/advanced-issue-labeler@v3
+        with:
+          issue-form: ${{ steps.issue-parser-bug.outputs.jsonString }}
+          section: package
+          block-list: |
+            other
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "Parse feature request form"
+        uses: stefanbuck/github-issue-parser@v3
+        id: issue-parser-feature
+        with:
+          template-path: .github/ISSUE_TEMPLATE/2-feature.yml
+      - name: "Set labels based on package field"
+        uses: redhat-plumbers-in-action/advanced-issue-labeler@v3
+        with:
+          issue-form: ${{ steps.issue-parser-feature.outputs.jsonString }}
+          section: package
+          block-list: |
+            other
+          token: ${{ secrets.GITHUB_TOKEN }}

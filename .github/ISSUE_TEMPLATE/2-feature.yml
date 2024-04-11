@@ -10,8 +10,8 @@ body:
       description: For what is your feature request?
       options:
         - "other"
-        - "OryAdmin"
-        - "KratosSelfService"
+        - "ory admin"
+        - "self service"
     validations:
       required: true
   - type: textarea

@@ -1,4 +1,4 @@
-﻿name: [KratosSelfService] Commit to main
+﻿name: "[KratosSelfService] Commit to main"
 on:
   push:
     branches: [ main ]
@@ -13,20 +13,20 @@ concurrency:
 jobs:
   docker-kratos-self-service:
     runs-on: ubuntu-latest
-    name: Build image
+    name: "Build image"
     steps:
-      - name: Checkout code
+      - name: "Checkout code"
         uses: actions/checkout@v4
-      - name: Login to GitHub Container Registry
+      - name: "Login to GitHub Container Registry"
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build the Docker image
+      - name: "Build the Docker image"
         run: |
           docker build . --file KratosSelfService/Dockerfile \
           --tag ghcr.io/josxha/kratos_self_service:${{ github.sha }} \
           --tag ghcr.io/josxha/kratos_self_service:latest
-      - name: Push the Docker image
+      - name: "Push the Docker image"
         run: docker push ghcr.io/josxha/kratos_self_service --all-tags

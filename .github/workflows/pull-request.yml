@@ -9,29 +9,29 @@ concurrency:
 jobs:
   validate-yaml:
     runs-on: ubuntu-latest
-    name: Validate YAML files
+    name: "Validate YAML files"
     steps:
-      - name: Checkout code
+      - name: "Checkout code"
         uses: actions/checkout@v4
-      - name: Validate syntax
+      - name: "Validate syntax"
         uses: GrantBirki/json-yaml-validate@v2.6.2
   docker-kratos-self-service:
     runs-on: ubuntu-latest
-    name: KratosSelfService Build image
+    name: "[KratosSelfService] Build image"
     steps:
-      - name: Checkout code
+      - name: "Checkout code"
         uses: actions/checkout@v4
-      - name: Build the Docker image
+      - name: "Build the Docker image"
         run: |
           docker build . --file KratosSelfService/Dockerfile \
           --tag ghcr.io/josxha/kratos_self_service:${{ github.sha }}
   docker-ory-admin:
     runs-on: ubuntu-latest
-    name: OryAdmin Build image
+    name: "[OryAdmin] Build image"
     steps:
-      - name: Checkout code
+      - name: "Checkout code"
         uses: actions/checkout@v4
-      - name: Build the Docker image
+      - name: "Build the Docker image"
         run: |
           docker build . --file OryAdmin/Dockerfile \
           --tag ghcr.io/josxha/ory_admin:${{ github.sha }}

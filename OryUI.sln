@@ -4,8 +4,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OryAdmin", "OryAdmin\OryAdm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KratosSelfService", "KratosSelfService\KratosSelfService.csproj", "{3AED08D2-8192-4F04-A042-9D0F29AAB936}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ory.Kratos.Client", "Ory.Kratos.Client\Ory.Kratos.Client.csproj", "{FC7B5B7D-ACCA-4E6D-996B-02EACB169576}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,9 +18,5 @@ Global
 		{3AED08D2-8192-4F04-A042-9D0F29AAB936}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AED08D2-8192-4F04-A042-9D0F29AAB936}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AED08D2-8192-4F04-A042-9D0F29AAB936}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FC7B5B7D-ACCA-4E6D-996B-02EACB169576}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC7B5B7D-ACCA-4E6D-996B-02EACB169576}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FC7B5B7D-ACCA-4E6D-996B-02EACB169576}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FC7B5B7D-ACCA-4E6D-996B-02EACB169576}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

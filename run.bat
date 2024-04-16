@@ -1,0 +1,1 @@
+﻿openapi-generator-cli.cmd generate -i "Ory\openapi-kratos.json" -g csharp -o "Ory" --additional-properties=nullableReferenceTypes=true,packageName=Kratos.Client,packageVersion=1.1.0

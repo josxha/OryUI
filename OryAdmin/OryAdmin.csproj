@@ -43,4 +43,12 @@
         <AdditionalFiles Include="Components\Pages\OAuth2\Clients\EditLifespans.razor"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <Folder Include="..\Ory.Kratos\src\Client" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="..\Ory.Hydra\src\Client" />
+    </ItemGroup>
+    
 </Project>

@@ -10,7 +10,7 @@ public class WellknownController(ApiService api) : Controller
     [AllowAnonymous]
     public async Task<IActionResult> Webauthn(CancellationToken cancellationToken)
     {
-        var script = await api.Frontend.GetWebAuthnJavaScriptAsync(cancellationToken);
+        var script = await api.Frontend.GetWebAuthnJavaScriptAsync(cancellationToken:cancellationToken);
         //Response.ContentType = "text/javascript";
         return new ObjectResult(script);
     }

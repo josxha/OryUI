@@ -62,7 +62,7 @@ public partial class Home
                     try
                     {
                         var version = await ApiService.KratosMetadata.GetVersionAsync();
-                        _kratosVersion = version._Version;
+                        _kratosVersion = version.VarVersion;
                     }
                     catch (Exception)
                     {
@@ -104,7 +104,7 @@ public partial class Home
                     try
                     {
                         var version = await ApiService.HydraMetadata.GetVersionAsync();
-                        _hydraVersion = version._Version;
+                        _hydraVersion = version.VarVersion;
                     }
                     catch (Exception)
                     {

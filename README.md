@@ -161,13 +161,13 @@ Check out the [./docker-compose.yml](https://github.com/josxha/OryUI/blob/main/d
 git clone https://github.com/josxha/OryUI.git
 ```
 
-3. Start the ORY services: Run ORY locally by using the [/ory/docker-compose.yml](ory/docker-compose.yml) file. ORY will
+3. Start the ORY services: Run ORY locally by using the [/ory-services/docker-compose.yml](ory-services/docker-compose.yml) file. ORY will
    store its data
    persistently in SqLite databases:
 
 ```bash
 docker network create ory
-cd ./ory
+cd ./ory-services
 docker compose up -d 
 ```
 

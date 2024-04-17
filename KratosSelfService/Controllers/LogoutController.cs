@@ -19,7 +19,7 @@ public class LogoutController(ILogger<LogoutController> logger, ApiService api) 
             // end hydra session
             try
             {
-                hydraResponse = await api.HydraOAuth2.AcceptOAuth2LogoutRequestAsync(logoutChallenge, cancellationToken);
+                hydraResponse = await api.HydraOAuth2.AcceptOAuth2LogoutRequestAsync(logoutChallenge, cancellationToken:cancellationToken);
             }
             catch (Ory.Hydra.Client.Client.ApiException exception)
             {
@@ -32,7 +32,7 @@ public class LogoutController(ILogger<LogoutController> logger, ApiService api) 
         try
         {
             var flow = await api.Frontend.CreateBrowserLogoutFlowAsync(Request.Headers.Cookie, 
-                hydraResponse?.RedirectTo, cancellationToken);
+                hydraResponse?.RedirectTo, cancellationToken:cancellationToken);
             return Redirect(flow.LogoutUrl);
         }
         catch (Ory.Kratos.Client.Client.ApiException exception)

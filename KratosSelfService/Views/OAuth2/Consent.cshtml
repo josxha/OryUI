@@ -2,8 +2,8 @@
 @{
     ViewData["Title"] = CustomTranslator.Get("Grant access");
     Layout = "_CardLayout";
-    var clientName = Model.request._Client.ClientName;
-    if (string.IsNullOrWhiteSpace(clientName)) clientName = Model.request._Client.ClientId;
+    var clientName = Model.request.VarClient.ClientName;
+    if (string.IsNullOrWhiteSpace(clientName)) clientName = Model.request.VarClient.ClientId;
 }
 
 <form class="section" action="consent" method="post">

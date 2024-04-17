@@ -18,7 +18,7 @@ public class OAuth2Controller(ILogger<OAuth2Controller> logger, ApiService api, 
 
         // This section processes consent requests and either shows the consent UI or accepts
         // the consent request right away if the user has given consent to this app before.
-        var challengeRequest = await oAuth2Api.GetOAuth2ConsentRequestAsync(challenge, cancellationToken);
+        var challengeRequest = await oAuth2Api.GetOAuth2ConsentRequestAsync(challenge, cancellationToken:cancellationToken);
         // If a user has granted this application the requested scope, hydra will tell us to not show the UI.
         if (!CanSkipConsent(challengeRequest))
         {
@@ -152,9 +152,9 @@ public class OAuth2Controller(ILogger<OAuth2Controller> logger, ApiService api, 
 
     private bool CanSkipConsent(HydraOAuth2ConsentRequest challenge)
     {
-        if (challenge.Skip || challenge._Client.SkipConsent) return true;
+        if (challenge.Skip || challenge.VarClient.SkipConsent) return true;
 
-        if (challenge._Client.ClientId == null || env.HydraTrustedClientIds == null) return false;
-        return env.HydraTrustedClientIds.Split(",").Contains(challenge._Client.ClientId);
+        if (challenge.VarClient.ClientId == null || env.HydraTrustedClientIds == null) return false;
+        return env.HydraTrustedClientIds.Split(",").Contains(challenge.VarClient.ClientId);
     }
 }

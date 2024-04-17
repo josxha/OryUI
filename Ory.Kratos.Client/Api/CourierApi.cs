@@ -35,8 +35,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">MessageID is the ID of the message.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Message</returns>
-        Message GetCourierMessage(string id, int operationIndex = 0);
+        /// <returns>KratosMessage</returns>
+        KratosMessage GetCourierMessage(string id, int operationIndex = 0);
 
         /// <summary>
         /// Get a Message
@@ -47,8 +47,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">MessageID is the ID of the message.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Message</returns>
-        ApiResponse<Message> GetCourierMessageWithHttpInfo(string id, int operationIndex = 0);
+        /// <returns>ApiResponse of KratosMessage</returns>
+        ApiResponse<KratosMessage> GetCourierMessageWithHttpInfo(string id, int operationIndex = 0);
         /// <summary>
         /// List Messages
         /// </summary>
@@ -61,8 +61,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="status">Status filters out messages based on status. If no value is provided, it doesn&#39;t take effect on filter. (optional)</param>
         /// <param name="recipient">Recipient filters out messages based on recipient. If no value is provided, it doesn&#39;t take effect on filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;Message&gt;</returns>
-        List<Message> ListCourierMessages(long? pageSize = default(long?), string? pageToken = default(string?), CourierMessageStatus? status = default(CourierMessageStatus?), string? recipient = default(string?), int operationIndex = 0);
+        /// <returns>List&lt;KratosMessage&gt;</returns>
+        List<KratosMessage> ListCourierMessages(long? pageSize = default(long?), string? pageToken = default(string?), KratosCourierMessageStatus? status = default(KratosCourierMessageStatus?), string? recipient = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// List Messages
@@ -76,8 +76,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="status">Status filters out messages based on status. If no value is provided, it doesn&#39;t take effect on filter. (optional)</param>
         /// <param name="recipient">Recipient filters out messages based on recipient. If no value is provided, it doesn&#39;t take effect on filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;Message&gt;</returns>
-        ApiResponse<List<Message>> ListCourierMessagesWithHttpInfo(long? pageSize = default(long?), string? pageToken = default(string?), CourierMessageStatus? status = default(CourierMessageStatus?), string? recipient = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of List&lt;KratosMessage&gt;</returns>
+        ApiResponse<List<KratosMessage>> ListCourierMessagesWithHttpInfo(long? pageSize = default(long?), string? pageToken = default(string?), KratosCourierMessageStatus? status = default(KratosCourierMessageStatus?), string? recipient = default(string?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -97,8 +97,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">MessageID is the ID of the message.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Message</returns>
-        System.Threading.Tasks.Task<Message> GetCourierMessageAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosMessage</returns>
+        System.Threading.Tasks.Task<KratosMessage> GetCourierMessageAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get a Message
@@ -110,8 +110,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">MessageID is the ID of the message.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Message)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Message>> GetCourierMessageWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosMessage)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosMessage>> GetCourierMessageWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List Messages
         /// </summary>
@@ -125,8 +125,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="recipient">Recipient filters out messages based on recipient. If no value is provided, it doesn&#39;t take effect on filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Message&gt;</returns>
-        System.Threading.Tasks.Task<List<Message>> ListCourierMessagesAsync(long? pageSize = default(long?), string? pageToken = default(string?), CourierMessageStatus? status = default(CourierMessageStatus?), string? recipient = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of List&lt;KratosMessage&gt;</returns>
+        System.Threading.Tasks.Task<List<KratosMessage>> ListCourierMessagesAsync(long? pageSize = default(long?), string? pageToken = default(string?), KratosCourierMessageStatus? status = default(KratosCourierMessageStatus?), string? recipient = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List Messages
@@ -141,8 +141,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="recipient">Recipient filters out messages based on recipient. If no value is provided, it doesn&#39;t take effect on filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Message&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Message>>> ListCourierMessagesWithHttpInfoAsync(long? pageSize = default(long?), string? pageToken = default(string?), CourierMessageStatus? status = default(CourierMessageStatus?), string? recipient = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (List&lt;KratosMessage&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<KratosMessage>>> ListCourierMessagesWithHttpInfoAsync(long? pageSize = default(long?), string? pageToken = default(string?), KratosCourierMessageStatus? status = default(KratosCourierMessageStatus?), string? recipient = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -269,10 +269,10 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">MessageID is the ID of the message.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Message</returns>
-        public Message GetCourierMessage(string id, int operationIndex = 0)
+        /// <returns>KratosMessage</returns>
+        public KratosMessage GetCourierMessage(string id, int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<Message> localVarResponse = GetCourierMessageWithHttpInfo(id);
+            Ory.Kratos.Client.Client.ApiResponse<KratosMessage> localVarResponse = GetCourierMessageWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -282,8 +282,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">MessageID is the ID of the message.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Message</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<Message> GetCourierMessageWithHttpInfo(string id, int operationIndex = 0)
+        /// <returns>ApiResponse of KratosMessage</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosMessage> GetCourierMessageWithHttpInfo(string id, int operationIndex = 0)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -325,7 +325,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Message>("/admin/courier/messages/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosMessage>("/admin/courier/messages/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCourierMessage", localVarResponse);
@@ -345,10 +345,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">MessageID is the ID of the message.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Message</returns>
-        public async System.Threading.Tasks.Task<Message> GetCourierMessageAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosMessage</returns>
+        public async System.Threading.Tasks.Task<KratosMessage> GetCourierMessageAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<Message> localVarResponse = await GetCourierMessageWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosMessage> localVarResponse = await GetCourierMessageWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -359,8 +359,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">MessageID is the ID of the message.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Message)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<Message>> GetCourierMessageWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosMessage)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosMessage>> GetCourierMessageWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -403,7 +403,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Message>("/admin/courier/messages/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosMessage>("/admin/courier/messages/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -426,10 +426,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="status">Status filters out messages based on status. If no value is provided, it doesn&#39;t take effect on filter. (optional)</param>
         /// <param name="recipient">Recipient filters out messages based on recipient. If no value is provided, it doesn&#39;t take effect on filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;Message&gt;</returns>
-        public List<Message> ListCourierMessages(long? pageSize = default(long?), string? pageToken = default(string?), CourierMessageStatus? status = default(CourierMessageStatus?), string? recipient = default(string?), int operationIndex = 0)
+        /// <returns>List&lt;KratosMessage&gt;</returns>
+        public List<KratosMessage> ListCourierMessages(long? pageSize = default(long?), string? pageToken = default(string?), KratosCourierMessageStatus? status = default(KratosCourierMessageStatus?), string? recipient = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<List<Message>> localVarResponse = ListCourierMessagesWithHttpInfo(pageSize, pageToken, status, recipient);
+            Ory.Kratos.Client.Client.ApiResponse<List<KratosMessage>> localVarResponse = ListCourierMessagesWithHttpInfo(pageSize, pageToken, status, recipient);
             return localVarResponse.Data;
         }
 
@@ -442,8 +442,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="status">Status filters out messages based on status. If no value is provided, it doesn&#39;t take effect on filter. (optional)</param>
         /// <param name="recipient">Recipient filters out messages based on recipient. If no value is provided, it doesn&#39;t take effect on filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;Message&gt;</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<List<Message>> ListCourierMessagesWithHttpInfo(long? pageSize = default(long?), string? pageToken = default(string?), CourierMessageStatus? status = default(CourierMessageStatus?), string? recipient = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of List&lt;KratosMessage&gt;</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<List<KratosMessage>> ListCourierMessagesWithHttpInfo(long? pageSize = default(long?), string? pageToken = default(string?), KratosCourierMessageStatus? status = default(KratosCourierMessageStatus?), string? recipient = default(string?), int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -494,7 +494,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Message>>("/admin/courier/messages", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<KratosMessage>>("/admin/courier/messages", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListCourierMessages", localVarResponse);
@@ -517,10 +517,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="recipient">Recipient filters out messages based on recipient. If no value is provided, it doesn&#39;t take effect on filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Message&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Message>> ListCourierMessagesAsync(long? pageSize = default(long?), string? pageToken = default(string?), CourierMessageStatus? status = default(CourierMessageStatus?), string? recipient = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of List&lt;KratosMessage&gt;</returns>
+        public async System.Threading.Tasks.Task<List<KratosMessage>> ListCourierMessagesAsync(long? pageSize = default(long?), string? pageToken = default(string?), KratosCourierMessageStatus? status = default(KratosCourierMessageStatus?), string? recipient = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<List<Message>> localVarResponse = await ListCourierMessagesWithHttpInfoAsync(pageSize, pageToken, status, recipient, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<List<KratosMessage>> localVarResponse = await ListCourierMessagesWithHttpInfoAsync(pageSize, pageToken, status, recipient, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -534,8 +534,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="recipient">Recipient filters out messages based on recipient. If no value is provided, it doesn&#39;t take effect on filter. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Message&gt;)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<List<Message>>> ListCourierMessagesWithHttpInfoAsync(long? pageSize = default(long?), string? pageToken = default(string?), CourierMessageStatus? status = default(CourierMessageStatus?), string? recipient = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (List&lt;KratosMessage&gt;)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<List<KratosMessage>>> ListCourierMessagesWithHttpInfoAsync(long? pageSize = default(long?), string? pageToken = default(string?), KratosCourierMessageStatus? status = default(KratosCourierMessageStatus?), string? recipient = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -587,7 +587,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Message>>("/admin/courier/messages", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<KratosMessage>>("/admin/courier/messages", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

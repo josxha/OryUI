@@ -33,10 +33,10 @@ namespace Ory.Kratos.Client.Api
         /// Creates or delete multiple [identities](https://www.ory.sh/docs/kratos/concepts/identity-user-model). This endpoint can also be used to [import credentials](https://www.ory.sh/docs/kratos/manage-identities/import-user-accounts-identities) for instance passwords, social sign in configurations or multifactor methods.
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchIdentitiesBody"> (optional)</param>
+        /// <param name="kratosPatchIdentitiesBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>BatchPatchIdentitiesResponse</returns>
-        BatchPatchIdentitiesResponse BatchPatchIdentities(PatchIdentitiesBody? patchIdentitiesBody = default(PatchIdentitiesBody?), int operationIndex = 0);
+        /// <returns>KratosBatchPatchIdentitiesResponse</returns>
+        KratosBatchPatchIdentitiesResponse BatchPatchIdentities(KratosPatchIdentitiesBody? kratosPatchIdentitiesBody = default(KratosPatchIdentitiesBody?), int operationIndex = 0);
 
         /// <summary>
         /// Create and deletes multiple identities
@@ -45,10 +45,10 @@ namespace Ory.Kratos.Client.Api
         /// Creates or delete multiple [identities](https://www.ory.sh/docs/kratos/concepts/identity-user-model). This endpoint can also be used to [import credentials](https://www.ory.sh/docs/kratos/manage-identities/import-user-accounts-identities) for instance passwords, social sign in configurations or multifactor methods.
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchIdentitiesBody"> (optional)</param>
+        /// <param name="kratosPatchIdentitiesBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of BatchPatchIdentitiesResponse</returns>
-        ApiResponse<BatchPatchIdentitiesResponse> BatchPatchIdentitiesWithHttpInfo(PatchIdentitiesBody? patchIdentitiesBody = default(PatchIdentitiesBody?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosBatchPatchIdentitiesResponse</returns>
+        ApiResponse<KratosBatchPatchIdentitiesResponse> BatchPatchIdentitiesWithHttpInfo(KratosPatchIdentitiesBody? kratosPatchIdentitiesBody = default(KratosPatchIdentitiesBody?), int operationIndex = 0);
         /// <summary>
         /// Create an Identity
         /// </summary>
@@ -56,10 +56,10 @@ namespace Ory.Kratos.Client.Api
         /// Create an [identity](https://www.ory.sh/docs/kratos/concepts/identity-user-model).  This endpoint can also be used to [import credentials](https://www.ory.sh/docs/kratos/manage-identities/import-user-accounts-identities) for instance passwords, social sign in configurations or multifactor methods.
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Identity</returns>
-        Identity CreateIdentity(CreateIdentityBody? createIdentityBody = default(CreateIdentityBody?), int operationIndex = 0);
+        /// <returns>KratosIdentity</returns>
+        KratosIdentity CreateIdentity(KratosCreateIdentityBody? kratosCreateIdentityBody = default(KratosCreateIdentityBody?), int operationIndex = 0);
 
         /// <summary>
         /// Create an Identity
@@ -68,10 +68,10 @@ namespace Ory.Kratos.Client.Api
         /// Create an [identity](https://www.ory.sh/docs/kratos/concepts/identity-user-model).  This endpoint can also be used to [import credentials](https://www.ory.sh/docs/kratos/manage-identities/import-user-accounts-identities) for instance passwords, social sign in configurations or multifactor methods.
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Identity</returns>
-        ApiResponse<Identity> CreateIdentityWithHttpInfo(CreateIdentityBody? createIdentityBody = default(CreateIdentityBody?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosIdentity</returns>
+        ApiResponse<KratosIdentity> CreateIdentityWithHttpInfo(KratosCreateIdentityBody? kratosCreateIdentityBody = default(KratosCreateIdentityBody?), int operationIndex = 0);
         /// <summary>
         /// Create a Recovery Code
         /// </summary>
@@ -79,10 +79,10 @@ namespace Ory.Kratos.Client.Api
         /// This endpoint creates a recovery code which should be given to the user in order for them to recover (or activate) their account.
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createRecoveryCodeForIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateRecoveryCodeForIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>RecoveryCodeForIdentity</returns>
-        RecoveryCodeForIdentity CreateRecoveryCodeForIdentity(CreateRecoveryCodeForIdentityBody? createRecoveryCodeForIdentityBody = default(CreateRecoveryCodeForIdentityBody?), int operationIndex = 0);
+        /// <returns>KratosRecoveryCodeForIdentity</returns>
+        KratosRecoveryCodeForIdentity CreateRecoveryCodeForIdentity(KratosCreateRecoveryCodeForIdentityBody? kratosCreateRecoveryCodeForIdentityBody = default(KratosCreateRecoveryCodeForIdentityBody?), int operationIndex = 0);
 
         /// <summary>
         /// Create a Recovery Code
@@ -91,10 +91,10 @@ namespace Ory.Kratos.Client.Api
         /// This endpoint creates a recovery code which should be given to the user in order for them to recover (or activate) their account.
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createRecoveryCodeForIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateRecoveryCodeForIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of RecoveryCodeForIdentity</returns>
-        ApiResponse<RecoveryCodeForIdentity> CreateRecoveryCodeForIdentityWithHttpInfo(CreateRecoveryCodeForIdentityBody? createRecoveryCodeForIdentityBody = default(CreateRecoveryCodeForIdentityBody?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosRecoveryCodeForIdentity</returns>
+        ApiResponse<KratosRecoveryCodeForIdentity> CreateRecoveryCodeForIdentityWithHttpInfo(KratosCreateRecoveryCodeForIdentityBody? kratosCreateRecoveryCodeForIdentityBody = default(KratosCreateRecoveryCodeForIdentityBody?), int operationIndex = 0);
         /// <summary>
         /// Create a Recovery Link
         /// </summary>
@@ -103,10 +103,10 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="returnTo"> (optional)</param>
-        /// <param name="createRecoveryLinkForIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateRecoveryLinkForIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>RecoveryLinkForIdentity</returns>
-        RecoveryLinkForIdentity CreateRecoveryLinkForIdentity(string? returnTo = default(string?), CreateRecoveryLinkForIdentityBody? createRecoveryLinkForIdentityBody = default(CreateRecoveryLinkForIdentityBody?), int operationIndex = 0);
+        /// <returns>KratosRecoveryLinkForIdentity</returns>
+        KratosRecoveryLinkForIdentity CreateRecoveryLinkForIdentity(string? returnTo = default(string?), KratosCreateRecoveryLinkForIdentityBody? kratosCreateRecoveryLinkForIdentityBody = default(KratosCreateRecoveryLinkForIdentityBody?), int operationIndex = 0);
 
         /// <summary>
         /// Create a Recovery Link
@@ -116,10 +116,10 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="returnTo"> (optional)</param>
-        /// <param name="createRecoveryLinkForIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateRecoveryLinkForIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of RecoveryLinkForIdentity</returns>
-        ApiResponse<RecoveryLinkForIdentity> CreateRecoveryLinkForIdentityWithHttpInfo(string? returnTo = default(string?), CreateRecoveryLinkForIdentityBody? createRecoveryLinkForIdentityBody = default(CreateRecoveryLinkForIdentityBody?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosRecoveryLinkForIdentity</returns>
+        ApiResponse<KratosRecoveryLinkForIdentity> CreateRecoveryLinkForIdentityWithHttpInfo(string? returnTo = default(string?), KratosCreateRecoveryLinkForIdentityBody? kratosCreateRecoveryLinkForIdentityBody = default(KratosCreateRecoveryLinkForIdentityBody?), int operationIndex = 0);
         /// <summary>
         /// Delete an Identity
         /// </summary>
@@ -223,8 +223,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID is the session&#39;s ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Session</returns>
-        Session ExtendSession(string id, int operationIndex = 0);
+        /// <returns>KratosSession</returns>
+        KratosSession ExtendSession(string id, int operationIndex = 0);
 
         /// <summary>
         /// Extend a Session
@@ -235,8 +235,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID is the session&#39;s ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Session</returns>
-        ApiResponse<Session> ExtendSessionWithHttpInfo(string id, int operationIndex = 0);
+        /// <returns>ApiResponse of KratosSession</returns>
+        ApiResponse<KratosSession> ExtendSessionWithHttpInfo(string id, int operationIndex = 0);
         /// <summary>
         /// Get an Identity
         /// </summary>
@@ -247,8 +247,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">ID must be set to the ID of identity you want to get</param>
         /// <param name="includeCredential">Include Credentials in Response  Include any credential, for example &#x60;password&#x60; or &#x60;oidc&#x60;, in the response. When set to &#x60;oidc&#x60;, This will return the initial OAuth 2.0 Access Token, OAuth 2.0 Refresh Token and the OpenID Connect ID Token if available. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Identity</returns>
-        Identity GetIdentity(string id, List<string>? includeCredential = default(List<string>?), int operationIndex = 0);
+        /// <returns>KratosIdentity</returns>
+        KratosIdentity GetIdentity(string id, List<string>? includeCredential = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
         /// Get an Identity
@@ -260,8 +260,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">ID must be set to the ID of identity you want to get</param>
         /// <param name="includeCredential">Include Credentials in Response  Include any credential, for example &#x60;password&#x60; or &#x60;oidc&#x60;, in the response. When set to &#x60;oidc&#x60;, This will return the initial OAuth 2.0 Access Token, OAuth 2.0 Refresh Token and the OpenID Connect ID Token if available. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Identity</returns>
-        ApiResponse<Identity> GetIdentityWithHttpInfo(string id, List<string>? includeCredential = default(List<string>?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosIdentity</returns>
+        ApiResponse<KratosIdentity> GetIdentityWithHttpInfo(string id, List<string>? includeCredential = default(List<string>?), int operationIndex = 0);
         /// <summary>
         /// Get Identity JSON Schema
         /// </summary>
@@ -295,8 +295,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">ID is the session&#39;s ID.</param>
         /// <param name="expand">ExpandOptions is a query parameter encoded list of all properties that must be expanded in the Session. Example - ?expand&#x3D;Identity&amp;expand&#x3D;Devices If no value is provided, the expandable properties are skipped. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Session</returns>
-        Session GetSession(string id, List<string>? expand = default(List<string>?), int operationIndex = 0);
+        /// <returns>KratosSession</returns>
+        KratosSession GetSession(string id, List<string>? expand = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
         /// Get Session
@@ -308,8 +308,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">ID is the session&#39;s ID.</param>
         /// <param name="expand">ExpandOptions is a query parameter encoded list of all properties that must be expanded in the Session. Example - ?expand&#x3D;Identity&amp;expand&#x3D;Devices If no value is provided, the expandable properties are skipped. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Session</returns>
-        ApiResponse<Session> GetSessionWithHttpInfo(string id, List<string>? expand = default(List<string>?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosSession</returns>
+        ApiResponse<KratosSession> GetSessionWithHttpInfo(string id, List<string>? expand = default(List<string>?), int operationIndex = 0);
         /// <summary>
         /// List Identities
         /// </summary>
@@ -326,8 +326,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="credentialsIdentifier">CredentialsIdentifier is the identifier (username, email) of the credentials to look up using exact match. Only one of CredentialsIdentifier and CredentialsIdentifierSimilar can be used. (optional)</param>
         /// <param name="previewCredentialsIdentifierSimilar">This is an EXPERIMENTAL parameter that WILL CHANGE. Do NOT rely on consistent, deterministic behavior. THIS PARAMETER WILL BE REMOVED IN AN UPCOMING RELEASE WITHOUT ANY MIGRATION PATH.  CredentialsIdentifierSimilar is the (partial) identifier (username, email) of the credentials to look up using similarity search. Only one of CredentialsIdentifier and CredentialsIdentifierSimilar can be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;Identity&gt;</returns>
-        List<Identity> ListIdentities(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? consistency = default(string?), List<string>? ids = default(List<string>?), string? credentialsIdentifier = default(string?), string? previewCredentialsIdentifierSimilar = default(string?), int operationIndex = 0);
+        /// <returns>List&lt;KratosIdentity&gt;</returns>
+        List<KratosIdentity> ListIdentities(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? consistency = default(string?), List<string>? ids = default(List<string>?), string? credentialsIdentifier = default(string?), string? previewCredentialsIdentifierSimilar = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// List Identities
@@ -345,8 +345,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="credentialsIdentifier">CredentialsIdentifier is the identifier (username, email) of the credentials to look up using exact match. Only one of CredentialsIdentifier and CredentialsIdentifierSimilar can be used. (optional)</param>
         /// <param name="previewCredentialsIdentifierSimilar">This is an EXPERIMENTAL parameter that WILL CHANGE. Do NOT rely on consistent, deterministic behavior. THIS PARAMETER WILL BE REMOVED IN AN UPCOMING RELEASE WITHOUT ANY MIGRATION PATH.  CredentialsIdentifierSimilar is the (partial) identifier (username, email) of the credentials to look up using similarity search. Only one of CredentialsIdentifier and CredentialsIdentifierSimilar can be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;Identity&gt;</returns>
-        ApiResponse<List<Identity>> ListIdentitiesWithHttpInfo(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? consistency = default(string?), List<string>? ids = default(List<string>?), string? credentialsIdentifier = default(string?), string? previewCredentialsIdentifierSimilar = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of List&lt;KratosIdentity&gt;</returns>
+        ApiResponse<List<KratosIdentity>> ListIdentitiesWithHttpInfo(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? consistency = default(string?), List<string>? ids = default(List<string>?), string? credentialsIdentifier = default(string?), string? previewCredentialsIdentifierSimilar = default(string?), int operationIndex = 0);
         /// <summary>
         /// Get all Identity Schemas
         /// </summary>
@@ -359,8 +359,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="pageSize">Page Size  This is the number of items per page to return. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional, default to 250)</param>
         /// <param name="pageToken">Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional, default to &quot;1&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;IdentitySchemaContainer&gt;</returns>
-        List<IdentitySchemaContainer> ListIdentitySchemas(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), int operationIndex = 0);
+        /// <returns>List&lt;KratosIdentitySchemaContainer&gt;</returns>
+        List<KratosIdentitySchemaContainer> ListIdentitySchemas(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Get all Identity Schemas
@@ -374,8 +374,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="pageSize">Page Size  This is the number of items per page to return. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional, default to 250)</param>
         /// <param name="pageToken">Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional, default to &quot;1&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;IdentitySchemaContainer&gt;</returns>
-        ApiResponse<List<IdentitySchemaContainer>> ListIdentitySchemasWithHttpInfo(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of List&lt;KratosIdentitySchemaContainer&gt;</returns>
+        ApiResponse<List<KratosIdentitySchemaContainer>> ListIdentitySchemasWithHttpInfo(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), int operationIndex = 0);
         /// <summary>
         /// List an Identity&#39;s Sessions
         /// </summary>
@@ -390,8 +390,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="pageToken">Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional, default to &quot;1&quot;)</param>
         /// <param name="active">Active is a boolean flag that filters out sessions based on the state. If no value is provided, all sessions are returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;Session&gt;</returns>
-        List<Session> ListIdentitySessions(string id, long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), int operationIndex = 0);
+        /// <returns>List&lt;KratosSession&gt;</returns>
+        List<KratosSession> ListIdentitySessions(string id, long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), int operationIndex = 0);
 
         /// <summary>
         /// List an Identity&#39;s Sessions
@@ -407,8 +407,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="pageToken">Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional, default to &quot;1&quot;)</param>
         /// <param name="active">Active is a boolean flag that filters out sessions based on the state. If no value is provided, all sessions are returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;Session&gt;</returns>
-        ApiResponse<List<Session>> ListIdentitySessionsWithHttpInfo(string id, long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), int operationIndex = 0);
+        /// <returns>ApiResponse of List&lt;KratosSession&gt;</returns>
+        ApiResponse<List<KratosSession>> ListIdentitySessionsWithHttpInfo(string id, long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), int operationIndex = 0);
         /// <summary>
         /// List All Sessions
         /// </summary>
@@ -421,8 +421,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="active">Active is a boolean flag that filters out sessions based on the state. If no value is provided, all sessions are returned. (optional)</param>
         /// <param name="expand">ExpandOptions is a query parameter encoded list of all properties that must be expanded in the Session. If no value is provided, the expandable properties are skipped. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;Session&gt;</returns>
-        List<Session> ListSessions(long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), List<string>? expand = default(List<string>?), int operationIndex = 0);
+        /// <returns>List&lt;KratosSession&gt;</returns>
+        List<KratosSession> ListSessions(long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), List<string>? expand = default(List<string>?), int operationIndex = 0);
 
         /// <summary>
         /// List All Sessions
@@ -436,8 +436,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="active">Active is a boolean flag that filters out sessions based on the state. If no value is provided, all sessions are returned. (optional)</param>
         /// <param name="expand">ExpandOptions is a query parameter encoded list of all properties that must be expanded in the Session. If no value is provided, the expandable properties are skipped. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;Session&gt;</returns>
-        ApiResponse<List<Session>> ListSessionsWithHttpInfo(long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), List<string>? expand = default(List<string>?), int operationIndex = 0);
+        /// <returns>ApiResponse of List&lt;KratosSession&gt;</returns>
+        ApiResponse<List<KratosSession>> ListSessionsWithHttpInfo(long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), List<string>? expand = default(List<string>?), int operationIndex = 0);
         /// <summary>
         /// Patch an Identity
         /// </summary>
@@ -446,10 +446,10 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID must be set to the ID of identity you want to update</param>
-        /// <param name="jsonPatch"> (optional)</param>
+        /// <param name="kratosJsonPatch"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Identity</returns>
-        Identity PatchIdentity(string id, List<JsonPatch>? jsonPatch = default(List<JsonPatch>?), int operationIndex = 0);
+        /// <returns>KratosIdentity</returns>
+        KratosIdentity PatchIdentity(string id, List<KratosJsonPatch>? kratosJsonPatch = default(List<KratosJsonPatch>?), int operationIndex = 0);
 
         /// <summary>
         /// Patch an Identity
@@ -459,10 +459,10 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID must be set to the ID of identity you want to update</param>
-        /// <param name="jsonPatch"> (optional)</param>
+        /// <param name="kratosJsonPatch"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Identity</returns>
-        ApiResponse<Identity> PatchIdentityWithHttpInfo(string id, List<JsonPatch>? jsonPatch = default(List<JsonPatch>?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosIdentity</returns>
+        ApiResponse<KratosIdentity> PatchIdentityWithHttpInfo(string id, List<KratosJsonPatch>? kratosJsonPatch = default(List<KratosJsonPatch>?), int operationIndex = 0);
         /// <summary>
         /// Update an Identity
         /// </summary>
@@ -471,10 +471,10 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID must be set to the ID of identity you want to update</param>
-        /// <param name="updateIdentityBody"> (optional)</param>
+        /// <param name="kratosUpdateIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Identity</returns>
-        Identity UpdateIdentity(string id, UpdateIdentityBody? updateIdentityBody = default(UpdateIdentityBody?), int operationIndex = 0);
+        /// <returns>KratosIdentity</returns>
+        KratosIdentity UpdateIdentity(string id, KratosUpdateIdentityBody? kratosUpdateIdentityBody = default(KratosUpdateIdentityBody?), int operationIndex = 0);
 
         /// <summary>
         /// Update an Identity
@@ -484,10 +484,10 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID must be set to the ID of identity you want to update</param>
-        /// <param name="updateIdentityBody"> (optional)</param>
+        /// <param name="kratosUpdateIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Identity</returns>
-        ApiResponse<Identity> UpdateIdentityWithHttpInfo(string id, UpdateIdentityBody? updateIdentityBody = default(UpdateIdentityBody?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosIdentity</returns>
+        ApiResponse<KratosIdentity> UpdateIdentityWithHttpInfo(string id, KratosUpdateIdentityBody? kratosUpdateIdentityBody = default(KratosUpdateIdentityBody?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -504,11 +504,11 @@ namespace Ory.Kratos.Client.Api
         /// Creates or delete multiple [identities](https://www.ory.sh/docs/kratos/concepts/identity-user-model). This endpoint can also be used to [import credentials](https://www.ory.sh/docs/kratos/manage-identities/import-user-accounts-identities) for instance passwords, social sign in configurations or multifactor methods.
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchIdentitiesBody"> (optional)</param>
+        /// <param name="kratosPatchIdentitiesBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of BatchPatchIdentitiesResponse</returns>
-        System.Threading.Tasks.Task<BatchPatchIdentitiesResponse> BatchPatchIdentitiesAsync(PatchIdentitiesBody? patchIdentitiesBody = default(PatchIdentitiesBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosBatchPatchIdentitiesResponse</returns>
+        System.Threading.Tasks.Task<KratosBatchPatchIdentitiesResponse> BatchPatchIdentitiesAsync(KratosPatchIdentitiesBody? kratosPatchIdentitiesBody = default(KratosPatchIdentitiesBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create and deletes multiple identities
@@ -517,11 +517,11 @@ namespace Ory.Kratos.Client.Api
         /// Creates or delete multiple [identities](https://www.ory.sh/docs/kratos/concepts/identity-user-model). This endpoint can also be used to [import credentials](https://www.ory.sh/docs/kratos/manage-identities/import-user-accounts-identities) for instance passwords, social sign in configurations or multifactor methods.
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchIdentitiesBody"> (optional)</param>
+        /// <param name="kratosPatchIdentitiesBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (BatchPatchIdentitiesResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<BatchPatchIdentitiesResponse>> BatchPatchIdentitiesWithHttpInfoAsync(PatchIdentitiesBody? patchIdentitiesBody = default(PatchIdentitiesBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosBatchPatchIdentitiesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosBatchPatchIdentitiesResponse>> BatchPatchIdentitiesWithHttpInfoAsync(KratosPatchIdentitiesBody? kratosPatchIdentitiesBody = default(KratosPatchIdentitiesBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create an Identity
         /// </summary>
@@ -529,11 +529,11 @@ namespace Ory.Kratos.Client.Api
         /// Create an [identity](https://www.ory.sh/docs/kratos/concepts/identity-user-model).  This endpoint can also be used to [import credentials](https://www.ory.sh/docs/kratos/manage-identities/import-user-accounts-identities) for instance passwords, social sign in configurations or multifactor methods.
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Identity</returns>
-        System.Threading.Tasks.Task<Identity> CreateIdentityAsync(CreateIdentityBody? createIdentityBody = default(CreateIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosIdentity</returns>
+        System.Threading.Tasks.Task<KratosIdentity> CreateIdentityAsync(KratosCreateIdentityBody? kratosCreateIdentityBody = default(KratosCreateIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create an Identity
@@ -542,11 +542,11 @@ namespace Ory.Kratos.Client.Api
         /// Create an [identity](https://www.ory.sh/docs/kratos/concepts/identity-user-model).  This endpoint can also be used to [import credentials](https://www.ory.sh/docs/kratos/manage-identities/import-user-accounts-identities) for instance passwords, social sign in configurations or multifactor methods.
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Identity)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Identity>> CreateIdentityWithHttpInfoAsync(CreateIdentityBody? createIdentityBody = default(CreateIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosIdentity)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosIdentity>> CreateIdentityWithHttpInfoAsync(KratosCreateIdentityBody? kratosCreateIdentityBody = default(KratosCreateIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a Recovery Code
         /// </summary>
@@ -554,11 +554,11 @@ namespace Ory.Kratos.Client.Api
         /// This endpoint creates a recovery code which should be given to the user in order for them to recover (or activate) their account.
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createRecoveryCodeForIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateRecoveryCodeForIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RecoveryCodeForIdentity</returns>
-        System.Threading.Tasks.Task<RecoveryCodeForIdentity> CreateRecoveryCodeForIdentityAsync(CreateRecoveryCodeForIdentityBody? createRecoveryCodeForIdentityBody = default(CreateRecoveryCodeForIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosRecoveryCodeForIdentity</returns>
+        System.Threading.Tasks.Task<KratosRecoveryCodeForIdentity> CreateRecoveryCodeForIdentityAsync(KratosCreateRecoveryCodeForIdentityBody? kratosCreateRecoveryCodeForIdentityBody = default(KratosCreateRecoveryCodeForIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create a Recovery Code
@@ -567,11 +567,11 @@ namespace Ory.Kratos.Client.Api
         /// This endpoint creates a recovery code which should be given to the user in order for them to recover (or activate) their account.
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createRecoveryCodeForIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateRecoveryCodeForIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RecoveryCodeForIdentity)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RecoveryCodeForIdentity>> CreateRecoveryCodeForIdentityWithHttpInfoAsync(CreateRecoveryCodeForIdentityBody? createRecoveryCodeForIdentityBody = default(CreateRecoveryCodeForIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosRecoveryCodeForIdentity)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosRecoveryCodeForIdentity>> CreateRecoveryCodeForIdentityWithHttpInfoAsync(KratosCreateRecoveryCodeForIdentityBody? kratosCreateRecoveryCodeForIdentityBody = default(KratosCreateRecoveryCodeForIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a Recovery Link
         /// </summary>
@@ -580,11 +580,11 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="returnTo"> (optional)</param>
-        /// <param name="createRecoveryLinkForIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateRecoveryLinkForIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RecoveryLinkForIdentity</returns>
-        System.Threading.Tasks.Task<RecoveryLinkForIdentity> CreateRecoveryLinkForIdentityAsync(string? returnTo = default(string?), CreateRecoveryLinkForIdentityBody? createRecoveryLinkForIdentityBody = default(CreateRecoveryLinkForIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosRecoveryLinkForIdentity</returns>
+        System.Threading.Tasks.Task<KratosRecoveryLinkForIdentity> CreateRecoveryLinkForIdentityAsync(string? returnTo = default(string?), KratosCreateRecoveryLinkForIdentityBody? kratosCreateRecoveryLinkForIdentityBody = default(KratosCreateRecoveryLinkForIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create a Recovery Link
@@ -594,11 +594,11 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="returnTo"> (optional)</param>
-        /// <param name="createRecoveryLinkForIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateRecoveryLinkForIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RecoveryLinkForIdentity)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RecoveryLinkForIdentity>> CreateRecoveryLinkForIdentityWithHttpInfoAsync(string? returnTo = default(string?), CreateRecoveryLinkForIdentityBody? createRecoveryLinkForIdentityBody = default(CreateRecoveryLinkForIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosRecoveryLinkForIdentity)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosRecoveryLinkForIdentity>> CreateRecoveryLinkForIdentityWithHttpInfoAsync(string? returnTo = default(string?), KratosCreateRecoveryLinkForIdentityBody? kratosCreateRecoveryLinkForIdentityBody = default(KratosCreateRecoveryLinkForIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete an Identity
         /// </summary>
@@ -711,8 +711,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">ID is the session&#39;s ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Session</returns>
-        System.Threading.Tasks.Task<Session> ExtendSessionAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosSession</returns>
+        System.Threading.Tasks.Task<KratosSession> ExtendSessionAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Extend a Session
@@ -724,8 +724,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">ID is the session&#39;s ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Session)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Session>> ExtendSessionWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosSession)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosSession>> ExtendSessionWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get an Identity
         /// </summary>
@@ -737,8 +737,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="includeCredential">Include Credentials in Response  Include any credential, for example &#x60;password&#x60; or &#x60;oidc&#x60;, in the response. When set to &#x60;oidc&#x60;, This will return the initial OAuth 2.0 Access Token, OAuth 2.0 Refresh Token and the OpenID Connect ID Token if available. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Identity</returns>
-        System.Threading.Tasks.Task<Identity> GetIdentityAsync(string id, List<string>? includeCredential = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosIdentity</returns>
+        System.Threading.Tasks.Task<KratosIdentity> GetIdentityAsync(string id, List<string>? includeCredential = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get an Identity
@@ -751,8 +751,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="includeCredential">Include Credentials in Response  Include any credential, for example &#x60;password&#x60; or &#x60;oidc&#x60;, in the response. When set to &#x60;oidc&#x60;, This will return the initial OAuth 2.0 Access Token, OAuth 2.0 Refresh Token and the OpenID Connect ID Token if available. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Identity)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Identity>> GetIdentityWithHttpInfoAsync(string id, List<string>? includeCredential = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosIdentity)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosIdentity>> GetIdentityWithHttpInfoAsync(string id, List<string>? includeCredential = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Identity JSON Schema
         /// </summary>
@@ -789,8 +789,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="expand">ExpandOptions is a query parameter encoded list of all properties that must be expanded in the Session. Example - ?expand&#x3D;Identity&amp;expand&#x3D;Devices If no value is provided, the expandable properties are skipped. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Session</returns>
-        System.Threading.Tasks.Task<Session> GetSessionAsync(string id, List<string>? expand = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosSession</returns>
+        System.Threading.Tasks.Task<KratosSession> GetSessionAsync(string id, List<string>? expand = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Session
@@ -803,8 +803,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="expand">ExpandOptions is a query parameter encoded list of all properties that must be expanded in the Session. Example - ?expand&#x3D;Identity&amp;expand&#x3D;Devices If no value is provided, the expandable properties are skipped. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Session)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Session>> GetSessionWithHttpInfoAsync(string id, List<string>? expand = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosSession)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosSession>> GetSessionWithHttpInfoAsync(string id, List<string>? expand = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List Identities
         /// </summary>
@@ -822,8 +822,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="previewCredentialsIdentifierSimilar">This is an EXPERIMENTAL parameter that WILL CHANGE. Do NOT rely on consistent, deterministic behavior. THIS PARAMETER WILL BE REMOVED IN AN UPCOMING RELEASE WITHOUT ANY MIGRATION PATH.  CredentialsIdentifierSimilar is the (partial) identifier (username, email) of the credentials to look up using similarity search. Only one of CredentialsIdentifier and CredentialsIdentifierSimilar can be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Identity&gt;</returns>
-        System.Threading.Tasks.Task<List<Identity>> ListIdentitiesAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? consistency = default(string?), List<string>? ids = default(List<string>?), string? credentialsIdentifier = default(string?), string? previewCredentialsIdentifierSimilar = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of List&lt;KratosIdentity&gt;</returns>
+        System.Threading.Tasks.Task<List<KratosIdentity>> ListIdentitiesAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? consistency = default(string?), List<string>? ids = default(List<string>?), string? credentialsIdentifier = default(string?), string? previewCredentialsIdentifierSimilar = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List Identities
@@ -842,8 +842,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="previewCredentialsIdentifierSimilar">This is an EXPERIMENTAL parameter that WILL CHANGE. Do NOT rely on consistent, deterministic behavior. THIS PARAMETER WILL BE REMOVED IN AN UPCOMING RELEASE WITHOUT ANY MIGRATION PATH.  CredentialsIdentifierSimilar is the (partial) identifier (username, email) of the credentials to look up using similarity search. Only one of CredentialsIdentifier and CredentialsIdentifierSimilar can be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Identity&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Identity>>> ListIdentitiesWithHttpInfoAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? consistency = default(string?), List<string>? ids = default(List<string>?), string? credentialsIdentifier = default(string?), string? previewCredentialsIdentifierSimilar = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (List&lt;KratosIdentity&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<KratosIdentity>>> ListIdentitiesWithHttpInfoAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? consistency = default(string?), List<string>? ids = default(List<string>?), string? credentialsIdentifier = default(string?), string? previewCredentialsIdentifierSimilar = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get all Identity Schemas
         /// </summary>
@@ -857,8 +857,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="pageToken">Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional, default to &quot;1&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;IdentitySchemaContainer&gt;</returns>
-        System.Threading.Tasks.Task<List<IdentitySchemaContainer>> ListIdentitySchemasAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of List&lt;KratosIdentitySchemaContainer&gt;</returns>
+        System.Threading.Tasks.Task<List<KratosIdentitySchemaContainer>> ListIdentitySchemasAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get all Identity Schemas
@@ -873,8 +873,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="pageToken">Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional, default to &quot;1&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;IdentitySchemaContainer&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<IdentitySchemaContainer>>> ListIdentitySchemasWithHttpInfoAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (List&lt;KratosIdentitySchemaContainer&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<KratosIdentitySchemaContainer>>> ListIdentitySchemasWithHttpInfoAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List an Identity&#39;s Sessions
         /// </summary>
@@ -890,8 +890,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="active">Active is a boolean flag that filters out sessions based on the state. If no value is provided, all sessions are returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Session&gt;</returns>
-        System.Threading.Tasks.Task<List<Session>> ListIdentitySessionsAsync(string id, long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of List&lt;KratosSession&gt;</returns>
+        System.Threading.Tasks.Task<List<KratosSession>> ListIdentitySessionsAsync(string id, long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List an Identity&#39;s Sessions
@@ -908,8 +908,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="active">Active is a boolean flag that filters out sessions based on the state. If no value is provided, all sessions are returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Session&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Session>>> ListIdentitySessionsWithHttpInfoAsync(string id, long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (List&lt;KratosSession&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<KratosSession>>> ListIdentitySessionsWithHttpInfoAsync(string id, long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List All Sessions
         /// </summary>
@@ -923,8 +923,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="expand">ExpandOptions is a query parameter encoded list of all properties that must be expanded in the Session. If no value is provided, the expandable properties are skipped. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Session&gt;</returns>
-        System.Threading.Tasks.Task<List<Session>> ListSessionsAsync(long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), List<string>? expand = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of List&lt;KratosSession&gt;</returns>
+        System.Threading.Tasks.Task<List<KratosSession>> ListSessionsAsync(long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), List<string>? expand = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List All Sessions
@@ -939,8 +939,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="expand">ExpandOptions is a query parameter encoded list of all properties that must be expanded in the Session. If no value is provided, the expandable properties are skipped. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Session&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Session>>> ListSessionsWithHttpInfoAsync(long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), List<string>? expand = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (List&lt;KratosSession&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<KratosSession>>> ListSessionsWithHttpInfoAsync(long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), List<string>? expand = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Patch an Identity
         /// </summary>
@@ -949,11 +949,11 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID must be set to the ID of identity you want to update</param>
-        /// <param name="jsonPatch"> (optional)</param>
+        /// <param name="kratosJsonPatch"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Identity</returns>
-        System.Threading.Tasks.Task<Identity> PatchIdentityAsync(string id, List<JsonPatch>? jsonPatch = default(List<JsonPatch>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosIdentity</returns>
+        System.Threading.Tasks.Task<KratosIdentity> PatchIdentityAsync(string id, List<KratosJsonPatch>? kratosJsonPatch = default(List<KratosJsonPatch>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Patch an Identity
@@ -963,11 +963,11 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID must be set to the ID of identity you want to update</param>
-        /// <param name="jsonPatch"> (optional)</param>
+        /// <param name="kratosJsonPatch"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Identity)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Identity>> PatchIdentityWithHttpInfoAsync(string id, List<JsonPatch>? jsonPatch = default(List<JsonPatch>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosIdentity)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosIdentity>> PatchIdentityWithHttpInfoAsync(string id, List<KratosJsonPatch>? kratosJsonPatch = default(List<KratosJsonPatch>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update an Identity
         /// </summary>
@@ -976,11 +976,11 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID must be set to the ID of identity you want to update</param>
-        /// <param name="updateIdentityBody"> (optional)</param>
+        /// <param name="kratosUpdateIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Identity</returns>
-        System.Threading.Tasks.Task<Identity> UpdateIdentityAsync(string id, UpdateIdentityBody? updateIdentityBody = default(UpdateIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosIdentity</returns>
+        System.Threading.Tasks.Task<KratosIdentity> UpdateIdentityAsync(string id, KratosUpdateIdentityBody? kratosUpdateIdentityBody = default(KratosUpdateIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update an Identity
@@ -990,11 +990,11 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID must be set to the ID of identity you want to update</param>
-        /// <param name="updateIdentityBody"> (optional)</param>
+        /// <param name="kratosUpdateIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Identity)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Identity>> UpdateIdentityWithHttpInfoAsync(string id, UpdateIdentityBody? updateIdentityBody = default(UpdateIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosIdentity)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosIdentity>> UpdateIdentityWithHttpInfoAsync(string id, KratosUpdateIdentityBody? kratosUpdateIdentityBody = default(KratosUpdateIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1119,12 +1119,12 @@ namespace Ory.Kratos.Client.Api
         /// Create and deletes multiple identities Creates or delete multiple [identities](https://www.ory.sh/docs/kratos/concepts/identity-user-model). This endpoint can also be used to [import credentials](https://www.ory.sh/docs/kratos/manage-identities/import-user-accounts-identities) for instance passwords, social sign in configurations or multifactor methods.
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchIdentitiesBody"> (optional)</param>
+        /// <param name="kratosPatchIdentitiesBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>BatchPatchIdentitiesResponse</returns>
-        public BatchPatchIdentitiesResponse BatchPatchIdentities(PatchIdentitiesBody? patchIdentitiesBody = default(PatchIdentitiesBody?), int operationIndex = 0)
+        /// <returns>KratosBatchPatchIdentitiesResponse</returns>
+        public KratosBatchPatchIdentitiesResponse BatchPatchIdentities(KratosPatchIdentitiesBody? kratosPatchIdentitiesBody = default(KratosPatchIdentitiesBody?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<BatchPatchIdentitiesResponse> localVarResponse = BatchPatchIdentitiesWithHttpInfo(patchIdentitiesBody);
+            Ory.Kratos.Client.Client.ApiResponse<KratosBatchPatchIdentitiesResponse> localVarResponse = BatchPatchIdentitiesWithHttpInfo(kratosPatchIdentitiesBody);
             return localVarResponse.Data;
         }
 
@@ -1132,10 +1132,10 @@ namespace Ory.Kratos.Client.Api
         /// Create and deletes multiple identities Creates or delete multiple [identities](https://www.ory.sh/docs/kratos/concepts/identity-user-model). This endpoint can also be used to [import credentials](https://www.ory.sh/docs/kratos/manage-identities/import-user-accounts-identities) for instance passwords, social sign in configurations or multifactor methods.
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchIdentitiesBody"> (optional)</param>
+        /// <param name="kratosPatchIdentitiesBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of BatchPatchIdentitiesResponse</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<BatchPatchIdentitiesResponse> BatchPatchIdentitiesWithHttpInfo(PatchIdentitiesBody? patchIdentitiesBody = default(PatchIdentitiesBody?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosBatchPatchIdentitiesResponse</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosBatchPatchIdentitiesResponse> BatchPatchIdentitiesWithHttpInfo(KratosPatchIdentitiesBody? kratosPatchIdentitiesBody = default(KratosPatchIdentitiesBody?), int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -1160,7 +1160,7 @@ namespace Ory.Kratos.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = patchIdentitiesBody;
+            localVarRequestOptions.Data = kratosPatchIdentitiesBody;
 
             localVarRequestOptions.Operation = "IdentityApi.BatchPatchIdentities";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1172,7 +1172,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Patch<BatchPatchIdentitiesResponse>("/admin/identities", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Patch<KratosBatchPatchIdentitiesResponse>("/admin/identities", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BatchPatchIdentities", localVarResponse);
@@ -1189,13 +1189,13 @@ namespace Ory.Kratos.Client.Api
         /// Create and deletes multiple identities Creates or delete multiple [identities](https://www.ory.sh/docs/kratos/concepts/identity-user-model). This endpoint can also be used to [import credentials](https://www.ory.sh/docs/kratos/manage-identities/import-user-accounts-identities) for instance passwords, social sign in configurations or multifactor methods.
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchIdentitiesBody"> (optional)</param>
+        /// <param name="kratosPatchIdentitiesBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of BatchPatchIdentitiesResponse</returns>
-        public async System.Threading.Tasks.Task<BatchPatchIdentitiesResponse> BatchPatchIdentitiesAsync(PatchIdentitiesBody? patchIdentitiesBody = default(PatchIdentitiesBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosBatchPatchIdentitiesResponse</returns>
+        public async System.Threading.Tasks.Task<KratosBatchPatchIdentitiesResponse> BatchPatchIdentitiesAsync(KratosPatchIdentitiesBody? kratosPatchIdentitiesBody = default(KratosPatchIdentitiesBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<BatchPatchIdentitiesResponse> localVarResponse = await BatchPatchIdentitiesWithHttpInfoAsync(patchIdentitiesBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosBatchPatchIdentitiesResponse> localVarResponse = await BatchPatchIdentitiesWithHttpInfoAsync(kratosPatchIdentitiesBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1203,11 +1203,11 @@ namespace Ory.Kratos.Client.Api
         /// Create and deletes multiple identities Creates or delete multiple [identities](https://www.ory.sh/docs/kratos/concepts/identity-user-model). This endpoint can also be used to [import credentials](https://www.ory.sh/docs/kratos/manage-identities/import-user-accounts-identities) for instance passwords, social sign in configurations or multifactor methods.
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="patchIdentitiesBody"> (optional)</param>
+        /// <param name="kratosPatchIdentitiesBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (BatchPatchIdentitiesResponse)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<BatchPatchIdentitiesResponse>> BatchPatchIdentitiesWithHttpInfoAsync(PatchIdentitiesBody? patchIdentitiesBody = default(PatchIdentitiesBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosBatchPatchIdentitiesResponse)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosBatchPatchIdentitiesResponse>> BatchPatchIdentitiesWithHttpInfoAsync(KratosPatchIdentitiesBody? kratosPatchIdentitiesBody = default(KratosPatchIdentitiesBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -1233,7 +1233,7 @@ namespace Ory.Kratos.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = patchIdentitiesBody;
+            localVarRequestOptions.Data = kratosPatchIdentitiesBody;
 
             localVarRequestOptions.Operation = "IdentityApi.BatchPatchIdentities";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1245,7 +1245,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PatchAsync<BatchPatchIdentitiesResponse>("/admin/identities", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PatchAsync<KratosBatchPatchIdentitiesResponse>("/admin/identities", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1263,12 +1263,12 @@ namespace Ory.Kratos.Client.Api
         /// Create an Identity Create an [identity](https://www.ory.sh/docs/kratos/concepts/identity-user-model).  This endpoint can also be used to [import credentials](https://www.ory.sh/docs/kratos/manage-identities/import-user-accounts-identities) for instance passwords, social sign in configurations or multifactor methods.
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Identity</returns>
-        public Identity CreateIdentity(CreateIdentityBody? createIdentityBody = default(CreateIdentityBody?), int operationIndex = 0)
+        /// <returns>KratosIdentity</returns>
+        public KratosIdentity CreateIdentity(KratosCreateIdentityBody? kratosCreateIdentityBody = default(KratosCreateIdentityBody?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<Identity> localVarResponse = CreateIdentityWithHttpInfo(createIdentityBody);
+            Ory.Kratos.Client.Client.ApiResponse<KratosIdentity> localVarResponse = CreateIdentityWithHttpInfo(kratosCreateIdentityBody);
             return localVarResponse.Data;
         }
 
@@ -1276,10 +1276,10 @@ namespace Ory.Kratos.Client.Api
         /// Create an Identity Create an [identity](https://www.ory.sh/docs/kratos/concepts/identity-user-model).  This endpoint can also be used to [import credentials](https://www.ory.sh/docs/kratos/manage-identities/import-user-accounts-identities) for instance passwords, social sign in configurations or multifactor methods.
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Identity</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<Identity> CreateIdentityWithHttpInfo(CreateIdentityBody? createIdentityBody = default(CreateIdentityBody?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosIdentity</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosIdentity> CreateIdentityWithHttpInfo(KratosCreateIdentityBody? kratosCreateIdentityBody = default(KratosCreateIdentityBody?), int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -1304,7 +1304,7 @@ namespace Ory.Kratos.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = createIdentityBody;
+            localVarRequestOptions.Data = kratosCreateIdentityBody;
 
             localVarRequestOptions.Operation = "IdentityApi.CreateIdentity";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1316,7 +1316,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Identity>("/admin/identities", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<KratosIdentity>("/admin/identities", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateIdentity", localVarResponse);
@@ -1333,13 +1333,13 @@ namespace Ory.Kratos.Client.Api
         /// Create an Identity Create an [identity](https://www.ory.sh/docs/kratos/concepts/identity-user-model).  This endpoint can also be used to [import credentials](https://www.ory.sh/docs/kratos/manage-identities/import-user-accounts-identities) for instance passwords, social sign in configurations or multifactor methods.
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Identity</returns>
-        public async System.Threading.Tasks.Task<Identity> CreateIdentityAsync(CreateIdentityBody? createIdentityBody = default(CreateIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosIdentity</returns>
+        public async System.Threading.Tasks.Task<KratosIdentity> CreateIdentityAsync(KratosCreateIdentityBody? kratosCreateIdentityBody = default(KratosCreateIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<Identity> localVarResponse = await CreateIdentityWithHttpInfoAsync(createIdentityBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosIdentity> localVarResponse = await CreateIdentityWithHttpInfoAsync(kratosCreateIdentityBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1347,11 +1347,11 @@ namespace Ory.Kratos.Client.Api
         /// Create an Identity Create an [identity](https://www.ory.sh/docs/kratos/concepts/identity-user-model).  This endpoint can also be used to [import credentials](https://www.ory.sh/docs/kratos/manage-identities/import-user-accounts-identities) for instance passwords, social sign in configurations or multifactor methods.
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Identity)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<Identity>> CreateIdentityWithHttpInfoAsync(CreateIdentityBody? createIdentityBody = default(CreateIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosIdentity)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosIdentity>> CreateIdentityWithHttpInfoAsync(KratosCreateIdentityBody? kratosCreateIdentityBody = default(KratosCreateIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -1377,7 +1377,7 @@ namespace Ory.Kratos.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = createIdentityBody;
+            localVarRequestOptions.Data = kratosCreateIdentityBody;
 
             localVarRequestOptions.Operation = "IdentityApi.CreateIdentity";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1389,7 +1389,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Identity>("/admin/identities", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<KratosIdentity>("/admin/identities", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1407,12 +1407,12 @@ namespace Ory.Kratos.Client.Api
         /// Create a Recovery Code This endpoint creates a recovery code which should be given to the user in order for them to recover (or activate) their account.
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createRecoveryCodeForIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateRecoveryCodeForIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>RecoveryCodeForIdentity</returns>
-        public RecoveryCodeForIdentity CreateRecoveryCodeForIdentity(CreateRecoveryCodeForIdentityBody? createRecoveryCodeForIdentityBody = default(CreateRecoveryCodeForIdentityBody?), int operationIndex = 0)
+        /// <returns>KratosRecoveryCodeForIdentity</returns>
+        public KratosRecoveryCodeForIdentity CreateRecoveryCodeForIdentity(KratosCreateRecoveryCodeForIdentityBody? kratosCreateRecoveryCodeForIdentityBody = default(KratosCreateRecoveryCodeForIdentityBody?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<RecoveryCodeForIdentity> localVarResponse = CreateRecoveryCodeForIdentityWithHttpInfo(createRecoveryCodeForIdentityBody);
+            Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryCodeForIdentity> localVarResponse = CreateRecoveryCodeForIdentityWithHttpInfo(kratosCreateRecoveryCodeForIdentityBody);
             return localVarResponse.Data;
         }
 
@@ -1420,10 +1420,10 @@ namespace Ory.Kratos.Client.Api
         /// Create a Recovery Code This endpoint creates a recovery code which should be given to the user in order for them to recover (or activate) their account.
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createRecoveryCodeForIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateRecoveryCodeForIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of RecoveryCodeForIdentity</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<RecoveryCodeForIdentity> CreateRecoveryCodeForIdentityWithHttpInfo(CreateRecoveryCodeForIdentityBody? createRecoveryCodeForIdentityBody = default(CreateRecoveryCodeForIdentityBody?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosRecoveryCodeForIdentity</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryCodeForIdentity> CreateRecoveryCodeForIdentityWithHttpInfo(KratosCreateRecoveryCodeForIdentityBody? kratosCreateRecoveryCodeForIdentityBody = default(KratosCreateRecoveryCodeForIdentityBody?), int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -1448,7 +1448,7 @@ namespace Ory.Kratos.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = createRecoveryCodeForIdentityBody;
+            localVarRequestOptions.Data = kratosCreateRecoveryCodeForIdentityBody;
 
             localVarRequestOptions.Operation = "IdentityApi.CreateRecoveryCodeForIdentity";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1460,7 +1460,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<RecoveryCodeForIdentity>("/admin/recovery/code", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<KratosRecoveryCodeForIdentity>("/admin/recovery/code", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateRecoveryCodeForIdentity", localVarResponse);
@@ -1477,13 +1477,13 @@ namespace Ory.Kratos.Client.Api
         /// Create a Recovery Code This endpoint creates a recovery code which should be given to the user in order for them to recover (or activate) their account.
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createRecoveryCodeForIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateRecoveryCodeForIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RecoveryCodeForIdentity</returns>
-        public async System.Threading.Tasks.Task<RecoveryCodeForIdentity> CreateRecoveryCodeForIdentityAsync(CreateRecoveryCodeForIdentityBody? createRecoveryCodeForIdentityBody = default(CreateRecoveryCodeForIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosRecoveryCodeForIdentity</returns>
+        public async System.Threading.Tasks.Task<KratosRecoveryCodeForIdentity> CreateRecoveryCodeForIdentityAsync(KratosCreateRecoveryCodeForIdentityBody? kratosCreateRecoveryCodeForIdentityBody = default(KratosCreateRecoveryCodeForIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<RecoveryCodeForIdentity> localVarResponse = await CreateRecoveryCodeForIdentityWithHttpInfoAsync(createRecoveryCodeForIdentityBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryCodeForIdentity> localVarResponse = await CreateRecoveryCodeForIdentityWithHttpInfoAsync(kratosCreateRecoveryCodeForIdentityBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1491,11 +1491,11 @@ namespace Ory.Kratos.Client.Api
         /// Create a Recovery Code This endpoint creates a recovery code which should be given to the user in order for them to recover (or activate) their account.
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createRecoveryCodeForIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateRecoveryCodeForIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RecoveryCodeForIdentity)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<RecoveryCodeForIdentity>> CreateRecoveryCodeForIdentityWithHttpInfoAsync(CreateRecoveryCodeForIdentityBody? createRecoveryCodeForIdentityBody = default(CreateRecoveryCodeForIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosRecoveryCodeForIdentity)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryCodeForIdentity>> CreateRecoveryCodeForIdentityWithHttpInfoAsync(KratosCreateRecoveryCodeForIdentityBody? kratosCreateRecoveryCodeForIdentityBody = default(KratosCreateRecoveryCodeForIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -1521,7 +1521,7 @@ namespace Ory.Kratos.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = createRecoveryCodeForIdentityBody;
+            localVarRequestOptions.Data = kratosCreateRecoveryCodeForIdentityBody;
 
             localVarRequestOptions.Operation = "IdentityApi.CreateRecoveryCodeForIdentity";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1533,7 +1533,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<RecoveryCodeForIdentity>("/admin/recovery/code", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<KratosRecoveryCodeForIdentity>("/admin/recovery/code", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1552,12 +1552,12 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="returnTo"> (optional)</param>
-        /// <param name="createRecoveryLinkForIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateRecoveryLinkForIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>RecoveryLinkForIdentity</returns>
-        public RecoveryLinkForIdentity CreateRecoveryLinkForIdentity(string? returnTo = default(string?), CreateRecoveryLinkForIdentityBody? createRecoveryLinkForIdentityBody = default(CreateRecoveryLinkForIdentityBody?), int operationIndex = 0)
+        /// <returns>KratosRecoveryLinkForIdentity</returns>
+        public KratosRecoveryLinkForIdentity CreateRecoveryLinkForIdentity(string? returnTo = default(string?), KratosCreateRecoveryLinkForIdentityBody? kratosCreateRecoveryLinkForIdentityBody = default(KratosCreateRecoveryLinkForIdentityBody?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<RecoveryLinkForIdentity> localVarResponse = CreateRecoveryLinkForIdentityWithHttpInfo(returnTo, createRecoveryLinkForIdentityBody);
+            Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryLinkForIdentity> localVarResponse = CreateRecoveryLinkForIdentityWithHttpInfo(returnTo, kratosCreateRecoveryLinkForIdentityBody);
             return localVarResponse.Data;
         }
 
@@ -1566,10 +1566,10 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="returnTo"> (optional)</param>
-        /// <param name="createRecoveryLinkForIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateRecoveryLinkForIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of RecoveryLinkForIdentity</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<RecoveryLinkForIdentity> CreateRecoveryLinkForIdentityWithHttpInfo(string? returnTo = default(string?), CreateRecoveryLinkForIdentityBody? createRecoveryLinkForIdentityBody = default(CreateRecoveryLinkForIdentityBody?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosRecoveryLinkForIdentity</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryLinkForIdentity> CreateRecoveryLinkForIdentityWithHttpInfo(string? returnTo = default(string?), KratosCreateRecoveryLinkForIdentityBody? kratosCreateRecoveryLinkForIdentityBody = default(KratosCreateRecoveryLinkForIdentityBody?), int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -1598,7 +1598,7 @@ namespace Ory.Kratos.Client.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Ory.Kratos.Client.Client.ClientUtils.ParameterToMultiMap("", "return_to", returnTo));
             }
-            localVarRequestOptions.Data = createRecoveryLinkForIdentityBody;
+            localVarRequestOptions.Data = kratosCreateRecoveryLinkForIdentityBody;
 
             localVarRequestOptions.Operation = "IdentityApi.CreateRecoveryLinkForIdentity";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1610,7 +1610,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<RecoveryLinkForIdentity>("/admin/recovery/link", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<KratosRecoveryLinkForIdentity>("/admin/recovery/link", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateRecoveryLinkForIdentity", localVarResponse);
@@ -1628,13 +1628,13 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="returnTo"> (optional)</param>
-        /// <param name="createRecoveryLinkForIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateRecoveryLinkForIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RecoveryLinkForIdentity</returns>
-        public async System.Threading.Tasks.Task<RecoveryLinkForIdentity> CreateRecoveryLinkForIdentityAsync(string? returnTo = default(string?), CreateRecoveryLinkForIdentityBody? createRecoveryLinkForIdentityBody = default(CreateRecoveryLinkForIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosRecoveryLinkForIdentity</returns>
+        public async System.Threading.Tasks.Task<KratosRecoveryLinkForIdentity> CreateRecoveryLinkForIdentityAsync(string? returnTo = default(string?), KratosCreateRecoveryLinkForIdentityBody? kratosCreateRecoveryLinkForIdentityBody = default(KratosCreateRecoveryLinkForIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<RecoveryLinkForIdentity> localVarResponse = await CreateRecoveryLinkForIdentityWithHttpInfoAsync(returnTo, createRecoveryLinkForIdentityBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryLinkForIdentity> localVarResponse = await CreateRecoveryLinkForIdentityWithHttpInfoAsync(returnTo, kratosCreateRecoveryLinkForIdentityBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1643,11 +1643,11 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="returnTo"> (optional)</param>
-        /// <param name="createRecoveryLinkForIdentityBody"> (optional)</param>
+        /// <param name="kratosCreateRecoveryLinkForIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RecoveryLinkForIdentity)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<RecoveryLinkForIdentity>> CreateRecoveryLinkForIdentityWithHttpInfoAsync(string? returnTo = default(string?), CreateRecoveryLinkForIdentityBody? createRecoveryLinkForIdentityBody = default(CreateRecoveryLinkForIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosRecoveryLinkForIdentity)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryLinkForIdentity>> CreateRecoveryLinkForIdentityWithHttpInfoAsync(string? returnTo = default(string?), KratosCreateRecoveryLinkForIdentityBody? kratosCreateRecoveryLinkForIdentityBody = default(KratosCreateRecoveryLinkForIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -1677,7 +1677,7 @@ namespace Ory.Kratos.Client.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Ory.Kratos.Client.Client.ClientUtils.ParameterToMultiMap("", "return_to", returnTo));
             }
-            localVarRequestOptions.Data = createRecoveryLinkForIdentityBody;
+            localVarRequestOptions.Data = kratosCreateRecoveryLinkForIdentityBody;
 
             localVarRequestOptions.Operation = "IdentityApi.CreateRecoveryLinkForIdentity";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1689,7 +1689,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<RecoveryLinkForIdentity>("/admin/recovery/link", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<KratosRecoveryLinkForIdentity>("/admin/recovery/link", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2335,10 +2335,10 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID is the session&#39;s ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Session</returns>
-        public Session ExtendSession(string id, int operationIndex = 0)
+        /// <returns>KratosSession</returns>
+        public KratosSession ExtendSession(string id, int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<Session> localVarResponse = ExtendSessionWithHttpInfo(id);
+            Ory.Kratos.Client.Client.ApiResponse<KratosSession> localVarResponse = ExtendSessionWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -2348,8 +2348,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID is the session&#39;s ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Session</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<Session> ExtendSessionWithHttpInfo(string id, int operationIndex = 0)
+        /// <returns>ApiResponse of KratosSession</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosSession> ExtendSessionWithHttpInfo(string id, int operationIndex = 0)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2391,7 +2391,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Patch<Session>("/admin/sessions/{id}/extend", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Patch<KratosSession>("/admin/sessions/{id}/extend", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ExtendSession", localVarResponse);
@@ -2411,10 +2411,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">ID is the session&#39;s ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Session</returns>
-        public async System.Threading.Tasks.Task<Session> ExtendSessionAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosSession</returns>
+        public async System.Threading.Tasks.Task<KratosSession> ExtendSessionAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<Session> localVarResponse = await ExtendSessionWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosSession> localVarResponse = await ExtendSessionWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2425,8 +2425,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">ID is the session&#39;s ID.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Session)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<Session>> ExtendSessionWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosSession)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosSession>> ExtendSessionWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2469,7 +2469,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PatchAsync<Session>("/admin/sessions/{id}/extend", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PatchAsync<KratosSession>("/admin/sessions/{id}/extend", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2490,10 +2490,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">ID must be set to the ID of identity you want to get</param>
         /// <param name="includeCredential">Include Credentials in Response  Include any credential, for example &#x60;password&#x60; or &#x60;oidc&#x60;, in the response. When set to &#x60;oidc&#x60;, This will return the initial OAuth 2.0 Access Token, OAuth 2.0 Refresh Token and the OpenID Connect ID Token if available. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Identity</returns>
-        public Identity GetIdentity(string id, List<string>? includeCredential = default(List<string>?), int operationIndex = 0)
+        /// <returns>KratosIdentity</returns>
+        public KratosIdentity GetIdentity(string id, List<string>? includeCredential = default(List<string>?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<Identity> localVarResponse = GetIdentityWithHttpInfo(id, includeCredential);
+            Ory.Kratos.Client.Client.ApiResponse<KratosIdentity> localVarResponse = GetIdentityWithHttpInfo(id, includeCredential);
             return localVarResponse.Data;
         }
 
@@ -2504,8 +2504,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">ID must be set to the ID of identity you want to get</param>
         /// <param name="includeCredential">Include Credentials in Response  Include any credential, for example &#x60;password&#x60; or &#x60;oidc&#x60;, in the response. When set to &#x60;oidc&#x60;, This will return the initial OAuth 2.0 Access Token, OAuth 2.0 Refresh Token and the OpenID Connect ID Token if available. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Identity</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<Identity> GetIdentityWithHttpInfo(string id, List<string>? includeCredential = default(List<string>?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosIdentity</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosIdentity> GetIdentityWithHttpInfo(string id, List<string>? includeCredential = default(List<string>?), int operationIndex = 0)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2551,7 +2551,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Identity>("/admin/identities/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosIdentity>("/admin/identities/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetIdentity", localVarResponse);
@@ -2572,10 +2572,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="includeCredential">Include Credentials in Response  Include any credential, for example &#x60;password&#x60; or &#x60;oidc&#x60;, in the response. When set to &#x60;oidc&#x60;, This will return the initial OAuth 2.0 Access Token, OAuth 2.0 Refresh Token and the OpenID Connect ID Token if available. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Identity</returns>
-        public async System.Threading.Tasks.Task<Identity> GetIdentityAsync(string id, List<string>? includeCredential = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosIdentity</returns>
+        public async System.Threading.Tasks.Task<KratosIdentity> GetIdentityAsync(string id, List<string>? includeCredential = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<Identity> localVarResponse = await GetIdentityWithHttpInfoAsync(id, includeCredential, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosIdentity> localVarResponse = await GetIdentityWithHttpInfoAsync(id, includeCredential, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2587,8 +2587,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="includeCredential">Include Credentials in Response  Include any credential, for example &#x60;password&#x60; or &#x60;oidc&#x60;, in the response. When set to &#x60;oidc&#x60;, This will return the initial OAuth 2.0 Access Token, OAuth 2.0 Refresh Token and the OpenID Connect ID Token if available. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Identity)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<Identity>> GetIdentityWithHttpInfoAsync(string id, List<string>? includeCredential = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosIdentity)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosIdentity>> GetIdentityWithHttpInfoAsync(string id, List<string>? includeCredential = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2635,7 +2635,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Identity>("/admin/identities/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosIdentity>("/admin/identities/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2800,10 +2800,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">ID is the session&#39;s ID.</param>
         /// <param name="expand">ExpandOptions is a query parameter encoded list of all properties that must be expanded in the Session. Example - ?expand&#x3D;Identity&amp;expand&#x3D;Devices If no value is provided, the expandable properties are skipped. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Session</returns>
-        public Session GetSession(string id, List<string>? expand = default(List<string>?), int operationIndex = 0)
+        /// <returns>KratosSession</returns>
+        public KratosSession GetSession(string id, List<string>? expand = default(List<string>?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<Session> localVarResponse = GetSessionWithHttpInfo(id, expand);
+            Ory.Kratos.Client.Client.ApiResponse<KratosSession> localVarResponse = GetSessionWithHttpInfo(id, expand);
             return localVarResponse.Data;
         }
 
@@ -2814,8 +2814,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">ID is the session&#39;s ID.</param>
         /// <param name="expand">ExpandOptions is a query parameter encoded list of all properties that must be expanded in the Session. Example - ?expand&#x3D;Identity&amp;expand&#x3D;Devices If no value is provided, the expandable properties are skipped. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Session</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<Session> GetSessionWithHttpInfo(string id, List<string>? expand = default(List<string>?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosSession</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosSession> GetSessionWithHttpInfo(string id, List<string>? expand = default(List<string>?), int operationIndex = 0)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2861,7 +2861,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Session>("/admin/sessions/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosSession>("/admin/sessions/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSession", localVarResponse);
@@ -2882,10 +2882,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="expand">ExpandOptions is a query parameter encoded list of all properties that must be expanded in the Session. Example - ?expand&#x3D;Identity&amp;expand&#x3D;Devices If no value is provided, the expandable properties are skipped. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Session</returns>
-        public async System.Threading.Tasks.Task<Session> GetSessionAsync(string id, List<string>? expand = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosSession</returns>
+        public async System.Threading.Tasks.Task<KratosSession> GetSessionAsync(string id, List<string>? expand = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<Session> localVarResponse = await GetSessionWithHttpInfoAsync(id, expand, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosSession> localVarResponse = await GetSessionWithHttpInfoAsync(id, expand, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2897,8 +2897,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="expand">ExpandOptions is a query parameter encoded list of all properties that must be expanded in the Session. Example - ?expand&#x3D;Identity&amp;expand&#x3D;Devices If no value is provided, the expandable properties are skipped. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Session)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<Session>> GetSessionWithHttpInfoAsync(string id, List<string>? expand = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosSession)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosSession>> GetSessionWithHttpInfoAsync(string id, List<string>? expand = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -2945,7 +2945,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Session>("/admin/sessions/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosSession>("/admin/sessions/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2972,10 +2972,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="credentialsIdentifier">CredentialsIdentifier is the identifier (username, email) of the credentials to look up using exact match. Only one of CredentialsIdentifier and CredentialsIdentifierSimilar can be used. (optional)</param>
         /// <param name="previewCredentialsIdentifierSimilar">This is an EXPERIMENTAL parameter that WILL CHANGE. Do NOT rely on consistent, deterministic behavior. THIS PARAMETER WILL BE REMOVED IN AN UPCOMING RELEASE WITHOUT ANY MIGRATION PATH.  CredentialsIdentifierSimilar is the (partial) identifier (username, email) of the credentials to look up using similarity search. Only one of CredentialsIdentifier and CredentialsIdentifierSimilar can be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;Identity&gt;</returns>
-        public List<Identity> ListIdentities(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? consistency = default(string?), List<string>? ids = default(List<string>?), string? credentialsIdentifier = default(string?), string? previewCredentialsIdentifierSimilar = default(string?), int operationIndex = 0)
+        /// <returns>List&lt;KratosIdentity&gt;</returns>
+        public List<KratosIdentity> ListIdentities(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? consistency = default(string?), List<string>? ids = default(List<string>?), string? credentialsIdentifier = default(string?), string? previewCredentialsIdentifierSimilar = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<List<Identity>> localVarResponse = ListIdentitiesWithHttpInfo(perPage, page, pageSize, pageToken, consistency, ids, credentialsIdentifier, previewCredentialsIdentifierSimilar);
+            Ory.Kratos.Client.Client.ApiResponse<List<KratosIdentity>> localVarResponse = ListIdentitiesWithHttpInfo(perPage, page, pageSize, pageToken, consistency, ids, credentialsIdentifier, previewCredentialsIdentifierSimilar);
             return localVarResponse.Data;
         }
 
@@ -2992,8 +2992,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="credentialsIdentifier">CredentialsIdentifier is the identifier (username, email) of the credentials to look up using exact match. Only one of CredentialsIdentifier and CredentialsIdentifierSimilar can be used. (optional)</param>
         /// <param name="previewCredentialsIdentifierSimilar">This is an EXPERIMENTAL parameter that WILL CHANGE. Do NOT rely on consistent, deterministic behavior. THIS PARAMETER WILL BE REMOVED IN AN UPCOMING RELEASE WITHOUT ANY MIGRATION PATH.  CredentialsIdentifierSimilar is the (partial) identifier (username, email) of the credentials to look up using similarity search. Only one of CredentialsIdentifier and CredentialsIdentifierSimilar can be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;Identity&gt;</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<List<Identity>> ListIdentitiesWithHttpInfo(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? consistency = default(string?), List<string>? ids = default(List<string>?), string? credentialsIdentifier = default(string?), string? previewCredentialsIdentifierSimilar = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of List&lt;KratosIdentity&gt;</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<List<KratosIdentity>> ListIdentitiesWithHttpInfo(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? consistency = default(string?), List<string>? ids = default(List<string>?), string? credentialsIdentifier = default(string?), string? previewCredentialsIdentifierSimilar = default(string?), int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -3060,7 +3060,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Identity>>("/admin/identities", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<KratosIdentity>>("/admin/identities", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListIdentities", localVarResponse);
@@ -3087,10 +3087,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="previewCredentialsIdentifierSimilar">This is an EXPERIMENTAL parameter that WILL CHANGE. Do NOT rely on consistent, deterministic behavior. THIS PARAMETER WILL BE REMOVED IN AN UPCOMING RELEASE WITHOUT ANY MIGRATION PATH.  CredentialsIdentifierSimilar is the (partial) identifier (username, email) of the credentials to look up using similarity search. Only one of CredentialsIdentifier and CredentialsIdentifierSimilar can be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Identity&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Identity>> ListIdentitiesAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? consistency = default(string?), List<string>? ids = default(List<string>?), string? credentialsIdentifier = default(string?), string? previewCredentialsIdentifierSimilar = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of List&lt;KratosIdentity&gt;</returns>
+        public async System.Threading.Tasks.Task<List<KratosIdentity>> ListIdentitiesAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? consistency = default(string?), List<string>? ids = default(List<string>?), string? credentialsIdentifier = default(string?), string? previewCredentialsIdentifierSimilar = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<List<Identity>> localVarResponse = await ListIdentitiesWithHttpInfoAsync(perPage, page, pageSize, pageToken, consistency, ids, credentialsIdentifier, previewCredentialsIdentifierSimilar, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<List<KratosIdentity>> localVarResponse = await ListIdentitiesWithHttpInfoAsync(perPage, page, pageSize, pageToken, consistency, ids, credentialsIdentifier, previewCredentialsIdentifierSimilar, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3108,8 +3108,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="previewCredentialsIdentifierSimilar">This is an EXPERIMENTAL parameter that WILL CHANGE. Do NOT rely on consistent, deterministic behavior. THIS PARAMETER WILL BE REMOVED IN AN UPCOMING RELEASE WITHOUT ANY MIGRATION PATH.  CredentialsIdentifierSimilar is the (partial) identifier (username, email) of the credentials to look up using similarity search. Only one of CredentialsIdentifier and CredentialsIdentifierSimilar can be used. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Identity&gt;)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<List<Identity>>> ListIdentitiesWithHttpInfoAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? consistency = default(string?), List<string>? ids = default(List<string>?), string? credentialsIdentifier = default(string?), string? previewCredentialsIdentifierSimilar = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (List&lt;KratosIdentity&gt;)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<List<KratosIdentity>>> ListIdentitiesWithHttpInfoAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? consistency = default(string?), List<string>? ids = default(List<string>?), string? credentialsIdentifier = default(string?), string? previewCredentialsIdentifierSimilar = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -3177,7 +3177,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Identity>>("/admin/identities", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<KratosIdentity>>("/admin/identities", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3200,10 +3200,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="pageSize">Page Size  This is the number of items per page to return. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional, default to 250)</param>
         /// <param name="pageToken">Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional, default to &quot;1&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;IdentitySchemaContainer&gt;</returns>
-        public List<IdentitySchemaContainer> ListIdentitySchemas(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), int operationIndex = 0)
+        /// <returns>List&lt;KratosIdentitySchemaContainer&gt;</returns>
+        public List<KratosIdentitySchemaContainer> ListIdentitySchemas(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<List<IdentitySchemaContainer>> localVarResponse = ListIdentitySchemasWithHttpInfo(perPage, page, pageSize, pageToken);
+            Ory.Kratos.Client.Client.ApiResponse<List<KratosIdentitySchemaContainer>> localVarResponse = ListIdentitySchemasWithHttpInfo(perPage, page, pageSize, pageToken);
             return localVarResponse.Data;
         }
 
@@ -3216,8 +3216,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="pageSize">Page Size  This is the number of items per page to return. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional, default to 250)</param>
         /// <param name="pageToken">Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional, default to &quot;1&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;IdentitySchemaContainer&gt;</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<List<IdentitySchemaContainer>> ListIdentitySchemasWithHttpInfo(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of List&lt;KratosIdentitySchemaContainer&gt;</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<List<KratosIdentitySchemaContainer>> ListIdentitySchemasWithHttpInfo(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -3263,7 +3263,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<IdentitySchemaContainer>>("/schemas", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<KratosIdentitySchemaContainer>>("/schemas", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListIdentitySchemas", localVarResponse);
@@ -3286,10 +3286,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="pageToken">Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional, default to &quot;1&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;IdentitySchemaContainer&gt;</returns>
-        public async System.Threading.Tasks.Task<List<IdentitySchemaContainer>> ListIdentitySchemasAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of List&lt;KratosIdentitySchemaContainer&gt;</returns>
+        public async System.Threading.Tasks.Task<List<KratosIdentitySchemaContainer>> ListIdentitySchemasAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<List<IdentitySchemaContainer>> localVarResponse = await ListIdentitySchemasWithHttpInfoAsync(perPage, page, pageSize, pageToken, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<List<KratosIdentitySchemaContainer>> localVarResponse = await ListIdentitySchemasWithHttpInfoAsync(perPage, page, pageSize, pageToken, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3303,8 +3303,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="pageToken">Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional, default to &quot;1&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;IdentitySchemaContainer&gt;)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<List<IdentitySchemaContainer>>> ListIdentitySchemasWithHttpInfoAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (List&lt;KratosIdentitySchemaContainer&gt;)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<List<KratosIdentitySchemaContainer>>> ListIdentitySchemasWithHttpInfoAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -3351,7 +3351,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<IdentitySchemaContainer>>("/schemas", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<KratosIdentitySchemaContainer>>("/schemas", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3376,10 +3376,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="pageToken">Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional, default to &quot;1&quot;)</param>
         /// <param name="active">Active is a boolean flag that filters out sessions based on the state. If no value is provided, all sessions are returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;Session&gt;</returns>
-        public List<Session> ListIdentitySessions(string id, long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), int operationIndex = 0)
+        /// <returns>List&lt;KratosSession&gt;</returns>
+        public List<KratosSession> ListIdentitySessions(string id, long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<List<Session>> localVarResponse = ListIdentitySessionsWithHttpInfo(id, perPage, page, pageSize, pageToken, active);
+            Ory.Kratos.Client.Client.ApiResponse<List<KratosSession>> localVarResponse = ListIdentitySessionsWithHttpInfo(id, perPage, page, pageSize, pageToken, active);
             return localVarResponse.Data;
         }
 
@@ -3394,8 +3394,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="pageToken">Next Page Token  The next page token. For details on pagination please head over to the [pagination documentation](https://www.ory.sh/docs/ecosystem/api-design#pagination). (optional, default to &quot;1&quot;)</param>
         /// <param name="active">Active is a boolean flag that filters out sessions based on the state. If no value is provided, all sessions are returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;Session&gt;</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<List<Session>> ListIdentitySessionsWithHttpInfo(string id, long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), int operationIndex = 0)
+        /// <returns>ApiResponse of List&lt;KratosSession&gt;</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<List<KratosSession>> ListIdentitySessionsWithHttpInfo(string id, long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), int operationIndex = 0)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -3457,7 +3457,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Session>>("/admin/identities/{id}/sessions", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<KratosSession>>("/admin/identities/{id}/sessions", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListIdentitySessions", localVarResponse);
@@ -3482,10 +3482,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="active">Active is a boolean flag that filters out sessions based on the state. If no value is provided, all sessions are returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Session&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Session>> ListIdentitySessionsAsync(string id, long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of List&lt;KratosSession&gt;</returns>
+        public async System.Threading.Tasks.Task<List<KratosSession>> ListIdentitySessionsAsync(string id, long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<List<Session>> localVarResponse = await ListIdentitySessionsWithHttpInfoAsync(id, perPage, page, pageSize, pageToken, active, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<List<KratosSession>> localVarResponse = await ListIdentitySessionsWithHttpInfoAsync(id, perPage, page, pageSize, pageToken, active, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3501,8 +3501,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="active">Active is a boolean flag that filters out sessions based on the state. If no value is provided, all sessions are returned. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Session&gt;)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<List<Session>>> ListIdentitySessionsWithHttpInfoAsync(string id, long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (List&lt;KratosSession&gt;)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<List<KratosSession>>> ListIdentitySessionsWithHttpInfoAsync(string id, long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -3565,7 +3565,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Session>>("/admin/identities/{id}/sessions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<KratosSession>>("/admin/identities/{id}/sessions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3588,10 +3588,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="active">Active is a boolean flag that filters out sessions based on the state. If no value is provided, all sessions are returned. (optional)</param>
         /// <param name="expand">ExpandOptions is a query parameter encoded list of all properties that must be expanded in the Session. If no value is provided, the expandable properties are skipped. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;Session&gt;</returns>
-        public List<Session> ListSessions(long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), List<string>? expand = default(List<string>?), int operationIndex = 0)
+        /// <returns>List&lt;KratosSession&gt;</returns>
+        public List<KratosSession> ListSessions(long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), List<string>? expand = default(List<string>?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<List<Session>> localVarResponse = ListSessionsWithHttpInfo(pageSize, pageToken, active, expand);
+            Ory.Kratos.Client.Client.ApiResponse<List<KratosSession>> localVarResponse = ListSessionsWithHttpInfo(pageSize, pageToken, active, expand);
             return localVarResponse.Data;
         }
 
@@ -3604,8 +3604,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="active">Active is a boolean flag that filters out sessions based on the state. If no value is provided, all sessions are returned. (optional)</param>
         /// <param name="expand">ExpandOptions is a query parameter encoded list of all properties that must be expanded in the Session. If no value is provided, the expandable properties are skipped. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;Session&gt;</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<List<Session>> ListSessionsWithHttpInfo(long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), List<string>? expand = default(List<string>?), int operationIndex = 0)
+        /// <returns>ApiResponse of List&lt;KratosSession&gt;</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<List<KratosSession>> ListSessionsWithHttpInfo(long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), List<string>? expand = default(List<string>?), int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -3656,7 +3656,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Session>>("/admin/sessions", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<KratosSession>>("/admin/sessions", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListSessions", localVarResponse);
@@ -3679,10 +3679,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="expand">ExpandOptions is a query parameter encoded list of all properties that must be expanded in the Session. If no value is provided, the expandable properties are skipped. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Session&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Session>> ListSessionsAsync(long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), List<string>? expand = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of List&lt;KratosSession&gt;</returns>
+        public async System.Threading.Tasks.Task<List<KratosSession>> ListSessionsAsync(long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), List<string>? expand = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<List<Session>> localVarResponse = await ListSessionsWithHttpInfoAsync(pageSize, pageToken, active, expand, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<List<KratosSession>> localVarResponse = await ListSessionsWithHttpInfoAsync(pageSize, pageToken, active, expand, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3696,8 +3696,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="expand">ExpandOptions is a query parameter encoded list of all properties that must be expanded in the Session. If no value is provided, the expandable properties are skipped. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Session&gt;)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<List<Session>>> ListSessionsWithHttpInfoAsync(long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), List<string>? expand = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (List&lt;KratosSession&gt;)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<List<KratosSession>>> ListSessionsWithHttpInfoAsync(long? pageSize = default(long?), string? pageToken = default(string?), bool? active = default(bool?), List<string>? expand = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -3749,7 +3749,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Session>>("/admin/sessions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<KratosSession>>("/admin/sessions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3768,12 +3768,12 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID must be set to the ID of identity you want to update</param>
-        /// <param name="jsonPatch"> (optional)</param>
+        /// <param name="kratosJsonPatch"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Identity</returns>
-        public Identity PatchIdentity(string id, List<JsonPatch>? jsonPatch = default(List<JsonPatch>?), int operationIndex = 0)
+        /// <returns>KratosIdentity</returns>
+        public KratosIdentity PatchIdentity(string id, List<KratosJsonPatch>? kratosJsonPatch = default(List<KratosJsonPatch>?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<Identity> localVarResponse = PatchIdentityWithHttpInfo(id, jsonPatch);
+            Ory.Kratos.Client.Client.ApiResponse<KratosIdentity> localVarResponse = PatchIdentityWithHttpInfo(id, kratosJsonPatch);
             return localVarResponse.Data;
         }
 
@@ -3782,10 +3782,10 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID must be set to the ID of identity you want to update</param>
-        /// <param name="jsonPatch"> (optional)</param>
+        /// <param name="kratosJsonPatch"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Identity</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<Identity> PatchIdentityWithHttpInfo(string id, List<JsonPatch>? jsonPatch = default(List<JsonPatch>?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosIdentity</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosIdentity> PatchIdentityWithHttpInfo(string id, List<KratosJsonPatch>? kratosJsonPatch = default(List<KratosJsonPatch>?), int operationIndex = 0)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -3817,7 +3817,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             localVarRequestOptions.PathParameters.Add("id", Ory.Kratos.Client.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = jsonPatch;
+            localVarRequestOptions.Data = kratosJsonPatch;
 
             localVarRequestOptions.Operation = "IdentityApi.PatchIdentity";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -3829,7 +3829,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Patch<Identity>("/admin/identities/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Patch<KratosIdentity>("/admin/identities/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("PatchIdentity", localVarResponse);
@@ -3847,13 +3847,13 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID must be set to the ID of identity you want to update</param>
-        /// <param name="jsonPatch"> (optional)</param>
+        /// <param name="kratosJsonPatch"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Identity</returns>
-        public async System.Threading.Tasks.Task<Identity> PatchIdentityAsync(string id, List<JsonPatch>? jsonPatch = default(List<JsonPatch>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosIdentity</returns>
+        public async System.Threading.Tasks.Task<KratosIdentity> PatchIdentityAsync(string id, List<KratosJsonPatch>? kratosJsonPatch = default(List<KratosJsonPatch>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<Identity> localVarResponse = await PatchIdentityWithHttpInfoAsync(id, jsonPatch, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosIdentity> localVarResponse = await PatchIdentityWithHttpInfoAsync(id, kratosJsonPatch, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3862,11 +3862,11 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID must be set to the ID of identity you want to update</param>
-        /// <param name="jsonPatch"> (optional)</param>
+        /// <param name="kratosJsonPatch"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Identity)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<Identity>> PatchIdentityWithHttpInfoAsync(string id, List<JsonPatch>? jsonPatch = default(List<JsonPatch>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosIdentity)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosIdentity>> PatchIdentityWithHttpInfoAsync(string id, List<KratosJsonPatch>? kratosJsonPatch = default(List<KratosJsonPatch>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -3899,7 +3899,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             localVarRequestOptions.PathParameters.Add("id", Ory.Kratos.Client.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = jsonPatch;
+            localVarRequestOptions.Data = kratosJsonPatch;
 
             localVarRequestOptions.Operation = "IdentityApi.PatchIdentity";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -3911,7 +3911,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PatchAsync<Identity>("/admin/identities/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PatchAsync<KratosIdentity>("/admin/identities/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3930,12 +3930,12 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID must be set to the ID of identity you want to update</param>
-        /// <param name="updateIdentityBody"> (optional)</param>
+        /// <param name="kratosUpdateIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Identity</returns>
-        public Identity UpdateIdentity(string id, UpdateIdentityBody? updateIdentityBody = default(UpdateIdentityBody?), int operationIndex = 0)
+        /// <returns>KratosIdentity</returns>
+        public KratosIdentity UpdateIdentity(string id, KratosUpdateIdentityBody? kratosUpdateIdentityBody = default(KratosUpdateIdentityBody?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<Identity> localVarResponse = UpdateIdentityWithHttpInfo(id, updateIdentityBody);
+            Ory.Kratos.Client.Client.ApiResponse<KratosIdentity> localVarResponse = UpdateIdentityWithHttpInfo(id, kratosUpdateIdentityBody);
             return localVarResponse.Data;
         }
 
@@ -3944,10 +3944,10 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID must be set to the ID of identity you want to update</param>
-        /// <param name="updateIdentityBody"> (optional)</param>
+        /// <param name="kratosUpdateIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Identity</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<Identity> UpdateIdentityWithHttpInfo(string id, UpdateIdentityBody? updateIdentityBody = default(UpdateIdentityBody?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosIdentity</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosIdentity> UpdateIdentityWithHttpInfo(string id, KratosUpdateIdentityBody? kratosUpdateIdentityBody = default(KratosUpdateIdentityBody?), int operationIndex = 0)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -3979,7 +3979,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             localVarRequestOptions.PathParameters.Add("id", Ory.Kratos.Client.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = updateIdentityBody;
+            localVarRequestOptions.Data = kratosUpdateIdentityBody;
 
             localVarRequestOptions.Operation = "IdentityApi.UpdateIdentity";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -3991,7 +3991,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Identity>("/admin/identities/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<KratosIdentity>("/admin/identities/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateIdentity", localVarResponse);
@@ -4009,13 +4009,13 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID must be set to the ID of identity you want to update</param>
-        /// <param name="updateIdentityBody"> (optional)</param>
+        /// <param name="kratosUpdateIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Identity</returns>
-        public async System.Threading.Tasks.Task<Identity> UpdateIdentityAsync(string id, UpdateIdentityBody? updateIdentityBody = default(UpdateIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosIdentity</returns>
+        public async System.Threading.Tasks.Task<KratosIdentity> UpdateIdentityAsync(string id, KratosUpdateIdentityBody? kratosUpdateIdentityBody = default(KratosUpdateIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<Identity> localVarResponse = await UpdateIdentityWithHttpInfoAsync(id, updateIdentityBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosIdentity> localVarResponse = await UpdateIdentityWithHttpInfoAsync(id, kratosUpdateIdentityBody, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4024,11 +4024,11 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">ID must be set to the ID of identity you want to update</param>
-        /// <param name="updateIdentityBody"> (optional)</param>
+        /// <param name="kratosUpdateIdentityBody"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Identity)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<Identity>> UpdateIdentityWithHttpInfoAsync(string id, UpdateIdentityBody? updateIdentityBody = default(UpdateIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosIdentity)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosIdentity>> UpdateIdentityWithHttpInfoAsync(string id, KratosUpdateIdentityBody? kratosUpdateIdentityBody = default(KratosUpdateIdentityBody?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -4061,7 +4061,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             localVarRequestOptions.PathParameters.Add("id", Ory.Kratos.Client.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.Data = updateIdentityBody;
+            localVarRequestOptions.Data = kratosUpdateIdentityBody;
 
             localVarRequestOptions.Operation = "IdentityApi.UpdateIdentity";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -4073,7 +4073,7 @@ namespace Ory.Kratos.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Identity>("/admin/identities/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<KratosIdentity>("/admin/identities/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

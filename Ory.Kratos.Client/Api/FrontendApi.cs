@@ -40,8 +40,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="loginChallenge">An optional Hydra login challenge. If present, Kratos will cooperate with Ory Hydra to act as an OAuth2 identity provider.  The value for this parameter comes from &#x60;login_challenge&#x60; URL Query parameter sent to your application (e.g. &#x60;/login?login_challenge&#x3D;abcde&#x60;). (optional)</param>
         /// <param name="organization">An optional organization ID that should be used for logging this user in. This parameter is only effective in the Ory Network. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>LoginFlow</returns>
-        LoginFlow CreateBrowserLoginFlow(bool? refresh = default(bool?), string? aal = default(string?), string? returnTo = default(string?), string? cookie = default(string?), string? loginChallenge = default(string?), string? organization = default(string?), int operationIndex = 0);
+        /// <returns>KratosLoginFlow</returns>
+        KratosLoginFlow CreateBrowserLoginFlow(bool? refresh = default(bool?), string? aal = default(string?), string? returnTo = default(string?), string? cookie = default(string?), string? loginChallenge = default(string?), string? organization = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Create Login Flow for Browsers
@@ -57,8 +57,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="loginChallenge">An optional Hydra login challenge. If present, Kratos will cooperate with Ory Hydra to act as an OAuth2 identity provider.  The value for this parameter comes from &#x60;login_challenge&#x60; URL Query parameter sent to your application (e.g. &#x60;/login?login_challenge&#x3D;abcde&#x60;). (optional)</param>
         /// <param name="organization">An optional organization ID that should be used for logging this user in. This parameter is only effective in the Ory Network. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of LoginFlow</returns>
-        ApiResponse<LoginFlow> CreateBrowserLoginFlowWithHttpInfo(bool? refresh = default(bool?), string? aal = default(string?), string? returnTo = default(string?), string? cookie = default(string?), string? loginChallenge = default(string?), string? organization = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosLoginFlow</returns>
+        ApiResponse<KratosLoginFlow> CreateBrowserLoginFlowWithHttpInfo(bool? refresh = default(bool?), string? aal = default(string?), string? returnTo = default(string?), string? cookie = default(string?), string? loginChallenge = default(string?), string? organization = default(string?), int operationIndex = 0);
         /// <summary>
         /// Create a Logout URL for Browsers
         /// </summary>
@@ -69,8 +69,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  If you call this endpoint from a backend, please include the original Cookie header in the request. (optional)</param>
         /// <param name="returnTo">Return to URL  The URL to which the browser should be redirected to after the logout has been performed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>LogoutFlow</returns>
-        LogoutFlow CreateBrowserLogoutFlow(string? cookie = default(string?), string? returnTo = default(string?), int operationIndex = 0);
+        /// <returns>KratosLogoutFlow</returns>
+        KratosLogoutFlow CreateBrowserLogoutFlow(string? cookie = default(string?), string? returnTo = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Create a Logout URL for Browsers
@@ -82,8 +82,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  If you call this endpoint from a backend, please include the original Cookie header in the request. (optional)</param>
         /// <param name="returnTo">Return to URL  The URL to which the browser should be redirected to after the logout has been performed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of LogoutFlow</returns>
-        ApiResponse<LogoutFlow> CreateBrowserLogoutFlowWithHttpInfo(string? cookie = default(string?), string? returnTo = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosLogoutFlow</returns>
+        ApiResponse<KratosLogoutFlow> CreateBrowserLogoutFlowWithHttpInfo(string? cookie = default(string?), string? returnTo = default(string?), int operationIndex = 0);
         /// <summary>
         /// Create Recovery Flow for Browsers
         /// </summary>
@@ -93,8 +93,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>RecoveryFlow</returns>
-        RecoveryFlow CreateBrowserRecoveryFlow(string? returnTo = default(string?), int operationIndex = 0);
+        /// <returns>KratosRecoveryFlow</returns>
+        KratosRecoveryFlow CreateBrowserRecoveryFlow(string? returnTo = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Create Recovery Flow for Browsers
@@ -105,8 +105,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of RecoveryFlow</returns>
-        ApiResponse<RecoveryFlow> CreateBrowserRecoveryFlowWithHttpInfo(string? returnTo = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosRecoveryFlow</returns>
+        ApiResponse<KratosRecoveryFlow> CreateBrowserRecoveryFlowWithHttpInfo(string? returnTo = default(string?), int operationIndex = 0);
         /// <summary>
         /// Create Registration Flow for Browsers
         /// </summary>
@@ -119,8 +119,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="afterVerificationReturnTo">The URL to return the browser to after the verification flow was completed.  After the registration flow is completed, the user will be sent a verification email. Upon completing the verification flow, this URL will be used to override the default &#x60;selfservice.flows.verification.after.default_redirect_to&#x60; value. (optional)</param>
         /// <param name="organization"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>RegistrationFlow</returns>
-        RegistrationFlow CreateBrowserRegistrationFlow(string? returnTo = default(string?), string? loginChallenge = default(string?), string? afterVerificationReturnTo = default(string?), string? organization = default(string?), int operationIndex = 0);
+        /// <returns>KratosRegistrationFlow</returns>
+        KratosRegistrationFlow CreateBrowserRegistrationFlow(string? returnTo = default(string?), string? loginChallenge = default(string?), string? afterVerificationReturnTo = default(string?), string? organization = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Create Registration Flow for Browsers
@@ -134,8 +134,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="afterVerificationReturnTo">The URL to return the browser to after the verification flow was completed.  After the registration flow is completed, the user will be sent a verification email. Upon completing the verification flow, this URL will be used to override the default &#x60;selfservice.flows.verification.after.default_redirect_to&#x60; value. (optional)</param>
         /// <param name="organization"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of RegistrationFlow</returns>
-        ApiResponse<RegistrationFlow> CreateBrowserRegistrationFlowWithHttpInfo(string? returnTo = default(string?), string? loginChallenge = default(string?), string? afterVerificationReturnTo = default(string?), string? organization = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosRegistrationFlow</returns>
+        ApiResponse<KratosRegistrationFlow> CreateBrowserRegistrationFlowWithHttpInfo(string? returnTo = default(string?), string? loginChallenge = default(string?), string? afterVerificationReturnTo = default(string?), string? organization = default(string?), int operationIndex = 0);
         /// <summary>
         /// Create Settings Flow for Browsers
         /// </summary>
@@ -146,8 +146,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>SettingsFlow</returns>
-        SettingsFlow CreateBrowserSettingsFlow(string? returnTo = default(string?), string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>KratosSettingsFlow</returns>
+        KratosSettingsFlow CreateBrowserSettingsFlow(string? returnTo = default(string?), string? cookie = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Create Settings Flow for Browsers
@@ -159,8 +159,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of SettingsFlow</returns>
-        ApiResponse<SettingsFlow> CreateBrowserSettingsFlowWithHttpInfo(string? returnTo = default(string?), string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosSettingsFlow</returns>
+        ApiResponse<KratosSettingsFlow> CreateBrowserSettingsFlowWithHttpInfo(string? returnTo = default(string?), string? cookie = default(string?), int operationIndex = 0);
         /// <summary>
         /// Create Verification Flow for Browser Clients
         /// </summary>
@@ -170,8 +170,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>VerificationFlow</returns>
-        VerificationFlow CreateBrowserVerificationFlow(string? returnTo = default(string?), int operationIndex = 0);
+        /// <returns>KratosVerificationFlow</returns>
+        KratosVerificationFlow CreateBrowserVerificationFlow(string? returnTo = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Create Verification Flow for Browser Clients
@@ -182,8 +182,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of VerificationFlow</returns>
-        ApiResponse<VerificationFlow> CreateBrowserVerificationFlowWithHttpInfo(string? returnTo = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosVerificationFlow</returns>
+        ApiResponse<KratosVerificationFlow> CreateBrowserVerificationFlowWithHttpInfo(string? returnTo = default(string?), int operationIndex = 0);
         /// <summary>
         /// Create Login Flow for Native Apps
         /// </summary>
@@ -198,8 +198,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="via">Via should contain the identity&#39;s credential the code should be sent to. Only relevant in aal2 flows. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>LoginFlow</returns>
-        LoginFlow CreateNativeLoginFlow(bool? refresh = default(bool?), string? aal = default(string?), string? xSessionToken = default(string?), bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), string? via = default(string?), int operationIndex = 0);
+        /// <returns>KratosLoginFlow</returns>
+        KratosLoginFlow CreateNativeLoginFlow(bool? refresh = default(bool?), string? aal = default(string?), string? xSessionToken = default(string?), bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), string? via = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Create Login Flow for Native Apps
@@ -215,8 +215,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="via">Via should contain the identity&#39;s credential the code should be sent to. Only relevant in aal2 flows. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of LoginFlow</returns>
-        ApiResponse<LoginFlow> CreateNativeLoginFlowWithHttpInfo(bool? refresh = default(bool?), string? aal = default(string?), string? xSessionToken = default(string?), bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), string? via = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosLoginFlow</returns>
+        ApiResponse<KratosLoginFlow> CreateNativeLoginFlowWithHttpInfo(bool? refresh = default(bool?), string? aal = default(string?), string? xSessionToken = default(string?), bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), string? via = default(string?), int operationIndex = 0);
         /// <summary>
         /// Create Recovery Flow for Native Apps
         /// </summary>
@@ -225,8 +225,8 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>RecoveryFlow</returns>
-        RecoveryFlow CreateNativeRecoveryFlow(int operationIndex = 0);
+        /// <returns>KratosRecoveryFlow</returns>
+        KratosRecoveryFlow CreateNativeRecoveryFlow(int operationIndex = 0);
 
         /// <summary>
         /// Create Recovery Flow for Native Apps
@@ -236,8 +236,8 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of RecoveryFlow</returns>
-        ApiResponse<RecoveryFlow> CreateNativeRecoveryFlowWithHttpInfo(int operationIndex = 0);
+        /// <returns>ApiResponse of KratosRecoveryFlow</returns>
+        ApiResponse<KratosRecoveryFlow> CreateNativeRecoveryFlowWithHttpInfo(int operationIndex = 0);
         /// <summary>
         /// Create Registration Flow for Native Apps
         /// </summary>
@@ -248,8 +248,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnSessionTokenExchangeCode">EnableSessionTokenExchangeCode requests the login flow to include a code that can be used to retrieve the session token after the login flow has been completed. (optional)</param>
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>RegistrationFlow</returns>
-        RegistrationFlow CreateNativeRegistrationFlow(bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), int operationIndex = 0);
+        /// <returns>KratosRegistrationFlow</returns>
+        KratosRegistrationFlow CreateNativeRegistrationFlow(bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Create Registration Flow for Native Apps
@@ -261,8 +261,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnSessionTokenExchangeCode">EnableSessionTokenExchangeCode requests the login flow to include a code that can be used to retrieve the session token after the login flow has been completed. (optional)</param>
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of RegistrationFlow</returns>
-        ApiResponse<RegistrationFlow> CreateNativeRegistrationFlowWithHttpInfo(bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosRegistrationFlow</returns>
+        ApiResponse<KratosRegistrationFlow> CreateNativeRegistrationFlowWithHttpInfo(bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), int operationIndex = 0);
         /// <summary>
         /// Create Settings Flow for Native Apps
         /// </summary>
@@ -272,8 +272,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>SettingsFlow</returns>
-        SettingsFlow CreateNativeSettingsFlow(string? xSessionToken = default(string?), int operationIndex = 0);
+        /// <returns>KratosSettingsFlow</returns>
+        KratosSettingsFlow CreateNativeSettingsFlow(string? xSessionToken = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Create Settings Flow for Native Apps
@@ -284,8 +284,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of SettingsFlow</returns>
-        ApiResponse<SettingsFlow> CreateNativeSettingsFlowWithHttpInfo(string? xSessionToken = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosSettingsFlow</returns>
+        ApiResponse<KratosSettingsFlow> CreateNativeSettingsFlowWithHttpInfo(string? xSessionToken = default(string?), int operationIndex = 0);
         /// <summary>
         /// Create Verification Flow for Native Apps
         /// </summary>
@@ -294,8 +294,8 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>VerificationFlow</returns>
-        VerificationFlow CreateNativeVerificationFlow(int operationIndex = 0);
+        /// <returns>KratosVerificationFlow</returns>
+        KratosVerificationFlow CreateNativeVerificationFlow(int operationIndex = 0);
 
         /// <summary>
         /// Create Verification Flow for Native Apps
@@ -305,8 +305,8 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of VerificationFlow</returns>
-        ApiResponse<VerificationFlow> CreateNativeVerificationFlowWithHttpInfo(int operationIndex = 0);
+        /// <returns>ApiResponse of KratosVerificationFlow</returns>
+        ApiResponse<KratosVerificationFlow> CreateNativeVerificationFlowWithHttpInfo(int operationIndex = 0);
         /// <summary>
         /// Disable my other sessions
         /// </summary>
@@ -317,8 +317,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="xSessionToken">Set the Session Token when calling from non-browser clients. A session token has a format of &#x60;MP2YWEMeM8MxjkGKpH4dqOQ4Q4DlSPaj&#x60;. (optional)</param>
         /// <param name="cookie">Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: &#x60;ory_kratos_session&#x3D;a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f&#x3D;&#x3D;&#x60;.  It is ok if more than one cookie are included here as all other cookies will be ignored. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>DeleteMySessionsCount</returns>
-        DeleteMySessionsCount DisableMyOtherSessions(string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>KratosDeleteMySessionsCount</returns>
+        KratosDeleteMySessionsCount DisableMyOtherSessions(string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Disable my other sessions
@@ -330,8 +330,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="xSessionToken">Set the Session Token when calling from non-browser clients. A session token has a format of &#x60;MP2YWEMeM8MxjkGKpH4dqOQ4Q4DlSPaj&#x60;. (optional)</param>
         /// <param name="cookie">Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: &#x60;ory_kratos_session&#x3D;a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f&#x3D;&#x3D;&#x60;.  It is ok if more than one cookie are included here as all other cookies will be ignored. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of DeleteMySessionsCount</returns>
-        ApiResponse<DeleteMySessionsCount> DisableMyOtherSessionsWithHttpInfo(string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosDeleteMySessionsCount</returns>
+        ApiResponse<KratosDeleteMySessionsCount> DisableMyOtherSessionsWithHttpInfo(string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0);
         /// <summary>
         /// Disable one of my sessions
         /// </summary>
@@ -366,8 +366,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="initCode">The part of the code return when initializing the flow.</param>
         /// <param name="returnToCode">The part of the code returned by the return_to URL.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>SuccessfulNativeLogin</returns>
-        SuccessfulNativeLogin ExchangeSessionToken(string initCode, string returnToCode, int operationIndex = 0);
+        /// <returns>KratosSuccessfulNativeLogin</returns>
+        KratosSuccessfulNativeLogin ExchangeSessionToken(string initCode, string returnToCode, int operationIndex = 0);
 
         /// <summary>
         /// Exchange Session Token
@@ -379,8 +379,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="initCode">The part of the code return when initializing the flow.</param>
         /// <param name="returnToCode">The part of the code returned by the return_to URL.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of SuccessfulNativeLogin</returns>
-        ApiResponse<SuccessfulNativeLogin> ExchangeSessionTokenWithHttpInfo(string initCode, string returnToCode, int operationIndex = 0);
+        /// <returns>ApiResponse of KratosSuccessfulNativeLogin</returns>
+        ApiResponse<KratosSuccessfulNativeLogin> ExchangeSessionTokenWithHttpInfo(string initCode, string returnToCode, int operationIndex = 0);
         /// <summary>
         /// Get User-Flow Errors
         /// </summary>
@@ -390,8 +390,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Error is the error&#39;s ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>FlowError</returns>
-        FlowError GetFlowError(string id, int operationIndex = 0);
+        /// <returns>KratosFlowError</returns>
+        KratosFlowError GetFlowError(string id, int operationIndex = 0);
 
         /// <summary>
         /// Get User-Flow Errors
@@ -402,8 +402,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Error is the error&#39;s ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of FlowError</returns>
-        ApiResponse<FlowError> GetFlowErrorWithHttpInfo(string id, int operationIndex = 0);
+        /// <returns>ApiResponse of KratosFlowError</returns>
+        ApiResponse<KratosFlowError> GetFlowErrorWithHttpInfo(string id, int operationIndex = 0);
         /// <summary>
         /// Get Login Flow
         /// </summary>
@@ -414,8 +414,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">The Login Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/login?flow&#x3D;abcde&#x60;).</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>LoginFlow</returns>
-        LoginFlow GetLoginFlow(string id, string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>KratosLoginFlow</returns>
+        KratosLoginFlow GetLoginFlow(string id, string? cookie = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Get Login Flow
@@ -427,8 +427,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">The Login Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/login?flow&#x3D;abcde&#x60;).</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of LoginFlow</returns>
-        ApiResponse<LoginFlow> GetLoginFlowWithHttpInfo(string id, string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosLoginFlow</returns>
+        ApiResponse<KratosLoginFlow> GetLoginFlowWithHttpInfo(string id, string? cookie = default(string?), int operationIndex = 0);
         /// <summary>
         /// Get Recovery Flow
         /// </summary>
@@ -439,8 +439,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">The Flow ID  The value for this parameter comes from &#x60;request&#x60; URL Query parameter sent to your application (e.g. &#x60;/recovery?flow&#x3D;abcde&#x60;).</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>RecoveryFlow</returns>
-        RecoveryFlow GetRecoveryFlow(string id, string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>KratosRecoveryFlow</returns>
+        KratosRecoveryFlow GetRecoveryFlow(string id, string? cookie = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Get Recovery Flow
@@ -452,8 +452,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">The Flow ID  The value for this parameter comes from &#x60;request&#x60; URL Query parameter sent to your application (e.g. &#x60;/recovery?flow&#x3D;abcde&#x60;).</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of RecoveryFlow</returns>
-        ApiResponse<RecoveryFlow> GetRecoveryFlowWithHttpInfo(string id, string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosRecoveryFlow</returns>
+        ApiResponse<KratosRecoveryFlow> GetRecoveryFlowWithHttpInfo(string id, string? cookie = default(string?), int operationIndex = 0);
         /// <summary>
         /// Get Registration Flow
         /// </summary>
@@ -464,8 +464,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">The Registration Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/registration?flow&#x3D;abcde&#x60;).</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>RegistrationFlow</returns>
-        RegistrationFlow GetRegistrationFlow(string id, string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>KratosRegistrationFlow</returns>
+        KratosRegistrationFlow GetRegistrationFlow(string id, string? cookie = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Get Registration Flow
@@ -477,8 +477,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">The Registration Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/registration?flow&#x3D;abcde&#x60;).</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of RegistrationFlow</returns>
-        ApiResponse<RegistrationFlow> GetRegistrationFlowWithHttpInfo(string id, string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosRegistrationFlow</returns>
+        ApiResponse<KratosRegistrationFlow> GetRegistrationFlowWithHttpInfo(string id, string? cookie = default(string?), int operationIndex = 0);
         /// <summary>
         /// Get Settings Flow
         /// </summary>
@@ -490,8 +490,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="xSessionToken">The Session Token  When using the SDK in an app without a browser, please include the session token here. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>SettingsFlow</returns>
-        SettingsFlow GetSettingsFlow(string id, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>KratosSettingsFlow</returns>
+        KratosSettingsFlow GetSettingsFlow(string id, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Get Settings Flow
@@ -504,8 +504,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="xSessionToken">The Session Token  When using the SDK in an app without a browser, please include the session token here. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of SettingsFlow</returns>
-        ApiResponse<SettingsFlow> GetSettingsFlowWithHttpInfo(string id, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosSettingsFlow</returns>
+        ApiResponse<KratosSettingsFlow> GetSettingsFlowWithHttpInfo(string id, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0);
         /// <summary>
         /// Get Verification Flow
         /// </summary>
@@ -516,8 +516,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">The Flow ID  The value for this parameter comes from &#x60;request&#x60; URL Query parameter sent to your application (e.g. &#x60;/verification?flow&#x3D;abcde&#x60;).</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK on the server side you must include the HTTP Cookie Header originally sent to your HTTP handler here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>VerificationFlow</returns>
-        VerificationFlow GetVerificationFlow(string id, string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>KratosVerificationFlow</returns>
+        KratosVerificationFlow GetVerificationFlow(string id, string? cookie = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Get Verification Flow
@@ -529,8 +529,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">The Flow ID  The value for this parameter comes from &#x60;request&#x60; URL Query parameter sent to your application (e.g. &#x60;/verification?flow&#x3D;abcde&#x60;).</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK on the server side you must include the HTTP Cookie Header originally sent to your HTTP handler here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of VerificationFlow</returns>
-        ApiResponse<VerificationFlow> GetVerificationFlowWithHttpInfo(string id, string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosVerificationFlow</returns>
+        ApiResponse<KratosVerificationFlow> GetVerificationFlowWithHttpInfo(string id, string? cookie = default(string?), int operationIndex = 0);
         /// <summary>
         /// Get WebAuthn JavaScript
         /// </summary>
@@ -566,8 +566,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="xSessionToken">Set the Session Token when calling from non-browser clients. A session token has a format of &#x60;MP2YWEMeM8MxjkGKpH4dqOQ4Q4DlSPaj&#x60;. (optional)</param>
         /// <param name="cookie">Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: &#x60;ory_kratos_session&#x3D;a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f&#x3D;&#x3D;&#x60;.  It is ok if more than one cookie are included here as all other cookies will be ignored. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;Session&gt;</returns>
-        List<Session> ListMySessions(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>List&lt;KratosSession&gt;</returns>
+        List<KratosSession> ListMySessions(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Get My Active Sessions
@@ -583,8 +583,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="xSessionToken">Set the Session Token when calling from non-browser clients. A session token has a format of &#x60;MP2YWEMeM8MxjkGKpH4dqOQ4Q4DlSPaj&#x60;. (optional)</param>
         /// <param name="cookie">Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: &#x60;ory_kratos_session&#x3D;a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f&#x3D;&#x3D;&#x60;.  It is ok if more than one cookie are included here as all other cookies will be ignored. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;Session&gt;</returns>
-        ApiResponse<List<Session>> ListMySessionsWithHttpInfo(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of List&lt;KratosSession&gt;</returns>
+        ApiResponse<List<KratosSession>> ListMySessionsWithHttpInfo(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0);
         /// <summary>
         /// Perform Logout for Native Apps
         /// </summary>
@@ -592,10 +592,10 @@ namespace Ory.Kratos.Client.Api
         /// Use this endpoint to log out an identity using an Ory Session Token. If the Ory Session Token was successfully revoked, the server returns a 204 No Content response. A 204 No Content response is also sent when the Ory Session Token has been revoked already before.  If the Ory Session Token is malformed or does not exist a 403 Forbidden response will be returned.  This endpoint does not remove any HTTP Cookies - use the Browser-Based Self-Service Logout Flow instead.
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="performNativeLogoutBody"></param>
+        /// <param name="kratosPerformNativeLogoutBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void PerformNativeLogout(PerformNativeLogoutBody performNativeLogoutBody, int operationIndex = 0);
+        void PerformNativeLogout(KratosPerformNativeLogoutBody kratosPerformNativeLogoutBody, int operationIndex = 0);
 
         /// <summary>
         /// Perform Logout for Native Apps
@@ -604,10 +604,10 @@ namespace Ory.Kratos.Client.Api
         /// Use this endpoint to log out an identity using an Ory Session Token. If the Ory Session Token was successfully revoked, the server returns a 204 No Content response. A 204 No Content response is also sent when the Ory Session Token has been revoked already before.  If the Ory Session Token is malformed or does not exist a 403 Forbidden response will be returned.  This endpoint does not remove any HTTP Cookies - use the Browser-Based Self-Service Logout Flow instead.
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="performNativeLogoutBody"></param>
+        /// <param name="kratosPerformNativeLogoutBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> PerformNativeLogoutWithHttpInfo(PerformNativeLogoutBody performNativeLogoutBody, int operationIndex = 0);
+        ApiResponse<Object> PerformNativeLogoutWithHttpInfo(KratosPerformNativeLogoutBody kratosPerformNativeLogoutBody, int operationIndex = 0);
         /// <summary>
         /// Check Who the Current HTTP Session Belongs To
         /// </summary>
@@ -619,8 +619,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: &#x60;ory_kratos_session&#x3D;a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f&#x3D;&#x3D;&#x60;.  It is ok if more than one cookie are included here as all other cookies will be ignored. (optional)</param>
         /// <param name="tokenizeAs">Returns the session additionally as a token (such as a JWT)  The value of this parameter has to be a valid, configured Ory Session token template. For more information head over to [the documentation](http://ory.sh/docs/identities/session-to-jwt-cors). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Session</returns>
-        Session ToSession(string? xSessionToken = default(string?), string? cookie = default(string?), string? tokenizeAs = default(string?), int operationIndex = 0);
+        /// <returns>KratosSession</returns>
+        KratosSession ToSession(string? xSessionToken = default(string?), string? cookie = default(string?), string? tokenizeAs = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Check Who the Current HTTP Session Belongs To
@@ -633,8 +633,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: &#x60;ory_kratos_session&#x3D;a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f&#x3D;&#x3D;&#x60;.  It is ok if more than one cookie are included here as all other cookies will be ignored. (optional)</param>
         /// <param name="tokenizeAs">Returns the session additionally as a token (such as a JWT)  The value of this parameter has to be a valid, configured Ory Session token template. For more information head over to [the documentation](http://ory.sh/docs/identities/session-to-jwt-cors). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Session</returns>
-        ApiResponse<Session> ToSessionWithHttpInfo(string? xSessionToken = default(string?), string? cookie = default(string?), string? tokenizeAs = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosSession</returns>
+        ApiResponse<KratosSession> ToSessionWithHttpInfo(string? xSessionToken = default(string?), string? cookie = default(string?), string? tokenizeAs = default(string?), int operationIndex = 0);
         /// <summary>
         /// Submit a Login Flow
         /// </summary>
@@ -643,12 +643,12 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Login Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/login?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateLoginFlowBody"></param>
+        /// <param name="kratosUpdateLoginFlowBody"></param>
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>SuccessfulNativeLogin</returns>
-        SuccessfulNativeLogin UpdateLoginFlow(string flow, UpdateLoginFlowBody updateLoginFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>KratosSuccessfulNativeLogin</returns>
+        KratosSuccessfulNativeLogin UpdateLoginFlow(string flow, KratosUpdateLoginFlowBody kratosUpdateLoginFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Submit a Login Flow
@@ -658,12 +658,12 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Login Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/login?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateLoginFlowBody"></param>
+        /// <param name="kratosUpdateLoginFlowBody"></param>
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of SuccessfulNativeLogin</returns>
-        ApiResponse<SuccessfulNativeLogin> UpdateLoginFlowWithHttpInfo(string flow, UpdateLoginFlowBody updateLoginFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosSuccessfulNativeLogin</returns>
+        ApiResponse<KratosSuccessfulNativeLogin> UpdateLoginFlowWithHttpInfo(string flow, KratosUpdateLoginFlowBody kratosUpdateLoginFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0);
         /// <summary>
         /// Update Logout Flow
         /// </summary>
@@ -699,12 +699,12 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Recovery Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/recovery?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateRecoveryFlowBody"></param>
+        /// <param name="kratosUpdateRecoveryFlowBody"></param>
         /// <param name="token">Recovery Token  The recovery token which completes the recovery request. If the token is invalid (e.g. expired) an error will be shown to the end-user.  This parameter is usually set in a link and not used by any direct API call. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>RecoveryFlow</returns>
-        RecoveryFlow UpdateRecoveryFlow(string flow, UpdateRecoveryFlowBody updateRecoveryFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>KratosRecoveryFlow</returns>
+        KratosRecoveryFlow UpdateRecoveryFlow(string flow, KratosUpdateRecoveryFlowBody kratosUpdateRecoveryFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Update Recovery Flow
@@ -714,12 +714,12 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Recovery Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/recovery?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateRecoveryFlowBody"></param>
+        /// <param name="kratosUpdateRecoveryFlowBody"></param>
         /// <param name="token">Recovery Token  The recovery token which completes the recovery request. If the token is invalid (e.g. expired) an error will be shown to the end-user.  This parameter is usually set in a link and not used by any direct API call. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of RecoveryFlow</returns>
-        ApiResponse<RecoveryFlow> UpdateRecoveryFlowWithHttpInfo(string flow, UpdateRecoveryFlowBody updateRecoveryFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosRecoveryFlow</returns>
+        ApiResponse<KratosRecoveryFlow> UpdateRecoveryFlowWithHttpInfo(string flow, KratosUpdateRecoveryFlowBody kratosUpdateRecoveryFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0);
         /// <summary>
         /// Update Registration Flow
         /// </summary>
@@ -728,11 +728,11 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Registration Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/registration?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateRegistrationFlowBody"></param>
+        /// <param name="kratosUpdateRegistrationFlowBody"></param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>SuccessfulNativeRegistration</returns>
-        SuccessfulNativeRegistration UpdateRegistrationFlow(string flow, UpdateRegistrationFlowBody updateRegistrationFlowBody, string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>KratosSuccessfulNativeRegistration</returns>
+        KratosSuccessfulNativeRegistration UpdateRegistrationFlow(string flow, KratosUpdateRegistrationFlowBody kratosUpdateRegistrationFlowBody, string? cookie = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Update Registration Flow
@@ -742,11 +742,11 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Registration Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/registration?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateRegistrationFlowBody"></param>
+        /// <param name="kratosUpdateRegistrationFlowBody"></param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of SuccessfulNativeRegistration</returns>
-        ApiResponse<SuccessfulNativeRegistration> UpdateRegistrationFlowWithHttpInfo(string flow, UpdateRegistrationFlowBody updateRegistrationFlowBody, string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosSuccessfulNativeRegistration</returns>
+        ApiResponse<KratosSuccessfulNativeRegistration> UpdateRegistrationFlowWithHttpInfo(string flow, KratosUpdateRegistrationFlowBody kratosUpdateRegistrationFlowBody, string? cookie = default(string?), int operationIndex = 0);
         /// <summary>
         /// Complete Settings Flow
         /// </summary>
@@ -755,12 +755,12 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Settings Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/settings?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateSettingsFlowBody"></param>
+        /// <param name="kratosUpdateSettingsFlowBody"></param>
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>SettingsFlow</returns>
-        SettingsFlow UpdateSettingsFlow(string flow, UpdateSettingsFlowBody updateSettingsFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>KratosSettingsFlow</returns>
+        KratosSettingsFlow UpdateSettingsFlow(string flow, KratosUpdateSettingsFlowBody kratosUpdateSettingsFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Complete Settings Flow
@@ -770,12 +770,12 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Settings Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/settings?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateSettingsFlowBody"></param>
+        /// <param name="kratosUpdateSettingsFlowBody"></param>
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of SettingsFlow</returns>
-        ApiResponse<SettingsFlow> UpdateSettingsFlowWithHttpInfo(string flow, UpdateSettingsFlowBody updateSettingsFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosSettingsFlow</returns>
+        ApiResponse<KratosSettingsFlow> UpdateSettingsFlowWithHttpInfo(string flow, KratosUpdateSettingsFlowBody kratosUpdateSettingsFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0);
         /// <summary>
         /// Complete Verification Flow
         /// </summary>
@@ -784,12 +784,12 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Verification Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/verification?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateVerificationFlowBody"></param>
+        /// <param name="kratosUpdateVerificationFlowBody"></param>
         /// <param name="token">Verification Token  The verification token which completes the verification request. If the token is invalid (e.g. expired) an error will be shown to the end-user.  This parameter is usually set in a link and not used by any direct API call. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>VerificationFlow</returns>
-        VerificationFlow UpdateVerificationFlow(string flow, UpdateVerificationFlowBody updateVerificationFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>KratosVerificationFlow</returns>
+        KratosVerificationFlow UpdateVerificationFlow(string flow, KratosUpdateVerificationFlowBody kratosUpdateVerificationFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Complete Verification Flow
@@ -799,12 +799,12 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Verification Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/verification?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateVerificationFlowBody"></param>
+        /// <param name="kratosUpdateVerificationFlowBody"></param>
         /// <param name="token">Verification Token  The verification token which completes the verification request. If the token is invalid (e.g. expired) an error will be shown to the end-user.  This parameter is usually set in a link and not used by any direct API call. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of VerificationFlow</returns>
-        ApiResponse<VerificationFlow> UpdateVerificationFlowWithHttpInfo(string flow, UpdateVerificationFlowBody updateVerificationFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of KratosVerificationFlow</returns>
+        ApiResponse<KratosVerificationFlow> UpdateVerificationFlowWithHttpInfo(string flow, KratosUpdateVerificationFlowBody kratosUpdateVerificationFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -829,8 +829,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="organization">An optional organization ID that should be used for logging this user in. This parameter is only effective in the Ory Network. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of LoginFlow</returns>
-        System.Threading.Tasks.Task<LoginFlow> CreateBrowserLoginFlowAsync(bool? refresh = default(bool?), string? aal = default(string?), string? returnTo = default(string?), string? cookie = default(string?), string? loginChallenge = default(string?), string? organization = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosLoginFlow</returns>
+        System.Threading.Tasks.Task<KratosLoginFlow> CreateBrowserLoginFlowAsync(bool? refresh = default(bool?), string? aal = default(string?), string? returnTo = default(string?), string? cookie = default(string?), string? loginChallenge = default(string?), string? organization = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Login Flow for Browsers
@@ -847,8 +847,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="organization">An optional organization ID that should be used for logging this user in. This parameter is only effective in the Ory Network. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (LoginFlow)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoginFlow>> CreateBrowserLoginFlowWithHttpInfoAsync(bool? refresh = default(bool?), string? aal = default(string?), string? returnTo = default(string?), string? cookie = default(string?), string? loginChallenge = default(string?), string? organization = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosLoginFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosLoginFlow>> CreateBrowserLoginFlowWithHttpInfoAsync(bool? refresh = default(bool?), string? aal = default(string?), string? returnTo = default(string?), string? cookie = default(string?), string? loginChallenge = default(string?), string? organization = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create a Logout URL for Browsers
         /// </summary>
@@ -860,8 +860,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">Return to URL  The URL to which the browser should be redirected to after the logout has been performed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of LogoutFlow</returns>
-        System.Threading.Tasks.Task<LogoutFlow> CreateBrowserLogoutFlowAsync(string? cookie = default(string?), string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosLogoutFlow</returns>
+        System.Threading.Tasks.Task<KratosLogoutFlow> CreateBrowserLogoutFlowAsync(string? cookie = default(string?), string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create a Logout URL for Browsers
@@ -874,8 +874,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">Return to URL  The URL to which the browser should be redirected to after the logout has been performed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (LogoutFlow)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LogoutFlow>> CreateBrowserLogoutFlowWithHttpInfoAsync(string? cookie = default(string?), string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosLogoutFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosLogoutFlow>> CreateBrowserLogoutFlowWithHttpInfoAsync(string? cookie = default(string?), string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create Recovery Flow for Browsers
         /// </summary>
@@ -886,8 +886,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RecoveryFlow</returns>
-        System.Threading.Tasks.Task<RecoveryFlow> CreateBrowserRecoveryFlowAsync(string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosRecoveryFlow</returns>
+        System.Threading.Tasks.Task<KratosRecoveryFlow> CreateBrowserRecoveryFlowAsync(string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Recovery Flow for Browsers
@@ -899,8 +899,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RecoveryFlow)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RecoveryFlow>> CreateBrowserRecoveryFlowWithHttpInfoAsync(string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosRecoveryFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosRecoveryFlow>> CreateBrowserRecoveryFlowWithHttpInfoAsync(string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create Registration Flow for Browsers
         /// </summary>
@@ -914,8 +914,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="organization"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RegistrationFlow</returns>
-        System.Threading.Tasks.Task<RegistrationFlow> CreateBrowserRegistrationFlowAsync(string? returnTo = default(string?), string? loginChallenge = default(string?), string? afterVerificationReturnTo = default(string?), string? organization = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosRegistrationFlow</returns>
+        System.Threading.Tasks.Task<KratosRegistrationFlow> CreateBrowserRegistrationFlowAsync(string? returnTo = default(string?), string? loginChallenge = default(string?), string? afterVerificationReturnTo = default(string?), string? organization = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Registration Flow for Browsers
@@ -930,8 +930,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="organization"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RegistrationFlow)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RegistrationFlow>> CreateBrowserRegistrationFlowWithHttpInfoAsync(string? returnTo = default(string?), string? loginChallenge = default(string?), string? afterVerificationReturnTo = default(string?), string? organization = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosRegistrationFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosRegistrationFlow>> CreateBrowserRegistrationFlowWithHttpInfoAsync(string? returnTo = default(string?), string? loginChallenge = default(string?), string? afterVerificationReturnTo = default(string?), string? organization = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create Settings Flow for Browsers
         /// </summary>
@@ -943,8 +943,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SettingsFlow</returns>
-        System.Threading.Tasks.Task<SettingsFlow> CreateBrowserSettingsFlowAsync(string? returnTo = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosSettingsFlow</returns>
+        System.Threading.Tasks.Task<KratosSettingsFlow> CreateBrowserSettingsFlowAsync(string? returnTo = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Settings Flow for Browsers
@@ -957,8 +957,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SettingsFlow)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SettingsFlow>> CreateBrowserSettingsFlowWithHttpInfoAsync(string? returnTo = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosSettingsFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosSettingsFlow>> CreateBrowserSettingsFlowWithHttpInfoAsync(string? returnTo = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create Verification Flow for Browser Clients
         /// </summary>
@@ -969,8 +969,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of VerificationFlow</returns>
-        System.Threading.Tasks.Task<VerificationFlow> CreateBrowserVerificationFlowAsync(string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosVerificationFlow</returns>
+        System.Threading.Tasks.Task<KratosVerificationFlow> CreateBrowserVerificationFlowAsync(string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Verification Flow for Browser Clients
@@ -982,8 +982,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (VerificationFlow)</returns>
-        System.Threading.Tasks.Task<ApiResponse<VerificationFlow>> CreateBrowserVerificationFlowWithHttpInfoAsync(string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosVerificationFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosVerificationFlow>> CreateBrowserVerificationFlowWithHttpInfoAsync(string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create Login Flow for Native Apps
         /// </summary>
@@ -999,8 +999,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="via">Via should contain the identity&#39;s credential the code should be sent to. Only relevant in aal2 flows. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of LoginFlow</returns>
-        System.Threading.Tasks.Task<LoginFlow> CreateNativeLoginFlowAsync(bool? refresh = default(bool?), string? aal = default(string?), string? xSessionToken = default(string?), bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), string? via = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosLoginFlow</returns>
+        System.Threading.Tasks.Task<KratosLoginFlow> CreateNativeLoginFlowAsync(bool? refresh = default(bool?), string? aal = default(string?), string? xSessionToken = default(string?), bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), string? via = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Login Flow for Native Apps
@@ -1017,8 +1017,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="via">Via should contain the identity&#39;s credential the code should be sent to. Only relevant in aal2 flows. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (LoginFlow)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoginFlow>> CreateNativeLoginFlowWithHttpInfoAsync(bool? refresh = default(bool?), string? aal = default(string?), string? xSessionToken = default(string?), bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), string? via = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosLoginFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosLoginFlow>> CreateNativeLoginFlowWithHttpInfoAsync(bool? refresh = default(bool?), string? aal = default(string?), string? xSessionToken = default(string?), bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), string? via = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create Recovery Flow for Native Apps
         /// </summary>
@@ -1028,8 +1028,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RecoveryFlow</returns>
-        System.Threading.Tasks.Task<RecoveryFlow> CreateNativeRecoveryFlowAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosRecoveryFlow</returns>
+        System.Threading.Tasks.Task<KratosRecoveryFlow> CreateNativeRecoveryFlowAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Recovery Flow for Native Apps
@@ -1040,8 +1040,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RecoveryFlow)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RecoveryFlow>> CreateNativeRecoveryFlowWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosRecoveryFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosRecoveryFlow>> CreateNativeRecoveryFlowWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create Registration Flow for Native Apps
         /// </summary>
@@ -1053,8 +1053,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RegistrationFlow</returns>
-        System.Threading.Tasks.Task<RegistrationFlow> CreateNativeRegistrationFlowAsync(bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosRegistrationFlow</returns>
+        System.Threading.Tasks.Task<KratosRegistrationFlow> CreateNativeRegistrationFlowAsync(bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Registration Flow for Native Apps
@@ -1067,8 +1067,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RegistrationFlow)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RegistrationFlow>> CreateNativeRegistrationFlowWithHttpInfoAsync(bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosRegistrationFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosRegistrationFlow>> CreateNativeRegistrationFlowWithHttpInfoAsync(bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create Settings Flow for Native Apps
         /// </summary>
@@ -1079,8 +1079,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SettingsFlow</returns>
-        System.Threading.Tasks.Task<SettingsFlow> CreateNativeSettingsFlowAsync(string? xSessionToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosSettingsFlow</returns>
+        System.Threading.Tasks.Task<KratosSettingsFlow> CreateNativeSettingsFlowAsync(string? xSessionToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Settings Flow for Native Apps
@@ -1092,8 +1092,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SettingsFlow)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SettingsFlow>> CreateNativeSettingsFlowWithHttpInfoAsync(string? xSessionToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosSettingsFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosSettingsFlow>> CreateNativeSettingsFlowWithHttpInfoAsync(string? xSessionToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Create Verification Flow for Native Apps
         /// </summary>
@@ -1103,8 +1103,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of VerificationFlow</returns>
-        System.Threading.Tasks.Task<VerificationFlow> CreateNativeVerificationFlowAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosVerificationFlow</returns>
+        System.Threading.Tasks.Task<KratosVerificationFlow> CreateNativeVerificationFlowAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create Verification Flow for Native Apps
@@ -1115,8 +1115,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (VerificationFlow)</returns>
-        System.Threading.Tasks.Task<ApiResponse<VerificationFlow>> CreateNativeVerificationFlowWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosVerificationFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosVerificationFlow>> CreateNativeVerificationFlowWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Disable my other sessions
         /// </summary>
@@ -1128,8 +1128,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: &#x60;ory_kratos_session&#x3D;a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f&#x3D;&#x3D;&#x60;.  It is ok if more than one cookie are included here as all other cookies will be ignored. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of DeleteMySessionsCount</returns>
-        System.Threading.Tasks.Task<DeleteMySessionsCount> DisableMyOtherSessionsAsync(string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosDeleteMySessionsCount</returns>
+        System.Threading.Tasks.Task<KratosDeleteMySessionsCount> DisableMyOtherSessionsAsync(string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Disable my other sessions
@@ -1142,8 +1142,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: &#x60;ory_kratos_session&#x3D;a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f&#x3D;&#x3D;&#x60;.  It is ok if more than one cookie are included here as all other cookies will be ignored. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (DeleteMySessionsCount)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeleteMySessionsCount>> DisableMyOtherSessionsWithHttpInfoAsync(string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosDeleteMySessionsCount)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosDeleteMySessionsCount>> DisableMyOtherSessionsWithHttpInfoAsync(string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Disable one of my sessions
         /// </summary>
@@ -1184,8 +1184,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnToCode">The part of the code returned by the return_to URL.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SuccessfulNativeLogin</returns>
-        System.Threading.Tasks.Task<SuccessfulNativeLogin> ExchangeSessionTokenAsync(string initCode, string returnToCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosSuccessfulNativeLogin</returns>
+        System.Threading.Tasks.Task<KratosSuccessfulNativeLogin> ExchangeSessionTokenAsync(string initCode, string returnToCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Exchange Session Token
@@ -1198,8 +1198,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnToCode">The part of the code returned by the return_to URL.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SuccessfulNativeLogin)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SuccessfulNativeLogin>> ExchangeSessionTokenWithHttpInfoAsync(string initCode, string returnToCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosSuccessfulNativeLogin)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosSuccessfulNativeLogin>> ExchangeSessionTokenWithHttpInfoAsync(string initCode, string returnToCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get User-Flow Errors
         /// </summary>
@@ -1210,8 +1210,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">Error is the error&#39;s ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of FlowError</returns>
-        System.Threading.Tasks.Task<FlowError> GetFlowErrorAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosFlowError</returns>
+        System.Threading.Tasks.Task<KratosFlowError> GetFlowErrorAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get User-Flow Errors
@@ -1223,8 +1223,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">Error is the error&#39;s ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (FlowError)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FlowError>> GetFlowErrorWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosFlowError)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosFlowError>> GetFlowErrorWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Login Flow
         /// </summary>
@@ -1236,8 +1236,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of LoginFlow</returns>
-        System.Threading.Tasks.Task<LoginFlow> GetLoginFlowAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosLoginFlow</returns>
+        System.Threading.Tasks.Task<KratosLoginFlow> GetLoginFlowAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Login Flow
@@ -1250,8 +1250,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (LoginFlow)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoginFlow>> GetLoginFlowWithHttpInfoAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosLoginFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosLoginFlow>> GetLoginFlowWithHttpInfoAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Recovery Flow
         /// </summary>
@@ -1263,8 +1263,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RecoveryFlow</returns>
-        System.Threading.Tasks.Task<RecoveryFlow> GetRecoveryFlowAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosRecoveryFlow</returns>
+        System.Threading.Tasks.Task<KratosRecoveryFlow> GetRecoveryFlowAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Recovery Flow
@@ -1277,8 +1277,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RecoveryFlow)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RecoveryFlow>> GetRecoveryFlowWithHttpInfoAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosRecoveryFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosRecoveryFlow>> GetRecoveryFlowWithHttpInfoAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Registration Flow
         /// </summary>
@@ -1290,8 +1290,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RegistrationFlow</returns>
-        System.Threading.Tasks.Task<RegistrationFlow> GetRegistrationFlowAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosRegistrationFlow</returns>
+        System.Threading.Tasks.Task<KratosRegistrationFlow> GetRegistrationFlowAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Registration Flow
@@ -1304,8 +1304,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RegistrationFlow)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RegistrationFlow>> GetRegistrationFlowWithHttpInfoAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosRegistrationFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosRegistrationFlow>> GetRegistrationFlowWithHttpInfoAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Settings Flow
         /// </summary>
@@ -1318,8 +1318,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SettingsFlow</returns>
-        System.Threading.Tasks.Task<SettingsFlow> GetSettingsFlowAsync(string id, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosSettingsFlow</returns>
+        System.Threading.Tasks.Task<KratosSettingsFlow> GetSettingsFlowAsync(string id, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Settings Flow
@@ -1333,8 +1333,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SettingsFlow)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SettingsFlow>> GetSettingsFlowWithHttpInfoAsync(string id, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosSettingsFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosSettingsFlow>> GetSettingsFlowWithHttpInfoAsync(string id, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Verification Flow
         /// </summary>
@@ -1346,8 +1346,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK on the server side you must include the HTTP Cookie Header originally sent to your HTTP handler here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of VerificationFlow</returns>
-        System.Threading.Tasks.Task<VerificationFlow> GetVerificationFlowAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosVerificationFlow</returns>
+        System.Threading.Tasks.Task<KratosVerificationFlow> GetVerificationFlowAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Verification Flow
@@ -1360,8 +1360,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK on the server side you must include the HTTP Cookie Header originally sent to your HTTP handler here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (VerificationFlow)</returns>
-        System.Threading.Tasks.Task<ApiResponse<VerificationFlow>> GetVerificationFlowWithHttpInfoAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosVerificationFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosVerificationFlow>> GetVerificationFlowWithHttpInfoAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get WebAuthn JavaScript
         /// </summary>
@@ -1400,8 +1400,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: &#x60;ory_kratos_session&#x3D;a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f&#x3D;&#x3D;&#x60;.  It is ok if more than one cookie are included here as all other cookies will be ignored. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Session&gt;</returns>
-        System.Threading.Tasks.Task<List<Session>> ListMySessionsAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of List&lt;KratosSession&gt;</returns>
+        System.Threading.Tasks.Task<List<KratosSession>> ListMySessionsAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get My Active Sessions
@@ -1418,8 +1418,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: &#x60;ory_kratos_session&#x3D;a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f&#x3D;&#x3D;&#x60;.  It is ok if more than one cookie are included here as all other cookies will be ignored. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Session&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Session>>> ListMySessionsWithHttpInfoAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (List&lt;KratosSession&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<KratosSession>>> ListMySessionsWithHttpInfoAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Perform Logout for Native Apps
         /// </summary>
@@ -1427,11 +1427,11 @@ namespace Ory.Kratos.Client.Api
         /// Use this endpoint to log out an identity using an Ory Session Token. If the Ory Session Token was successfully revoked, the server returns a 204 No Content response. A 204 No Content response is also sent when the Ory Session Token has been revoked already before.  If the Ory Session Token is malformed or does not exist a 403 Forbidden response will be returned.  This endpoint does not remove any HTTP Cookies - use the Browser-Based Self-Service Logout Flow instead.
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="performNativeLogoutBody"></param>
+        /// <param name="kratosPerformNativeLogoutBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task PerformNativeLogoutAsync(PerformNativeLogoutBody performNativeLogoutBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task PerformNativeLogoutAsync(KratosPerformNativeLogoutBody kratosPerformNativeLogoutBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Perform Logout for Native Apps
@@ -1440,11 +1440,11 @@ namespace Ory.Kratos.Client.Api
         /// Use this endpoint to log out an identity using an Ory Session Token. If the Ory Session Token was successfully revoked, the server returns a 204 No Content response. A 204 No Content response is also sent when the Ory Session Token has been revoked already before.  If the Ory Session Token is malformed or does not exist a 403 Forbidden response will be returned.  This endpoint does not remove any HTTP Cookies - use the Browser-Based Self-Service Logout Flow instead.
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="performNativeLogoutBody"></param>
+        /// <param name="kratosPerformNativeLogoutBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> PerformNativeLogoutWithHttpInfoAsync(PerformNativeLogoutBody performNativeLogoutBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> PerformNativeLogoutWithHttpInfoAsync(KratosPerformNativeLogoutBody kratosPerformNativeLogoutBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Check Who the Current HTTP Session Belongs To
         /// </summary>
@@ -1457,8 +1457,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="tokenizeAs">Returns the session additionally as a token (such as a JWT)  The value of this parameter has to be a valid, configured Ory Session token template. For more information head over to [the documentation](http://ory.sh/docs/identities/session-to-jwt-cors). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Session</returns>
-        System.Threading.Tasks.Task<Session> ToSessionAsync(string? xSessionToken = default(string?), string? cookie = default(string?), string? tokenizeAs = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosSession</returns>
+        System.Threading.Tasks.Task<KratosSession> ToSessionAsync(string? xSessionToken = default(string?), string? cookie = default(string?), string? tokenizeAs = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Check Who the Current HTTP Session Belongs To
@@ -1472,8 +1472,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="tokenizeAs">Returns the session additionally as a token (such as a JWT)  The value of this parameter has to be a valid, configured Ory Session token template. For more information head over to [the documentation](http://ory.sh/docs/identities/session-to-jwt-cors). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Session)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Session>> ToSessionWithHttpInfoAsync(string? xSessionToken = default(string?), string? cookie = default(string?), string? tokenizeAs = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosSession)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosSession>> ToSessionWithHttpInfoAsync(string? xSessionToken = default(string?), string? cookie = default(string?), string? tokenizeAs = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Submit a Login Flow
         /// </summary>
@@ -1482,13 +1482,13 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Login Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/login?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateLoginFlowBody"></param>
+        /// <param name="kratosUpdateLoginFlowBody"></param>
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SuccessfulNativeLogin</returns>
-        System.Threading.Tasks.Task<SuccessfulNativeLogin> UpdateLoginFlowAsync(string flow, UpdateLoginFlowBody updateLoginFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosSuccessfulNativeLogin</returns>
+        System.Threading.Tasks.Task<KratosSuccessfulNativeLogin> UpdateLoginFlowAsync(string flow, KratosUpdateLoginFlowBody kratosUpdateLoginFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Submit a Login Flow
@@ -1498,13 +1498,13 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Login Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/login?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateLoginFlowBody"></param>
+        /// <param name="kratosUpdateLoginFlowBody"></param>
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SuccessfulNativeLogin)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SuccessfulNativeLogin>> UpdateLoginFlowWithHttpInfoAsync(string flow, UpdateLoginFlowBody updateLoginFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosSuccessfulNativeLogin)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosSuccessfulNativeLogin>> UpdateLoginFlowWithHttpInfoAsync(string flow, KratosUpdateLoginFlowBody kratosUpdateLoginFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update Logout Flow
         /// </summary>
@@ -1542,13 +1542,13 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Recovery Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/recovery?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateRecoveryFlowBody"></param>
+        /// <param name="kratosUpdateRecoveryFlowBody"></param>
         /// <param name="token">Recovery Token  The recovery token which completes the recovery request. If the token is invalid (e.g. expired) an error will be shown to the end-user.  This parameter is usually set in a link and not used by any direct API call. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RecoveryFlow</returns>
-        System.Threading.Tasks.Task<RecoveryFlow> UpdateRecoveryFlowAsync(string flow, UpdateRecoveryFlowBody updateRecoveryFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosRecoveryFlow</returns>
+        System.Threading.Tasks.Task<KratosRecoveryFlow> UpdateRecoveryFlowAsync(string flow, KratosUpdateRecoveryFlowBody kratosUpdateRecoveryFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Recovery Flow
@@ -1558,13 +1558,13 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Recovery Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/recovery?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateRecoveryFlowBody"></param>
+        /// <param name="kratosUpdateRecoveryFlowBody"></param>
         /// <param name="token">Recovery Token  The recovery token which completes the recovery request. If the token is invalid (e.g. expired) an error will be shown to the end-user.  This parameter is usually set in a link and not used by any direct API call. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RecoveryFlow)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RecoveryFlow>> UpdateRecoveryFlowWithHttpInfoAsync(string flow, UpdateRecoveryFlowBody updateRecoveryFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosRecoveryFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosRecoveryFlow>> UpdateRecoveryFlowWithHttpInfoAsync(string flow, KratosUpdateRecoveryFlowBody kratosUpdateRecoveryFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update Registration Flow
         /// </summary>
@@ -1573,12 +1573,12 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Registration Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/registration?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateRegistrationFlowBody"></param>
+        /// <param name="kratosUpdateRegistrationFlowBody"></param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SuccessfulNativeRegistration</returns>
-        System.Threading.Tasks.Task<SuccessfulNativeRegistration> UpdateRegistrationFlowAsync(string flow, UpdateRegistrationFlowBody updateRegistrationFlowBody, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosSuccessfulNativeRegistration</returns>
+        System.Threading.Tasks.Task<KratosSuccessfulNativeRegistration> UpdateRegistrationFlowAsync(string flow, KratosUpdateRegistrationFlowBody kratosUpdateRegistrationFlowBody, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Registration Flow
@@ -1588,12 +1588,12 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Registration Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/registration?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateRegistrationFlowBody"></param>
+        /// <param name="kratosUpdateRegistrationFlowBody"></param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SuccessfulNativeRegistration)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SuccessfulNativeRegistration>> UpdateRegistrationFlowWithHttpInfoAsync(string flow, UpdateRegistrationFlowBody updateRegistrationFlowBody, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosSuccessfulNativeRegistration)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosSuccessfulNativeRegistration>> UpdateRegistrationFlowWithHttpInfoAsync(string flow, KratosUpdateRegistrationFlowBody kratosUpdateRegistrationFlowBody, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Complete Settings Flow
         /// </summary>
@@ -1602,13 +1602,13 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Settings Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/settings?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateSettingsFlowBody"></param>
+        /// <param name="kratosUpdateSettingsFlowBody"></param>
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SettingsFlow</returns>
-        System.Threading.Tasks.Task<SettingsFlow> UpdateSettingsFlowAsync(string flow, UpdateSettingsFlowBody updateSettingsFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosSettingsFlow</returns>
+        System.Threading.Tasks.Task<KratosSettingsFlow> UpdateSettingsFlowAsync(string flow, KratosUpdateSettingsFlowBody kratosUpdateSettingsFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Complete Settings Flow
@@ -1618,13 +1618,13 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Settings Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/settings?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateSettingsFlowBody"></param>
+        /// <param name="kratosUpdateSettingsFlowBody"></param>
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SettingsFlow)</returns>
-        System.Threading.Tasks.Task<ApiResponse<SettingsFlow>> UpdateSettingsFlowWithHttpInfoAsync(string flow, UpdateSettingsFlowBody updateSettingsFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosSettingsFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosSettingsFlow>> UpdateSettingsFlowWithHttpInfoAsync(string flow, KratosUpdateSettingsFlowBody kratosUpdateSettingsFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Complete Verification Flow
         /// </summary>
@@ -1633,13 +1633,13 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Verification Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/verification?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateVerificationFlowBody"></param>
+        /// <param name="kratosUpdateVerificationFlowBody"></param>
         /// <param name="token">Verification Token  The verification token which completes the verification request. If the token is invalid (e.g. expired) an error will be shown to the end-user.  This parameter is usually set in a link and not used by any direct API call. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of VerificationFlow</returns>
-        System.Threading.Tasks.Task<VerificationFlow> UpdateVerificationFlowAsync(string flow, UpdateVerificationFlowBody updateVerificationFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosVerificationFlow</returns>
+        System.Threading.Tasks.Task<KratosVerificationFlow> UpdateVerificationFlowAsync(string flow, KratosUpdateVerificationFlowBody kratosUpdateVerificationFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Complete Verification Flow
@@ -1649,13 +1649,13 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Verification Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/verification?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateVerificationFlowBody"></param>
+        /// <param name="kratosUpdateVerificationFlowBody"></param>
         /// <param name="token">Verification Token  The verification token which completes the verification request. If the token is invalid (e.g. expired) an error will be shown to the end-user.  This parameter is usually set in a link and not used by any direct API call. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (VerificationFlow)</returns>
-        System.Threading.Tasks.Task<ApiResponse<VerificationFlow>> UpdateVerificationFlowWithHttpInfoAsync(string flow, UpdateVerificationFlowBody updateVerificationFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosVerificationFlow)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosVerificationFlow>> UpdateVerificationFlowWithHttpInfoAsync(string flow, KratosUpdateVerificationFlowBody kratosUpdateVerificationFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1787,10 +1787,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="loginChallenge">An optional Hydra login challenge. If present, Kratos will cooperate with Ory Hydra to act as an OAuth2 identity provider.  The value for this parameter comes from &#x60;login_challenge&#x60; URL Query parameter sent to your application (e.g. &#x60;/login?login_challenge&#x3D;abcde&#x60;). (optional)</param>
         /// <param name="organization">An optional organization ID that should be used for logging this user in. This parameter is only effective in the Ory Network. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>LoginFlow</returns>
-        public LoginFlow CreateBrowserLoginFlow(bool? refresh = default(bool?), string? aal = default(string?), string? returnTo = default(string?), string? cookie = default(string?), string? loginChallenge = default(string?), string? organization = default(string?), int operationIndex = 0)
+        /// <returns>KratosLoginFlow</returns>
+        public KratosLoginFlow CreateBrowserLoginFlow(bool? refresh = default(bool?), string? aal = default(string?), string? returnTo = default(string?), string? cookie = default(string?), string? loginChallenge = default(string?), string? organization = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<LoginFlow> localVarResponse = CreateBrowserLoginFlowWithHttpInfo(refresh, aal, returnTo, cookie, loginChallenge, organization);
+            Ory.Kratos.Client.Client.ApiResponse<KratosLoginFlow> localVarResponse = CreateBrowserLoginFlowWithHttpInfo(refresh, aal, returnTo, cookie, loginChallenge, organization);
             return localVarResponse.Data;
         }
 
@@ -1805,8 +1805,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="loginChallenge">An optional Hydra login challenge. If present, Kratos will cooperate with Ory Hydra to act as an OAuth2 identity provider.  The value for this parameter comes from &#x60;login_challenge&#x60; URL Query parameter sent to your application (e.g. &#x60;/login?login_challenge&#x3D;abcde&#x60;). (optional)</param>
         /// <param name="organization">An optional organization ID that should be used for logging this user in. This parameter is only effective in the Ory Network. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of LoginFlow</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<LoginFlow> CreateBrowserLoginFlowWithHttpInfo(bool? refresh = default(bool?), string? aal = default(string?), string? returnTo = default(string?), string? cookie = default(string?), string? loginChallenge = default(string?), string? organization = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosLoginFlow</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosLoginFlow> CreateBrowserLoginFlowWithHttpInfo(bool? refresh = default(bool?), string? aal = default(string?), string? returnTo = default(string?), string? cookie = default(string?), string? loginChallenge = default(string?), string? organization = default(string?), int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -1860,7 +1860,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<LoginFlow>("/self-service/login/browser", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosLoginFlow>("/self-service/login/browser", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateBrowserLoginFlow", localVarResponse);
@@ -1885,10 +1885,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="organization">An optional organization ID that should be used for logging this user in. This parameter is only effective in the Ory Network. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of LoginFlow</returns>
-        public async System.Threading.Tasks.Task<LoginFlow> CreateBrowserLoginFlowAsync(bool? refresh = default(bool?), string? aal = default(string?), string? returnTo = default(string?), string? cookie = default(string?), string? loginChallenge = default(string?), string? organization = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosLoginFlow</returns>
+        public async System.Threading.Tasks.Task<KratosLoginFlow> CreateBrowserLoginFlowAsync(bool? refresh = default(bool?), string? aal = default(string?), string? returnTo = default(string?), string? cookie = default(string?), string? loginChallenge = default(string?), string? organization = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<LoginFlow> localVarResponse = await CreateBrowserLoginFlowWithHttpInfoAsync(refresh, aal, returnTo, cookie, loginChallenge, organization, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosLoginFlow> localVarResponse = await CreateBrowserLoginFlowWithHttpInfoAsync(refresh, aal, returnTo, cookie, loginChallenge, organization, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1904,8 +1904,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="organization">An optional organization ID that should be used for logging this user in. This parameter is only effective in the Ory Network. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (LoginFlow)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<LoginFlow>> CreateBrowserLoginFlowWithHttpInfoAsync(bool? refresh = default(bool?), string? aal = default(string?), string? returnTo = default(string?), string? cookie = default(string?), string? loginChallenge = default(string?), string? organization = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosLoginFlow)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosLoginFlow>> CreateBrowserLoginFlowWithHttpInfoAsync(bool? refresh = default(bool?), string? aal = default(string?), string? returnTo = default(string?), string? cookie = default(string?), string? loginChallenge = default(string?), string? organization = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -1960,7 +1960,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<LoginFlow>("/self-service/login/browser", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosLoginFlow>("/self-service/login/browser", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1981,10 +1981,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  If you call this endpoint from a backend, please include the original Cookie header in the request. (optional)</param>
         /// <param name="returnTo">Return to URL  The URL to which the browser should be redirected to after the logout has been performed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>LogoutFlow</returns>
-        public LogoutFlow CreateBrowserLogoutFlow(string? cookie = default(string?), string? returnTo = default(string?), int operationIndex = 0)
+        /// <returns>KratosLogoutFlow</returns>
+        public KratosLogoutFlow CreateBrowserLogoutFlow(string? cookie = default(string?), string? returnTo = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<LogoutFlow> localVarResponse = CreateBrowserLogoutFlowWithHttpInfo(cookie, returnTo);
+            Ory.Kratos.Client.Client.ApiResponse<KratosLogoutFlow> localVarResponse = CreateBrowserLogoutFlowWithHttpInfo(cookie, returnTo);
             return localVarResponse.Data;
         }
 
@@ -1995,8 +1995,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  If you call this endpoint from a backend, please include the original Cookie header in the request. (optional)</param>
         /// <param name="returnTo">Return to URL  The URL to which the browser should be redirected to after the logout has been performed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of LogoutFlow</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<LogoutFlow> CreateBrowserLogoutFlowWithHttpInfo(string? cookie = default(string?), string? returnTo = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosLogoutFlow</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosLogoutFlow> CreateBrowserLogoutFlowWithHttpInfo(string? cookie = default(string?), string? returnTo = default(string?), int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -2034,7 +2034,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<LogoutFlow>("/self-service/logout/browser", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosLogoutFlow>("/self-service/logout/browser", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateBrowserLogoutFlow", localVarResponse);
@@ -2055,10 +2055,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">Return to URL  The URL to which the browser should be redirected to after the logout has been performed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of LogoutFlow</returns>
-        public async System.Threading.Tasks.Task<LogoutFlow> CreateBrowserLogoutFlowAsync(string? cookie = default(string?), string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosLogoutFlow</returns>
+        public async System.Threading.Tasks.Task<KratosLogoutFlow> CreateBrowserLogoutFlowAsync(string? cookie = default(string?), string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<LogoutFlow> localVarResponse = await CreateBrowserLogoutFlowWithHttpInfoAsync(cookie, returnTo, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosLogoutFlow> localVarResponse = await CreateBrowserLogoutFlowWithHttpInfoAsync(cookie, returnTo, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2070,8 +2070,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">Return to URL  The URL to which the browser should be redirected to after the logout has been performed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (LogoutFlow)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<LogoutFlow>> CreateBrowserLogoutFlowWithHttpInfoAsync(string? cookie = default(string?), string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosLogoutFlow)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosLogoutFlow>> CreateBrowserLogoutFlowWithHttpInfoAsync(string? cookie = default(string?), string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -2110,7 +2110,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<LogoutFlow>("/self-service/logout/browser", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosLogoutFlow>("/self-service/logout/browser", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2130,10 +2130,10 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>RecoveryFlow</returns>
-        public RecoveryFlow CreateBrowserRecoveryFlow(string? returnTo = default(string?), int operationIndex = 0)
+        /// <returns>KratosRecoveryFlow</returns>
+        public KratosRecoveryFlow CreateBrowserRecoveryFlow(string? returnTo = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<RecoveryFlow> localVarResponse = CreateBrowserRecoveryFlowWithHttpInfo(returnTo);
+            Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryFlow> localVarResponse = CreateBrowserRecoveryFlowWithHttpInfo(returnTo);
             return localVarResponse.Data;
         }
 
@@ -2143,8 +2143,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of RecoveryFlow</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<RecoveryFlow> CreateBrowserRecoveryFlowWithHttpInfo(string? returnTo = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosRecoveryFlow</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryFlow> CreateBrowserRecoveryFlowWithHttpInfo(string? returnTo = default(string?), int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -2178,7 +2178,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<RecoveryFlow>("/self-service/recovery/browser", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosRecoveryFlow>("/self-service/recovery/browser", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateBrowserRecoveryFlow", localVarResponse);
@@ -2198,10 +2198,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RecoveryFlow</returns>
-        public async System.Threading.Tasks.Task<RecoveryFlow> CreateBrowserRecoveryFlowAsync(string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosRecoveryFlow</returns>
+        public async System.Threading.Tasks.Task<KratosRecoveryFlow> CreateBrowserRecoveryFlowAsync(string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<RecoveryFlow> localVarResponse = await CreateBrowserRecoveryFlowWithHttpInfoAsync(returnTo, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryFlow> localVarResponse = await CreateBrowserRecoveryFlowWithHttpInfoAsync(returnTo, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2212,8 +2212,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RecoveryFlow)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<RecoveryFlow>> CreateBrowserRecoveryFlowWithHttpInfoAsync(string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosRecoveryFlow)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryFlow>> CreateBrowserRecoveryFlowWithHttpInfoAsync(string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -2248,7 +2248,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<RecoveryFlow>("/self-service/recovery/browser", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosRecoveryFlow>("/self-service/recovery/browser", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2271,10 +2271,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="afterVerificationReturnTo">The URL to return the browser to after the verification flow was completed.  After the registration flow is completed, the user will be sent a verification email. Upon completing the verification flow, this URL will be used to override the default &#x60;selfservice.flows.verification.after.default_redirect_to&#x60; value. (optional)</param>
         /// <param name="organization"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>RegistrationFlow</returns>
-        public RegistrationFlow CreateBrowserRegistrationFlow(string? returnTo = default(string?), string? loginChallenge = default(string?), string? afterVerificationReturnTo = default(string?), string? organization = default(string?), int operationIndex = 0)
+        /// <returns>KratosRegistrationFlow</returns>
+        public KratosRegistrationFlow CreateBrowserRegistrationFlow(string? returnTo = default(string?), string? loginChallenge = default(string?), string? afterVerificationReturnTo = default(string?), string? organization = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<RegistrationFlow> localVarResponse = CreateBrowserRegistrationFlowWithHttpInfo(returnTo, loginChallenge, afterVerificationReturnTo, organization);
+            Ory.Kratos.Client.Client.ApiResponse<KratosRegistrationFlow> localVarResponse = CreateBrowserRegistrationFlowWithHttpInfo(returnTo, loginChallenge, afterVerificationReturnTo, organization);
             return localVarResponse.Data;
         }
 
@@ -2287,8 +2287,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="afterVerificationReturnTo">The URL to return the browser to after the verification flow was completed.  After the registration flow is completed, the user will be sent a verification email. Upon completing the verification flow, this URL will be used to override the default &#x60;selfservice.flows.verification.after.default_redirect_to&#x60; value. (optional)</param>
         /// <param name="organization"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of RegistrationFlow</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<RegistrationFlow> CreateBrowserRegistrationFlowWithHttpInfo(string? returnTo = default(string?), string? loginChallenge = default(string?), string? afterVerificationReturnTo = default(string?), string? organization = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosRegistrationFlow</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosRegistrationFlow> CreateBrowserRegistrationFlowWithHttpInfo(string? returnTo = default(string?), string? loginChallenge = default(string?), string? afterVerificationReturnTo = default(string?), string? organization = default(string?), int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -2334,7 +2334,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<RegistrationFlow>("/self-service/registration/browser", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosRegistrationFlow>("/self-service/registration/browser", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateBrowserRegistrationFlow", localVarResponse);
@@ -2357,10 +2357,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="organization"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RegistrationFlow</returns>
-        public async System.Threading.Tasks.Task<RegistrationFlow> CreateBrowserRegistrationFlowAsync(string? returnTo = default(string?), string? loginChallenge = default(string?), string? afterVerificationReturnTo = default(string?), string? organization = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosRegistrationFlow</returns>
+        public async System.Threading.Tasks.Task<KratosRegistrationFlow> CreateBrowserRegistrationFlowAsync(string? returnTo = default(string?), string? loginChallenge = default(string?), string? afterVerificationReturnTo = default(string?), string? organization = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<RegistrationFlow> localVarResponse = await CreateBrowserRegistrationFlowWithHttpInfoAsync(returnTo, loginChallenge, afterVerificationReturnTo, organization, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosRegistrationFlow> localVarResponse = await CreateBrowserRegistrationFlowWithHttpInfoAsync(returnTo, loginChallenge, afterVerificationReturnTo, organization, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2374,8 +2374,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="organization"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RegistrationFlow)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<RegistrationFlow>> CreateBrowserRegistrationFlowWithHttpInfoAsync(string? returnTo = default(string?), string? loginChallenge = default(string?), string? afterVerificationReturnTo = default(string?), string? organization = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosRegistrationFlow)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosRegistrationFlow>> CreateBrowserRegistrationFlowWithHttpInfoAsync(string? returnTo = default(string?), string? loginChallenge = default(string?), string? afterVerificationReturnTo = default(string?), string? organization = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -2422,7 +2422,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<RegistrationFlow>("/self-service/registration/browser", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosRegistrationFlow>("/self-service/registration/browser", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2443,10 +2443,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>SettingsFlow</returns>
-        public SettingsFlow CreateBrowserSettingsFlow(string? returnTo = default(string?), string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>KratosSettingsFlow</returns>
+        public KratosSettingsFlow CreateBrowserSettingsFlow(string? returnTo = default(string?), string? cookie = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<SettingsFlow> localVarResponse = CreateBrowserSettingsFlowWithHttpInfo(returnTo, cookie);
+            Ory.Kratos.Client.Client.ApiResponse<KratosSettingsFlow> localVarResponse = CreateBrowserSettingsFlowWithHttpInfo(returnTo, cookie);
             return localVarResponse.Data;
         }
 
@@ -2457,8 +2457,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of SettingsFlow</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<SettingsFlow> CreateBrowserSettingsFlowWithHttpInfo(string? returnTo = default(string?), string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosSettingsFlow</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosSettingsFlow> CreateBrowserSettingsFlowWithHttpInfo(string? returnTo = default(string?), string? cookie = default(string?), int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -2496,7 +2496,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<SettingsFlow>("/self-service/settings/browser", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosSettingsFlow>("/self-service/settings/browser", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateBrowserSettingsFlow", localVarResponse);
@@ -2517,10 +2517,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SettingsFlow</returns>
-        public async System.Threading.Tasks.Task<SettingsFlow> CreateBrowserSettingsFlowAsync(string? returnTo = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosSettingsFlow</returns>
+        public async System.Threading.Tasks.Task<KratosSettingsFlow> CreateBrowserSettingsFlowAsync(string? returnTo = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<SettingsFlow> localVarResponse = await CreateBrowserSettingsFlowWithHttpInfoAsync(returnTo, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosSettingsFlow> localVarResponse = await CreateBrowserSettingsFlowWithHttpInfoAsync(returnTo, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2532,8 +2532,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SettingsFlow)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<SettingsFlow>> CreateBrowserSettingsFlowWithHttpInfoAsync(string? returnTo = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosSettingsFlow)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosSettingsFlow>> CreateBrowserSettingsFlowWithHttpInfoAsync(string? returnTo = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -2572,7 +2572,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<SettingsFlow>("/self-service/settings/browser", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosSettingsFlow>("/self-service/settings/browser", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2592,10 +2592,10 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>VerificationFlow</returns>
-        public VerificationFlow CreateBrowserVerificationFlow(string? returnTo = default(string?), int operationIndex = 0)
+        /// <returns>KratosVerificationFlow</returns>
+        public KratosVerificationFlow CreateBrowserVerificationFlow(string? returnTo = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<VerificationFlow> localVarResponse = CreateBrowserVerificationFlowWithHttpInfo(returnTo);
+            Ory.Kratos.Client.Client.ApiResponse<KratosVerificationFlow> localVarResponse = CreateBrowserVerificationFlowWithHttpInfo(returnTo);
             return localVarResponse.Data;
         }
 
@@ -2605,8 +2605,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of VerificationFlow</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<VerificationFlow> CreateBrowserVerificationFlowWithHttpInfo(string? returnTo = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosVerificationFlow</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosVerificationFlow> CreateBrowserVerificationFlowWithHttpInfo(string? returnTo = default(string?), int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -2640,7 +2640,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<VerificationFlow>("/self-service/verification/browser", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosVerificationFlow>("/self-service/verification/browser", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateBrowserVerificationFlow", localVarResponse);
@@ -2660,10 +2660,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of VerificationFlow</returns>
-        public async System.Threading.Tasks.Task<VerificationFlow> CreateBrowserVerificationFlowAsync(string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosVerificationFlow</returns>
+        public async System.Threading.Tasks.Task<KratosVerificationFlow> CreateBrowserVerificationFlowAsync(string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<VerificationFlow> localVarResponse = await CreateBrowserVerificationFlowWithHttpInfoAsync(returnTo, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosVerificationFlow> localVarResponse = await CreateBrowserVerificationFlowWithHttpInfoAsync(returnTo, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2674,8 +2674,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (VerificationFlow)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<VerificationFlow>> CreateBrowserVerificationFlowWithHttpInfoAsync(string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosVerificationFlow)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosVerificationFlow>> CreateBrowserVerificationFlowWithHttpInfoAsync(string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -2710,7 +2710,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<VerificationFlow>("/self-service/verification/browser", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosVerificationFlow>("/self-service/verification/browser", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2735,10 +2735,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="via">Via should contain the identity&#39;s credential the code should be sent to. Only relevant in aal2 flows. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>LoginFlow</returns>
-        public LoginFlow CreateNativeLoginFlow(bool? refresh = default(bool?), string? aal = default(string?), string? xSessionToken = default(string?), bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), string? via = default(string?), int operationIndex = 0)
+        /// <returns>KratosLoginFlow</returns>
+        public KratosLoginFlow CreateNativeLoginFlow(bool? refresh = default(bool?), string? aal = default(string?), string? xSessionToken = default(string?), bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), string? via = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<LoginFlow> localVarResponse = CreateNativeLoginFlowWithHttpInfo(refresh, aal, xSessionToken, returnSessionTokenExchangeCode, returnTo, via);
+            Ory.Kratos.Client.Client.ApiResponse<KratosLoginFlow> localVarResponse = CreateNativeLoginFlowWithHttpInfo(refresh, aal, xSessionToken, returnSessionTokenExchangeCode, returnTo, via);
             return localVarResponse.Data;
         }
 
@@ -2753,8 +2753,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="via">Via should contain the identity&#39;s credential the code should be sent to. Only relevant in aal2 flows. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of LoginFlow</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<LoginFlow> CreateNativeLoginFlowWithHttpInfo(bool? refresh = default(bool?), string? aal = default(string?), string? xSessionToken = default(string?), bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), string? via = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosLoginFlow</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosLoginFlow> CreateNativeLoginFlowWithHttpInfo(bool? refresh = default(bool?), string? aal = default(string?), string? xSessionToken = default(string?), bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), string? via = default(string?), int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -2808,7 +2808,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<LoginFlow>("/self-service/login/api", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosLoginFlow>("/self-service/login/api", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateNativeLoginFlow", localVarResponse);
@@ -2833,10 +2833,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="via">Via should contain the identity&#39;s credential the code should be sent to. Only relevant in aal2 flows. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of LoginFlow</returns>
-        public async System.Threading.Tasks.Task<LoginFlow> CreateNativeLoginFlowAsync(bool? refresh = default(bool?), string? aal = default(string?), string? xSessionToken = default(string?), bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), string? via = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosLoginFlow</returns>
+        public async System.Threading.Tasks.Task<KratosLoginFlow> CreateNativeLoginFlowAsync(bool? refresh = default(bool?), string? aal = default(string?), string? xSessionToken = default(string?), bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), string? via = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<LoginFlow> localVarResponse = await CreateNativeLoginFlowWithHttpInfoAsync(refresh, aal, xSessionToken, returnSessionTokenExchangeCode, returnTo, via, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosLoginFlow> localVarResponse = await CreateNativeLoginFlowWithHttpInfoAsync(refresh, aal, xSessionToken, returnSessionTokenExchangeCode, returnTo, via, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2852,8 +2852,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="via">Via should contain the identity&#39;s credential the code should be sent to. Only relevant in aal2 flows. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (LoginFlow)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<LoginFlow>> CreateNativeLoginFlowWithHttpInfoAsync(bool? refresh = default(bool?), string? aal = default(string?), string? xSessionToken = default(string?), bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), string? via = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosLoginFlow)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosLoginFlow>> CreateNativeLoginFlowWithHttpInfoAsync(bool? refresh = default(bool?), string? aal = default(string?), string? xSessionToken = default(string?), bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), string? via = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -2908,7 +2908,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<LoginFlow>("/self-service/login/api", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosLoginFlow>("/self-service/login/api", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2927,10 +2927,10 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>RecoveryFlow</returns>
-        public RecoveryFlow CreateNativeRecoveryFlow(int operationIndex = 0)
+        /// <returns>KratosRecoveryFlow</returns>
+        public KratosRecoveryFlow CreateNativeRecoveryFlow(int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<RecoveryFlow> localVarResponse = CreateNativeRecoveryFlowWithHttpInfo();
+            Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryFlow> localVarResponse = CreateNativeRecoveryFlowWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -2939,8 +2939,8 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of RecoveryFlow</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<RecoveryFlow> CreateNativeRecoveryFlowWithHttpInfo(int operationIndex = 0)
+        /// <returns>ApiResponse of KratosRecoveryFlow</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryFlow> CreateNativeRecoveryFlowWithHttpInfo(int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -2970,7 +2970,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<RecoveryFlow>("/self-service/recovery/api", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosRecoveryFlow>("/self-service/recovery/api", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateNativeRecoveryFlow", localVarResponse);
@@ -2989,10 +2989,10 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RecoveryFlow</returns>
-        public async System.Threading.Tasks.Task<RecoveryFlow> CreateNativeRecoveryFlowAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosRecoveryFlow</returns>
+        public async System.Threading.Tasks.Task<KratosRecoveryFlow> CreateNativeRecoveryFlowAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<RecoveryFlow> localVarResponse = await CreateNativeRecoveryFlowWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryFlow> localVarResponse = await CreateNativeRecoveryFlowWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3002,8 +3002,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RecoveryFlow)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<RecoveryFlow>> CreateNativeRecoveryFlowWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosRecoveryFlow)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryFlow>> CreateNativeRecoveryFlowWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -3034,7 +3034,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<RecoveryFlow>("/self-service/recovery/api", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosRecoveryFlow>("/self-service/recovery/api", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3055,10 +3055,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnSessionTokenExchangeCode">EnableSessionTokenExchangeCode requests the login flow to include a code that can be used to retrieve the session token after the login flow has been completed. (optional)</param>
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>RegistrationFlow</returns>
-        public RegistrationFlow CreateNativeRegistrationFlow(bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), int operationIndex = 0)
+        /// <returns>KratosRegistrationFlow</returns>
+        public KratosRegistrationFlow CreateNativeRegistrationFlow(bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<RegistrationFlow> localVarResponse = CreateNativeRegistrationFlowWithHttpInfo(returnSessionTokenExchangeCode, returnTo);
+            Ory.Kratos.Client.Client.ApiResponse<KratosRegistrationFlow> localVarResponse = CreateNativeRegistrationFlowWithHttpInfo(returnSessionTokenExchangeCode, returnTo);
             return localVarResponse.Data;
         }
 
@@ -3069,8 +3069,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnSessionTokenExchangeCode">EnableSessionTokenExchangeCode requests the login flow to include a code that can be used to retrieve the session token after the login flow has been completed. (optional)</param>
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of RegistrationFlow</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<RegistrationFlow> CreateNativeRegistrationFlowWithHttpInfo(bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosRegistrationFlow</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosRegistrationFlow> CreateNativeRegistrationFlowWithHttpInfo(bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -3108,7 +3108,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<RegistrationFlow>("/self-service/registration/api", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosRegistrationFlow>("/self-service/registration/api", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateNativeRegistrationFlow", localVarResponse);
@@ -3129,10 +3129,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RegistrationFlow</returns>
-        public async System.Threading.Tasks.Task<RegistrationFlow> CreateNativeRegistrationFlowAsync(bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosRegistrationFlow</returns>
+        public async System.Threading.Tasks.Task<KratosRegistrationFlow> CreateNativeRegistrationFlowAsync(bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<RegistrationFlow> localVarResponse = await CreateNativeRegistrationFlowWithHttpInfoAsync(returnSessionTokenExchangeCode, returnTo, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosRegistrationFlow> localVarResponse = await CreateNativeRegistrationFlowWithHttpInfoAsync(returnSessionTokenExchangeCode, returnTo, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3144,8 +3144,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnTo">The URL to return the browser to after the flow was completed. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RegistrationFlow)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<RegistrationFlow>> CreateNativeRegistrationFlowWithHttpInfoAsync(bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosRegistrationFlow)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosRegistrationFlow>> CreateNativeRegistrationFlowWithHttpInfoAsync(bool? returnSessionTokenExchangeCode = default(bool?), string? returnTo = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -3184,7 +3184,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<RegistrationFlow>("/self-service/registration/api", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosRegistrationFlow>("/self-service/registration/api", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3204,10 +3204,10 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>SettingsFlow</returns>
-        public SettingsFlow CreateNativeSettingsFlow(string? xSessionToken = default(string?), int operationIndex = 0)
+        /// <returns>KratosSettingsFlow</returns>
+        public KratosSettingsFlow CreateNativeSettingsFlow(string? xSessionToken = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<SettingsFlow> localVarResponse = CreateNativeSettingsFlowWithHttpInfo(xSessionToken);
+            Ory.Kratos.Client.Client.ApiResponse<KratosSettingsFlow> localVarResponse = CreateNativeSettingsFlowWithHttpInfo(xSessionToken);
             return localVarResponse.Data;
         }
 
@@ -3217,8 +3217,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of SettingsFlow</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<SettingsFlow> CreateNativeSettingsFlowWithHttpInfo(string? xSessionToken = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosSettingsFlow</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosSettingsFlow> CreateNativeSettingsFlowWithHttpInfo(string? xSessionToken = default(string?), int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -3252,7 +3252,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<SettingsFlow>("/self-service/settings/api", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosSettingsFlow>("/self-service/settings/api", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateNativeSettingsFlow", localVarResponse);
@@ -3272,10 +3272,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SettingsFlow</returns>
-        public async System.Threading.Tasks.Task<SettingsFlow> CreateNativeSettingsFlowAsync(string? xSessionToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosSettingsFlow</returns>
+        public async System.Threading.Tasks.Task<KratosSettingsFlow> CreateNativeSettingsFlowAsync(string? xSessionToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<SettingsFlow> localVarResponse = await CreateNativeSettingsFlowWithHttpInfoAsync(xSessionToken, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosSettingsFlow> localVarResponse = await CreateNativeSettingsFlowWithHttpInfoAsync(xSessionToken, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3286,8 +3286,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SettingsFlow)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<SettingsFlow>> CreateNativeSettingsFlowWithHttpInfoAsync(string? xSessionToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosSettingsFlow)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosSettingsFlow>> CreateNativeSettingsFlowWithHttpInfoAsync(string? xSessionToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -3322,7 +3322,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<SettingsFlow>("/self-service/settings/api", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosSettingsFlow>("/self-service/settings/api", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3341,10 +3341,10 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>VerificationFlow</returns>
-        public VerificationFlow CreateNativeVerificationFlow(int operationIndex = 0)
+        /// <returns>KratosVerificationFlow</returns>
+        public KratosVerificationFlow CreateNativeVerificationFlow(int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<VerificationFlow> localVarResponse = CreateNativeVerificationFlowWithHttpInfo();
+            Ory.Kratos.Client.Client.ApiResponse<KratosVerificationFlow> localVarResponse = CreateNativeVerificationFlowWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -3353,8 +3353,8 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of VerificationFlow</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<VerificationFlow> CreateNativeVerificationFlowWithHttpInfo(int operationIndex = 0)
+        /// <returns>ApiResponse of KratosVerificationFlow</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosVerificationFlow> CreateNativeVerificationFlowWithHttpInfo(int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -3384,7 +3384,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<VerificationFlow>("/self-service/verification/api", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosVerificationFlow>("/self-service/verification/api", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateNativeVerificationFlow", localVarResponse);
@@ -3403,10 +3403,10 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of VerificationFlow</returns>
-        public async System.Threading.Tasks.Task<VerificationFlow> CreateNativeVerificationFlowAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosVerificationFlow</returns>
+        public async System.Threading.Tasks.Task<KratosVerificationFlow> CreateNativeVerificationFlowAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<VerificationFlow> localVarResponse = await CreateNativeVerificationFlowWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosVerificationFlow> localVarResponse = await CreateNativeVerificationFlowWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3416,8 +3416,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (VerificationFlow)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<VerificationFlow>> CreateNativeVerificationFlowWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosVerificationFlow)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosVerificationFlow>> CreateNativeVerificationFlowWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -3448,7 +3448,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<VerificationFlow>("/self-service/verification/api", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosVerificationFlow>("/self-service/verification/api", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3469,10 +3469,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="xSessionToken">Set the Session Token when calling from non-browser clients. A session token has a format of &#x60;MP2YWEMeM8MxjkGKpH4dqOQ4Q4DlSPaj&#x60;. (optional)</param>
         /// <param name="cookie">Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: &#x60;ory_kratos_session&#x3D;a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f&#x3D;&#x3D;&#x60;.  It is ok if more than one cookie are included here as all other cookies will be ignored. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>DeleteMySessionsCount</returns>
-        public DeleteMySessionsCount DisableMyOtherSessions(string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>KratosDeleteMySessionsCount</returns>
+        public KratosDeleteMySessionsCount DisableMyOtherSessions(string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<DeleteMySessionsCount> localVarResponse = DisableMyOtherSessionsWithHttpInfo(xSessionToken, cookie);
+            Ory.Kratos.Client.Client.ApiResponse<KratosDeleteMySessionsCount> localVarResponse = DisableMyOtherSessionsWithHttpInfo(xSessionToken, cookie);
             return localVarResponse.Data;
         }
 
@@ -3483,8 +3483,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="xSessionToken">Set the Session Token when calling from non-browser clients. A session token has a format of &#x60;MP2YWEMeM8MxjkGKpH4dqOQ4Q4DlSPaj&#x60;. (optional)</param>
         /// <param name="cookie">Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: &#x60;ory_kratos_session&#x3D;a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f&#x3D;&#x3D;&#x60;.  It is ok if more than one cookie are included here as all other cookies will be ignored. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of DeleteMySessionsCount</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<DeleteMySessionsCount> DisableMyOtherSessionsWithHttpInfo(string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosDeleteMySessionsCount</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosDeleteMySessionsCount> DisableMyOtherSessionsWithHttpInfo(string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -3522,7 +3522,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<DeleteMySessionsCount>("/sessions", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<KratosDeleteMySessionsCount>("/sessions", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DisableMyOtherSessions", localVarResponse);
@@ -3543,10 +3543,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: &#x60;ory_kratos_session&#x3D;a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f&#x3D;&#x3D;&#x60;.  It is ok if more than one cookie are included here as all other cookies will be ignored. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of DeleteMySessionsCount</returns>
-        public async System.Threading.Tasks.Task<DeleteMySessionsCount> DisableMyOtherSessionsAsync(string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosDeleteMySessionsCount</returns>
+        public async System.Threading.Tasks.Task<KratosDeleteMySessionsCount> DisableMyOtherSessionsAsync(string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<DeleteMySessionsCount> localVarResponse = await DisableMyOtherSessionsWithHttpInfoAsync(xSessionToken, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosDeleteMySessionsCount> localVarResponse = await DisableMyOtherSessionsWithHttpInfoAsync(xSessionToken, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3558,8 +3558,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: &#x60;ory_kratos_session&#x3D;a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f&#x3D;&#x3D;&#x60;.  It is ok if more than one cookie are included here as all other cookies will be ignored. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (DeleteMySessionsCount)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<DeleteMySessionsCount>> DisableMyOtherSessionsWithHttpInfoAsync(string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosDeleteMySessionsCount)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosDeleteMySessionsCount>> DisableMyOtherSessionsWithHttpInfoAsync(string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -3598,7 +3598,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeleteMySessionsCount>("/sessions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<KratosDeleteMySessionsCount>("/sessions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3785,10 +3785,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="initCode">The part of the code return when initializing the flow.</param>
         /// <param name="returnToCode">The part of the code returned by the return_to URL.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>SuccessfulNativeLogin</returns>
-        public SuccessfulNativeLogin ExchangeSessionToken(string initCode, string returnToCode, int operationIndex = 0)
+        /// <returns>KratosSuccessfulNativeLogin</returns>
+        public KratosSuccessfulNativeLogin ExchangeSessionToken(string initCode, string returnToCode, int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<SuccessfulNativeLogin> localVarResponse = ExchangeSessionTokenWithHttpInfo(initCode, returnToCode);
+            Ory.Kratos.Client.Client.ApiResponse<KratosSuccessfulNativeLogin> localVarResponse = ExchangeSessionTokenWithHttpInfo(initCode, returnToCode);
             return localVarResponse.Data;
         }
 
@@ -3799,8 +3799,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="initCode">The part of the code return when initializing the flow.</param>
         /// <param name="returnToCode">The part of the code returned by the return_to URL.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of SuccessfulNativeLogin</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<SuccessfulNativeLogin> ExchangeSessionTokenWithHttpInfo(string initCode, string returnToCode, int operationIndex = 0)
+        /// <returns>ApiResponse of KratosSuccessfulNativeLogin</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosSuccessfulNativeLogin> ExchangeSessionTokenWithHttpInfo(string initCode, string returnToCode, int operationIndex = 0)
         {
             // verify the required parameter 'initCode' is set
             if (initCode == null)
@@ -3844,7 +3844,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<SuccessfulNativeLogin>("/sessions/token-exchange", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosSuccessfulNativeLogin>("/sessions/token-exchange", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ExchangeSessionToken", localVarResponse);
@@ -3865,10 +3865,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnToCode">The part of the code returned by the return_to URL.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SuccessfulNativeLogin</returns>
-        public async System.Threading.Tasks.Task<SuccessfulNativeLogin> ExchangeSessionTokenAsync(string initCode, string returnToCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosSuccessfulNativeLogin</returns>
+        public async System.Threading.Tasks.Task<KratosSuccessfulNativeLogin> ExchangeSessionTokenAsync(string initCode, string returnToCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<SuccessfulNativeLogin> localVarResponse = await ExchangeSessionTokenWithHttpInfoAsync(initCode, returnToCode, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosSuccessfulNativeLogin> localVarResponse = await ExchangeSessionTokenWithHttpInfoAsync(initCode, returnToCode, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3880,8 +3880,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="returnToCode">The part of the code returned by the return_to URL.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SuccessfulNativeLogin)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<SuccessfulNativeLogin>> ExchangeSessionTokenWithHttpInfoAsync(string initCode, string returnToCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosSuccessfulNativeLogin)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosSuccessfulNativeLogin>> ExchangeSessionTokenWithHttpInfoAsync(string initCode, string returnToCode, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'initCode' is set
             if (initCode == null)
@@ -3926,7 +3926,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<SuccessfulNativeLogin>("/sessions/token-exchange", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosSuccessfulNativeLogin>("/sessions/token-exchange", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3946,10 +3946,10 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Error is the error&#39;s ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>FlowError</returns>
-        public FlowError GetFlowError(string id, int operationIndex = 0)
+        /// <returns>KratosFlowError</returns>
+        public KratosFlowError GetFlowError(string id, int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<FlowError> localVarResponse = GetFlowErrorWithHttpInfo(id);
+            Ory.Kratos.Client.Client.ApiResponse<KratosFlowError> localVarResponse = GetFlowErrorWithHttpInfo(id);
             return localVarResponse.Data;
         }
 
@@ -3959,8 +3959,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Error is the error&#39;s ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of FlowError</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<FlowError> GetFlowErrorWithHttpInfo(string id, int operationIndex = 0)
+        /// <returns>ApiResponse of KratosFlowError</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosFlowError> GetFlowErrorWithHttpInfo(string id, int operationIndex = 0)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -3997,7 +3997,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FlowError>("/self-service/errors", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosFlowError>("/self-service/errors", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetFlowError", localVarResponse);
@@ -4017,10 +4017,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">Error is the error&#39;s ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of FlowError</returns>
-        public async System.Threading.Tasks.Task<FlowError> GetFlowErrorAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosFlowError</returns>
+        public async System.Threading.Tasks.Task<KratosFlowError> GetFlowErrorAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<FlowError> localVarResponse = await GetFlowErrorWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosFlowError> localVarResponse = await GetFlowErrorWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4031,8 +4031,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">Error is the error&#39;s ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (FlowError)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<FlowError>> GetFlowErrorWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosFlowError)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosFlowError>> GetFlowErrorWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -4070,7 +4070,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FlowError>("/self-service/errors", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosFlowError>("/self-service/errors", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4091,10 +4091,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">The Login Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/login?flow&#x3D;abcde&#x60;).</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>LoginFlow</returns>
-        public LoginFlow GetLoginFlow(string id, string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>KratosLoginFlow</returns>
+        public KratosLoginFlow GetLoginFlow(string id, string? cookie = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<LoginFlow> localVarResponse = GetLoginFlowWithHttpInfo(id, cookie);
+            Ory.Kratos.Client.Client.ApiResponse<KratosLoginFlow> localVarResponse = GetLoginFlowWithHttpInfo(id, cookie);
             return localVarResponse.Data;
         }
 
@@ -4105,8 +4105,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">The Login Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/login?flow&#x3D;abcde&#x60;).</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of LoginFlow</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<LoginFlow> GetLoginFlowWithHttpInfo(string id, string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosLoginFlow</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosLoginFlow> GetLoginFlowWithHttpInfo(string id, string? cookie = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -4147,7 +4147,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<LoginFlow>("/self-service/login/flows", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosLoginFlow>("/self-service/login/flows", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetLoginFlow", localVarResponse);
@@ -4168,10 +4168,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of LoginFlow</returns>
-        public async System.Threading.Tasks.Task<LoginFlow> GetLoginFlowAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosLoginFlow</returns>
+        public async System.Threading.Tasks.Task<KratosLoginFlow> GetLoginFlowAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<LoginFlow> localVarResponse = await GetLoginFlowWithHttpInfoAsync(id, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosLoginFlow> localVarResponse = await GetLoginFlowWithHttpInfoAsync(id, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4183,8 +4183,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (LoginFlow)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<LoginFlow>> GetLoginFlowWithHttpInfoAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosLoginFlow)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosLoginFlow>> GetLoginFlowWithHttpInfoAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -4226,7 +4226,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<LoginFlow>("/self-service/login/flows", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosLoginFlow>("/self-service/login/flows", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4247,10 +4247,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">The Flow ID  The value for this parameter comes from &#x60;request&#x60; URL Query parameter sent to your application (e.g. &#x60;/recovery?flow&#x3D;abcde&#x60;).</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>RecoveryFlow</returns>
-        public RecoveryFlow GetRecoveryFlow(string id, string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>KratosRecoveryFlow</returns>
+        public KratosRecoveryFlow GetRecoveryFlow(string id, string? cookie = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<RecoveryFlow> localVarResponse = GetRecoveryFlowWithHttpInfo(id, cookie);
+            Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryFlow> localVarResponse = GetRecoveryFlowWithHttpInfo(id, cookie);
             return localVarResponse.Data;
         }
 
@@ -4261,8 +4261,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">The Flow ID  The value for this parameter comes from &#x60;request&#x60; URL Query parameter sent to your application (e.g. &#x60;/recovery?flow&#x3D;abcde&#x60;).</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of RecoveryFlow</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<RecoveryFlow> GetRecoveryFlowWithHttpInfo(string id, string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosRecoveryFlow</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryFlow> GetRecoveryFlowWithHttpInfo(string id, string? cookie = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -4303,7 +4303,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<RecoveryFlow>("/self-service/recovery/flows", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosRecoveryFlow>("/self-service/recovery/flows", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRecoveryFlow", localVarResponse);
@@ -4324,10 +4324,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RecoveryFlow</returns>
-        public async System.Threading.Tasks.Task<RecoveryFlow> GetRecoveryFlowAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosRecoveryFlow</returns>
+        public async System.Threading.Tasks.Task<KratosRecoveryFlow> GetRecoveryFlowAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<RecoveryFlow> localVarResponse = await GetRecoveryFlowWithHttpInfoAsync(id, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryFlow> localVarResponse = await GetRecoveryFlowWithHttpInfoAsync(id, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4339,8 +4339,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RecoveryFlow)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<RecoveryFlow>> GetRecoveryFlowWithHttpInfoAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosRecoveryFlow)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryFlow>> GetRecoveryFlowWithHttpInfoAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -4382,7 +4382,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<RecoveryFlow>("/self-service/recovery/flows", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosRecoveryFlow>("/self-service/recovery/flows", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4403,10 +4403,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">The Registration Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/registration?flow&#x3D;abcde&#x60;).</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>RegistrationFlow</returns>
-        public RegistrationFlow GetRegistrationFlow(string id, string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>KratosRegistrationFlow</returns>
+        public KratosRegistrationFlow GetRegistrationFlow(string id, string? cookie = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<RegistrationFlow> localVarResponse = GetRegistrationFlowWithHttpInfo(id, cookie);
+            Ory.Kratos.Client.Client.ApiResponse<KratosRegistrationFlow> localVarResponse = GetRegistrationFlowWithHttpInfo(id, cookie);
             return localVarResponse.Data;
         }
 
@@ -4417,8 +4417,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">The Registration Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/registration?flow&#x3D;abcde&#x60;).</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of RegistrationFlow</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<RegistrationFlow> GetRegistrationFlowWithHttpInfo(string id, string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosRegistrationFlow</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosRegistrationFlow> GetRegistrationFlowWithHttpInfo(string id, string? cookie = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -4459,7 +4459,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<RegistrationFlow>("/self-service/registration/flows", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosRegistrationFlow>("/self-service/registration/flows", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRegistrationFlow", localVarResponse);
@@ -4480,10 +4480,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RegistrationFlow</returns>
-        public async System.Threading.Tasks.Task<RegistrationFlow> GetRegistrationFlowAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosRegistrationFlow</returns>
+        public async System.Threading.Tasks.Task<KratosRegistrationFlow> GetRegistrationFlowAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<RegistrationFlow> localVarResponse = await GetRegistrationFlowWithHttpInfoAsync(id, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosRegistrationFlow> localVarResponse = await GetRegistrationFlowWithHttpInfoAsync(id, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4495,8 +4495,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RegistrationFlow)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<RegistrationFlow>> GetRegistrationFlowWithHttpInfoAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosRegistrationFlow)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosRegistrationFlow>> GetRegistrationFlowWithHttpInfoAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -4538,7 +4538,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<RegistrationFlow>("/self-service/registration/flows", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosRegistrationFlow>("/self-service/registration/flows", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4560,10 +4560,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="xSessionToken">The Session Token  When using the SDK in an app without a browser, please include the session token here. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>SettingsFlow</returns>
-        public SettingsFlow GetSettingsFlow(string id, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>KratosSettingsFlow</returns>
+        public KratosSettingsFlow GetSettingsFlow(string id, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<SettingsFlow> localVarResponse = GetSettingsFlowWithHttpInfo(id, xSessionToken, cookie);
+            Ory.Kratos.Client.Client.ApiResponse<KratosSettingsFlow> localVarResponse = GetSettingsFlowWithHttpInfo(id, xSessionToken, cookie);
             return localVarResponse.Data;
         }
 
@@ -4575,8 +4575,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="xSessionToken">The Session Token  When using the SDK in an app without a browser, please include the session token here. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of SettingsFlow</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<SettingsFlow> GetSettingsFlowWithHttpInfo(string id, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosSettingsFlow</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosSettingsFlow> GetSettingsFlowWithHttpInfo(string id, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -4621,7 +4621,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<SettingsFlow>("/self-service/settings/flows", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosSettingsFlow>("/self-service/settings/flows", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetSettingsFlow", localVarResponse);
@@ -4643,10 +4643,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SettingsFlow</returns>
-        public async System.Threading.Tasks.Task<SettingsFlow> GetSettingsFlowAsync(string id, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosSettingsFlow</returns>
+        public async System.Threading.Tasks.Task<KratosSettingsFlow> GetSettingsFlowAsync(string id, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<SettingsFlow> localVarResponse = await GetSettingsFlowWithHttpInfoAsync(id, xSessionToken, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosSettingsFlow> localVarResponse = await GetSettingsFlowWithHttpInfoAsync(id, xSessionToken, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4659,8 +4659,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SettingsFlow)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<SettingsFlow>> GetSettingsFlowWithHttpInfoAsync(string id, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosSettingsFlow)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosSettingsFlow>> GetSettingsFlowWithHttpInfoAsync(string id, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -4706,7 +4706,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<SettingsFlow>("/self-service/settings/flows", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosSettingsFlow>("/self-service/settings/flows", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4727,10 +4727,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">The Flow ID  The value for this parameter comes from &#x60;request&#x60; URL Query parameter sent to your application (e.g. &#x60;/verification?flow&#x3D;abcde&#x60;).</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK on the server side you must include the HTTP Cookie Header originally sent to your HTTP handler here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>VerificationFlow</returns>
-        public VerificationFlow GetVerificationFlow(string id, string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>KratosVerificationFlow</returns>
+        public KratosVerificationFlow GetVerificationFlow(string id, string? cookie = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<VerificationFlow> localVarResponse = GetVerificationFlowWithHttpInfo(id, cookie);
+            Ory.Kratos.Client.Client.ApiResponse<KratosVerificationFlow> localVarResponse = GetVerificationFlowWithHttpInfo(id, cookie);
             return localVarResponse.Data;
         }
 
@@ -4741,8 +4741,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="id">The Flow ID  The value for this parameter comes from &#x60;request&#x60; URL Query parameter sent to your application (e.g. &#x60;/verification?flow&#x3D;abcde&#x60;).</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK on the server side you must include the HTTP Cookie Header originally sent to your HTTP handler here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of VerificationFlow</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<VerificationFlow> GetVerificationFlowWithHttpInfo(string id, string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosVerificationFlow</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosVerificationFlow> GetVerificationFlowWithHttpInfo(string id, string? cookie = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -4783,7 +4783,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<VerificationFlow>("/self-service/verification/flows", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosVerificationFlow>("/self-service/verification/flows", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetVerificationFlow", localVarResponse);
@@ -4804,10 +4804,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK on the server side you must include the HTTP Cookie Header originally sent to your HTTP handler here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of VerificationFlow</returns>
-        public async System.Threading.Tasks.Task<VerificationFlow> GetVerificationFlowAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosVerificationFlow</returns>
+        public async System.Threading.Tasks.Task<KratosVerificationFlow> GetVerificationFlowAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<VerificationFlow> localVarResponse = await GetVerificationFlowWithHttpInfoAsync(id, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosVerificationFlow> localVarResponse = await GetVerificationFlowWithHttpInfoAsync(id, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4819,8 +4819,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">HTTP Cookies  When using the SDK on the server side you must include the HTTP Cookie Header originally sent to your HTTP handler here. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (VerificationFlow)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<VerificationFlow>> GetVerificationFlowWithHttpInfoAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosVerificationFlow)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosVerificationFlow>> GetVerificationFlowWithHttpInfoAsync(string id, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -4862,7 +4862,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<VerificationFlow>("/self-service/verification/flows", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosVerificationFlow>("/self-service/verification/flows", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -5013,10 +5013,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="xSessionToken">Set the Session Token when calling from non-browser clients. A session token has a format of &#x60;MP2YWEMeM8MxjkGKpH4dqOQ4Q4DlSPaj&#x60;. (optional)</param>
         /// <param name="cookie">Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: &#x60;ory_kratos_session&#x3D;a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f&#x3D;&#x3D;&#x60;.  It is ok if more than one cookie are included here as all other cookies will be ignored. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;Session&gt;</returns>
-        public List<Session> ListMySessions(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>List&lt;KratosSession&gt;</returns>
+        public List<KratosSession> ListMySessions(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<List<Session>> localVarResponse = ListMySessionsWithHttpInfo(perPage, page, pageSize, pageToken, xSessionToken, cookie);
+            Ory.Kratos.Client.Client.ApiResponse<List<KratosSession>> localVarResponse = ListMySessionsWithHttpInfo(perPage, page, pageSize, pageToken, xSessionToken, cookie);
             return localVarResponse.Data;
         }
 
@@ -5031,8 +5031,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="xSessionToken">Set the Session Token when calling from non-browser clients. A session token has a format of &#x60;MP2YWEMeM8MxjkGKpH4dqOQ4Q4DlSPaj&#x60;. (optional)</param>
         /// <param name="cookie">Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: &#x60;ory_kratos_session&#x3D;a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f&#x3D;&#x3D;&#x60;.  It is ok if more than one cookie are included here as all other cookies will be ignored. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;Session&gt;</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<List<Session>> ListMySessionsWithHttpInfo(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of List&lt;KratosSession&gt;</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<List<KratosSession>> ListMySessionsWithHttpInfo(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -5086,7 +5086,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Session>>("/sessions", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<KratosSession>>("/sessions", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListMySessions", localVarResponse);
@@ -5111,10 +5111,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: &#x60;ory_kratos_session&#x3D;a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f&#x3D;&#x3D;&#x60;.  It is ok if more than one cookie are included here as all other cookies will be ignored. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Session&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Session>> ListMySessionsAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of List&lt;KratosSession&gt;</returns>
+        public async System.Threading.Tasks.Task<List<KratosSession>> ListMySessionsAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<List<Session>> localVarResponse = await ListMySessionsWithHttpInfoAsync(perPage, page, pageSize, pageToken, xSessionToken, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<List<KratosSession>> localVarResponse = await ListMySessionsWithHttpInfoAsync(perPage, page, pageSize, pageToken, xSessionToken, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5130,8 +5130,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: &#x60;ory_kratos_session&#x3D;a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f&#x3D;&#x3D;&#x60;.  It is ok if more than one cookie are included here as all other cookies will be ignored. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Session&gt;)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<List<Session>>> ListMySessionsWithHttpInfoAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (List&lt;KratosSession&gt;)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<List<KratosSession>>> ListMySessionsWithHttpInfoAsync(long? perPage = default(long?), long? page = default(long?), long? pageSize = default(long?), string? pageToken = default(string?), string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -5186,7 +5186,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Session>>("/sessions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<KratosSession>>("/sessions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -5204,27 +5204,27 @@ namespace Ory.Kratos.Client.Api
         /// Perform Logout for Native Apps Use this endpoint to log out an identity using an Ory Session Token. If the Ory Session Token was successfully revoked, the server returns a 204 No Content response. A 204 No Content response is also sent when the Ory Session Token has been revoked already before.  If the Ory Session Token is malformed or does not exist a 403 Forbidden response will be returned.  This endpoint does not remove any HTTP Cookies - use the Browser-Based Self-Service Logout Flow instead.
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="performNativeLogoutBody"></param>
+        /// <param name="kratosPerformNativeLogoutBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void PerformNativeLogout(PerformNativeLogoutBody performNativeLogoutBody, int operationIndex = 0)
+        public void PerformNativeLogout(KratosPerformNativeLogoutBody kratosPerformNativeLogoutBody, int operationIndex = 0)
         {
-            PerformNativeLogoutWithHttpInfo(performNativeLogoutBody);
+            PerformNativeLogoutWithHttpInfo(kratosPerformNativeLogoutBody);
         }
 
         /// <summary>
         /// Perform Logout for Native Apps Use this endpoint to log out an identity using an Ory Session Token. If the Ory Session Token was successfully revoked, the server returns a 204 No Content response. A 204 No Content response is also sent when the Ory Session Token has been revoked already before.  If the Ory Session Token is malformed or does not exist a 403 Forbidden response will be returned.  This endpoint does not remove any HTTP Cookies - use the Browser-Based Self-Service Logout Flow instead.
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="performNativeLogoutBody"></param>
+        /// <param name="kratosPerformNativeLogoutBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<Object> PerformNativeLogoutWithHttpInfo(PerformNativeLogoutBody performNativeLogoutBody, int operationIndex = 0)
+        public Ory.Kratos.Client.Client.ApiResponse<Object> PerformNativeLogoutWithHttpInfo(KratosPerformNativeLogoutBody kratosPerformNativeLogoutBody, int operationIndex = 0)
         {
-            // verify the required parameter 'performNativeLogoutBody' is set
-            if (performNativeLogoutBody == null)
+            // verify the required parameter 'kratosPerformNativeLogoutBody' is set
+            if (kratosPerformNativeLogoutBody == null)
             {
-                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'performNativeLogoutBody' when calling FrontendApi->PerformNativeLogout");
+                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'kratosPerformNativeLogoutBody' when calling FrontendApi->PerformNativeLogout");
             }
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -5250,7 +5250,7 @@ namespace Ory.Kratos.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = performNativeLogoutBody;
+            localVarRequestOptions.Data = kratosPerformNativeLogoutBody;
 
             localVarRequestOptions.Operation = "FrontendApi.PerformNativeLogout";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -5274,29 +5274,29 @@ namespace Ory.Kratos.Client.Api
         /// Perform Logout for Native Apps Use this endpoint to log out an identity using an Ory Session Token. If the Ory Session Token was successfully revoked, the server returns a 204 No Content response. A 204 No Content response is also sent when the Ory Session Token has been revoked already before.  If the Ory Session Token is malformed or does not exist a 403 Forbidden response will be returned.  This endpoint does not remove any HTTP Cookies - use the Browser-Based Self-Service Logout Flow instead.
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="performNativeLogoutBody"></param>
+        /// <param name="kratosPerformNativeLogoutBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task PerformNativeLogoutAsync(PerformNativeLogoutBody performNativeLogoutBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task PerformNativeLogoutAsync(KratosPerformNativeLogoutBody kratosPerformNativeLogoutBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await PerformNativeLogoutWithHttpInfoAsync(performNativeLogoutBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            await PerformNativeLogoutWithHttpInfoAsync(kratosPerformNativeLogoutBody, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// Perform Logout for Native Apps Use this endpoint to log out an identity using an Ory Session Token. If the Ory Session Token was successfully revoked, the server returns a 204 No Content response. A 204 No Content response is also sent when the Ory Session Token has been revoked already before.  If the Ory Session Token is malformed or does not exist a 403 Forbidden response will be returned.  This endpoint does not remove any HTTP Cookies - use the Browser-Based Self-Service Logout Flow instead.
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="performNativeLogoutBody"></param>
+        /// <param name="kratosPerformNativeLogoutBody"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<Object>> PerformNativeLogoutWithHttpInfoAsync(PerformNativeLogoutBody performNativeLogoutBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<Object>> PerformNativeLogoutWithHttpInfoAsync(KratosPerformNativeLogoutBody kratosPerformNativeLogoutBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'performNativeLogoutBody' is set
-            if (performNativeLogoutBody == null)
+            // verify the required parameter 'kratosPerformNativeLogoutBody' is set
+            if (kratosPerformNativeLogoutBody == null)
             {
-                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'performNativeLogoutBody' when calling FrontendApi->PerformNativeLogout");
+                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'kratosPerformNativeLogoutBody' when calling FrontendApi->PerformNativeLogout");
             }
 
 
@@ -5323,7 +5323,7 @@ namespace Ory.Kratos.Client.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = performNativeLogoutBody;
+            localVarRequestOptions.Data = kratosPerformNativeLogoutBody;
 
             localVarRequestOptions.Operation = "FrontendApi.PerformNativeLogout";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -5352,10 +5352,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: &#x60;ory_kratos_session&#x3D;a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f&#x3D;&#x3D;&#x60;.  It is ok if more than one cookie are included here as all other cookies will be ignored. (optional)</param>
         /// <param name="tokenizeAs">Returns the session additionally as a token (such as a JWT)  The value of this parameter has to be a valid, configured Ory Session token template. For more information head over to [the documentation](http://ory.sh/docs/identities/session-to-jwt-cors). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Session</returns>
-        public Session ToSession(string? xSessionToken = default(string?), string? cookie = default(string?), string? tokenizeAs = default(string?), int operationIndex = 0)
+        /// <returns>KratosSession</returns>
+        public KratosSession ToSession(string? xSessionToken = default(string?), string? cookie = default(string?), string? tokenizeAs = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<Session> localVarResponse = ToSessionWithHttpInfo(xSessionToken, cookie, tokenizeAs);
+            Ory.Kratos.Client.Client.ApiResponse<KratosSession> localVarResponse = ToSessionWithHttpInfo(xSessionToken, cookie, tokenizeAs);
             return localVarResponse.Data;
         }
 
@@ -5367,8 +5367,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="cookie">Set the Cookie Header. This is especially useful when calling this endpoint from a server-side application. In that scenario you must include the HTTP Cookie Header which originally was included in the request to your server. An example of a session in the HTTP Cookie Header is: &#x60;ory_kratos_session&#x3D;a19iOVAbdzdgl70Rq1QZmrKmcjDtdsviCTZx7m9a9yHIUS8Wa9T7hvqyGTsLHi6Qifn2WUfpAKx9DWp0SJGleIn9vh2YF4A16id93kXFTgIgmwIOvbVAScyrx7yVl6bPZnCx27ec4WQDtaTewC1CpgudeDV2jQQnSaCP6ny3xa8qLH-QUgYqdQuoA_LF1phxgRCUfIrCLQOkolX5nv3ze_f&#x3D;&#x3D;&#x60;.  It is ok if more than one cookie are included here as all other cookies will be ignored. (optional)</param>
         /// <param name="tokenizeAs">Returns the session additionally as a token (such as a JWT)  The value of this parameter has to be a valid, configured Ory Session token template. For more information head over to [the documentation](http://ory.sh/docs/identities/session-to-jwt-cors). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Session</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<Session> ToSessionWithHttpInfo(string? xSessionToken = default(string?), string? cookie = default(string?), string? tokenizeAs = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosSession</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosSession> ToSessionWithHttpInfo(string? xSessionToken = default(string?), string? cookie = default(string?), string? tokenizeAs = default(string?), int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -5410,7 +5410,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Session>("/sessions/whoami", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosSession>("/sessions/whoami", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ToSession", localVarResponse);
@@ -5432,10 +5432,10 @@ namespace Ory.Kratos.Client.Api
         /// <param name="tokenizeAs">Returns the session additionally as a token (such as a JWT)  The value of this parameter has to be a valid, configured Ory Session token template. For more information head over to [the documentation](http://ory.sh/docs/identities/session-to-jwt-cors). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Session</returns>
-        public async System.Threading.Tasks.Task<Session> ToSessionAsync(string? xSessionToken = default(string?), string? cookie = default(string?), string? tokenizeAs = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosSession</returns>
+        public async System.Threading.Tasks.Task<KratosSession> ToSessionAsync(string? xSessionToken = default(string?), string? cookie = default(string?), string? tokenizeAs = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<Session> localVarResponse = await ToSessionWithHttpInfoAsync(xSessionToken, cookie, tokenizeAs, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosSession> localVarResponse = await ToSessionWithHttpInfoAsync(xSessionToken, cookie, tokenizeAs, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5448,8 +5448,8 @@ namespace Ory.Kratos.Client.Api
         /// <param name="tokenizeAs">Returns the session additionally as a token (such as a JWT)  The value of this parameter has to be a valid, configured Ory Session token template. For more information head over to [the documentation](http://ory.sh/docs/identities/session-to-jwt-cors). (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Session)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<Session>> ToSessionWithHttpInfoAsync(string? xSessionToken = default(string?), string? cookie = default(string?), string? tokenizeAs = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosSession)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosSession>> ToSessionWithHttpInfoAsync(string? xSessionToken = default(string?), string? cookie = default(string?), string? tokenizeAs = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -5492,7 +5492,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Session>("/sessions/whoami", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosSession>("/sessions/whoami", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -5511,14 +5511,14 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Login Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/login?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateLoginFlowBody"></param>
+        /// <param name="kratosUpdateLoginFlowBody"></param>
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>SuccessfulNativeLogin</returns>
-        public SuccessfulNativeLogin UpdateLoginFlow(string flow, UpdateLoginFlowBody updateLoginFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>KratosSuccessfulNativeLogin</returns>
+        public KratosSuccessfulNativeLogin UpdateLoginFlow(string flow, KratosUpdateLoginFlowBody kratosUpdateLoginFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<SuccessfulNativeLogin> localVarResponse = UpdateLoginFlowWithHttpInfo(flow, updateLoginFlowBody, xSessionToken, cookie);
+            Ory.Kratos.Client.Client.ApiResponse<KratosSuccessfulNativeLogin> localVarResponse = UpdateLoginFlowWithHttpInfo(flow, kratosUpdateLoginFlowBody, xSessionToken, cookie);
             return localVarResponse.Data;
         }
 
@@ -5527,12 +5527,12 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Login Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/login?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateLoginFlowBody"></param>
+        /// <param name="kratosUpdateLoginFlowBody"></param>
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of SuccessfulNativeLogin</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<SuccessfulNativeLogin> UpdateLoginFlowWithHttpInfo(string flow, UpdateLoginFlowBody updateLoginFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosSuccessfulNativeLogin</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosSuccessfulNativeLogin> UpdateLoginFlowWithHttpInfo(string flow, KratosUpdateLoginFlowBody kratosUpdateLoginFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'flow' is set
             if (flow == null)
@@ -5540,10 +5540,10 @@ namespace Ory.Kratos.Client.Api
                 throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'flow' when calling FrontendApi->UpdateLoginFlow");
             }
 
-            // verify the required parameter 'updateLoginFlowBody' is set
-            if (updateLoginFlowBody == null)
+            // verify the required parameter 'kratosUpdateLoginFlowBody' is set
+            if (kratosUpdateLoginFlowBody == null)
             {
-                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'updateLoginFlowBody' when calling FrontendApi->UpdateLoginFlow");
+                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'kratosUpdateLoginFlowBody' when calling FrontendApi->UpdateLoginFlow");
             }
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -5579,14 +5579,14 @@ namespace Ory.Kratos.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Cookie", Ory.Kratos.Client.Client.ClientUtils.ParameterToString(cookie)); // header parameter
             }
-            localVarRequestOptions.Data = updateLoginFlowBody;
+            localVarRequestOptions.Data = kratosUpdateLoginFlowBody;
 
             localVarRequestOptions.Operation = "FrontendApi.UpdateLoginFlow";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<SuccessfulNativeLogin>("/self-service/login", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<KratosSuccessfulNativeLogin>("/self-service/login", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateLoginFlow", localVarResponse);
@@ -5604,15 +5604,15 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Login Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/login?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateLoginFlowBody"></param>
+        /// <param name="kratosUpdateLoginFlowBody"></param>
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SuccessfulNativeLogin</returns>
-        public async System.Threading.Tasks.Task<SuccessfulNativeLogin> UpdateLoginFlowAsync(string flow, UpdateLoginFlowBody updateLoginFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosSuccessfulNativeLogin</returns>
+        public async System.Threading.Tasks.Task<KratosSuccessfulNativeLogin> UpdateLoginFlowAsync(string flow, KratosUpdateLoginFlowBody kratosUpdateLoginFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<SuccessfulNativeLogin> localVarResponse = await UpdateLoginFlowWithHttpInfoAsync(flow, updateLoginFlowBody, xSessionToken, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosSuccessfulNativeLogin> localVarResponse = await UpdateLoginFlowWithHttpInfoAsync(flow, kratosUpdateLoginFlowBody, xSessionToken, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5621,13 +5621,13 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Login Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/login?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateLoginFlowBody"></param>
+        /// <param name="kratosUpdateLoginFlowBody"></param>
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SuccessfulNativeLogin)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<SuccessfulNativeLogin>> UpdateLoginFlowWithHttpInfoAsync(string flow, UpdateLoginFlowBody updateLoginFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosSuccessfulNativeLogin)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosSuccessfulNativeLogin>> UpdateLoginFlowWithHttpInfoAsync(string flow, KratosUpdateLoginFlowBody kratosUpdateLoginFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'flow' is set
             if (flow == null)
@@ -5635,10 +5635,10 @@ namespace Ory.Kratos.Client.Api
                 throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'flow' when calling FrontendApi->UpdateLoginFlow");
             }
 
-            // verify the required parameter 'updateLoginFlowBody' is set
-            if (updateLoginFlowBody == null)
+            // verify the required parameter 'kratosUpdateLoginFlowBody' is set
+            if (kratosUpdateLoginFlowBody == null)
             {
-                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'updateLoginFlowBody' when calling FrontendApi->UpdateLoginFlow");
+                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'kratosUpdateLoginFlowBody' when calling FrontendApi->UpdateLoginFlow");
             }
 
 
@@ -5675,14 +5675,14 @@ namespace Ory.Kratos.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Cookie", Ory.Kratos.Client.Client.ClientUtils.ParameterToString(cookie)); // header parameter
             }
-            localVarRequestOptions.Data = updateLoginFlowBody;
+            localVarRequestOptions.Data = kratosUpdateLoginFlowBody;
 
             localVarRequestOptions.Operation = "FrontendApi.UpdateLoginFlow";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<SuccessfulNativeLogin>("/self-service/login", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<KratosSuccessfulNativeLogin>("/self-service/login", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -5861,14 +5861,14 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Recovery Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/recovery?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateRecoveryFlowBody"></param>
+        /// <param name="kratosUpdateRecoveryFlowBody"></param>
         /// <param name="token">Recovery Token  The recovery token which completes the recovery request. If the token is invalid (e.g. expired) an error will be shown to the end-user.  This parameter is usually set in a link and not used by any direct API call. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>RecoveryFlow</returns>
-        public RecoveryFlow UpdateRecoveryFlow(string flow, UpdateRecoveryFlowBody updateRecoveryFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>KratosRecoveryFlow</returns>
+        public KratosRecoveryFlow UpdateRecoveryFlow(string flow, KratosUpdateRecoveryFlowBody kratosUpdateRecoveryFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<RecoveryFlow> localVarResponse = UpdateRecoveryFlowWithHttpInfo(flow, updateRecoveryFlowBody, token, cookie);
+            Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryFlow> localVarResponse = UpdateRecoveryFlowWithHttpInfo(flow, kratosUpdateRecoveryFlowBody, token, cookie);
             return localVarResponse.Data;
         }
 
@@ -5877,12 +5877,12 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Recovery Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/recovery?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateRecoveryFlowBody"></param>
+        /// <param name="kratosUpdateRecoveryFlowBody"></param>
         /// <param name="token">Recovery Token  The recovery token which completes the recovery request. If the token is invalid (e.g. expired) an error will be shown to the end-user.  This parameter is usually set in a link and not used by any direct API call. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of RecoveryFlow</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<RecoveryFlow> UpdateRecoveryFlowWithHttpInfo(string flow, UpdateRecoveryFlowBody updateRecoveryFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosRecoveryFlow</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryFlow> UpdateRecoveryFlowWithHttpInfo(string flow, KratosUpdateRecoveryFlowBody kratosUpdateRecoveryFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'flow' is set
             if (flow == null)
@@ -5890,10 +5890,10 @@ namespace Ory.Kratos.Client.Api
                 throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'flow' when calling FrontendApi->UpdateRecoveryFlow");
             }
 
-            // verify the required parameter 'updateRecoveryFlowBody' is set
-            if (updateRecoveryFlowBody == null)
+            // verify the required parameter 'kratosUpdateRecoveryFlowBody' is set
+            if (kratosUpdateRecoveryFlowBody == null)
             {
-                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'updateRecoveryFlowBody' when calling FrontendApi->UpdateRecoveryFlow");
+                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'kratosUpdateRecoveryFlowBody' when calling FrontendApi->UpdateRecoveryFlow");
             }
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -5929,14 +5929,14 @@ namespace Ory.Kratos.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Cookie", Ory.Kratos.Client.Client.ClientUtils.ParameterToString(cookie)); // header parameter
             }
-            localVarRequestOptions.Data = updateRecoveryFlowBody;
+            localVarRequestOptions.Data = kratosUpdateRecoveryFlowBody;
 
             localVarRequestOptions.Operation = "FrontendApi.UpdateRecoveryFlow";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<RecoveryFlow>("/self-service/recovery", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<KratosRecoveryFlow>("/self-service/recovery", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateRecoveryFlow", localVarResponse);
@@ -5954,15 +5954,15 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Recovery Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/recovery?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateRecoveryFlowBody"></param>
+        /// <param name="kratosUpdateRecoveryFlowBody"></param>
         /// <param name="token">Recovery Token  The recovery token which completes the recovery request. If the token is invalid (e.g. expired) an error will be shown to the end-user.  This parameter is usually set in a link and not used by any direct API call. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RecoveryFlow</returns>
-        public async System.Threading.Tasks.Task<RecoveryFlow> UpdateRecoveryFlowAsync(string flow, UpdateRecoveryFlowBody updateRecoveryFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosRecoveryFlow</returns>
+        public async System.Threading.Tasks.Task<KratosRecoveryFlow> UpdateRecoveryFlowAsync(string flow, KratosUpdateRecoveryFlowBody kratosUpdateRecoveryFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<RecoveryFlow> localVarResponse = await UpdateRecoveryFlowWithHttpInfoAsync(flow, updateRecoveryFlowBody, token, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryFlow> localVarResponse = await UpdateRecoveryFlowWithHttpInfoAsync(flow, kratosUpdateRecoveryFlowBody, token, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5971,13 +5971,13 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Recovery Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/recovery?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateRecoveryFlowBody"></param>
+        /// <param name="kratosUpdateRecoveryFlowBody"></param>
         /// <param name="token">Recovery Token  The recovery token which completes the recovery request. If the token is invalid (e.g. expired) an error will be shown to the end-user.  This parameter is usually set in a link and not used by any direct API call. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RecoveryFlow)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<RecoveryFlow>> UpdateRecoveryFlowWithHttpInfoAsync(string flow, UpdateRecoveryFlowBody updateRecoveryFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosRecoveryFlow)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosRecoveryFlow>> UpdateRecoveryFlowWithHttpInfoAsync(string flow, KratosUpdateRecoveryFlowBody kratosUpdateRecoveryFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'flow' is set
             if (flow == null)
@@ -5985,10 +5985,10 @@ namespace Ory.Kratos.Client.Api
                 throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'flow' when calling FrontendApi->UpdateRecoveryFlow");
             }
 
-            // verify the required parameter 'updateRecoveryFlowBody' is set
-            if (updateRecoveryFlowBody == null)
+            // verify the required parameter 'kratosUpdateRecoveryFlowBody' is set
+            if (kratosUpdateRecoveryFlowBody == null)
             {
-                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'updateRecoveryFlowBody' when calling FrontendApi->UpdateRecoveryFlow");
+                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'kratosUpdateRecoveryFlowBody' when calling FrontendApi->UpdateRecoveryFlow");
             }
 
 
@@ -6025,14 +6025,14 @@ namespace Ory.Kratos.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Cookie", Ory.Kratos.Client.Client.ClientUtils.ParameterToString(cookie)); // header parameter
             }
-            localVarRequestOptions.Data = updateRecoveryFlowBody;
+            localVarRequestOptions.Data = kratosUpdateRecoveryFlowBody;
 
             localVarRequestOptions.Operation = "FrontendApi.UpdateRecoveryFlow";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<RecoveryFlow>("/self-service/recovery", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<KratosRecoveryFlow>("/self-service/recovery", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -6051,13 +6051,13 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Registration Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/registration?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateRegistrationFlowBody"></param>
+        /// <param name="kratosUpdateRegistrationFlowBody"></param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>SuccessfulNativeRegistration</returns>
-        public SuccessfulNativeRegistration UpdateRegistrationFlow(string flow, UpdateRegistrationFlowBody updateRegistrationFlowBody, string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>KratosSuccessfulNativeRegistration</returns>
+        public KratosSuccessfulNativeRegistration UpdateRegistrationFlow(string flow, KratosUpdateRegistrationFlowBody kratosUpdateRegistrationFlowBody, string? cookie = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<SuccessfulNativeRegistration> localVarResponse = UpdateRegistrationFlowWithHttpInfo(flow, updateRegistrationFlowBody, cookie);
+            Ory.Kratos.Client.Client.ApiResponse<KratosSuccessfulNativeRegistration> localVarResponse = UpdateRegistrationFlowWithHttpInfo(flow, kratosUpdateRegistrationFlowBody, cookie);
             return localVarResponse.Data;
         }
 
@@ -6066,11 +6066,11 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Registration Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/registration?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateRegistrationFlowBody"></param>
+        /// <param name="kratosUpdateRegistrationFlowBody"></param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of SuccessfulNativeRegistration</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<SuccessfulNativeRegistration> UpdateRegistrationFlowWithHttpInfo(string flow, UpdateRegistrationFlowBody updateRegistrationFlowBody, string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosSuccessfulNativeRegistration</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosSuccessfulNativeRegistration> UpdateRegistrationFlowWithHttpInfo(string flow, KratosUpdateRegistrationFlowBody kratosUpdateRegistrationFlowBody, string? cookie = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'flow' is set
             if (flow == null)
@@ -6078,10 +6078,10 @@ namespace Ory.Kratos.Client.Api
                 throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'flow' when calling FrontendApi->UpdateRegistrationFlow");
             }
 
-            // verify the required parameter 'updateRegistrationFlowBody' is set
-            if (updateRegistrationFlowBody == null)
+            // verify the required parameter 'kratosUpdateRegistrationFlowBody' is set
+            if (kratosUpdateRegistrationFlowBody == null)
             {
-                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'updateRegistrationFlowBody' when calling FrontendApi->UpdateRegistrationFlow");
+                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'kratosUpdateRegistrationFlowBody' when calling FrontendApi->UpdateRegistrationFlow");
             }
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -6113,14 +6113,14 @@ namespace Ory.Kratos.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Cookie", Ory.Kratos.Client.Client.ClientUtils.ParameterToString(cookie)); // header parameter
             }
-            localVarRequestOptions.Data = updateRegistrationFlowBody;
+            localVarRequestOptions.Data = kratosUpdateRegistrationFlowBody;
 
             localVarRequestOptions.Operation = "FrontendApi.UpdateRegistrationFlow";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<SuccessfulNativeRegistration>("/self-service/registration", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<KratosSuccessfulNativeRegistration>("/self-service/registration", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateRegistrationFlow", localVarResponse);
@@ -6138,14 +6138,14 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Registration Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/registration?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateRegistrationFlowBody"></param>
+        /// <param name="kratosUpdateRegistrationFlowBody"></param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SuccessfulNativeRegistration</returns>
-        public async System.Threading.Tasks.Task<SuccessfulNativeRegistration> UpdateRegistrationFlowAsync(string flow, UpdateRegistrationFlowBody updateRegistrationFlowBody, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosSuccessfulNativeRegistration</returns>
+        public async System.Threading.Tasks.Task<KratosSuccessfulNativeRegistration> UpdateRegistrationFlowAsync(string flow, KratosUpdateRegistrationFlowBody kratosUpdateRegistrationFlowBody, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<SuccessfulNativeRegistration> localVarResponse = await UpdateRegistrationFlowWithHttpInfoAsync(flow, updateRegistrationFlowBody, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosSuccessfulNativeRegistration> localVarResponse = await UpdateRegistrationFlowWithHttpInfoAsync(flow, kratosUpdateRegistrationFlowBody, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6154,12 +6154,12 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Registration Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/registration?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateRegistrationFlowBody"></param>
+        /// <param name="kratosUpdateRegistrationFlowBody"></param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SuccessfulNativeRegistration)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<SuccessfulNativeRegistration>> UpdateRegistrationFlowWithHttpInfoAsync(string flow, UpdateRegistrationFlowBody updateRegistrationFlowBody, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosSuccessfulNativeRegistration)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosSuccessfulNativeRegistration>> UpdateRegistrationFlowWithHttpInfoAsync(string flow, KratosUpdateRegistrationFlowBody kratosUpdateRegistrationFlowBody, string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'flow' is set
             if (flow == null)
@@ -6167,10 +6167,10 @@ namespace Ory.Kratos.Client.Api
                 throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'flow' when calling FrontendApi->UpdateRegistrationFlow");
             }
 
-            // verify the required parameter 'updateRegistrationFlowBody' is set
-            if (updateRegistrationFlowBody == null)
+            // verify the required parameter 'kratosUpdateRegistrationFlowBody' is set
+            if (kratosUpdateRegistrationFlowBody == null)
             {
-                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'updateRegistrationFlowBody' when calling FrontendApi->UpdateRegistrationFlow");
+                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'kratosUpdateRegistrationFlowBody' when calling FrontendApi->UpdateRegistrationFlow");
             }
 
 
@@ -6203,14 +6203,14 @@ namespace Ory.Kratos.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Cookie", Ory.Kratos.Client.Client.ClientUtils.ParameterToString(cookie)); // header parameter
             }
-            localVarRequestOptions.Data = updateRegistrationFlowBody;
+            localVarRequestOptions.Data = kratosUpdateRegistrationFlowBody;
 
             localVarRequestOptions.Operation = "FrontendApi.UpdateRegistrationFlow";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<SuccessfulNativeRegistration>("/self-service/registration", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<KratosSuccessfulNativeRegistration>("/self-service/registration", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -6229,14 +6229,14 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Settings Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/settings?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateSettingsFlowBody"></param>
+        /// <param name="kratosUpdateSettingsFlowBody"></param>
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>SettingsFlow</returns>
-        public SettingsFlow UpdateSettingsFlow(string flow, UpdateSettingsFlowBody updateSettingsFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>KratosSettingsFlow</returns>
+        public KratosSettingsFlow UpdateSettingsFlow(string flow, KratosUpdateSettingsFlowBody kratosUpdateSettingsFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<SettingsFlow> localVarResponse = UpdateSettingsFlowWithHttpInfo(flow, updateSettingsFlowBody, xSessionToken, cookie);
+            Ory.Kratos.Client.Client.ApiResponse<KratosSettingsFlow> localVarResponse = UpdateSettingsFlowWithHttpInfo(flow, kratosUpdateSettingsFlowBody, xSessionToken, cookie);
             return localVarResponse.Data;
         }
 
@@ -6245,12 +6245,12 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Settings Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/settings?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateSettingsFlowBody"></param>
+        /// <param name="kratosUpdateSettingsFlowBody"></param>
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of SettingsFlow</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<SettingsFlow> UpdateSettingsFlowWithHttpInfo(string flow, UpdateSettingsFlowBody updateSettingsFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosSettingsFlow</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosSettingsFlow> UpdateSettingsFlowWithHttpInfo(string flow, KratosUpdateSettingsFlowBody kratosUpdateSettingsFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'flow' is set
             if (flow == null)
@@ -6258,10 +6258,10 @@ namespace Ory.Kratos.Client.Api
                 throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'flow' when calling FrontendApi->UpdateSettingsFlow");
             }
 
-            // verify the required parameter 'updateSettingsFlowBody' is set
-            if (updateSettingsFlowBody == null)
+            // verify the required parameter 'kratosUpdateSettingsFlowBody' is set
+            if (kratosUpdateSettingsFlowBody == null)
             {
-                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'updateSettingsFlowBody' when calling FrontendApi->UpdateSettingsFlow");
+                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'kratosUpdateSettingsFlowBody' when calling FrontendApi->UpdateSettingsFlow");
             }
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -6297,14 +6297,14 @@ namespace Ory.Kratos.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Cookie", Ory.Kratos.Client.Client.ClientUtils.ParameterToString(cookie)); // header parameter
             }
-            localVarRequestOptions.Data = updateSettingsFlowBody;
+            localVarRequestOptions.Data = kratosUpdateSettingsFlowBody;
 
             localVarRequestOptions.Operation = "FrontendApi.UpdateSettingsFlow";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<SettingsFlow>("/self-service/settings", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<KratosSettingsFlow>("/self-service/settings", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateSettingsFlow", localVarResponse);
@@ -6322,15 +6322,15 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Settings Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/settings?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateSettingsFlowBody"></param>
+        /// <param name="kratosUpdateSettingsFlowBody"></param>
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of SettingsFlow</returns>
-        public async System.Threading.Tasks.Task<SettingsFlow> UpdateSettingsFlowAsync(string flow, UpdateSettingsFlowBody updateSettingsFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosSettingsFlow</returns>
+        public async System.Threading.Tasks.Task<KratosSettingsFlow> UpdateSettingsFlowAsync(string flow, KratosUpdateSettingsFlowBody kratosUpdateSettingsFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<SettingsFlow> localVarResponse = await UpdateSettingsFlowWithHttpInfoAsync(flow, updateSettingsFlowBody, xSessionToken, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosSettingsFlow> localVarResponse = await UpdateSettingsFlowWithHttpInfoAsync(flow, kratosUpdateSettingsFlowBody, xSessionToken, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6339,13 +6339,13 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Settings Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/settings?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateSettingsFlowBody"></param>
+        /// <param name="kratosUpdateSettingsFlowBody"></param>
         /// <param name="xSessionToken">The Session Token of the Identity performing the settings flow. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (SettingsFlow)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<SettingsFlow>> UpdateSettingsFlowWithHttpInfoAsync(string flow, UpdateSettingsFlowBody updateSettingsFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosSettingsFlow)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosSettingsFlow>> UpdateSettingsFlowWithHttpInfoAsync(string flow, KratosUpdateSettingsFlowBody kratosUpdateSettingsFlowBody, string? xSessionToken = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'flow' is set
             if (flow == null)
@@ -6353,10 +6353,10 @@ namespace Ory.Kratos.Client.Api
                 throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'flow' when calling FrontendApi->UpdateSettingsFlow");
             }
 
-            // verify the required parameter 'updateSettingsFlowBody' is set
-            if (updateSettingsFlowBody == null)
+            // verify the required parameter 'kratosUpdateSettingsFlowBody' is set
+            if (kratosUpdateSettingsFlowBody == null)
             {
-                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'updateSettingsFlowBody' when calling FrontendApi->UpdateSettingsFlow");
+                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'kratosUpdateSettingsFlowBody' when calling FrontendApi->UpdateSettingsFlow");
             }
 
 
@@ -6393,14 +6393,14 @@ namespace Ory.Kratos.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Cookie", Ory.Kratos.Client.Client.ClientUtils.ParameterToString(cookie)); // header parameter
             }
-            localVarRequestOptions.Data = updateSettingsFlowBody;
+            localVarRequestOptions.Data = kratosUpdateSettingsFlowBody;
 
             localVarRequestOptions.Operation = "FrontendApi.UpdateSettingsFlow";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<SettingsFlow>("/self-service/settings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<KratosSettingsFlow>("/self-service/settings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -6419,14 +6419,14 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Verification Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/verification?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateVerificationFlowBody"></param>
+        /// <param name="kratosUpdateVerificationFlowBody"></param>
         /// <param name="token">Verification Token  The verification token which completes the verification request. If the token is invalid (e.g. expired) an error will be shown to the end-user.  This parameter is usually set in a link and not used by any direct API call. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>VerificationFlow</returns>
-        public VerificationFlow UpdateVerificationFlow(string flow, UpdateVerificationFlowBody updateVerificationFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>KratosVerificationFlow</returns>
+        public KratosVerificationFlow UpdateVerificationFlow(string flow, KratosUpdateVerificationFlowBody kratosUpdateVerificationFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<VerificationFlow> localVarResponse = UpdateVerificationFlowWithHttpInfo(flow, updateVerificationFlowBody, token, cookie);
+            Ory.Kratos.Client.Client.ApiResponse<KratosVerificationFlow> localVarResponse = UpdateVerificationFlowWithHttpInfo(flow, kratosUpdateVerificationFlowBody, token, cookie);
             return localVarResponse.Data;
         }
 
@@ -6435,12 +6435,12 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Verification Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/verification?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateVerificationFlowBody"></param>
+        /// <param name="kratosUpdateVerificationFlowBody"></param>
         /// <param name="token">Verification Token  The verification token which completes the verification request. If the token is invalid (e.g. expired) an error will be shown to the end-user.  This parameter is usually set in a link and not used by any direct API call. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of VerificationFlow</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<VerificationFlow> UpdateVerificationFlowWithHttpInfo(string flow, UpdateVerificationFlowBody updateVerificationFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of KratosVerificationFlow</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosVerificationFlow> UpdateVerificationFlowWithHttpInfo(string flow, KratosUpdateVerificationFlowBody kratosUpdateVerificationFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'flow' is set
             if (flow == null)
@@ -6448,10 +6448,10 @@ namespace Ory.Kratos.Client.Api
                 throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'flow' when calling FrontendApi->UpdateVerificationFlow");
             }
 
-            // verify the required parameter 'updateVerificationFlowBody' is set
-            if (updateVerificationFlowBody == null)
+            // verify the required parameter 'kratosUpdateVerificationFlowBody' is set
+            if (kratosUpdateVerificationFlowBody == null)
             {
-                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'updateVerificationFlowBody' when calling FrontendApi->UpdateVerificationFlow");
+                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'kratosUpdateVerificationFlowBody' when calling FrontendApi->UpdateVerificationFlow");
             }
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -6487,14 +6487,14 @@ namespace Ory.Kratos.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Cookie", Ory.Kratos.Client.Client.ClientUtils.ParameterToString(cookie)); // header parameter
             }
-            localVarRequestOptions.Data = updateVerificationFlowBody;
+            localVarRequestOptions.Data = kratosUpdateVerificationFlowBody;
 
             localVarRequestOptions.Operation = "FrontendApi.UpdateVerificationFlow";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<VerificationFlow>("/self-service/verification", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<KratosVerificationFlow>("/self-service/verification", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateVerificationFlow", localVarResponse);
@@ -6512,15 +6512,15 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Verification Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/verification?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateVerificationFlowBody"></param>
+        /// <param name="kratosUpdateVerificationFlowBody"></param>
         /// <param name="token">Verification Token  The verification token which completes the verification request. If the token is invalid (e.g. expired) an error will be shown to the end-user.  This parameter is usually set in a link and not used by any direct API call. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of VerificationFlow</returns>
-        public async System.Threading.Tasks.Task<VerificationFlow> UpdateVerificationFlowAsync(string flow, UpdateVerificationFlowBody updateVerificationFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosVerificationFlow</returns>
+        public async System.Threading.Tasks.Task<KratosVerificationFlow> UpdateVerificationFlowAsync(string flow, KratosUpdateVerificationFlowBody kratosUpdateVerificationFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<VerificationFlow> localVarResponse = await UpdateVerificationFlowWithHttpInfoAsync(flow, updateVerificationFlowBody, token, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosVerificationFlow> localVarResponse = await UpdateVerificationFlowWithHttpInfoAsync(flow, kratosUpdateVerificationFlowBody, token, cookie, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6529,13 +6529,13 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="flow">The Verification Flow ID  The value for this parameter comes from &#x60;flow&#x60; URL Query parameter sent to your application (e.g. &#x60;/verification?flow&#x3D;abcde&#x60;).</param>
-        /// <param name="updateVerificationFlowBody"></param>
+        /// <param name="kratosUpdateVerificationFlowBody"></param>
         /// <param name="token">Verification Token  The verification token which completes the verification request. If the token is invalid (e.g. expired) an error will be shown to the end-user.  This parameter is usually set in a link and not used by any direct API call. (optional)</param>
         /// <param name="cookie">HTTP Cookies  When using the SDK in a browser app, on the server side you must include the HTTP Cookie Header sent by the client to your server here. This ensures that CSRF and session cookies are respected. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (VerificationFlow)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<VerificationFlow>> UpdateVerificationFlowWithHttpInfoAsync(string flow, UpdateVerificationFlowBody updateVerificationFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosVerificationFlow)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosVerificationFlow>> UpdateVerificationFlowWithHttpInfoAsync(string flow, KratosUpdateVerificationFlowBody kratosUpdateVerificationFlowBody, string? token = default(string?), string? cookie = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'flow' is set
             if (flow == null)
@@ -6543,10 +6543,10 @@ namespace Ory.Kratos.Client.Api
                 throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'flow' when calling FrontendApi->UpdateVerificationFlow");
             }
 
-            // verify the required parameter 'updateVerificationFlowBody' is set
-            if (updateVerificationFlowBody == null)
+            // verify the required parameter 'kratosUpdateVerificationFlowBody' is set
+            if (kratosUpdateVerificationFlowBody == null)
             {
-                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'updateVerificationFlowBody' when calling FrontendApi->UpdateVerificationFlow");
+                throw new Ory.Kratos.Client.Client.ApiException(400, "Missing required parameter 'kratosUpdateVerificationFlowBody' when calling FrontendApi->UpdateVerificationFlow");
             }
 
 
@@ -6583,14 +6583,14 @@ namespace Ory.Kratos.Client.Api
             {
                 localVarRequestOptions.HeaderParameters.Add("Cookie", Ory.Kratos.Client.Client.ClientUtils.ParameterToString(cookie)); // header parameter
             }
-            localVarRequestOptions.Data = updateVerificationFlowBody;
+            localVarRequestOptions.Data = kratosUpdateVerificationFlowBody;
 
             localVarRequestOptions.Operation = "FrontendApi.UpdateVerificationFlow";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<VerificationFlow>("/self-service/verification", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<KratosVerificationFlow>("/self-service/verification", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

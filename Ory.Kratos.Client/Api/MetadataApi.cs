@@ -34,8 +34,8 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetVersion200Response</returns>
-        GetVersion200Response GetVersion(int operationIndex = 0);
+        /// <returns>KratosGetVersion200Response</returns>
+        KratosGetVersion200Response GetVersion(int operationIndex = 0);
 
         /// <summary>
         /// Return Running Software Version.
@@ -45,8 +45,8 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetVersion200Response</returns>
-        ApiResponse<GetVersion200Response> GetVersionWithHttpInfo(int operationIndex = 0);
+        /// <returns>ApiResponse of KratosGetVersion200Response</returns>
+        ApiResponse<KratosGetVersion200Response> GetVersionWithHttpInfo(int operationIndex = 0);
         /// <summary>
         /// Check HTTP Server Status
         /// </summary>
@@ -55,8 +55,8 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>IsAlive200Response</returns>
-        IsAlive200Response IsAlive(int operationIndex = 0);
+        /// <returns>KratosIsAlive200Response</returns>
+        KratosIsAlive200Response IsAlive(int operationIndex = 0);
 
         /// <summary>
         /// Check HTTP Server Status
@@ -66,8 +66,8 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of IsAlive200Response</returns>
-        ApiResponse<IsAlive200Response> IsAliveWithHttpInfo(int operationIndex = 0);
+        /// <returns>ApiResponse of KratosIsAlive200Response</returns>
+        ApiResponse<KratosIsAlive200Response> IsAliveWithHttpInfo(int operationIndex = 0);
         /// <summary>
         /// Check HTTP Server and Database Status
         /// </summary>
@@ -76,8 +76,8 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>IsAlive200Response</returns>
-        IsAlive200Response IsReady(int operationIndex = 0);
+        /// <returns>KratosIsAlive200Response</returns>
+        KratosIsAlive200Response IsReady(int operationIndex = 0);
 
         /// <summary>
         /// Check HTTP Server and Database Status
@@ -87,8 +87,8 @@ namespace Ory.Kratos.Client.Api
         /// </remarks>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of IsAlive200Response</returns>
-        ApiResponse<IsAlive200Response> IsReadyWithHttpInfo(int operationIndex = 0);
+        /// <returns>ApiResponse of KratosIsAlive200Response</returns>
+        ApiResponse<KratosIsAlive200Response> IsReadyWithHttpInfo(int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -107,8 +107,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetVersion200Response</returns>
-        System.Threading.Tasks.Task<GetVersion200Response> GetVersionAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosGetVersion200Response</returns>
+        System.Threading.Tasks.Task<KratosGetVersion200Response> GetVersionAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Return Running Software Version.
@@ -119,8 +119,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetVersion200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetVersion200Response>> GetVersionWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosGetVersion200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosGetVersion200Response>> GetVersionWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Check HTTP Server Status
         /// </summary>
@@ -130,8 +130,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of IsAlive200Response</returns>
-        System.Threading.Tasks.Task<IsAlive200Response> IsAliveAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosIsAlive200Response</returns>
+        System.Threading.Tasks.Task<KratosIsAlive200Response> IsAliveAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Check HTTP Server Status
@@ -142,8 +142,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (IsAlive200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IsAlive200Response>> IsAliveWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosIsAlive200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosIsAlive200Response>> IsAliveWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Check HTTP Server and Database Status
         /// </summary>
@@ -153,8 +153,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of IsAlive200Response</returns>
-        System.Threading.Tasks.Task<IsAlive200Response> IsReadyAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of KratosIsAlive200Response</returns>
+        System.Threading.Tasks.Task<KratosIsAlive200Response> IsReadyAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Check HTTP Server and Database Status
@@ -165,8 +165,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (IsAlive200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IsAlive200Response>> IsReadyWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (KratosIsAlive200Response)</returns>
+        System.Threading.Tasks.Task<ApiResponse<KratosIsAlive200Response>> IsReadyWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -292,10 +292,10 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetVersion200Response</returns>
-        public GetVersion200Response GetVersion(int operationIndex = 0)
+        /// <returns>KratosGetVersion200Response</returns>
+        public KratosGetVersion200Response GetVersion(int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<GetVersion200Response> localVarResponse = GetVersionWithHttpInfo();
+            Ory.Kratos.Client.Client.ApiResponse<KratosGetVersion200Response> localVarResponse = GetVersionWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -304,8 +304,8 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetVersion200Response</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<GetVersion200Response> GetVersionWithHttpInfo(int operationIndex = 0)
+        /// <returns>ApiResponse of KratosGetVersion200Response</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosGetVersion200Response> GetVersionWithHttpInfo(int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -335,7 +335,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GetVersion200Response>("/version", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosGetVersion200Response>("/version", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetVersion", localVarResponse);
@@ -354,10 +354,10 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetVersion200Response</returns>
-        public async System.Threading.Tasks.Task<GetVersion200Response> GetVersionAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosGetVersion200Response</returns>
+        public async System.Threading.Tasks.Task<KratosGetVersion200Response> GetVersionAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<GetVersion200Response> localVarResponse = await GetVersionWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosGetVersion200Response> localVarResponse = await GetVersionWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -367,8 +367,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetVersion200Response)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<GetVersion200Response>> GetVersionWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosGetVersion200Response)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosGetVersion200Response>> GetVersionWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -399,7 +399,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetVersion200Response>("/version", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosGetVersion200Response>("/version", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -418,10 +418,10 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>IsAlive200Response</returns>
-        public IsAlive200Response IsAlive(int operationIndex = 0)
+        /// <returns>KratosIsAlive200Response</returns>
+        public KratosIsAlive200Response IsAlive(int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<IsAlive200Response> localVarResponse = IsAliveWithHttpInfo();
+            Ory.Kratos.Client.Client.ApiResponse<KratosIsAlive200Response> localVarResponse = IsAliveWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -430,8 +430,8 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of IsAlive200Response</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<IsAlive200Response> IsAliveWithHttpInfo(int operationIndex = 0)
+        /// <returns>ApiResponse of KratosIsAlive200Response</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosIsAlive200Response> IsAliveWithHttpInfo(int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -462,7 +462,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<IsAlive200Response>("/health/alive", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosIsAlive200Response>("/health/alive", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("IsAlive", localVarResponse);
@@ -481,10 +481,10 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of IsAlive200Response</returns>
-        public async System.Threading.Tasks.Task<IsAlive200Response> IsAliveAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosIsAlive200Response</returns>
+        public async System.Threading.Tasks.Task<KratosIsAlive200Response> IsAliveAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<IsAlive200Response> localVarResponse = await IsAliveWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosIsAlive200Response> localVarResponse = await IsAliveWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -494,8 +494,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (IsAlive200Response)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<IsAlive200Response>> IsAliveWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosIsAlive200Response)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosIsAlive200Response>> IsAliveWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -527,7 +527,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<IsAlive200Response>("/health/alive", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosIsAlive200Response>("/health/alive", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -546,10 +546,10 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>IsAlive200Response</returns>
-        public IsAlive200Response IsReady(int operationIndex = 0)
+        /// <returns>KratosIsAlive200Response</returns>
+        public KratosIsAlive200Response IsReady(int operationIndex = 0)
         {
-            Ory.Kratos.Client.Client.ApiResponse<IsAlive200Response> localVarResponse = IsReadyWithHttpInfo();
+            Ory.Kratos.Client.Client.ApiResponse<KratosIsAlive200Response> localVarResponse = IsReadyWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -558,8 +558,8 @@ namespace Ory.Kratos.Client.Api
         /// </summary>
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of IsAlive200Response</returns>
-        public Ory.Kratos.Client.Client.ApiResponse<IsAlive200Response> IsReadyWithHttpInfo(int operationIndex = 0)
+        /// <returns>ApiResponse of KratosIsAlive200Response</returns>
+        public Ory.Kratos.Client.Client.ApiResponse<KratosIsAlive200Response> IsReadyWithHttpInfo(int operationIndex = 0)
         {
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
 
@@ -590,7 +590,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<IsAlive200Response>("/health/ready", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<KratosIsAlive200Response>("/health/ready", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("IsReady", localVarResponse);
@@ -609,10 +609,10 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of IsAlive200Response</returns>
-        public async System.Threading.Tasks.Task<IsAlive200Response> IsReadyAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of KratosIsAlive200Response</returns>
+        public async System.Threading.Tasks.Task<KratosIsAlive200Response> IsReadyAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Ory.Kratos.Client.Client.ApiResponse<IsAlive200Response> localVarResponse = await IsReadyWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            Ory.Kratos.Client.Client.ApiResponse<KratosIsAlive200Response> localVarResponse = await IsReadyWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -622,8 +622,8 @@ namespace Ory.Kratos.Client.Api
         /// <exception cref="Ory.Kratos.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (IsAlive200Response)</returns>
-        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<IsAlive200Response>> IsReadyWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (KratosIsAlive200Response)</returns>
+        public async System.Threading.Tasks.Task<Ory.Kratos.Client.Client.ApiResponse<KratosIsAlive200Response>> IsReadyWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Ory.Kratos.Client.Client.RequestOptions localVarRequestOptions = new Ory.Kratos.Client.Client.RequestOptions();
@@ -655,7 +655,7 @@ namespace Ory.Kratos.Client.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<IsAlive200Response>("/health/ready", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<KratosIsAlive200Response>("/health/ready", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

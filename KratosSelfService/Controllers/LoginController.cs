@@ -36,7 +36,7 @@ public class LoginController(ILogger<LoginController> logger, ApiService api) : 
         KratosLoginFlow flow;
         try
         {
-            flow = await api.Frontend.GetLoginFlowAsync(flowId.ToString(), Request.Headers.Cookie, cancellationToken);
+            flow = await api.Frontend.GetLoginFlowAsync(flowId.ToString(), Request.Headers.Cookie, cancellationToken:cancellationToken);
         }
         catch (ApiException exception)
         {
@@ -48,7 +48,7 @@ public class LoginController(ILogger<LoginController> logger, ApiService api) : 
         if (flow.Ui.Messages?.Any(text => text.Id == 4000010) ?? false)
             // the login requires that the user verifies their email address before logging in
             // we will create a new verification flow and redirect the user to the verification page
-            return await RedirectToVerificationFlow(flow, cancellationToken);
+            return await RedirectToVerificationFlow(flow, cancellationToken:cancellationToken);
 
         // Render the data using a view:
         var initRegistrationQuery = new Dictionary<string, string?>
@@ -68,7 +68,7 @@ public class LoginController(ILogger<LoginController> logger, ApiService api) : 
 
         string? logoutUrl = null;
         if (flow.RequestedAal == KratosAuthenticatorAssuranceLevel.Aal2 || flow.Refresh)
-            logoutUrl = await GetLogoutUrl(flow, cancellationToken);
+            logoutUrl = await GetLogoutUrl(flow, cancellationToken:cancellationToken);
 
         var model = new LoginModel(flow, initRecoveryUrl, initRegistrationUrl, logoutUrl);
         return View("Login", model);
@@ -81,7 +81,7 @@ public class LoginController(ILogger<LoginController> logger, ApiService api) : 
         // to give the user the option to sign out!
         try
         {
-            var logoutFlow = await api.Frontend.CreateBrowserLogoutFlowAsync(Request.Headers.Cookie, flow.ReturnTo, cancellationToken);
+            var logoutFlow = await api.Frontend.CreateBrowserLogoutFlowAsync(Request.Headers.Cookie, flow.ReturnTo, cancellationToken:cancellationToken);
             return logoutFlow.LogoutUrl;
         }
         catch (Exception exception)
@@ -111,7 +111,7 @@ public class LoginController(ILogger<LoginController> logger, ApiService api) : 
         try
         {
             var response = await api.Frontend
-                .CreateBrowserVerificationFlowWithHttpInfoAsync(flow.ReturnTo, cancellationToken);
+                .CreateBrowserVerificationFlowWithHttpInfoAsync(flow.ReturnTo, cancellationToken:cancellationToken);
             var verificationFlow = response.Data;
             // we need the csrf cookie from the verification flow
             Response.Headers.Append(HeaderNames.SetCookie, response.Headers[HeaderNames.SetCookie].ToString());

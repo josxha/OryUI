@@ -41,7 +41,7 @@ public class RegistrationController(ILogger<RegistrationController> logger, ApiS
         KratosRegistrationFlow flow;
         try
         {
-            flow = await api.Frontend.GetRegistrationFlowAsync(flowId.ToString(), Request.Headers.Cookie, cancellationToken);
+            flow = await api.Frontend.GetRegistrationFlowAsync(flowId.ToString(), Request.Headers.Cookie, cancellationToken:cancellationToken);
         }
         catch (ApiException exception)
         {

@@ -12,7 +12,7 @@ public class IdentitySchemaService
         // check if schema object is cached
         if (_schemaCache.TryGetValue(schemaId, out var schema))
             return schema;
-        var response = await _httpClient.GetStringAsync(schemaUri, cancellationToken);
+        var response = await _httpClient.GetStringAsync(schemaUri, cancellationToken:cancellationToken);
         // request and cache new schema object
         _schemaCache[schemaId] = JSchema.Parse(response);
         return _schemaCache[schemaId];

@@ -32,7 +32,7 @@ public class VerificationController(ILogger<VerificationController> logger, ApiS
         KratosVerificationFlow flow;
         try
         {
-            flow = await api.Frontend.GetVerificationFlowAsync(flowId.ToString(), Request.Headers.Cookie, cancellationToken);
+            flow = await api.Frontend.GetVerificationFlowAsync(flowId.ToString(), Request.Headers.Cookie, cancellationToken:cancellationToken);
         }
         catch (ApiException exception)
         {

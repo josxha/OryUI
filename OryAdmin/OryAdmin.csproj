@@ -44,11 +44,11 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="..\Ory.Kratos\src\Client" />
+      <ProjectReference Include="..\Ory.Hydra.Client\Ory.Hydra.Client.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="..\Ory.Hydra\src\Client" />
+      <ProjectReference Include="..\Ory.Kratos.Client\Ory.Kratos.Client.csproj" />
     </ItemGroup>
     
 </Project>

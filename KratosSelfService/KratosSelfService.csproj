@@ -129,7 +129,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Ory.Kratos.Client\Ory.Kratos.Client.csproj" />
+        <ProjectReference Include="..\Ory.Hydra.Client\Ory.Hydra.Client.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Ory.Kratos.Client\Ory.Kratos.Client.csproj" />
     </ItemGroup>
 
 </Project>

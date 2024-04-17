@@ -152,9 +152,9 @@ public class OAuth2Controller(ILogger<OAuth2Controller> logger, ApiService api, 
 
     private bool CanSkipConsent(HydraOAuth2ConsentRequest challenge)
     {
-        if (challenge.Skip || challenge._Client.SkipConsent) return true;
+        if (challenge.Skip || challenge.VarClient.SkipConsent) return true;
 
-        if (challenge._Client.ClientId == null || env.HydraTrustedClientIds == null) return false;
-        return env.HydraTrustedClientIds.Split(",").Contains(challenge._Client.ClientId);
+        if (challenge.VarClient.ClientId == null || env.HydraTrustedClientIds == null) return false;
+        return env.HydraTrustedClientIds.Split(",").Contains(challenge.VarClient.ClientId);
     }
 }

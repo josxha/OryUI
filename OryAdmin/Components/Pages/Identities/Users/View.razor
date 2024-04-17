@@ -218,11 +218,11 @@ else
                     {
                         <tr>
                             <td>
-                                <a href="oauth2/clients/@session.ConsentRequest._Client.ClientId">
-                                    @session.ConsentRequest._Client.ClientName
+                                <a href="oauth2/clients/@session.ConsentRequest.VarClient.ClientId">
+                                    @session.ConsentRequest.VarClient.ClientName
                                 </a>
                             </td>
-                            @if (session.ConsentRequest.Skip || session.ConsentRequest._Client.SkipConsent)
+                            @if (session.ConsentRequest.Skip || session.ConsentRequest.VarClient.SkipConsent)
                             {
                                 <td>Consent skipped</td>
                             }
@@ -341,7 +341,7 @@ else
                 {
                     <tr>
                         <td>@credential.Type</td>
-                        <td>@credential._Version</td>
+                        <td>@credential.VarVersion</td>
                         <td>@string.Join(", ", credential.Identifiers)</td>
                         <td>
                             <p>Updated: @credential.UpdatedAt</p>

@@ -4,6 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OryAdmin", "OryAdmin\OryAdm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KratosSelfService", "KratosSelfService\KratosSelfService.csproj", "{3AED08D2-8192-4F04-A042-9D0F29AAB936}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ory.Hydra.Client", "Ory.Hydra.Client\Ory.Hydra.Client.csproj", "{4778A638-3F0B-4C99-B22C-00671AD9441F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ory.Kratos.Client", "Ory.Kratos.Client\Ory.Kratos.Client.csproj", "{34C5BC8E-C2DD-4A97-9D4D-659AC499325A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{3AED08D2-8192-4F04-A042-9D0F29AAB936}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AED08D2-8192-4F04-A042-9D0F29AAB936}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AED08D2-8192-4F04-A042-9D0F29AAB936}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4778A638-3F0B-4C99-B22C-00671AD9441F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4778A638-3F0B-4C99-B22C-00671AD9441F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4778A638-3F0B-4C99-B22C-00671AD9441F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4778A638-3F0B-4C99-B22C-00671AD9441F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34C5BC8E-C2DD-4A97-9D4D-659AC499325A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34C5BC8E-C2DD-4A97-9D4D-659AC499325A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34C5BC8E-C2DD-4A97-9D4D-659AC499325A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34C5BC8E-C2DD-4A97-9D4D-659AC499325A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

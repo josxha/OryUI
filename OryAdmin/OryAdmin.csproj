@@ -16,7 +16,7 @@
 
     <ItemGroup>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
-        <PackageReference Include="Newtonsoft.Json.Schema" Version="3.0.16"/>
+        <PackageReference Include="Newtonsoft.Json.Schema" Version="4.0.1"/>
         <PackageReference Include="Ory.Keto.Client" Version="0.11.0-alpha.0"/>
         <PackageReference Include="Ory.Oathkeeper.Client" Version="0.40.6"/>
         <PackageReference Include="UAParser" Version="3.1.47"/>

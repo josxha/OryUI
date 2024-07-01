@@ -7,8 +7,6 @@
 
 #### This project is not affiliated with ORY Corp in any way.
 
-> ### The project is currently under active development. Configurations might change without backwards compatibility.
-
 - [What is Ory](#what-is-ory)
 - [Projects](#projects)
     - [ORY Admin UI](#ory-admin-ui)

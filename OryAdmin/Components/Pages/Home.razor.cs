@@ -146,7 +146,7 @@ public partial class Home
                     try
                     {
                         var version = await ApiService.OathKeeperVersion.GetVersionAsync();
-                        _oathKeeperVersion = version._Version;
+                        _oathKeeperVersion = version.VarVersion;
                     }
                     catch (Exception)
                     {

@@ -11,7 +11,6 @@ body:
       options:
         - "other"
         - "ory admin"
-        - "self service"
     validations:
       required: true
   - type: textarea

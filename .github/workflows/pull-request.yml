@@ -7,16 +7,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  docker-kratos-self-service:
-    runs-on: ubuntu-latest
-    name: "[KratosSelfService] Build image"
-    steps:
-      - name: "Checkout code"
-        uses: actions/checkout@v4
-      - name: "Build the Docker image"
-        run: |
-          docker build . --file KratosSelfService/Dockerfile \
-          --tag ghcr.io/josxha/kratos_self_service:${{ github.sha }}
   docker-ory-admin:
     runs-on: ubuntu-latest
     name: "[OryAdmin] Build image"

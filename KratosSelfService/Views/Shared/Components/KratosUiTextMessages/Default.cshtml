@@ -1,9 +1,0 @@
-﻿@model List<KratosUiText>?
-
-@if (Model != null)
-{
-    foreach (var message in Model)
-    {
-        @await Component.InvokeAsync("KratosUiTextMessageComponent", message)
-    }
-}
